@@ -2,20 +2,45 @@ import os
 import re
 import subprocess
 import logging
-import shutil
+import json
 from pathlib import Path
 from datetime import datetime
 
-def setup_logging(log_file_path):
-    """Set up logging configuration"""
+# Define custom log levels with colors (terminal-specific)
+LOG_FORMAT = '%(asctime)s - %(levelname)s - %(message)s'
+
+def setup_logging(log_folder, log_file_name):
+    """Set up logging configuration with user-friendly formatting and colors"""
+    Path(log_folder).mkdir(parents=True, exist_ok=True)  # Ensure the log folder exists
+    log_file_path = os.path.join(log_folder, log_file_name)
+
+    # StreamHandler for terminal output with color (depends on terminal support)
+    console_handler = logging.StreamHandler()
+    console_handler.setFormatter(logging.Formatter(LOG_FORMAT))
+    
+    # FileHandler to log to file
+    file_handler = logging.FileHandler(log_file_path)
+    file_handler.setFormatter(logging.Formatter(LOG_FORMAT))
+
     logging.basicConfig(
         level=logging.INFO,
-        format='%(asctime)s - %(levelname)s - %(message)s',
-        handlers=[
-            logging.StreamHandler(),
-            logging.FileHandler(log_file_path)
-        ]
+        handlers=[console_handler, file_handler]
     )
+
+    # Adding a custom colored logging function
+    def log_colored(level, message):
+        if level == 'INFO':
+            logging.info(message)
+        elif level == 'WARNING':
+            logging.warning(message)
+        elif level == 'ERROR':
+            logging.error(message)
+        elif level == 'SUCCESS':
+            logging.info(f"\033[92m{message}\033[0m")  # Green for success
+        else:
+            logging.debug(message)
+
+    logging.info("Logging system initialized")
 
 def parse_chunks(log_file_path):
     """Parse the log file and extract chunk information"""
@@ -46,9 +71,12 @@ def parse_chunks(log_file_path):
     
     return chunks
 
-def git_add_files(files):
+def git_add_files(files, repo_path):
     """Git add all files in the list"""
     try:
+        # Change to repo directory
+        os.chdir(repo_path)
+        
         for file in files:
             # Check if file exists before adding
             if os.path.exists(file):
@@ -86,34 +114,20 @@ def git_push():
         return False
 
 def load_processed_chunks(processed_chunks_file):
-    """Load the list of already processed chunk numbers"""
+    """Load the list of already processed chunk numbers from a JSON file"""
     if os.path.exists(processed_chunks_file):
         with open(processed_chunks_file, 'r') as f:
-            return {int(line.strip()) for line in f}
+            return set(json.load(f))
     return set()
 
 def save_processed_chunk(processed_chunks_file, chunk_number):
-    """Save the processed chunk number to a file"""
-    with open(processed_chunks_file, 'a') as f:
-        f.write(f"{chunk_number}\n")
+    """Save the processed chunk number to a JSON file"""
+    processed_chunks = load_processed_chunks(processed_chunks_file)
+    processed_chunks.add(chunk_number)
+    with open(processed_chunks_file, 'w') as f:
+        json.dump(list(processed_chunks), f)
 
-def copy_log_file(log_file, target_dir):
-    """Copy the provided log file to a new directory with a timestamp"""
-    if not os.path.exists(target_dir):
-        os.makedirs(target_dir)
-    
-    timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-    destination = os.path.join(target_dir, f"log_{timestamp}.log")
-    
-    try:
-        shutil.copy(log_file, destination)
-        logging.info(f"Copied log file to: {destination}")
-        return destination
-    except Exception as e:
-        logging.error(f"Error copying log file: {e}")
-        return None
-
-def process_chunks(chunks, processed_chunks_file):
+def process_chunks(chunks, repo_path, processed_chunks_file):
     """Process all chunks and perform git operations"""
     total_chunks = len(chunks)
     processed_chunks = load_processed_chunks(processed_chunks_file)
@@ -131,7 +145,7 @@ def process_chunks(chunks, processed_chunks_file):
         logging.info(f"\nProcessing Chunk #{chunk_num} ({file_count} files, {chunk['size_mb']}MB)")
 
         # Git add files
-        if not git_add_files(files):
+        if not git_add_files(files, repo_path):
             logging.error(f"Skipping Chunk #{chunk_num} due to git add failure")
             continue
         
@@ -152,31 +166,35 @@ def process_chunks(chunks, processed_chunks_file):
     logging.info("\nAll chunks processed!")
 
 def main():
-    log_file = input("Enter the path to the .log file: ").strip()
-    processed_chunks_file = "processed_chunks.txt"
-    logs_dir = "logs"
+    log_folder = "logs"
+    log_file_name = f"process_chunks_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log"
+    setup_logging(log_folder, log_file_name)
     
-    # Set up the log file for the script execution
-    timestamped_log_file = f"process_chunks_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log"
-    setup_logging(timestamped_log_file)
+    # Get input from user
+    log_file = input("Enter the path to the .log file: ").strip()
+    repo_path = input("Enter the path to the Git repository: ").strip()
+    processed_chunks_file = "processed_chunks.json"
     
     print(f"Log file path: {log_file}")
+    print(f"Repository path: {repo_path}")
     
     # Validate paths
     if not os.path.isfile(log_file):
         logging.error("Log file not found!")
         return
     
-    # Copy the log file to the logs directory
-    copied_log_file = copy_log_file(log_file, logs_dir)
-    if not copied_log_file:
-        logging.error("Failed to copy the log file, aborting.")
+    if not os.path.isdir(repo_path):
+        logging.error("Repository directory not found!")
+        return
+    
+    if not os.path.isdir(os.path.join(repo_path, '.git')):
+        logging.error("The specified directory is not a Git repository!")
         return
     
     try:
         # Parse the log file
-        logging.info(f"Parsing log file: {copied_log_file}")
-        chunks = parse_chunks(copied_log_file)
+        logging.info(f"Parsing log file: {log_file}")
+        chunks = parse_chunks(log_file)
         
         if not chunks:
             logging.warning("No chunks found in the log file!")
@@ -185,7 +203,7 @@ def main():
         logging.info(f"Found {len(chunks)} chunks to process")
         
         # Process chunks
-        process_chunks(chunks, processed_chunks_file)
+        process_chunks(chunks, repo_path, processed_chunks_file)
         
     except Exception as e:
         logging.error(f"An error occurred: {e}")
