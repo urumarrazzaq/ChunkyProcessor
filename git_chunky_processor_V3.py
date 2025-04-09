@@ -141,7 +141,7 @@ def process_chunks(chunks, repo_path, processed_chunks_file):
 
         file_count = chunk['file_count']
         files = chunk['files']
-        
+        logging.info("____________________________________________________________________________________________________________")
         logging.info(f"\nProcessing Chunk #{chunk_num} ({file_count} files, {chunk['size_mb']}MB)")
 
         # Git add files
@@ -167,12 +167,13 @@ def process_chunks(chunks, repo_path, processed_chunks_file):
 
 def main():
     log_folder = "logs"
-    log_file_name = f"process_chunks_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log"
+    log_file_name = f"process_chunks_{datetime.now().strftime('%Y-%m-%d_%I-%M-%S_%p')}.log"
+
     setup_logging(log_folder, log_file_name)
     
     # Get input from user
-    log_file = input("Enter the path to the .log file: ").strip()
-    repo_path = input("Enter the path to the Git repository: ").strip()
+    log_file = input("🗃️ Enter the path to the .log file: ").strip()
+    repo_path = input("📁 Enter the path to the Git repository: ").strip()
     processed_chunks_file = "processed_chunks.json"
     
     print(f"Log file path: {log_file}")
