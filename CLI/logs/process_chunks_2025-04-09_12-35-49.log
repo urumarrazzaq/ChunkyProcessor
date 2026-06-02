@@ -1,0 +1,142 @@
+2025-04-09 12:35:49,864 - INFO - [92mLogging system initialized[0m
+2025-04-09 12:35:55,599 - INFO - [94mParsing log file: D:\PythonScripts\Chunky\git_chunks.log[0m
+2025-04-09 12:35:55,696 - INFO - [94mFound 871 chunks to process[0m
+2025-04-09 12:35:55,697 - INFO - [94mStarting to process 871 chunks...[0m
+2025-04-09 12:35:55,697 - INFO - 
+[94mProcessing Chunk #1 (2 files, 12.19MB)[0m
+2025-04-09 12:35:55,802 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\Asian_Map_3_Extended.uasset[0m
+2025-04-09 12:35:55,875 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\Asian_Map_3_Extended_Cue.uasset[0m
+2025-04-09 12:35:56,231 - ERROR - [91mFailed to commit chunk #1: Command '['git', 'commit', '-m', 'Chunk #1 - 2 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:35:56,233 - ERROR - [91mSkipping Chunk #1 due to commit failure[0m
+2025-04-09 12:35:56,235 - INFO - 
+[94mProcessing Chunk #2 (2 files, 14.16MB)[0m
+2025-04-09 12:35:56,317 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\City_Background_Extended.uasset[0m
+2025-04-09 12:35:56,389 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\City_Background_Extended_Cue.uasset[0m
+2025-04-09 12:35:56,741 - ERROR - [91mFailed to commit chunk #2: Command '['git', 'commit', '-m', 'Chunk #2 - 2 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:35:56,742 - ERROR - [91mSkipping Chunk #2 due to commit failure[0m
+2025-04-09 12:35:56,742 - INFO - 
+[94mProcessing Chunk #3 (2 files, 14.22MB)[0m
+2025-04-09 12:35:56,837 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\Map_4_Extended.uasset[0m
+2025-04-09 12:35:56,922 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\Map_4_Extended_Cue.uasset[0m
+2025-04-09 12:35:57,263 - ERROR - [91mFailed to commit chunk #3: Command '['git', 'commit', '-m', 'Chunk #3 - 2 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:35:57,264 - ERROR - [91mSkipping Chunk #3 due to commit failure[0m
+2025-04-09 12:35:57,264 - INFO - 
+[94mProcessing Chunk #4 (2 files, 13.35MB)[0m
+2025-04-09 12:35:57,412 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\Map_6_Background_Extended.uasset[0m
+2025-04-09 12:35:57,527 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\Map_6_Background_Extended_Cue.uasset[0m
+2025-04-09 12:35:57,893 - ERROR - [91mFailed to commit chunk #4: Command '['git', 'commit', '-m', 'Chunk #4 - 2 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:35:57,894 - ERROR - [91mSkipping Chunk #4 due to commit failure[0m
+2025-04-09 12:35:57,894 - INFO - 
+[94mProcessing Chunk #5 (2 files, 13.0MB)[0m
+2025-04-09 12:35:57,998 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\Medieval_Map_7_Extended.uasset[0m
+2025-04-09 12:35:58,125 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\Medieval_Map_7_Extended_Cue.uasset[0m
+2025-04-09 12:35:58,478 - ERROR - [91mFailed to commit chunk #5: Command '['git', 'commit', '-m', 'Chunk #5 - 2 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:35:58,479 - ERROR - [91mSkipping Chunk #5 due to commit failure[0m
+2025-04-09 12:35:58,480 - INFO - 
+[94mProcessing Chunk #6 (1 files, 25.0MB)[0m
+2025-04-09 12:35:58,591 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\PKRPass_Music\Bronze_PKR_Pass_Music-_trendsetter-mood-maze-main-version-02-53-1004_part000.uasset[0m
+2025-04-09 12:35:58,936 - ERROR - [91mFailed to commit chunk #6: Command '['git', 'commit', '-m', 'Chunk #6 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:35:58,937 - ERROR - [91mSkipping Chunk #6 due to commit failure[0m
+2025-04-09 12:35:58,937 - INFO - 
+[94mProcessing Chunk #7 (2 files, 20.51MB)[0m
+2025-04-09 12:35:59,046 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\PKRPass_Music\Bronze_PKR_Pass_Music-_trendsetter-mood-maze-main-version-02-53-1004_part001.uasset[0m
+2025-04-09 12:35:59,133 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\PKRPass_Music\Diamond_PKR_Pass-_miracle-qube-main-version-01-44-13858.uasset[0m
+2025-04-09 12:35:59,491 - ERROR - [91mFailed to commit chunk #7: Command '['git', 'commit', '-m', 'Chunk #7 - 2 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:35:59,492 - ERROR - [91mSkipping Chunk #7 due to commit failure[0m
+2025-04-09 12:35:59,492 - INFO - 
+[94mProcessing Chunk #8 (1 files, 18.55MB)[0m
+2025-04-09 12:35:59,586 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\PKRPass_Music\Gold_PKR_Pass-_keep-walkin-matrika-main-version-28466-01-51.uasset[0m
+2025-04-09 12:35:59,944 - ERROR - [91mFailed to commit chunk #8: Command '['git', 'commit', '-m', 'Chunk #8 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:35:59,944 - ERROR - [91mSkipping Chunk #8 due to commit failure[0m
+2025-04-09 12:35:59,945 - INFO - 
+[94mProcessing Chunk #9 (1 files, 25.0MB)[0m
+2025-04-09 12:36:00,053 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\PKRPass_Music\Platinum_PKR_Pass-_transcend-soundroll-main-version-1756-02-38_part000.uasset[0m
+2025-04-09 12:36:00,392 - ERROR - [91mFailed to commit chunk #9: Command '['git', 'commit', '-m', 'Chunk #9 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:36:00,393 - ERROR - [91mSkipping Chunk #9 due to commit failure[0m
+2025-04-09 12:36:00,393 - INFO - 
+[94mProcessing Chunk #10 (2 files, 18.18MB)[0m
+2025-04-09 12:36:00,489 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\PKRPass_Music\Platinum_PKR_Pass-_transcend-soundroll-main-version-1756-02-38_part001.uasset[0m
+2025-04-09 12:36:00,581 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\PKRPass_Music\Silver_PKR_Pass_Music-_runway-bosnow-main-version-37245-01-50.uasset[0m
+2025-04-09 12:36:00,904 - ERROR - [91mFailed to commit chunk #10: Command '['git', 'commit', '-m', 'Chunk #10 - 2 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:36:00,905 - ERROR - [91mSkipping Chunk #10 due to commit failure[0m
+2025-04-09 12:36:00,906 - INFO - 
+[94mProcessing Chunk #11 (1 files, 25.0MB)[0m
+2025-04-09 12:36:00,996 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_Beach_Days_-_Brett_Gregory_part000.uasset[0m
+2025-04-09 12:36:01,320 - ERROR - [91mFailed to commit chunk #11: Command '['git', 'commit', '-m', 'Chunk #11 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:36:01,321 - ERROR - [91mSkipping Chunk #11 due to commit failure[0m
+2025-04-09 12:36:01,322 - INFO - 
+[94mProcessing Chunk #12 (1 files, 4.09MB)[0m
+2025-04-09 12:36:01,419 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_Beach_Days_-_Brett_Gregory_part001.uasset[0m
+2025-04-09 12:36:01,695 - ERROR - [91mFailed to commit chunk #12: Command '['git', 'commit', '-m', 'Chunk #12 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:36:01,696 - ERROR - [91mSkipping Chunk #12 due to commit failure[0m
+2025-04-09 12:36:01,696 - INFO - 
+[94mProcessing Chunk #13 (1 files, 25.0MB)[0m
+2025-04-09 12:36:01,774 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_CoconutCove_part000.uasset[0m
+2025-04-09 12:36:02,110 - ERROR - [91mFailed to commit chunk #13: Command '['git', 'commit', '-m', 'Chunk #13 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:36:02,111 - ERROR - [91mSkipping Chunk #13 due to commit failure[0m
+2025-04-09 12:36:02,112 - INFO - 
+[94mProcessing Chunk #14 (1 files, 6.68MB)[0m
+2025-04-09 12:36:02,220 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_CoconutCove_part001.uasset[0m
+2025-04-09 12:36:02,601 - ERROR - [91mFailed to commit chunk #14: Command '['git', 'commit', '-m', 'Chunk #14 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:36:02,602 - ERROR - [91mSkipping Chunk #14 due to commit failure[0m
+2025-04-09 12:36:02,602 - INFO - 
+[94mProcessing Chunk #15 (1 files, 25.0MB)[0m
+2025-04-09 12:36:02,706 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_Devil_s_Disgrace_part000.uasset[0m
+2025-04-09 12:36:03,020 - ERROR - [91mFailed to commit chunk #15: Command '['git', 'commit', '-m', 'Chunk #15 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:36:03,021 - ERROR - [91mSkipping Chunk #15 due to commit failure[0m
+2025-04-09 12:36:03,022 - INFO - 
+[94mProcessing Chunk #16 (2 files, 24.41MB)[0m
+2025-04-09 12:36:03,105 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_Devil_s_Disgrace_part001.uasset[0m
+2025-04-09 12:36:03,205 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_Distant_Pyramids_-_Sight_of_Wonders.uasset[0m
+2025-04-09 12:36:03,516 - ERROR - [91mFailed to commit chunk #16: Command '['git', 'commit', '-m', 'Chunk #16 - 2 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:36:03,517 - ERROR - [91mSkipping Chunk #16 due to commit failure[0m
+2025-04-09 12:36:03,517 - INFO - 
+[94mProcessing Chunk #17 (1 files, 25.0MB)[0m
+2025-04-09 12:36:03,603 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_Dreaming_of_Lhotse_-_Ooyy_part000.uasset[0m
+2025-04-09 12:36:03,929 - ERROR - [91mFailed to commit chunk #17: Command '['git', 'commit', '-m', 'Chunk #17 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:36:03,930 - ERROR - [91mSkipping Chunk #17 due to commit failure[0m
+2025-04-09 12:36:03,931 - INFO - 
+[94mProcessing Chunk #18 (1 files, 7.01MB)[0m
+2025-04-09 12:36:04,046 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_Dreaming_of_Lhotse_-_Ooyy_part001.uasset[0m
+2025-04-09 12:36:04,405 - ERROR - [91mFailed to commit chunk #18: Command '['git', 'commit', '-m', 'Chunk #18 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:36:04,406 - ERROR - [91mSkipping Chunk #18 due to commit failure[0m
+2025-04-09 12:36:04,406 - INFO - 
+[94mProcessing Chunk #19 (1 files, 25.0MB)[0m
+2025-04-09 12:36:04,560 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_El_Khalil_-_Rymdklang_Soundtracks_part000.uasset[0m
+2025-04-09 12:36:04,991 - ERROR - [91mFailed to commit chunk #19: Command '['git', 'commit', '-m', 'Chunk #19 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:36:04,992 - ERROR - [91mSkipping Chunk #19 due to commit failure[0m
+2025-04-09 12:36:04,993 - INFO - 
+[94mProcessing Chunk #20 (1 files, 5.99MB)[0m
+2025-04-09 12:36:05,130 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_El_Khalil_-_Rymdklang_Soundtracks_part001.uasset[0m
+2025-04-09 12:36:05,448 - ERROR - [91mFailed to commit chunk #20: Command '['git', 'commit', '-m', 'Chunk #20 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:36:05,449 - ERROR - [91mSkipping Chunk #20 due to commit failure[0m
+2025-04-09 12:36:05,450 - INFO - 
+[94mProcessing Chunk #21 (1 files, 23.55MB)[0m
+2025-04-09 12:36:05,953 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_LususNaturae.uasset[0m
+2025-04-09 12:36:06,320 - ERROR - [91mFailed to commit chunk #21: Command '['git', 'commit', '-m', 'Chunk #21 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:36:06,321 - ERROR - [91mSkipping Chunk #21 due to commit failure[0m
+2025-04-09 12:36:06,322 - INFO - 
+[94mProcessing Chunk #22 (1 files, 22.51MB)[0m
+2025-04-09 12:36:06,420 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_ParksOfKyoto.uasset[0m
+2025-04-09 12:36:06,825 - ERROR - [91mFailed to commit chunk #22: Command '['git', 'commit', '-m', 'Chunk #22 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:36:06,826 - ERROR - [91mSkipping Chunk #22 due to commit failure[0m
+2025-04-09 12:36:06,827 - INFO - 
+[94mProcessing Chunk #23 (1 files, 22.51MB)[0m
+2025-04-09 12:36:06,926 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_Parks_of_Kyoto_-_Sight_of_Wonders.uasset[0m
+2025-04-09 12:36:07,242 - ERROR - [91mFailed to commit chunk #23: Command '['git', 'commit', '-m', 'Chunk #23 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:36:07,243 - ERROR - [91mSkipping Chunk #23 due to commit failure[0m
+2025-04-09 12:36:07,244 - INFO - 
+[94mProcessing Chunk #24 (1 files, 25.0MB)[0m
+2025-04-09 12:36:07,323 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_Pebble_Beach_-_Peace_Reels_part000.uasset[0m
+2025-04-09 12:36:07,660 - ERROR - [91mFailed to commit chunk #24: Command '['git', 'commit', '-m', 'Chunk #24 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:36:07,661 - ERROR - [91mSkipping Chunk #24 due to commit failure[0m
+2025-04-09 12:36:07,661 - INFO - 
+[94mProcessing Chunk #25 (1 files, 1.09MB)[0m
+2025-04-09 12:36:07,851 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_Pebble_Beach_-_Peace_Reels_part001.uasset[0m
+2025-04-09 12:36:08,213 - INFO - [94mCommitted chunk #25 with message: 'Chunk #25 - 1 files pushed successfully'[0m
+2025-04-09 12:36:21,539 - INFO - [92mPushed changes to remote repository[0m
+2025-04-09 12:36:21,567 - INFO - [92mSuccessfully processed Chunk #25[0m
+2025-04-09 12:36:21,568 - INFO - 
+[94mProcessing Chunk #26 (1 files, 25.0MB)[0m
+2025-04-09 12:36:23,925 - INFO - [94mAdded to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_PlaceCalledRio_part000.uasset[0m
+2025-04-09 12:36:24,716 - INFO - [94mCommitted chunk #26 with message: 'Chunk #26 - 1 files pushed successfully'[0m

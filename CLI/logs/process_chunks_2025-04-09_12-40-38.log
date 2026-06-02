@@ -1,0 +1,840 @@
+2025-04-09 12:40:38,385 - INFO - Logging system initialized
+2025-04-09 12:40:44,887 - INFO - Parsing log file: D:\PythonScripts\Chunky\git_chunks.log
+2025-04-09 12:40:44,908 - INFO - Found 871 chunks to process
+2025-04-09 12:40:44,908 - INFO - 
+==================================================
+Starting to process 871 chunks...
+==================================================
+2025-04-09 12:40:44,908 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #1 (2 files, 12.19MB)
+==================================================[0m
+2025-04-09 12:40:44,909 - INFO - [94m
+STAGING FILES for Chunk #1...[0m
+2025-04-09 12:40:44,938 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\Asian_Map_3_Extended.uasset[0m
+2025-04-09 12:40:45,012 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\Asian_Map_3_Extended_Cue.uasset[0m
+2025-04-09 12:40:45,012 - INFO - [94m
+COMMITTING Chunk #1...[0m
+2025-04-09 12:40:45,082 - ERROR - [91mFAILED to commit chunk #1: Command '['git', 'commit', '-m', 'Chunk #1 - 2 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:40:45,082 - ERROR - [91m
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+COMMIT FAILED for Chunk #1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+2025-04-09 12:40:45,082 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #2 (2 files, 14.16MB)
+==================================================[0m
+2025-04-09 12:40:45,082 - INFO - [94m
+STAGING FILES for Chunk #2...[0m
+2025-04-09 12:40:45,107 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\City_Background_Extended.uasset[0m
+2025-04-09 12:40:45,131 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\City_Background_Extended_Cue.uasset[0m
+2025-04-09 12:40:45,132 - INFO - [94m
+COMMITTING Chunk #2...[0m
+2025-04-09 12:40:45,203 - ERROR - [91mFAILED to commit chunk #2: Command '['git', 'commit', '-m', 'Chunk #2 - 2 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:40:45,203 - ERROR - [91m
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+COMMIT FAILED for Chunk #2
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+2025-04-09 12:40:45,203 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #3 (2 files, 14.22MB)
+==================================================[0m
+2025-04-09 12:40:45,203 - INFO - [94m
+STAGING FILES for Chunk #3...[0m
+2025-04-09 12:40:45,229 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\Map_4_Extended.uasset[0m
+2025-04-09 12:40:45,262 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\Map_4_Extended_Cue.uasset[0m
+2025-04-09 12:40:45,263 - INFO - [94m
+COMMITTING Chunk #3...[0m
+2025-04-09 12:40:45,333 - ERROR - [91mFAILED to commit chunk #3: Command '['git', 'commit', '-m', 'Chunk #3 - 2 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:40:45,333 - ERROR - [91m
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+COMMIT FAILED for Chunk #3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+2025-04-09 12:40:45,334 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #4 (2 files, 13.35MB)
+==================================================[0m
+2025-04-09 12:40:45,334 - INFO - [94m
+STAGING FILES for Chunk #4...[0m
+2025-04-09 12:40:45,367 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\Map_6_Background_Extended.uasset[0m
+2025-04-09 12:40:45,391 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\Map_6_Background_Extended_Cue.uasset[0m
+2025-04-09 12:40:45,392 - INFO - [94m
+COMMITTING Chunk #4...[0m
+2025-04-09 12:40:45,460 - ERROR - [91mFAILED to commit chunk #4: Command '['git', 'commit', '-m', 'Chunk #4 - 2 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:40:45,461 - ERROR - [91m
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+COMMIT FAILED for Chunk #4
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+2025-04-09 12:40:45,461 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #5 (2 files, 13.0MB)
+==================================================[0m
+2025-04-09 12:40:45,461 - INFO - [94m
+STAGING FILES for Chunk #5...[0m
+2025-04-09 12:40:45,485 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\Medieval_Map_7_Extended.uasset[0m
+2025-04-09 12:40:45,510 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\Medieval_Map_7_Extended_Cue.uasset[0m
+2025-04-09 12:40:45,510 - INFO - [94m
+COMMITTING Chunk #5...[0m
+2025-04-09 12:40:45,579 - ERROR - [91mFAILED to commit chunk #5: Command '['git', 'commit', '-m', 'Chunk #5 - 2 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:40:45,579 - ERROR - [91m
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+COMMIT FAILED for Chunk #5
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+2025-04-09 12:40:45,580 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #6 (1 files, 25.0MB)
+==================================================[0m
+2025-04-09 12:40:45,580 - INFO - [94m
+STAGING FILES for Chunk #6...[0m
+2025-04-09 12:40:45,604 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\PKRPass_Music\Bronze_PKR_Pass_Music-_trendsetter-mood-maze-main-version-02-53-1004_part000.uasset[0m
+2025-04-09 12:40:45,604 - INFO - [94m
+COMMITTING Chunk #6...[0m
+2025-04-09 12:40:45,674 - ERROR - [91mFAILED to commit chunk #6: Command '['git', 'commit', '-m', 'Chunk #6 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:40:45,674 - ERROR - [91m
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+COMMIT FAILED for Chunk #6
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+2025-04-09 12:40:45,674 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #7 (2 files, 20.51MB)
+==================================================[0m
+2025-04-09 12:40:45,674 - INFO - [94m
+STAGING FILES for Chunk #7...[0m
+2025-04-09 12:40:45,699 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\PKRPass_Music\Bronze_PKR_Pass_Music-_trendsetter-mood-maze-main-version-02-53-1004_part001.uasset[0m
+2025-04-09 12:40:45,723 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\PKRPass_Music\Diamond_PKR_Pass-_miracle-qube-main-version-01-44-13858.uasset[0m
+2025-04-09 12:40:45,723 - INFO - [94m
+COMMITTING Chunk #7...[0m
+2025-04-09 12:40:45,795 - ERROR - [91mFAILED to commit chunk #7: Command '['git', 'commit', '-m', 'Chunk #7 - 2 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:40:45,795 - ERROR - [91m
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+COMMIT FAILED for Chunk #7
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+2025-04-09 12:40:45,795 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #8 (1 files, 18.55MB)
+==================================================[0m
+2025-04-09 12:40:45,795 - INFO - [94m
+STAGING FILES for Chunk #8...[0m
+2025-04-09 12:40:45,820 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\PKRPass_Music\Gold_PKR_Pass-_keep-walkin-matrika-main-version-28466-01-51.uasset[0m
+2025-04-09 12:40:45,821 - INFO - [94m
+COMMITTING Chunk #8...[0m
+2025-04-09 12:40:45,890 - ERROR - [91mFAILED to commit chunk #8: Command '['git', 'commit', '-m', 'Chunk #8 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:40:45,890 - ERROR - [91m
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+COMMIT FAILED for Chunk #8
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+2025-04-09 12:40:45,891 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #9 (1 files, 25.0MB)
+==================================================[0m
+2025-04-09 12:40:45,891 - INFO - [94m
+STAGING FILES for Chunk #9...[0m
+2025-04-09 12:40:45,916 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\PKRPass_Music\Platinum_PKR_Pass-_transcend-soundroll-main-version-1756-02-38_part000.uasset[0m
+2025-04-09 12:40:45,916 - INFO - [94m
+COMMITTING Chunk #9...[0m
+2025-04-09 12:40:45,986 - ERROR - [91mFAILED to commit chunk #9: Command '['git', 'commit', '-m', 'Chunk #9 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:40:45,986 - ERROR - [91m
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+COMMIT FAILED for Chunk #9
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+2025-04-09 12:40:45,986 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #10 (2 files, 18.18MB)
+==================================================[0m
+2025-04-09 12:40:45,986 - INFO - [94m
+STAGING FILES for Chunk #10...[0m
+2025-04-09 12:40:46,011 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\PKRPass_Music\Platinum_PKR_Pass-_transcend-soundroll-main-version-1756-02-38_part001.uasset[0m
+2025-04-09 12:40:46,036 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\PKRPass_Music\Silver_PKR_Pass_Music-_runway-bosnow-main-version-37245-01-50.uasset[0m
+2025-04-09 12:40:46,036 - INFO - [94m
+COMMITTING Chunk #10...[0m
+2025-04-09 12:40:46,106 - ERROR - [91mFAILED to commit chunk #10: Command '['git', 'commit', '-m', 'Chunk #10 - 2 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:40:46,106 - ERROR - [91m
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+COMMIT FAILED for Chunk #10
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+2025-04-09 12:40:46,106 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #11 (1 files, 25.0MB)
+==================================================[0m
+2025-04-09 12:40:46,106 - INFO - [94m
+STAGING FILES for Chunk #11...[0m
+2025-04-09 12:40:46,131 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_Beach_Days_-_Brett_Gregory_part000.uasset[0m
+2025-04-09 12:40:46,131 - INFO - [94m
+COMMITTING Chunk #11...[0m
+2025-04-09 12:40:46,199 - ERROR - [91mFAILED to commit chunk #11: Command '['git', 'commit', '-m', 'Chunk #11 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:40:46,199 - ERROR - [91m
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+COMMIT FAILED for Chunk #11
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+2025-04-09 12:40:46,200 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #12 (1 files, 4.09MB)
+==================================================[0m
+2025-04-09 12:40:46,200 - INFO - [94m
+STAGING FILES for Chunk #12...[0m
+2025-04-09 12:40:46,224 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_Beach_Days_-_Brett_Gregory_part001.uasset[0m
+2025-04-09 12:40:46,224 - INFO - [94m
+COMMITTING Chunk #12...[0m
+2025-04-09 12:40:46,292 - ERROR - [91mFAILED to commit chunk #12: Command '['git', 'commit', '-m', 'Chunk #12 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:40:46,292 - ERROR - [91m
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+COMMIT FAILED for Chunk #12
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+2025-04-09 12:40:46,292 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #13 (1 files, 25.0MB)
+==================================================[0m
+2025-04-09 12:40:46,292 - INFO - [94m
+STAGING FILES for Chunk #13...[0m
+2025-04-09 12:40:46,317 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_CoconutCove_part000.uasset[0m
+2025-04-09 12:40:46,317 - INFO - [94m
+COMMITTING Chunk #13...[0m
+2025-04-09 12:40:46,386 - ERROR - [91mFAILED to commit chunk #13: Command '['git', 'commit', '-m', 'Chunk #13 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:40:46,386 - ERROR - [91m
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+COMMIT FAILED for Chunk #13
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+2025-04-09 12:40:46,386 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #14 (1 files, 6.68MB)
+==================================================[0m
+2025-04-09 12:40:46,386 - INFO - [94m
+STAGING FILES for Chunk #14...[0m
+2025-04-09 12:40:46,410 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_CoconutCove_part001.uasset[0m
+2025-04-09 12:40:46,411 - INFO - [94m
+COMMITTING Chunk #14...[0m
+2025-04-09 12:40:46,478 - ERROR - [91mFAILED to commit chunk #14: Command '['git', 'commit', '-m', 'Chunk #14 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:40:46,479 - ERROR - [91m
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+COMMIT FAILED for Chunk #14
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+2025-04-09 12:40:46,479 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #15 (1 files, 25.0MB)
+==================================================[0m
+2025-04-09 12:40:46,479 - INFO - [94m
+STAGING FILES for Chunk #15...[0m
+2025-04-09 12:40:46,503 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_Devil_s_Disgrace_part000.uasset[0m
+2025-04-09 12:40:46,503 - INFO - [94m
+COMMITTING Chunk #15...[0m
+2025-04-09 12:40:46,572 - ERROR - [91mFAILED to commit chunk #15: Command '['git', 'commit', '-m', 'Chunk #15 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:40:46,572 - ERROR - [91m
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+COMMIT FAILED for Chunk #15
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+2025-04-09 12:40:46,572 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #16 (2 files, 24.41MB)
+==================================================[0m
+2025-04-09 12:40:46,573 - INFO - [94m
+STAGING FILES for Chunk #16...[0m
+2025-04-09 12:40:46,597 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_Devil_s_Disgrace_part001.uasset[0m
+2025-04-09 12:40:46,620 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_Distant_Pyramids_-_Sight_of_Wonders.uasset[0m
+2025-04-09 12:40:46,621 - INFO - [94m
+COMMITTING Chunk #16...[0m
+2025-04-09 12:40:46,691 - ERROR - [91mFAILED to commit chunk #16: Command '['git', 'commit', '-m', 'Chunk #16 - 2 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:40:46,691 - ERROR - [91m
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+COMMIT FAILED for Chunk #16
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+2025-04-09 12:40:46,691 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #17 (1 files, 25.0MB)
+==================================================[0m
+2025-04-09 12:40:46,691 - INFO - [94m
+STAGING FILES for Chunk #17...[0m
+2025-04-09 12:40:46,715 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_Dreaming_of_Lhotse_-_Ooyy_part000.uasset[0m
+2025-04-09 12:40:46,715 - INFO - [94m
+COMMITTING Chunk #17...[0m
+2025-04-09 12:40:46,796 - ERROR - [91mFAILED to commit chunk #17: Command '['git', 'commit', '-m', 'Chunk #17 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:40:46,796 - ERROR - [91m
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+COMMIT FAILED for Chunk #17
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+2025-04-09 12:40:46,796 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #18 (1 files, 7.01MB)
+==================================================[0m
+2025-04-09 12:40:46,796 - INFO - [94m
+STAGING FILES for Chunk #18...[0m
+2025-04-09 12:40:46,822 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_Dreaming_of_Lhotse_-_Ooyy_part001.uasset[0m
+2025-04-09 12:40:46,822 - INFO - [94m
+COMMITTING Chunk #18...[0m
+2025-04-09 12:40:46,890 - ERROR - [91mFAILED to commit chunk #18: Command '['git', 'commit', '-m', 'Chunk #18 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:40:46,890 - ERROR - [91m
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+COMMIT FAILED for Chunk #18
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+2025-04-09 12:40:46,890 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #19 (1 files, 25.0MB)
+==================================================[0m
+2025-04-09 12:40:46,890 - INFO - [94m
+STAGING FILES for Chunk #19...[0m
+2025-04-09 12:40:46,915 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_El_Khalil_-_Rymdklang_Soundtracks_part000.uasset[0m
+2025-04-09 12:40:46,915 - INFO - [94m
+COMMITTING Chunk #19...[0m
+2025-04-09 12:40:46,984 - ERROR - [91mFAILED to commit chunk #19: Command '['git', 'commit', '-m', 'Chunk #19 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:40:47,020 - ERROR - [91m
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+COMMIT FAILED for Chunk #19
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+2025-04-09 12:40:47,020 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #20 (1 files, 5.99MB)
+==================================================[0m
+2025-04-09 12:40:47,021 - INFO - [94m
+STAGING FILES for Chunk #20...[0m
+2025-04-09 12:40:47,051 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_El_Khalil_-_Rymdklang_Soundtracks_part001.uasset[0m
+2025-04-09 12:40:47,052 - INFO - [94m
+COMMITTING Chunk #20...[0m
+2025-04-09 12:40:47,123 - ERROR - [91mFAILED to commit chunk #20: Command '['git', 'commit', '-m', 'Chunk #20 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:40:47,123 - ERROR - [91m
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+COMMIT FAILED for Chunk #20
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+2025-04-09 12:40:47,123 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #21 (1 files, 23.55MB)
+==================================================[0m
+2025-04-09 12:40:47,123 - INFO - [94m
+STAGING FILES for Chunk #21...[0m
+2025-04-09 12:40:47,148 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_LususNaturae.uasset[0m
+2025-04-09 12:40:47,148 - INFO - [94m
+COMMITTING Chunk #21...[0m
+2025-04-09 12:40:47,219 - ERROR - [91mFAILED to commit chunk #21: Command '['git', 'commit', '-m', 'Chunk #21 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:40:47,219 - ERROR - [91m
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+COMMIT FAILED for Chunk #21
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+2025-04-09 12:40:47,219 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #22 (1 files, 22.51MB)
+==================================================[0m
+2025-04-09 12:40:47,219 - INFO - [94m
+STAGING FILES for Chunk #22...[0m
+2025-04-09 12:40:47,243 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_ParksOfKyoto.uasset[0m
+2025-04-09 12:40:47,244 - INFO - [94m
+COMMITTING Chunk #22...[0m
+2025-04-09 12:40:47,314 - ERROR - [91mFAILED to commit chunk #22: Command '['git', 'commit', '-m', 'Chunk #22 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:40:47,314 - ERROR - [91m
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+COMMIT FAILED for Chunk #22
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+2025-04-09 12:40:47,314 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #23 (1 files, 22.51MB)
+==================================================[0m
+2025-04-09 12:40:47,314 - INFO - [94m
+STAGING FILES for Chunk #23...[0m
+2025-04-09 12:40:47,338 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_Parks_of_Kyoto_-_Sight_of_Wonders.uasset[0m
+2025-04-09 12:40:47,338 - INFO - [94m
+COMMITTING Chunk #23...[0m
+2025-04-09 12:40:47,409 - ERROR - [91mFAILED to commit chunk #23: Command '['git', 'commit', '-m', 'Chunk #23 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:40:47,409 - ERROR - [91m
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+COMMIT FAILED for Chunk #23
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+2025-04-09 12:40:47,409 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #24 (1 files, 25.0MB)
+==================================================[0m
+2025-04-09 12:40:47,409 - INFO - [94m
+STAGING FILES for Chunk #24...[0m
+2025-04-09 12:40:47,437 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_Pebble_Beach_-_Peace_Reels_part000.uasset[0m
+2025-04-09 12:40:47,437 - INFO - [94m
+COMMITTING Chunk #24...[0m
+2025-04-09 12:40:47,513 - ERROR - [91mFAILED to commit chunk #24: Command '['git', 'commit', '-m', 'Chunk #24 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:40:47,513 - ERROR - [91m
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+COMMIT FAILED for Chunk #24
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+2025-04-09 12:40:47,514 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #25 (1 files, 1.09MB)
+==================================================[0m
+2025-04-09 12:40:47,514 - INFO - [94m
+STAGING FILES for Chunk #25...[0m
+2025-04-09 12:40:47,540 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_Pebble_Beach_-_Peace_Reels_part001.uasset[0m
+2025-04-09 12:40:47,540 - INFO - [94m
+COMMITTING Chunk #25...[0m
+2025-04-09 12:40:47,609 - ERROR - [91mFAILED to commit chunk #25: Command '['git', 'commit', '-m', 'Chunk #25 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:40:47,609 - ERROR - [91m
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+COMMIT FAILED for Chunk #25
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+2025-04-09 12:40:47,609 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #26 (1 files, 25.0MB)
+==================================================[0m
+2025-04-09 12:40:47,609 - INFO - [94m
+STAGING FILES for Chunk #26...[0m
+2025-04-09 12:40:47,634 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_PlaceCalledRio_part000.uasset[0m
+2025-04-09 12:40:47,634 - INFO - [94m
+COMMITTING Chunk #26...[0m
+2025-04-09 12:40:47,704 - ERROR - [91mFAILED to commit chunk #26: Command '['git', 'commit', '-m', 'Chunk #26 - 1 files pushed successfully']' returned non-zero exit status 1.[0m
+2025-04-09 12:40:47,704 - ERROR - [91m
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+COMMIT FAILED for Chunk #26
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+2025-04-09 12:40:47,704 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #27 (1 files, 3.46MB)
+==================================================[0m
+2025-04-09 12:40:47,704 - INFO - [94m
+STAGING FILES for Chunk #27...[0m
+2025-04-09 12:40:47,825 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_PlaceCalledRio_part001.uasset[0m
+2025-04-09 12:40:47,826 - INFO - [94m
+COMMITTING Chunk #27...[0m
+2025-04-09 12:40:47,898 - INFO - [94mCOMMITTED: Chunk #27 with message: 'Chunk #27 - 1 files pushed successfully'[0m
+2025-04-09 12:40:47,898 - INFO - [94m
+PUSHING Chunk #27 to remote...[0m
+2025-04-09 12:42:34,619 - INFO - [92mPUSHED: Changes to remote repository[0m
+2025-04-09 12:42:34,639 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #28 (1 files, 21.99MB)
+==================================================[0m
+2025-04-09 12:42:34,640 - INFO - [94m
+STAGING FILES for Chunk #28...[0m
+2025-04-09 12:42:35,721 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_SouthAfrica_SpiritOfCapeTown.uasset[0m
+2025-04-09 12:42:35,721 - INFO - [94m
+COMMITTING Chunk #28...[0m
+2025-04-09 12:42:36,034 - INFO - [94mCOMMITTED: Chunk #28 with message: 'Chunk #28 - 1 files pushed successfully'[0m
+2025-04-09 12:42:36,035 - INFO - [94m
+PUSHING Chunk #28 to remote...[0m
+2025-04-09 12:42:47,551 - INFO - [92mPUSHED: Changes to remote repository[0m
+2025-04-09 12:42:47,555 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #29 (1 files, 25.0MB)
+==================================================[0m
+2025-04-09 12:42:47,555 - INFO - [94m
+STAGING FILES for Chunk #29...[0m
+2025-04-09 12:42:48,710 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_Tokyo_Highball_part000.uasset[0m
+2025-04-09 12:42:48,710 - INFO - [94m
+COMMITTING Chunk #29...[0m
+2025-04-09 12:42:49,024 - INFO - [94mCOMMITTED: Chunk #29 with message: 'Chunk #29 - 1 files pushed successfully'[0m
+2025-04-09 12:42:49,024 - INFO - [94m
+PUSHING Chunk #29 to remote...[0m
+2025-04-09 12:43:00,463 - INFO - [92mPUSHED: Changes to remote repository[0m
+2025-04-09 12:43:00,468 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #30 (61 files, 24.89MB)
+==================================================[0m
+2025-04-09 12:43:00,468 - INFO - [94m
+STAGING FILES for Chunk #30...[0m
+2025-04-09 12:43:00,652 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_Tokyo_Highball_part001.uasset[0m
+2025-04-09 12:43:00,696 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Blueprints\BP_AudioManager.uasset[0m
+2025-04-09 12:43:00,739 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Concurrencies\Cnc_PkrMusic.uasset[0m
+2025-04-09 12:43:00,823 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map11_Exotic.uasset[0m
+2025-04-09 12:43:00,867 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map11_Exotic_Cue.uasset[0m
+2025-04-09 12:43:00,944 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map11_Simple.uasset[0m
+2025-04-09 12:43:00,990 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map11_Simple_Cue.uasset[0m
+2025-04-09 12:43:01,065 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map11_Special.uasset[0m
+2025-04-09 12:43:01,109 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map11_Special_Cue.uasset[0m
+2025-04-09 12:43:01,185 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map12_Exotic.uasset[0m
+2025-04-09 12:43:01,231 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map12_Exotic_Cue.uasset[0m
+2025-04-09 12:43:01,297 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map12_Simple.uasset[0m
+2025-04-09 12:43:01,342 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map12_Simple_Cue.uasset[0m
+2025-04-09 12:43:01,419 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map12_Special.uasset[0m
+2025-04-09 12:43:01,465 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map12_Special_Cue.uasset[0m
+2025-04-09 12:43:01,538 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map2_Exotic.uasset[0m
+2025-04-09 12:43:01,588 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map2_Exotic_Cue.uasset[0m
+2025-04-09 12:43:01,670 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map2_Simple.uasset[0m
+2025-04-09 12:43:01,715 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map2_Simple_Cue.uasset[0m
+2025-04-09 12:43:01,788 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map2_Special.uasset[0m
+2025-04-09 12:43:01,837 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map2_Special_Cue.uasset[0m
+2025-04-09 12:43:01,911 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map7_Exotic.uasset[0m
+2025-04-09 12:43:01,956 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map7_Exotic_Cue.uasset[0m
+2025-04-09 12:43:02,042 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map7_Simple.uasset[0m
+2025-04-09 12:43:02,089 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map7_Simple_Cue.uasset[0m
+2025-04-09 12:43:02,163 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map7_Special.uasset[0m
+2025-04-09 12:43:02,212 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map7_Special_Cue.uasset[0m
+2025-04-09 12:43:02,303 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_10_Exotic.uasset[0m
+2025-04-09 12:43:02,355 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_10_Exotic_Cue.uasset[0m
+2025-04-09 12:43:02,434 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_10_Simple.uasset[0m
+2025-04-09 12:43:02,487 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_10_Simple_Cue.uasset[0m
+2025-04-09 12:43:02,579 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_10_Special.uasset[0m
+2025-04-09 12:43:02,639 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_10_Special_Cue.uasset[0m
+2025-04-09 12:43:02,725 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_13_Exotic.uasset[0m
+2025-04-09 12:43:02,780 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_13_Exotic_Cue.uasset[0m
+2025-04-09 12:43:02,857 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_13_Simple.uasset[0m
+2025-04-09 12:43:02,911 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_13_Simple_Cue.uasset[0m
+2025-04-09 12:43:03,002 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_13_Special.uasset[0m
+2025-04-09 12:43:03,059 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_13_Special_Cue.uasset[0m
+2025-04-09 12:43:03,144 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_3_Exotic2.uasset[0m
+2025-04-09 12:43:03,203 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_3_Exotic2_Cue.uasset[0m
+2025-04-09 12:43:03,288 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_3_Simple1.uasset[0m
+2025-04-09 12:43:03,347 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_3_Simple1_Cue.uasset[0m
+2025-04-09 12:43:03,444 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_3_Special.uasset[0m
+2025-04-09 12:43:03,526 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_3_Special_Cue.uasset[0m
+2025-04-09 12:43:03,612 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_4_Exotic.uasset[0m
+2025-04-09 12:43:04,044 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_4_Exotic_Cue.uasset[0m
+2025-04-09 12:43:04,119 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_4_Simple.uasset[0m
+2025-04-09 12:43:04,168 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_4_Simple_Cue.uasset[0m
+2025-04-09 12:43:04,243 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_4_Special.uasset[0m
+2025-04-09 12:43:04,296 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_4_Special_Cue.uasset[0m
+2025-04-09 12:43:04,383 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_5_Exotic.uasset[0m
+2025-04-09 12:43:04,429 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_5_Exotic_Cue.uasset[0m
+2025-04-09 12:43:04,506 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_5_Simple.uasset[0m
+2025-04-09 12:43:04,557 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_5_Simple_Cue.uasset[0m
+2025-04-09 12:43:04,632 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_5_Special.uasset[0m
+2025-04-09 12:43:04,681 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_5_Special_Cue.uasset[0m
+2025-04-09 12:43:04,751 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_6_Exotic.uasset[0m
+2025-04-09 12:43:04,790 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_6_Exotic_Cue.uasset[0m
+2025-04-09 12:43:04,853 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_6_Simple.uasset[0m
+2025-04-09 12:43:04,892 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_6_Simple_Cue.uasset[0m
+2025-04-09 12:43:04,892 - INFO - [94m
+COMMITTING Chunk #30...[0m
+2025-04-09 12:43:05,040 - INFO - [94mCOMMITTED: Chunk #30 with message: 'Chunk #30 - 61 files pushed successfully'[0m
+2025-04-09 12:43:05,040 - INFO - [94m
+PUSHING Chunk #30 to remote...[0m
+2025-04-09 12:43:16,792 - INFO - [92mPUSHED: Changes to remote repository[0m
+2025-04-09 12:43:16,794 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #31 (42 files, 24.34MB)
+==================================================[0m
+2025-04-09 12:43:16,794 - INFO - [94m
+STAGING FILES for Chunk #31...[0m
+2025-04-09 12:43:16,896 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_6_Special.uasset[0m
+2025-04-09 12:43:16,927 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\Map_6_Special_Cue.uasset[0m
+2025-04-09 12:43:16,983 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Elon_Exotic.uasset[0m
+2025-04-09 12:43:17,011 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Elon_Exotic_Cue.uasset[0m
+2025-04-09 12:43:17,069 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Elon_Special.uasset[0m
+2025-04-09 12:43:17,097 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Elon_Special_Cue.uasset[0m
+2025-04-09 12:43:17,148 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Map14_Exotic.uasset[0m
+2025-04-09 12:43:17,175 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Map14_Exotic_Cue.uasset[0m
+2025-04-09 12:43:17,226 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Map14_Simple.uasset[0m
+2025-04-09 12:43:17,255 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Map14_Simple_Cue.uasset[0m
+2025-04-09 12:43:17,315 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Map14_Special.uasset[0m
+2025-04-09 12:43:17,343 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Map14_Special_Cue.uasset[0m
+2025-04-09 12:43:17,397 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Map1_Exotic.uasset[0m
+2025-04-09 12:43:17,425 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Map1_Exotic_Cue.uasset[0m
+2025-04-09 12:43:17,474 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Map1_Simple.uasset[0m
+2025-04-09 12:43:17,502 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Map1_Simple_Cue.uasset[0m
+2025-04-09 12:43:17,554 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Map1_Special.uasset[0m
+2025-04-09 12:43:17,582 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Map1_Special_Cue.uasset[0m
+2025-04-09 12:43:17,640 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Map8_Exotic.uasset[0m
+2025-04-09 12:43:17,667 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Map8_Exotic_Cue.uasset[0m
+2025-04-09 12:43:17,717 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Map8_Simple.uasset[0m
+2025-04-09 12:43:17,745 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Map8_Simple_Cue.uasset[0m
+2025-04-09 12:43:17,799 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Map8_Special.uasset[0m
+2025-04-09 12:43:17,829 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Map8_Special_Cue.uasset[0m
+2025-04-09 12:43:17,883 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Map9_Exotic.uasset[0m
+2025-04-09 12:43:17,912 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Map9_Exotic_Cue.uasset[0m
+2025-04-09 12:43:17,962 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Map9_Simple.uasset[0m
+2025-04-09 12:43:17,990 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Map9_Simple_Cue.uasset[0m
+2025-04-09 12:43:18,042 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Map9_Speical.uasset[0m
+2025-04-09 12:43:18,070 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Dances\New\Map9_Speical_Cue.uasset[0m
+2025-04-09 12:43:18,098 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Gameplay\Copy_of_Gameplay_Side_arrow__Dealer_Icon__Chat-_pop-small-bubble-joshua-chivers-1-1-00-00.uasset[0m
+2025-04-09 12:43:18,131 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Gameplay\John_Silke_-_Blackjack_-_Casino_Chips_Handling_Clicking_.uasset[0m
+2025-04-09 12:43:18,159 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Gameplay\Ni_Sound_-_Modern_UI_-_Perfect_Click.uasset[0m
+2025-04-09 12:43:18,189 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Gameplay\dealerswap.uasset[0m
+2025-04-09 12:43:18,220 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Gameplay\glockenspiel-ding-glitchedtones-5-5-00-01.uasset[0m
+2025-04-09 12:43:18,248 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Gameplay\off.uasset[0m
+2025-04-09 12:43:18,276 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Gameplay\on.uasset[0m
+2025-04-09 12:43:18,308 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Gameplay\stor.uasset[0m
+2025-04-09 12:43:18,459 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Map1-Music.uasset[0m
+2025-04-09 12:43:18,488 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Map1-Music_Cue.uasset[0m
+2025-04-09 12:43:18,622 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Map2-Music.uasset[0m
+2025-04-09 12:43:18,652 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Map2-Music_Cue.uasset[0m
+2025-04-09 12:43:18,652 - INFO - [94m
+COMMITTING Chunk #31...[0m
+2025-04-09 12:43:18,746 - INFO - [94mCOMMITTED: Chunk #31 with message: 'Chunk #31 - 42 files pushed successfully'[0m
+2025-04-09 12:43:18,746 - INFO - [94m
+PUSHING Chunk #31 to remote...[0m
+2025-04-09 12:43:32,008 - INFO - [92mPUSHED: Changes to remote repository[0m
+2025-04-09 12:43:32,009 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #32 (23 files, 23.87MB)
+==================================================[0m
+2025-04-09 12:43:32,009 - INFO - [94m
+STAGING FILES for Chunk #32...[0m
+2025-04-09 12:43:32,206 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Map5_ScifiMusicCues.uasset[0m
+2025-04-09 12:43:32,237 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Map5_ScifiMusicCues_Cue.uasset[0m
+2025-04-09 12:43:32,412 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Map6-Music.uasset[0m
+2025-04-09 12:43:32,451 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Map6-Music_Cue.uasset[0m
+2025-04-09 12:43:32,644 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Map9-Music.uasset[0m
+2025-04-09 12:43:32,682 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\Map9-Music_Cue.uasset[0m
+2025-04-09 12:43:32,719 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\MixModifiers\SoundMix_AudioSettings.uasset[0m
+2025-04-09 12:43:32,757 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\MixModifiers\SoundMix_Background_Main.uasset[0m
+2025-04-09 12:43:32,795 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\MixModifiers\SoundMix_Dashboard_UI.uasset[0m
+2025-04-09 12:43:32,833 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\MixModifiers\SoundMix_DealerDance.uasset[0m
+2025-04-09 12:43:32,871 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\MixModifiers\SoundMix_DealerDanceDucker.uasset[0m
+2025-04-09 12:43:32,908 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\MixModifiers\SoundMix_DealerEvents.uasset[0m
+2025-04-09 12:43:32,944 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\MixModifiers\SoundMix_DealerWinning.uasset[0m
+2025-04-09 12:43:32,981 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\MixModifiers\SoundMix_Gameplay.uasset[0m
+2025-04-09 12:43:33,024 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\MixModifiers\SoundMix_MusicVolumeDucker_UI.uasset[0m
+2025-04-09 12:43:33,063 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\MixModifiers\SoundMix_Notifications.uasset[0m
+2025-04-09 12:43:33,104 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\MixModifiers\SoundMix_PkrMusic.uasset[0m
+2025-04-09 12:43:33,142 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\MixModifiers\SoundMix_UI_Gameplay.uasset[0m
+2025-04-09 12:43:33,350 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\New\Dojo_Map__Map_3_.uasset[0m
+2025-04-09 12:43:33,388 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\New\Dojo_Map__Map_3__Cue.uasset[0m
+2025-04-09 12:43:33,432 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\New\Final-_Back___Exit_Buttons.uasset[0m
+2025-04-09 12:43:33,640 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\New\Map_10.uasset[0m
+2025-04-09 12:43:33,681 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\New\Map_10_Cue.uasset[0m
+2025-04-09 12:43:33,681 - INFO - [94m
+COMMITTING Chunk #32...[0m
+2025-04-09 12:43:33,799 - INFO - [94mCOMMITTED: Chunk #32 with message: 'Chunk #32 - 23 files pushed successfully'[0m
+2025-04-09 12:43:33,799 - INFO - [94m
+PUSHING Chunk #32 to remote...[0m
+2025-04-09 12:43:45,119 - INFO - [92mPUSHED: Changes to remote repository[0m
+2025-04-09 12:43:45,122 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #33 (38 files, 23.94MB)
+==================================================[0m
+2025-04-09 12:43:45,123 - INFO - [94m
+STAGING FILES for Chunk #33...[0m
+2025-04-09 12:43:45,333 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\New\Map_13_V1.uasset[0m
+2025-04-09 12:43:45,368 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\New\Map_13_V1_Cue.uasset[0m
+2025-04-09 12:43:45,431 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\New\Map_1_IRIS_winning_action.uasset[0m
+2025-04-09 12:43:45,488 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\New\Map_2_FELICITY_winning_action.uasset[0m
+2025-04-09 12:43:45,537 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\New\Map_4-_CP5-29_winning_action.uasset[0m
+2025-04-09 12:43:45,585 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\New\Map_5_C_7-14_winning_action.uasset[0m
+2025-04-09 12:43:45,754 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\New\Map_8.uasset[0m
+2025-04-09 12:43:45,788 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\New\Map_8_Cue.uasset[0m
+2025-04-09 12:43:45,977 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\New\Map_9.uasset[0m
+2025-04-09 12:43:46,011 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\New\Map_9_Cue.uasset[0m
+2025-04-09 12:43:46,189 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\New\Medieval__Map_7_.uasset[0m
+2025-04-09 12:43:46,232 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\New\Medieval__Map_7__Cue.uasset[0m
+2025-04-09 12:43:46,271 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\PolkerAudioSettings.uasset[0m
+2025-04-09 12:43:46,307 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SC_AudioEffects.uasset[0m
+2025-04-09 12:43:46,346 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SC_AudioEffects_Dashboard.uasset[0m
+2025-04-09 12:43:46,382 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SC_AudioEffects_Gameplay.uasset[0m
+2025-04-09 12:43:46,417 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SC_Dashboard.uasset[0m
+2025-04-09 12:43:46,453 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SC_Dashboard_Buttons.uasset[0m
+2025-04-09 12:43:46,491 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SC_Dashboard_Music.uasset[0m
+2025-04-09 12:43:46,538 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SC_Gameplay.uasset[0m
+2025-04-09 12:43:46,580 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SC_Gameplay_Announcer.uasset[0m
+2025-04-09 12:43:46,616 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SC_Gameplay_Bet.uasset[0m
+2025-04-09 12:43:46,655 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SC_Gameplay_CardDealt.uasset[0m
+2025-04-09 12:43:46,694 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SC_Gameplay_Check.uasset[0m
+2025-04-09 12:43:46,732 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SC_Gameplay_ChipsMovedFromPot.uasset[0m
+2025-04-09 12:43:46,769 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SC_Gameplay_ChipsMovedToPot.uasset[0m
+2025-04-09 12:43:46,809 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SC_Gameplay_Environment.uasset[0m
+2025-04-09 12:43:46,849 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SC_Gameplay_Fold.uasset[0m
+2025-04-09 12:43:46,885 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SC_Gameplay_Raise.uasset[0m
+2025-04-09 12:43:46,922 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SC_Master.uasset[0m
+2025-04-09 12:43:46,961 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Back.uasset[0m
+2025-04-09 12:43:47,001 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\ES_Car_Horn_Honk_12_-_SFX_Producer.uasset[0m
+2025-04-09 12:43:47,044 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\ES_Car_Horn_Honk_1_-_SFX_Producer.uasset[0m
+2025-04-09 12:43:47,094 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\ES_Car_Horn_Honk_2_-_SFX_Producer.uasset[0m
+2025-04-09 12:43:47,149 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\ES_Semi_Truck_Horn_4_-_SFX_Producer.uasset[0m
+2025-04-09 12:43:47,245 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\ES_Semi_Truck_Horn_8_-_SFX_Producer.uasset[0m
+2025-04-09 12:43:47,302 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\ES_Train_Horn_1_-_SFX_Producer.uasset[0m
+2025-04-09 12:43:47,340 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\ES_Buzzer_6_-_SFX_Producer.uasset[0m
+2025-04-09 12:43:47,340 - INFO - [94m
+COMMITTING Chunk #33...[0m
+2025-04-09 12:43:47,473 - INFO - [94mCOMMITTED: Chunk #33 with message: 'Chunk #33 - 38 files pushed successfully'[0m
+2025-04-09 12:43:47,474 - INFO - [94m
+PUSHING Chunk #33 to remote...[0m
+2025-04-09 12:44:16,709 - INFO - [92mPUSHED: Changes to remote repository[0m
+2025-04-09 12:44:16,711 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #34 (2 files, 4.88MB)
+==================================================[0m
+2025-04-09 12:44:16,711 - INFO - [94m
+STAGING FILES for Chunk #34...[0m
+2025-04-09 12:44:16,909 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\ES_Desert_Traffic_-_SFX_Producer.uasset[0m
+2025-04-09 12:44:16,940 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\ES_Desert_Traffic_-_SFX_Producer_Cue.uasset[0m
+2025-04-09 12:44:16,941 - INFO - [94m
+COMMITTING Chunk #34...[0m
+2025-04-09 12:44:17,031 - INFO - [94mCOMMITTED: Chunk #34 with message: 'Chunk #34 - 2 files pushed successfully'[0m
+2025-04-09 12:44:17,031 - INFO - [94m
+PUSHING Chunk #34 to remote...[0m
+2025-04-09 12:44:23,655 - INFO - [92mPUSHED: Changes to remote repository[0m
+2025-04-09 12:44:23,657 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #35 (3 files, 20.95MB)
+==================================================[0m
+2025-04-09 12:44:23,657 - INFO - [94m
+STAGING FILES for Chunk #35...[0m
+2025-04-09 12:44:24,170 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\ES_Fire_Flame_Crackle_-_SFX_Producer.uasset[0m
+2025-04-09 12:44:24,199 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\ES_Fire_Flame_Crackle_-_SFX_Producer_Cue.uasset[0m
+2025-04-09 12:44:24,234 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\ES_Forest_After_Rain_-_SFX_Producer_Cue.uasset[0m
+2025-04-09 12:44:24,234 - INFO - [94m
+COMMITTING Chunk #35...[0m
+2025-04-09 12:44:24,403 - INFO - [94mCOMMITTED: Chunk #35 with message: 'Chunk #35 - 3 files pushed successfully'[0m
+2025-04-09 12:44:24,403 - INFO - [94m
+PUSHING Chunk #35 to remote...[0m
+2025-04-09 12:44:33,693 - INFO - [92mPUSHED: Changes to remote repository[0m
+2025-04-09 12:44:33,695 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #36 (1 files, 25.0MB)
+==================================================[0m
+2025-04-09 12:44:33,696 - INFO - [94m
+STAGING FILES for Chunk #36...[0m
+2025-04-09 12:44:34,487 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\ES_Forest_After_Rain_-_SFX_Producer_part000.uasset[0m
+2025-04-09 12:44:34,487 - INFO - [94m
+COMMITTING Chunk #36...[0m
+2025-04-09 12:44:34,692 - INFO - [94mCOMMITTED: Chunk #36 with message: 'Chunk #36 - 1 files pushed successfully'[0m
+2025-04-09 12:44:34,692 - INFO - [94m
+PUSHING Chunk #36 to remote...[0m
+2025-04-09 12:44:45,515 - INFO - [92mPUSHED: Changes to remote repository[0m
+2025-04-09 12:44:45,519 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #37 (1 files, 6.53MB)
+==================================================[0m
+2025-04-09 12:44:45,519 - INFO - [94m
+STAGING FILES for Chunk #37...[0m
+2025-04-09 12:44:45,847 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\ES_Forest_After_Rain_-_SFX_Producer_part001.uasset[0m
+2025-04-09 12:44:45,847 - INFO - [94m
+COMMITTING Chunk #37...[0m
+2025-04-09 12:44:45,977 - INFO - [94mCOMMITTED: Chunk #37 with message: 'Chunk #37 - 1 files pushed successfully'[0m
+2025-04-09 12:44:45,978 - INFO - [94m
+PUSHING Chunk #37 to remote...[0m
+2025-04-09 12:44:53,311 - INFO - [92mPUSHED: Changes to remote repository[0m
+2025-04-09 12:44:53,314 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #38 (1 files, 20.69MB)
+==================================================[0m
+2025-04-09 12:44:53,314 - INFO - [94m
+STAGING FILES for Chunk #38...[0m
+2025-04-09 12:44:54,196 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\ES_Forest_Night_1_-_SFX_Producer.uasset[0m
+2025-04-09 12:44:54,196 - INFO - [94m
+COMMITTING Chunk #38...[0m
+2025-04-09 12:44:54,431 - INFO - [94mCOMMITTED: Chunk #38 with message: 'Chunk #38 - 1 files pushed successfully'[0m
+2025-04-09 12:44:54,431 - INFO - [94m
+PUSHING Chunk #38 to remote...[0m
+2025-04-09 12:45:05,229 - INFO - [92mPUSHED: Changes to remote repository[0m
+2025-04-09 12:45:05,231 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #39 (2 files, 22.01MB)
+==================================================[0m
+2025-04-09 12:45:05,231 - INFO - [94m
+STAGING FILES for Chunk #39...[0m
+2025-04-09 12:45:06,003 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\ES_Park_Wind_2_-_SFX_Producer.uasset[0m
+2025-04-09 12:45:06,033 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\ES_Park_Wind_2_-_SFX_Producer_Cue.uasset[0m
+2025-04-09 12:45:06,033 - INFO - [94m
+COMMITTING Chunk #39...[0m
+2025-04-09 12:45:06,220 - INFO - [94mCOMMITTED: Chunk #39 with message: 'Chunk #39 - 2 files pushed successfully'[0m
+2025-04-09 12:45:06,220 - INFO - [94m
+PUSHING Chunk #39 to remote...[0m
+2025-04-09 12:45:17,992 - INFO - [92mPUSHED: Changes to remote repository[0m
+2025-04-09 12:45:17,994 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #40 (2 files, 22.01MB)
+==================================================[0m
+2025-04-09 12:45:17,995 - INFO - [94m
+STAGING FILES for Chunk #40...[0m
+2025-04-09 12:45:18,609 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\ES_Thunder_Cracks_-_SFX_Producer.uasset[0m
+2025-04-09 12:45:18,648 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\ES_Thunder_Cracks_-_SFX_Producer_Cue.uasset[0m
+2025-04-09 12:45:18,649 - INFO - [94m
+COMMITTING Chunk #40...[0m
+2025-04-09 12:45:18,856 - INFO - [94mCOMMITTED: Chunk #40 with message: 'Chunk #40 - 2 files pushed successfully'[0m
+2025-04-09 12:45:18,856 - INFO - [94m
+PUSHING Chunk #40 to remote...[0m
+2025-04-09 12:45:30,004 - INFO - [92mPUSHED: Changes to remote repository[0m
+2025-04-09 12:45:30,007 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #41 (3 files, 22.01MB)
+==================================================[0m
+2025-04-09 12:45:30,007 - INFO - [94m
+STAGING FILES for Chunk #41...[0m
+2025-04-09 12:45:31,051 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\ES_Wind_Drone_Desert_-_SFX_Producer.uasset[0m
+2025-04-09 12:45:31,094 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\ES_Wind_Drone_Desert_-_SFX_Producer_Cue.uasset[0m
+2025-04-09 12:45:31,135 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\ES_Wind_Storm_Constant_2_-_SFX_Producer_Cue.uasset[0m
+2025-04-09 12:45:31,135 - INFO - [94m
+COMMITTING Chunk #41...[0m
+2025-04-09 12:45:31,369 - INFO - [94mCOMMITTED: Chunk #41 with message: 'Chunk #41 - 3 files pushed successfully'[0m
+2025-04-09 12:45:31,369 - INFO - [94m
+PUSHING Chunk #41 to remote...[0m
+2025-04-09 12:45:42,016 - INFO - [92mPUSHED: Changes to remote repository[0m
+2025-04-09 12:45:42,035 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #42 (1 files, 25.0MB)
+==================================================[0m
+2025-04-09 12:45:42,035 - INFO - [94m
+STAGING FILES for Chunk #42...[0m
+2025-04-09 12:45:43,166 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\ES_Wind_Storm_Constant_2_-_SFX_Producer_part000.uasset[0m
+2025-04-09 12:45:43,167 - INFO - [94m
+COMMITTING Chunk #42...[0m
+2025-04-09 12:45:43,417 - INFO - [94mCOMMITTED: Chunk #42 with message: 'Chunk #42 - 1 files pushed successfully'[0m
+2025-04-09 12:45:43,418 - INFO - [94m
+PUSHING Chunk #42 to remote...[0m
+2025-04-09 12:45:54,211 - INFO - [92mPUSHED: Changes to remote repository[0m
+2025-04-09 12:45:54,226 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #43 (2 files, 8.38MB)
+==================================================[0m
+2025-04-09 12:45:54,227 - INFO - [94m
+STAGING FILES for Chunk #43...[0m
+2025-04-09 12:45:54,652 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\ES_Wind_Storm_Constant_2_-_SFX_Producer_part001.uasset[0m
+2025-04-09 12:45:54,679 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\S_AfricaDawn_Cue.uasset[0m
+2025-04-09 12:45:54,680 - INFO - [94m
+COMMITTING Chunk #43...[0m
+2025-04-09 12:45:54,780 - INFO - [94mCOMMITTED: Chunk #43 with message: 'Chunk #43 - 2 files pushed successfully'[0m
+2025-04-09 12:45:54,780 - INFO - [94m
+PUSHING Chunk #43 to remote...[0m
+2025-04-09 12:46:02,644 - INFO - [92mPUSHED: Changes to remote repository[0m
+2025-04-09 12:46:02,661 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #44 (1 files, 25.0MB)
+==================================================[0m
+2025-04-09 12:46:02,661 - INFO - [94m
+STAGING FILES for Chunk #44...[0m
+2025-04-09 12:46:03,466 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\S_AfricaDawn_part000.uasset[0m
+2025-04-09 12:46:03,466 - INFO - [94m
+COMMITTING Chunk #44...[0m
+2025-04-09 12:46:03,654 - INFO - [94mCOMMITTED: Chunk #44 with message: 'Chunk #44 - 1 files pushed successfully'[0m
+2025-04-09 12:46:03,654 - INFO - [94m
+PUSHING Chunk #44 to remote...[0m
+2025-04-09 12:46:14,468 - INFO - [92mPUSHED: Changes to remote repository[0m
+2025-04-09 12:46:14,484 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #45 (7 files, 12.48MB)
+==================================================[0m
+2025-04-09 12:46:14,484 - INFO - [94m
+STAGING FILES for Chunk #45...[0m
+2025-04-09 12:46:14,661 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\S_AfricaDawn_part001.uasset[0m
+2025-04-09 12:46:14,696 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\S_ChestBounce.uasset[0m
+2025-04-09 12:46:14,729 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\S_ChestPlatform.uasset[0m
+2025-04-09 12:46:14,766 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\S_ChestShake.uasset[0m
+2025-04-09 12:46:14,797 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\S_ChestShake_Cue.uasset[0m
+2025-04-09 12:46:15,088 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\S_CityAmbience.uasset[0m
+2025-04-09 12:46:15,119 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\S_CityAmbience_Cue.uasset[0m
+2025-04-09 12:46:15,119 - INFO - [94m
+COMMITTING Chunk #45...[0m
+2025-04-09 12:46:15,254 - INFO - [94mCOMMITTED: Chunk #45 with message: 'Chunk #45 - 7 files pushed successfully'[0m
+2025-04-09 12:46:15,254 - INFO - [94m
+PUSHING Chunk #45 to remote...[0m
+2025-04-09 12:46:24,175 - INFO - [92mPUSHED: Changes to remote repository[0m
+2025-04-09 12:46:24,193 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #46 (3 files, 16.73MB)
+==================================================[0m
+2025-04-09 12:46:24,193 - INFO - [94m
+STAGING FILES for Chunk #46...[0m
+2025-04-09 12:46:24,860 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\S_CityTrafic.uasset[0m
+2025-04-09 12:46:24,899 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\S_CityTrafic_Cue.uasset[0m
+2025-04-09 12:46:24,943 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\S_Coins.uasset[0m
+2025-04-09 12:46:24,943 - INFO - [94m
+COMMITTING Chunk #46...[0m
+2025-04-09 12:46:25,127 - INFO - [94mCOMMITTED: Chunk #46 with message: 'Chunk #46 - 3 files pushed successfully'[0m
+2025-04-09 12:46:25,127 - INFO - [94m
+PUSHING Chunk #46 to remote...[0m
+2025-04-09 12:46:34,591 - INFO - [92mPUSHED: Changes to remote repository[0m
+2025-04-09 12:46:34,603 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #47 (1 files, 25.0MB)
+==================================================[0m
+2025-04-09 12:46:34,603 - INFO - [94m
+STAGING FILES for Chunk #47...[0m
+2025-04-09 12:46:35,301 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\S_DashboardMusic_part000.uasset[0m
+2025-04-09 12:46:35,301 - INFO - [94m
+COMMITTING Chunk #47...[0m
+2025-04-09 12:46:35,472 - INFO - [94mCOMMITTED: Chunk #47 with message: 'Chunk #47 - 1 files pushed successfully'[0m
+2025-04-09 12:46:35,472 - INFO - [94m
+PUSHING Chunk #47 to remote...[0m
+2025-04-09 12:46:49,721 - INFO - [92mPUSHED: Changes to remote repository[0m
+2025-04-09 12:46:49,787 - INFO - [1;36m
+==================================================
+PROCESSING CHUNK #48 (1 files, 25.0MB)
+==================================================[0m
+2025-04-09 12:46:49,787 - INFO - [94m
+STAGING FILES for Chunk #48...[0m
+2025-04-09 12:46:50,546 - INFO - [94mSTAGED: Polker-Desktop-Dedicated\Polker\Content\Audio\SFX\Environments\S_DashboardMusic_part001.uasset[0m
+2025-04-09 12:46:50,546 - INFO - [94m
+COMMITTING Chunk #48...[0m
+2025-04-09 12:46:50,711 - INFO - [94mCOMMITTED: Chunk #48 with message: 'Chunk #48 - 1 files pushed successfully'[0m
+2025-04-09 12:46:50,711 - INFO - [94m
+PUSHING Chunk #48 to remote...[0m

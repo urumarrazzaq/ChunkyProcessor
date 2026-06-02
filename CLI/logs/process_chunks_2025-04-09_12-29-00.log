@@ -1,0 +1,68 @@
+2025-04-09 12:29:04,131 - INFO - Parsing log file: D:\PythonScripts\Chunky\git_chunks.log
+2025-04-09 12:29:04,257 - INFO - Found 871 chunks to process
+2025-04-09 12:29:04,258 - INFO - Starting to process 871 chunks...
+2025-04-09 12:29:04,258 - INFO - 
+Processing Chunk #1 (2 files, 12.19MB)
+2025-04-09 12:29:04,351 - INFO - Added to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\Asian_Map_3_Extended.uasset
+2025-04-09 12:29:04,459 - INFO - Added to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\Asian_Map_3_Extended_Cue.uasset
+2025-04-09 12:29:04,817 - ERROR - Failed to commit chunk #1: Command '['git', 'commit', '-m', 'Chunk #1 - 2 files pushed successfully']' returned non-zero exit status 1.
+2025-04-09 12:29:04,858 - ERROR - Skipping Chunk #1 due to commit failure
+2025-04-09 12:29:04,858 - INFO - 
+Processing Chunk #2 (2 files, 14.16MB)
+2025-04-09 12:29:04,961 - INFO - Added to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\City_Background_Extended.uasset
+2025-04-09 12:29:05,061 - INFO - Added to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\City_Background_Extended_Cue.uasset
+2025-04-09 12:29:05,395 - ERROR - Failed to commit chunk #2: Command '['git', 'commit', '-m', 'Chunk #2 - 2 files pushed successfully']' returned non-zero exit status 1.
+2025-04-09 12:29:05,396 - ERROR - Skipping Chunk #2 due to commit failure
+2025-04-09 12:29:05,396 - INFO - 
+Processing Chunk #3 (2 files, 14.22MB)
+2025-04-09 12:29:05,510 - INFO - Added to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\Map_4_Extended.uasset
+2025-04-09 12:29:05,606 - INFO - Added to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\Map_4_Extended_Cue.uasset
+2025-04-09 12:29:05,882 - ERROR - Failed to commit chunk #3: Command '['git', 'commit', '-m', 'Chunk #3 - 2 files pushed successfully']' returned non-zero exit status 1.
+2025-04-09 12:29:05,882 - ERROR - Skipping Chunk #3 due to commit failure
+2025-04-09 12:29:05,883 - INFO - 
+Processing Chunk #4 (2 files, 13.35MB)
+2025-04-09 12:29:06,068 - INFO - Added to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\Map_6_Background_Extended.uasset
+2025-04-09 12:29:06,135 - INFO - Added to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\Map_6_Background_Extended_Cue.uasset
+2025-04-09 12:29:06,459 - ERROR - Failed to commit chunk #4: Command '['git', 'commit', '-m', 'Chunk #4 - 2 files pushed successfully']' returned non-zero exit status 1.
+2025-04-09 12:29:06,460 - ERROR - Skipping Chunk #4 due to commit failure
+2025-04-09 12:29:06,461 - INFO - 
+Processing Chunk #5 (2 files, 13.0MB)
+2025-04-09 12:29:06,570 - INFO - Added to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\Medieval_Map_7_Extended.uasset
+2025-04-09 12:29:06,658 - INFO - Added to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\New\Medieval_Map_7_Extended_Cue.uasset
+2025-04-09 12:29:06,981 - ERROR - Failed to commit chunk #5: Command '['git', 'commit', '-m', 'Chunk #5 - 2 files pushed successfully']' returned non-zero exit status 1.
+2025-04-09 12:29:06,982 - ERROR - Skipping Chunk #5 due to commit failure
+2025-04-09 12:29:06,982 - INFO - 
+Processing Chunk #6 (1 files, 25.0MB)
+2025-04-09 12:29:07,154 - INFO - Added to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\PKRPass_Music\Bronze_PKR_Pass_Music-_trendsetter-mood-maze-main-version-02-53-1004_part000.uasset
+2025-04-09 12:29:07,455 - ERROR - Failed to commit chunk #6: Command '['git', 'commit', '-m', 'Chunk #6 - 1 files pushed successfully']' returned non-zero exit status 1.
+2025-04-09 12:29:07,455 - ERROR - Skipping Chunk #6 due to commit failure
+2025-04-09 12:29:07,456 - INFO - 
+Processing Chunk #7 (2 files, 20.51MB)
+2025-04-09 12:29:07,827 - INFO - Added to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\PKRPass_Music\Bronze_PKR_Pass_Music-_trendsetter-mood-maze-main-version-02-53-1004_part001.uasset
+2025-04-09 12:29:09,189 - INFO - Added to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\PKRPass_Music\Diamond_PKR_Pass-_miracle-qube-main-version-01-44-13858.uasset
+2025-04-09 12:29:09,456 - INFO - Committed chunk #7 with message: 'Chunk #7 - 2 files pushed successfully'
+2025-04-09 12:29:27,756 - INFO - Pushed changes to remote repository
+2025-04-09 12:29:27,758 - INFO - Successfully processed Chunk #7
+2025-04-09 12:29:27,759 - INFO - 
+Processing Chunk #8 (1 files, 18.55MB)
+2025-04-09 12:29:29,213 - INFO - Added to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\PKRPass_Music\Gold_PKR_Pass-_keep-walkin-matrika-main-version-28466-01-51.uasset
+2025-04-09 12:29:29,482 - INFO - Committed chunk #8 with message: 'Chunk #8 - 1 files pushed successfully'
+2025-04-09 12:29:40,906 - INFO - Pushed changes to remote repository
+2025-04-09 12:29:40,910 - INFO - Successfully processed Chunk #8
+2025-04-09 12:29:40,911 - INFO - 
+Processing Chunk #9 (1 files, 25.0MB)
+2025-04-09 12:29:43,004 - INFO - Added to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\PKRPass_Music\Platinum_PKR_Pass-_transcend-soundroll-main-version-1756-02-38_part000.uasset
+2025-04-09 12:29:43,294 - INFO - Committed chunk #9 with message: 'Chunk #9 - 1 files pushed successfully'
+2025-04-09 12:29:55,176 - INFO - Pushed changes to remote repository
+2025-04-09 12:29:55,196 - INFO - Successfully processed Chunk #9
+2025-04-09 12:29:55,197 - INFO - 
+Processing Chunk #10 (2 files, 18.18MB)
+2025-04-09 12:29:55,389 - INFO - Added to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\PKRPass_Music\Platinum_PKR_Pass-_transcend-soundroll-main-version-1756-02-38_part001.uasset
+2025-04-09 12:29:57,218 - INFO - Added to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\PKRPass_Music\Silver_PKR_Pass_Music-_runway-bosnow-main-version-37245-01-50.uasset
+2025-04-09 12:29:57,513 - INFO - Committed chunk #10 with message: 'Chunk #10 - 2 files pushed successfully'
+2025-04-09 12:30:09,022 - INFO - Pushed changes to remote repository
+2025-04-09 12:30:09,042 - INFO - Successfully processed Chunk #10
+2025-04-09 12:30:09,042 - INFO - 
+Processing Chunk #11 (1 files, 25.0MB)
+2025-04-09 12:30:11,198 - INFO - Added to staging: Polker-Desktop-Dedicated\Polker\Content\Audio\BackgroundMusic\S_Beach_Days_-_Brett_Gregory_part000.uasset
+2025-04-09 12:30:11,819 - INFO - Committed chunk #11 with message: 'Chunk #11 - 1 files pushed successfully'

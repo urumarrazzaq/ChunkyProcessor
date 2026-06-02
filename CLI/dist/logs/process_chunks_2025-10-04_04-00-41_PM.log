@@ -1,0 +1,3 @@
+2025-10-04 16:00:41,467 - INFO - Logging system initialized
+2025-10-04 16:01:05,954 - INFO - Parsing log file: D:\PythonScripts\GitTools\Tools\git_chunks.log
+2025-10-04 16:01:05,955 - WARNING - No chunks found in the log file!
