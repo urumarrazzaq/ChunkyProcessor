@@ -16,7 +16,15 @@ import tkinter as tk
 from tkinter import ttk, filedialog, messagebox
 
 
-APP_TITLE = "Git Chunky Processor - Dark GUI v4"
+APP_TITLE = "Git Chunky Processor - Dark GUI"
+
+
+def get_resource_path(relative_path: str) -> str:
+    if getattr(sys, "frozen", False):
+        base_path = Path(sys._MEIPASS)
+    else:
+        base_path = Path(__file__).resolve().parent
+    return str(base_path / relative_path)
 
 
 # -----------------------------
@@ -302,6 +310,17 @@ class ChunkyGUI(tk.Tk):
         self.border = "#465263"
 
         self.configure(bg=self.bg)
+        icon_path = get_resource_path("favicon.ico")
+        if os.path.exists(icon_path):
+            try:
+                self.iconbitmap(icon_path)
+            except Exception:
+                pass
+            try:
+                icon = tk.PhotoImage(file=icon_path)
+                self.iconphoto(False, icon)
+            except Exception:
+                pass
 
         self.log_q = queue.Queue()
         self.ui_q = queue.Queue()

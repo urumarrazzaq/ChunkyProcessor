@@ -1,22 +1,3 @@
-#!/usr/bin/env python3
-"""
-Git Chunky Processor - GUI Fixed Version 2
-
-What this does:
-- Reads a chunk log like:
-    Chunk #1 (25 files, 120.5MB):
-    - Content/File A.uasset
-    - Content/File B.umap
-- Adds files chunk-by-chunk
-- Commits each chunk
-- Pushes after each chunk
-- Saves processed chunk numbers so you can resume safely
-
-Important fix from the older version:
-- Git work is intentionally processed sequentially, not in parallel.
-  Parallel git push/commit operations can cause rejected pushes and ordering problems.
-"""
-
 from __future__ import annotations
 
 import json
@@ -24,6 +5,7 @@ import os
 import queue
 import re
 import subprocess
+import sys
 import threading
 import time
 import tkinter as tk
@@ -157,7 +139,7 @@ def normalize_file_for_git(repo_path: str | Path, file_path: str) -> Optional[st
     """Return a repo-relative path suitable for git add, or None if missing.
 
     The chunk report usually stores Windows-style relative paths such as:
-        Content\Characters\Foo.uasset
+        Content\\Characters\\Foo.uasset
 
     This function normalises those paths safely. It also strips any accidental
     trailing size suffix as a defensive fallback.
@@ -193,6 +175,13 @@ def normalize_file_for_git(repo_path: str | Path, file_path: str) -> Optional[st
         return None
 
     return rel.as_posix()
+
+
+def get_resource_path(relative_path: str) -> Path:
+    """Return the correct path for bundled or source resources."""
+    if getattr(sys, "_MEIPASS", None):
+        return Path(sys._MEIPASS) / relative_path
+    return Path(__file__).resolve().parent / relative_path
 
 
 def staged_has_changes(repo_path: str | Path, log: Callable[[str], None]) -> bool:
@@ -374,6 +363,7 @@ class ChunkyGUI(tk.Tk):
         self.status_var = tk.StringVar(value="Ready")
 
         self._build_ui()
+        self._set_window_icon()
         self.after(100, self._drain_queues)
 
     def _build_ui(self) -> None:
@@ -464,6 +454,18 @@ class ChunkyGUI(tk.Tk):
         self.log_text.insert("end", f"[{timestamp}] {message}\n")
         self.log_text.see("end")
         self.update_idletasks()
+
+    def _set_window_icon(self) -> None:
+        icon_path = get_resource_path("favicon.ico")
+        if icon_path.exists():
+            try:
+                self.iconbitmap(default=str(icon_path))
+            except Exception:
+                try:
+                    icon = tk.PhotoImage(file=str(icon_path))
+                    self.iconphoto(False, icon)
+                except Exception:
+                    pass
 
     def log_from_worker(self, message: str) -> None:
         self.log_queue.put(message)
