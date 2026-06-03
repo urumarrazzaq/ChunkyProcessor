@@ -1,9 +1,9 @@
 {
   "app": "Git Chunk Processor Dashboard",
-  "running": true,
-  "stop_requested": false,
+  "running": false,
+  "stop_requested": true,
   "started_at": "2026-06-03T17:27:05",
-  "ended_at": null,
+  "ended_at": "2026-06-03T17:29:57",
   "mode": "full",
   "log_file": "D:/UE World/2Towers/2Towers_Archviz_UE_Project/git_chunks.log",
   "repo_path": "D:/UE World/2Towers/2Towers_Archviz_UE_Project",
@@ -12,16 +12,16 @@
   "start_chunk": 329,
   "end_chunk": "",
   "pause_between_chunks": 0,
-  "current_chunk": 337,
-  "selected_chunk": 337,
-  "overall_progress": 56,
-  "eta": "1h 11m 33s",
-  "average_chunk_seconds": 16.97,
+  "current_chunk": null,
+  "selected_chunk": 340,
+  "overall_progress": 57,
+  "eta": "1h 9m 45s",
+  "average_chunk_seconds": 16.81,
   "stats": {
     "total": 589,
-    "pending": 252,
-    "processing": 1,
-    "completed": 6,
+    "pending": 249,
+    "processing": 0,
+    "completed": 10,
     "failed": 1,
     "skipped": 329
   },
@@ -14212,14 +14212,14 @@
       "number": 337,
       "file_count": 1,
       "size_mb": 25.0,
-      "status": "processing",
-      "stage": "pushing",
-      "progress": 85,
+      "status": "completed",
+      "stage": "done",
+      "progress": 100,
       "error": "",
-      "push_output": "",
+      "push_output": "To github.com:urumarrazzaq/2Towers_Archviz_UE_Project.git\n   2afed8e..7f7258c  main -> main",
       "started_at": "2026-06-03T17:28:51",
-      "ended_at": null,
-      "duration_seconds": null,
+      "ended_at": "2026-06-03T17:29:08",
+      "duration_seconds": 17.38,
       "files": [
         {
           "path": "Content\\EuropeanBeech\\Textures\\Trunk\\Trunk_06\\T_EuropeanBeechTrunk_06_Mask_part000.uasset",
@@ -14234,21 +14234,21 @@
       "number": 338,
       "file_count": 1,
       "size_mb": 25.0,
-      "status": "pending",
-      "stage": "pending",
-      "progress": 0,
+      "status": "completed",
+      "stage": "done",
+      "progress": 100,
       "error": "",
-      "push_output": "",
-      "started_at": null,
-      "ended_at": null,
-      "duration_seconds": null,
+      "push_output": "To github.com:urumarrazzaq/2Towers_Archviz_UE_Project.git\n   7f7258c..f6eb001  main -> main",
+      "started_at": "2026-06-03T17:29:08",
+      "ended_at": "2026-06-03T17:29:25",
+      "duration_seconds": 17.46,
       "files": [
         {
           "path": "Content\\EuropeanBeech\\Textures\\Trunk\\Trunk_06\\T_EuropeanBeechTrunk_06_Mask_part001.uasset",
           "name": "T_EuropeanBeechTrunk_06_Mask_part001.uasset",
           "folder": "Content\\EuropeanBeech\\Textures\\Trunk\\Trunk_06",
           "size_mb": 25.0,
-          "status": "pending"
+          "status": "added"
         }
       ]
     },
@@ -14256,21 +14256,21 @@
       "number": 339,
       "file_count": 1,
       "size_mb": 25.0,
-      "status": "pending",
-      "stage": "pending",
-      "progress": 0,
+      "status": "completed",
+      "stage": "done",
+      "progress": 100,
       "error": "",
-      "push_output": "",
-      "started_at": null,
-      "ended_at": null,
-      "duration_seconds": null,
+      "push_output": "To github.com:urumarrazzaq/2Towers_Archviz_UE_Project.git\n   f6eb001..7efec06  main -> main",
+      "started_at": "2026-06-03T17:29:25",
+      "ended_at": "2026-06-03T17:29:42",
+      "duration_seconds": 16.71,
       "files": [
         {
           "path": "Content\\EuropeanBeech\\Textures\\Trunk\\Trunk_06\\T_EuropeanBeechTrunk_06_Mask_part002.uasset",
           "name": "T_EuropeanBeechTrunk_06_Mask_part002.uasset",
           "folder": "Content\\EuropeanBeech\\Textures\\Trunk\\Trunk_06",
           "size_mb": 25.0,
-          "status": "pending"
+          "status": "added"
         }
       ]
     },
@@ -14278,21 +14278,21 @@
       "number": 340,
       "file_count": 1,
       "size_mb": 13.15,
-      "status": "pending",
-      "stage": "pending",
-      "progress": 0,
+      "status": "completed",
+      "stage": "done",
+      "progress": 100,
       "error": "",
-      "push_output": "",
-      "started_at": null,
-      "ended_at": null,
-      "duration_seconds": null,
+      "push_output": "To github.com:urumarrazzaq/2Towers_Archviz_UE_Project.git\n   7efec06..7c380a8  main -> main",
+      "started_at": "2026-06-03T17:29:42",
+      "ended_at": "2026-06-03T17:29:57",
+      "duration_seconds": 14.74,
       "files": [
         {
           "path": "Content\\EuropeanBeech\\Textures\\Trunk\\Trunk_06\\T_EuropeanBeechTrunk_06_Mask_part003.uasset",
           "name": "T_EuropeanBeechTrunk_06_Mask_part003.uasset",
           "folder": "Content\\EuropeanBeech\\Textures\\Trunk\\Trunk_06",
           "size_mb": 13.15,
-          "status": "pending"
+          "status": "added"
         }
       ]
     },
@@ -34199,6 +34199,206 @@
       "time": "17:28:52",
       "level": "cmd",
       "message": "$ git push"
+    },
+    {
+      "time": "17:29:08",
+      "level": "git",
+      "message": "To github.com:urumarrazzaq/2Towers_Archviz_UE_Project.git"
+    },
+    {
+      "time": "17:29:08",
+      "level": "git",
+      "message": "   2afed8e..7f7258c  main -> main"
+    },
+    {
+      "time": "17:29:08",
+      "level": "success",
+      "message": "Chunk #337 completed and pushed."
+    },
+    {
+      "time": "17:29:08",
+      "level": "info",
+      "message": "Processing Chunk #338 (1 files, 25.0 MB)"
+    },
+    {
+      "time": "17:29:08",
+      "level": "cmd",
+      "message": "$ git add -- Content\\EuropeanBeech\\Textures\\Trunk\\Trunk_06\\T_EuropeanBeechTrunk_06_Mask_part001.uasset"
+    },
+    {
+      "time": "17:29:10",
+      "level": "cmd",
+      "message": "$ git commit -m Chunk #338 - 1 files"
+    },
+    {
+      "time": "17:29:10",
+      "level": "git",
+      "message": "[main f6eb001] Chunk #338 - 1 files"
+    },
+    {
+      "time": "17:29:10",
+      "level": "git",
+      "message": " 1 file changed, 0 insertions(+), 0 deletions(-)"
+    },
+    {
+      "time": "17:29:10",
+      "level": "git",
+      "message": " create mode 100644 Content/EuropeanBeech/Textures/Trunk/Trunk_06/T_EuropeanBeechTrunk_06_Mask_part001.uasset"
+    },
+    {
+      "time": "17:29:10",
+      "level": "success",
+      "message": "Chunk #338 committed."
+    },
+    {
+      "time": "17:29:10",
+      "level": "cmd",
+      "message": "$ git push"
+    },
+    {
+      "time": "17:29:25",
+      "level": "git",
+      "message": "To github.com:urumarrazzaq/2Towers_Archviz_UE_Project.git"
+    },
+    {
+      "time": "17:29:25",
+      "level": "git",
+      "message": "   7f7258c..f6eb001  main -> main"
+    },
+    {
+      "time": "17:29:25",
+      "level": "success",
+      "message": "Chunk #338 completed and pushed."
+    },
+    {
+      "time": "17:29:25",
+      "level": "info",
+      "message": "Processing Chunk #339 (1 files, 25.0 MB)"
+    },
+    {
+      "time": "17:29:25",
+      "level": "cmd",
+      "message": "$ git add -- Content\\EuropeanBeech\\Textures\\Trunk\\Trunk_06\\T_EuropeanBeechTrunk_06_Mask_part002.uasset"
+    },
+    {
+      "time": "17:29:26",
+      "level": "cmd",
+      "message": "$ git commit -m Chunk #339 - 1 files"
+    },
+    {
+      "time": "17:29:27",
+      "level": "git",
+      "message": "[main 7efec06] Chunk #339 - 1 files"
+    },
+    {
+      "time": "17:29:27",
+      "level": "git",
+      "message": " 1 file changed, 0 insertions(+), 0 deletions(-)"
+    },
+    {
+      "time": "17:29:27",
+      "level": "git",
+      "message": " create mode 100644 Content/EuropeanBeech/Textures/Trunk/Trunk_06/T_EuropeanBeechTrunk_06_Mask_part002.uasset"
+    },
+    {
+      "time": "17:29:27",
+      "level": "success",
+      "message": "Chunk #339 committed."
+    },
+    {
+      "time": "17:29:27",
+      "level": "cmd",
+      "message": "$ git push"
+    },
+    {
+      "time": "17:29:42",
+      "level": "git",
+      "message": "To github.com:urumarrazzaq/2Towers_Archviz_UE_Project.git"
+    },
+    {
+      "time": "17:29:42",
+      "level": "git",
+      "message": "   f6eb001..7efec06  main -> main"
+    },
+    {
+      "time": "17:29:42",
+      "level": "success",
+      "message": "Chunk #339 completed and pushed."
+    },
+    {
+      "time": "17:29:42",
+      "level": "info",
+      "message": "Processing Chunk #340 (1 files, 13.15 MB)"
+    },
+    {
+      "time": "17:29:42",
+      "level": "cmd",
+      "message": "$ git add -- Content\\EuropeanBeech\\Textures\\Trunk\\Trunk_06\\T_EuropeanBeechTrunk_06_Mask_part003.uasset"
+    },
+    {
+      "time": "17:29:43",
+      "level": "cmd",
+      "message": "$ git commit -m Chunk #340 - 1 files"
+    },
+    {
+      "time": "17:29:43",
+      "level": "git",
+      "message": "[main 7c380a8] Chunk #340 - 1 files"
+    },
+    {
+      "time": "17:29:43",
+      "level": "git",
+      "message": " 1 file changed, 0 insertions(+), 0 deletions(-)"
+    },
+    {
+      "time": "17:29:43",
+      "level": "git",
+      "message": " create mode 100644 Content/EuropeanBeech/Textures/Trunk/Trunk_06/T_EuropeanBeechTrunk_06_Mask_part003.uasset"
+    },
+    {
+      "time": "17:29:43",
+      "level": "success",
+      "message": "Chunk #340 committed."
+    },
+    {
+      "time": "17:29:43",
+      "level": "cmd",
+      "message": "$ git push"
+    },
+    {
+      "time": "17:29:50",
+      "level": "warning",
+      "message": "Stop requested by user."
+    },
+    {
+      "time": "17:29:52",
+      "level": "warning",
+      "message": "Stop requested by user."
+    },
+    {
+      "time": "17:29:57",
+      "level": "git",
+      "message": "To github.com:urumarrazzaq/2Towers_Archviz_UE_Project.git"
+    },
+    {
+      "time": "17:29:57",
+      "level": "git",
+      "message": "   7efec06..7c380a8  main -> main"
+    },
+    {
+      "time": "17:29:57",
+      "level": "success",
+      "message": "Chunk #340 completed and pushed."
+    },
+    {
+      "time": "17:29:57",
+      "level": "warning",
+      "message": "Stop requested. Processing paused."
+    },
+    {
+      "time": "17:29:57",
+      "level": "success",
+      "message": "Processing finished."
     }
   ],
   "last_error": "",
