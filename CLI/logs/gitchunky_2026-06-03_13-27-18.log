@@ -1,0 +1,1112 @@
+2026-06-03 13:27:38,692 | INFO     |   ·  Parsing chunk plan: D:\UE World\2Towers\2Towers_Archviz_UE_Project\git_chunks.log
+2026-06-03 13:27:38,708 | INFO     |   ·  Found 589 chunk(s) in plan
+2026-06-03 13:27:38,709 | INFO     | Processing Chunk #1 (9 files, 24.62 MB)
+2026-06-03 13:27:38,709 | INFO     |   ›  Running  git add  for 9 file(s)…
+2026-06-03 13:27:38,740 | DEBUG    |   git add OK: All_In_One.uproject
+2026-06-03 13:27:38,774 | DEBUG    |   git add OK: Config\DefaultEditor.ini
+2026-06-03 13:27:38,813 | DEBUG    |   git add OK: Config\DefaultEngine.ini
+2026-06-03 13:27:38,846 | DEBUG    |   git add OK: Config\DefaultGame.ini
+2026-06-03 13:27:38,877 | DEBUG    |   git add OK: Config\DefaultInput.ini
+2026-06-03 13:27:38,957 | DEBUG    |   git add OK: Content\All_In_One\All_In_OneBackup(04-04).rar
+2026-06-03 13:27:38,992 | DEBUG    |   git add OK: Content\All_In_One\Assets\360_View\BP_360Sphere.uasset
+2026-06-03 13:27:39,028 | DEBUG    |   git add OK: Content\All_In_One\Assets\360_View\Images\Height_15M.uasset
+2026-06-03 13:27:39,065 | DEBUG    |   git add OK: Content\All_In_One\Assets\360_View\Images\Height_20M.uasset
+2026-06-03 13:27:39,066 | INFO     |   ›  Running  git commit  for Chunk #1…
+2026-06-03 13:27:39,112 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #1 (9 files)']' returned non-zero exit status 1.
+2026-06-03 13:27:39,112 | ERROR    |   ✖  Chunk #1 aborted – git commit failed.
+2026-06-03 13:27:39,113 | INFO     | Processing Chunk #2 (1 files, 12.55 MB)
+2026-06-03 13:27:39,113 | INFO     |   ›  Running  git add  for 1 file(s)…
+2026-06-03 13:27:39,148 | DEBUG    |   git add OK: Content\All_In_One\Assets\360_View\Images\Height_30M.uasset
+2026-06-03 13:27:39,148 | INFO     |   ›  Running  git commit  for Chunk #2…
+2026-06-03 13:27:39,192 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #2 (1 file)']' returned non-zero exit status 1.
+2026-06-03 13:27:39,192 | ERROR    |   ✖  Chunk #2 aborted – git commit failed.
+2026-06-03 13:27:39,193 | INFO     | Processing Chunk #3 (1 files, 12.71 MB)
+2026-06-03 13:27:39,193 | INFO     |   ›  Running  git add  for 1 file(s)…
+2026-06-03 13:27:39,229 | DEBUG    |   git add OK: Content\All_In_One\Assets\360_View\Images\Height_50M.uasset
+2026-06-03 13:27:39,229 | INFO     |   ›  Running  git commit  for Chunk #3…
+2026-06-03 13:27:39,271 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #3 (1 file)']' returned non-zero exit status 1.
+2026-06-03 13:27:39,272 | ERROR    |   ✖  Chunk #3 aborted – git commit failed.
+2026-06-03 13:27:39,272 | INFO     | Processing Chunk #4 (157 files, 23.93 MB)
+2026-06-03 13:27:39,278 | INFO     |   ›  Running  git add  for 157 file(s)…
+2026-06-03 13:27:39,309 | DEBUG    |   git add OK: Content\All_In_One\Assets\360_View\Images\Height_75M.uasset
+2026-06-03 13:27:39,340 | DEBUG    |   git add OK: Content\All_In_One\Assets\360_View\M_Funcation\M_instance.uasset
+2026-06-03 13:27:39,378 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Amenities_02_Icon.uasset
+2026-06-03 13:27:39,415 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Amenities_Icon.uasset
+2026-06-03 13:27:39,444 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Arc_Button.uasset
+2026-06-03 13:27:39,476 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\BG_Lable.uasset
+2026-06-03 13:27:39,509 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\BackButton_Icon.uasset
+2026-06-03 13:27:39,543 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Base_Lable.uasset
+2026-06-03 13:27:39,577 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Black_BaseBG.uasset
+2026-06-03 13:27:39,610 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\DayNight_Icon.uasset
+2026-06-03 13:27:39,644 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\DropDown_Arrow.uasset
+2026-06-03 13:27:39,682 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Location_Icon.uasset
+2026-06-03 13:27:39,715 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Amenities_02_Icon.uasset
+2026-06-03 13:27:39,745 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Amenities_Icon.uasset
+2026-06-03 13:27:39,778 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Arc_Button.uasset
+2026-06-03 13:27:39,815 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\BG_Lable.uasset
+2026-06-03 13:27:39,845 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\BackButton_Icon.uasset
+2026-06-03 13:27:39,876 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Base_Lable.uasset
+2026-06-03 13:27:39,906 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Black_BaseBG.uasset
+2026-06-03 13:27:39,937 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\DayNight_Icon.uasset
+2026-06-03 13:27:39,971 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\DropDown_Arrow.uasset
+2026-06-03 13:27:40,002 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Location_Icon.uasset
+2026-06-03 13:27:40,038 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\ProjectHome_Icon.uasset
+2026-06-03 13:27:40,071 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\ProjectPlay_Icon.uasset
+2026-06-03 13:27:40,109 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Rect_Holder_Trans.uasset
+2026-06-03 13:27:40,142 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Selection.uasset
+2026-06-03 13:27:40,176 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Selection_Button.uasset
+2026-06-03 13:27:40,209 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Setting_Icon.uasset
+2026-06-03 13:27:40,242 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Side_Arc.uasset
+2026-06-03 13:27:40,273 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Side_Arc_Button.uasset
+2026-06-03 13:27:40,303 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Square.uasset
+2026-06-03 13:27:40,336 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Square_Curved.uasset
+2026-06-03 13:27:40,367 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Walk_Icon.uasset
+2026-06-03 13:27:40,399 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\White_Dividers.uasset
+2026-06-03 13:27:40,437 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\ProjectHome_Icon.uasset
+2026-06-03 13:27:40,470 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\ProjectPlay_Icon.uasset
+2026-06-03 13:27:40,501 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Rect_Holder_Trans.uasset
+2026-06-03 13:27:40,533 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Selection.uasset
+2026-06-03 13:27:40,569 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Selection_Button.uasset
+2026-06-03 13:27:40,599 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Setting_Icon.uasset
+2026-06-03 13:27:40,629 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Side_Arc.uasset
+2026-06-03 13:27:40,659 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Side_Arc_Button.uasset
+2026-06-03 13:27:40,693 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Square_Curved.uasset
+2026-06-03 13:27:40,725 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\White_Dividers.uasset
+2026-06-03 13:27:40,757 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\txt\Montserrat-Black.uasset
+2026-06-03 13:27:40,800 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\txt\Montserrat-Black_Font.uasset
+2026-06-03 13:27:40,839 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\txt\Montserrat-Bold.uasset
+2026-06-03 13:27:40,888 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\txt\Montserrat-Bold_Font.uasset
+2026-06-03 13:27:40,924 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\txt\Montserrat-MediumItalic.uasset
+2026-06-03 13:27:40,956 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\txt\Montserrat-MediumItalic_Font.uasset
+2026-06-03 13:27:40,990 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\txt\Montserrat-Regular.uasset
+2026-06-03 13:27:41,018 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\txt\Montserrat-Regular_Font.uasset
+2026-06-03 13:27:41,049 | DEBUG    |   git add OK: Content\All_In_One\Assets\Circle.uasset
+2026-06-03 13:27:41,083 | DEBUG    |   git add OK: Content\All_In_One\Assets\Circle2.uasset
+2026-06-03 13:27:41,117 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icon_Holder1.uasset
+2026-06-03 13:27:41,148 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Aakash_Healthcare_Super_Speciality_Hospital.uasset
+2026-06-03 13:27:41,182 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Aerocity.uasset
+2026-06-03 13:27:41,216 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Bal_Bharti_School.uasset
+2026-06-03 13:27:41,250 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Bal_Bhavan_International_School.uasset
+2026-06-03 13:27:41,283 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Bensups_Multi-Speciality_Hospital.uasset
+2026-06-03 13:27:41,317 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Bharat_Vandana_Park.uasset
+2026-06-03 13:27:41,351 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Bhaskaracharya_College_of_Applied_Sciene.uasset
+2026-06-03 13:27:41,384 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\City_Centre_Mall.uasset
+2026-06-03 13:27:41,416 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Connaught_Place.uasset
+2026-06-03 13:27:41,449 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\D21_Corporate_Park.uasset
+2026-06-03 13:27:41,482 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\DDA_Golf_Course_Dwarka.uasset
+2026-06-03 13:27:41,513 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\DLF_Cyber_City.uasset
+2026-06-03 13:27:41,605 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Day_Night_Slider\Center_Bar.uasset
+2026-06-03 13:27:41,640 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Day_Night_Slider\DayNight_Slider.uasset
+2026-06-03 13:27:41,673 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Day_Night_Slider\Evening_Button.uasset
+2026-06-03 13:27:41,704 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Day_Night_Slider\Moon_Button.uasset
+2026-06-03 13:27:41,734 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Day_Night_Slider\Sun_Button.uasset
+2026-06-03 13:27:41,769 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Day_Night_Slider\Top_SliderButton.uasset
+2026-06-03 13:27:41,801 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Deen_Dayal_Upadhyaya_College.uasset
+2026-06-03 13:27:41,837 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Delhi_Cantt.uasset
+2026-06-03 13:27:41,868 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Delhi_International_School_Edge.uasset
+2026-06-03 13:27:41,900 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Delhi_Public_School.uasset
+2026-06-03 13:27:41,934 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Dhaula_Kuan.uasset
+2026-06-03 13:27:41,969 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\District_Centre__Janakpuri.uasset
+2026-06-03 13:27:42,001 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Dwarka_Expressway.uasset
+2026-06-03 13:27:42,033 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Dwarka_Sector_13_Metro_Station.uasset
+2026-06-03 13:27:42,067 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Eros_Metro_Mall.uasset
+2026-06-03 13:27:42,101 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Guru_Govind_Singh_IP_University.uasset
+2026-06-03 13:27:42,133 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Gurugram.uasset
+2026-06-03 13:27:42,178 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\IGI_Airport___Aerocity.uasset
+2026-06-03 13:27:42,214 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Icons_TIFF\Center_Bar.uasset
+2026-06-03 13:27:42,250 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Icons_TIFF\Evening_Button.uasset
+2026-06-03 13:27:42,284 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Icons_TIFF\Home_Icon.uasset
+2026-06-03 13:27:42,320 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Icons_TIFF\Location_CenterBar.uasset
+2026-06-03 13:27:42,352 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Icons_TIFF\Location_Icon.uasset
+2026-06-03 13:27:42,384 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Icons_TIFF\Moon_Button.uasset
+2026-06-03 13:27:42,417 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Icons_TIFF\Sun_Button.uasset
+2026-06-03 13:27:42,450 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Icons_TIFF\Top_SliderButton.uasset
+2026-06-03 13:27:42,486 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Indira_Gandhi_Hospital.uasset
+2026-06-03 13:27:42,517 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Indraprastha_International_School.uasset
+2026-06-03 13:27:42,556 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Janakpuri.uasset
+2026-06-03 13:27:42,591 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Location\Home_Icon.uasset
+2026-06-03 13:27:42,626 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Location\Location_CenterBar.uasset
+2026-06-03 13:27:42,661 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Location\Location_Icon.uasset
+2026-06-03 13:27:42,694 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Location\Location_Slider.uasset
+2026-06-03 13:27:42,728 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Location\Top_SliderButton.uasset
+2026-06-03 13:27:42,761 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Maharaja_Agrasen_Hospital.uasset
+2026-06-03 13:27:42,791 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Manipal_Hospital.uasset
+2026-06-03 13:27:42,824 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Max_Super_Speciality_Hospital.uasset
+2026-06-03 13:27:42,860 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Mount_Carmel_School.uasset
+2026-06-03 13:27:42,892 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\NH-8.uasset
+2026-06-03 13:27:42,924 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\National_Law_University.uasset
+2026-06-03 13:27:42,968 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Netaji_Subhas_University_of_Technology.uasset
+2026-06-03 13:27:42,999 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Paschim_Vihar.uasset
+2026-06-03 13:27:43,033 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Punjabi_Bagh.uasset
+2026-06-03 13:27:43,076 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Radisson_Blu_Hotel__New_Delhi_Dwarka.uasset
+2026-06-03 13:27:43,107 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Radisson_Blu_Plaza_Delhi_Airport.uasset
+2026-06-03 13:27:43,139 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Rajouri_Garden.uasset
+2026-06-03 13:27:43,172 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Reliance_Mall.uasset
+2026-06-03 13:27:43,204 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Roseate_House_Andaz_New_Delhi_Aerocity.uasset
+2026-06-03 13:27:43,235 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Samar_Hospital.uasset
+2026-06-03 13:27:43,266 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Taj_Vivanta_New_Delhi__Dwarka.uasset
+2026-06-03 13:27:43,295 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\UER-II.uasset
+2026-06-03 13:27:43,328 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Udyog_Vihar.uasset
+2026-06-03 13:27:43,362 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\University_School_of_Information.uasset
+2026-06-03 13:27:43,395 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Vandana_International_School.uasset
+2026-06-03 13:27:43,428 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Vegas_Mall.uasset
+2026-06-03 13:27:43,460 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Venkasteshwar_Hospital.uasset
+2026-06-03 13:27:43,492 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Venkateshwar_International_School.uasset
+2026-06-03 13:27:43,523 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Welcomhotel_by_ITC_Hotels__Dwarka.uasset
+2026-06-03 13:27:43,555 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Yashobhoomi_Convention_Centre__IICC_.uasset
+2026-06-03 13:27:43,584 | DEBUG    |   git add OK: Content\All_In_One\Assets\Location.uasset
+2026-06-03 13:27:43,615 | DEBUG    |   git add OK: Content\All_In_One\Assets\M_IconHolder.uasset
+2026-06-03 13:27:43,648 | DEBUG    |   git add OK: Content\All_In_One\Assets\OutLine\M_Outline.uasset
+2026-06-03 13:27:43,681 | DEBUG    |   git add OK: Content\All_In_One\Assets\OutLine\OutLine.uasset
+2026-06-03 13:27:43,714 | DEBUG    |   git add OK: Content\All_In_One\Assets\OutLine\OutLine_Color.uasset
+2026-06-03 13:27:43,747 | DEBUG    |   git add OK: Content\All_In_One\Assets\OutLine\Wall_Panels.uasset
+2026-06-03 13:27:43,779 | DEBUG    |   git add OK: Content\All_In_One\Assets\P_View\Asset\Arrow_U.uasset
+2026-06-03 13:27:43,811 | DEBUG    |   git add OK: Content\All_In_One\Assets\P_View\Asset\Arrow_U1.uasset
+2026-06-03 13:27:43,847 | DEBUG    |   git add OK: Content\All_In_One\Assets\P_View\Asset\arrow_u2.uasset
+2026-06-03 13:27:43,878 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\BP_BaseAnchor.uasset
+2026-06-03 13:27:43,911 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\BP_CameraBlockVolume.uasset
+2026-06-03 13:27:43,941 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\BP_CameraGameMode.uasset
+2026-06-03 13:27:43,971 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\BP_DetectSroundingLocations.uasset
+2026-06-03 13:27:44,001 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\BP_FPView.uasset
+2026-06-03 13:27:44,031 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\BP_FPWalkPoint.uasset
+2026-06-03 13:27:44,060 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\BP_FocusAnchor.uasset
+2026-06-03 13:27:44,090 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\BP_MoveToLocation.uasset
+2026-06-03 13:27:44,120 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\BP_OverviewFixed.uasset
+2026-06-03 13:27:44,152 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\BP_OverviewOrbit.uasset
+2026-06-03 13:27:44,180 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\BP_PinLocation.uasset
+2026-06-03 13:27:44,210 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\BP_TouchOrbitCamera.uasset
+2026-06-03 13:27:44,242 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\BP_ToweHUD.uasset
+2026-06-03 13:27:44,271 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\M_UI.uasset
+2026-06-03 13:27:44,330 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\bckup\2\3\4\BP_CameraGameMode.uasset
+2026-06-03 13:27:44,363 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\bckup\2\3\4\BP_FPView.uasset
+2026-06-03 13:27:44,396 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\bckup\2\3\4\BP_FocusAnchor.uasset
+2026-06-03 13:27:44,429 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\bckup\2\3\4\BP_TouchOrbitCamera.uasset
+2026-06-03 13:27:44,460 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\bckup\2\3\BP_CameraGameMode.uasset
+2026-06-03 13:27:44,492 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\bckup\2\3\BP_FPView.uasset
+2026-06-03 13:27:44,524 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\bckup\2\3\BP_FocusAnchor.uasset
+2026-06-03 13:27:44,562 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\bckup\2\3\BP_TouchOrbitCamera.uasset
+2026-06-03 13:27:44,563 | INFO     |   ›  Running  git commit  for Chunk #4…
+2026-06-03 13:27:44,706 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #4 (157 files)']' returned non-zero exit status 1.
+2026-06-03 13:27:44,706 | ERROR    |   ✖  Chunk #4 aborted – git commit failed.
+2026-06-03 13:27:44,707 | INFO     | Processing Chunk #5 (1 files, 25.0 MB)
+2026-06-03 13:27:44,707 | INFO     |   ›  Running  git add  for 1 file(s)…
+2026-06-03 13:27:44,741 | DEBUG    |   git add OK: Content\All_In_One\Maps\02Towers_part000.umap
+2026-06-03 13:27:44,742 | INFO     |   ›  Running  git commit  for Chunk #5…
+2026-06-03 13:27:44,785 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #5 (1 file)']' returned non-zero exit status 1.
+2026-06-03 13:27:44,785 | ERROR    |   ✖  Chunk #5 aborted – git commit failed.
+2026-06-03 13:27:44,786 | INFO     | Processing Chunk #6 (15 files, 24.99 MB)
+2026-06-03 13:27:44,787 | INFO     |   ›  Running  git add  for 15 file(s)…
+2026-06-03 13:27:44,826 | DEBUG    |   git add OK: Content\All_In_One\Maps\02Towers_part001.umap
+2026-06-03 13:27:44,858 | DEBUG    |   git add OK: Content\All_In_One\Maps\Eldeco_01_sharedassets\AutoMaterial_LayerInfo.uasset
+2026-06-03 13:27:44,889 | DEBUG    |   git add OK: Content\All_In_One\Maps\Eldeco_01_sharedassets\Ground_LayerInfo.uasset
+2026-06-03 13:27:44,920 | DEBUG    |   git add OK: Content\All_In_One\Maps\Eldeco_01_sharedassets\MidHigh_LayerInfo.uasset
+2026-06-03 13:27:44,951 | DEBUG    |   git add OK: Content\All_In_One\Maps\Eldeco_01_sharedassets\MidLow_LayerInfo.uasset
+2026-06-03 13:27:44,981 | DEBUG    |   git add OK: Content\All_In_One\Maps\MAp.uasset
+2026-06-03 13:27:45,010 | DEBUG    |   git add OK: Content\All_In_One\Maps\Tree_map.uasset
+2026-06-03 13:27:45,041 | DEBUG    |   git add OK: Content\All_In_One\Materials\M_Outline.uasset
+2026-06-03 13:27:45,075 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Books_Set01.uasset
+2026-06-03 13:27:45,111 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Books_Set02.uasset
+2026-06-03 13:27:45,147 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Books_Set03.uasset
+2026-06-03 13:27:45,190 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Books_Set04.uasset
+2026-06-03 13:27:45,228 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Chair_Evie_Velvet.uasset
+2026-06-03 13:27:45,263 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Chair_Rubautelli.uasset
+2026-06-03 13:27:45,296 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\CoffeeTable_Max_Oak.uasset
+2026-06-03 13:27:45,296 | INFO     |   ›  Running  git commit  for Chunk #6…
+2026-06-03 13:27:45,342 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #6 (15 files)']' returned non-zero exit status 1.
+2026-06-03 13:27:45,342 | ERROR    |   ✖  Chunk #6 aborted – git commit failed.
+2026-06-03 13:27:45,343 | INFO     | Processing Chunk #7 (32 files, 23.27 MB)
+2026-06-03 13:27:45,344 | INFO     |   ›  Running  git add  for 32 file(s)…
+2026-06-03 13:27:45,376 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\DiningChair_Nordic_White.uasset
+2026-06-03 13:27:45,405 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Dining_Table_Nordic_90cm_White.uasset
+2026-06-03 13:27:45,435 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\DumbellStand.uasset
+2026-06-03 13:27:45,466 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Exercise_bike.uasset
+2026-06-03 13:27:45,494 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\AlexandraeArecaPalm.uasset
+2026-06-03 13:27:45,525 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\AlocasiaPolly.uasset
+2026-06-03 13:27:45,555 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\ArecaPalm.uasset
+2026-06-03 13:27:45,588 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\ChamaedoreaElegans.uasset
+2026-06-03 13:27:45,621 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\FICUS_LYRATA.uasset
+2026-06-03 13:27:45,699 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\LivistonaChinesis.uasset
+2026-06-03 13:27:45,731 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\MI_Ficus_Lyrata.uasset
+2026-06-03 13:27:45,764 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\MI_MetalPot.uasset
+2026-06-03 13:27:45,794 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\MONSTERA_Pot.uasset
+2026-06-03 13:27:45,823 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Materials\MI_AlocasiaPolly.uasset
+2026-06-03 13:27:45,855 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Materials\MI_ChamaedoreaElegans.uasset
+2026-06-03 13:27:45,884 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Materials\MI_Ficus_Lyrata.uasset
+2026-06-03 13:27:45,915 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Materials\MI_MONSTERA_Deliciosa.uasset
+2026-06-03 13:27:45,945 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Materials\MI_MetalPot.uasset
+2026-06-03 13:27:45,984 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Materials\MI_PhilondendronBirkin.uasset
+2026-06-03 13:27:46,021 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Materials\MI_PlanterCross.uasset
+2026-06-03 13:27:46,053 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Materials\MI_PlanterCrossDark.uasset
+2026-06-03 13:27:46,084 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Materials\MI_STRELITZIA_NICOLAI.uasset
+2026-06-03 13:27:46,118 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Materials\MI_STRELITZIA_REGINAE.uasset
+2026-06-03 13:27:46,151 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Materials\MI_Sansevieria.uasset
+2026-06-03 13:27:46,182 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\PhilondendronBirkin.uasset
+2026-06-03 13:27:46,215 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\STRELITZIA_NICOLAI.uasset
+2026-06-03 13:27:46,251 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\STRELITZIA_REGINAE.uasset
+2026-06-03 13:27:46,292 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Sansevieria.uasset
+2026-06-03 13:27:46,333 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\AlocasiaPolly_BaseColor.uasset
+2026-06-03 13:27:46,383 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\AlocasiaPolly_Normal.uasset
+2026-06-03 13:27:46,415 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\AlocasiaPolly_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:46,446 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\ArecaPalm_BaseColor.uasset
+2026-06-03 13:27:46,447 | INFO     |   ›  Running  git commit  for Chunk #7…
+2026-06-03 13:27:46,492 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #7 (32 files)']' returned non-zero exit status 1.
+2026-06-03 13:27:46,492 | ERROR    |   ✖  Chunk #7 aborted – git commit failed.
+2026-06-03 13:27:46,492 | INFO     | Processing Chunk #8 (6 files, 22.6 MB)
+2026-06-03 13:27:46,493 | INFO     |   ›  Running  git add  for 6 file(s)…
+2026-06-03 13:27:46,524 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\ArecaPalm_Normal.uasset
+2026-06-03 13:27:46,554 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\ArecaPalm_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:46,593 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\CeramicPot_BaseColor.uasset
+2026-06-03 13:27:46,631 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\CeramicPot_Normal.uasset
+2026-06-03 13:27:46,664 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\CeramicPot_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:46,696 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\ChamaedoreaElegans_BaseColor.uasset
+2026-06-03 13:27:46,696 | INFO     |   ›  Running  git commit  for Chunk #8…
+2026-06-03 13:27:46,741 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #8 (6 files)']' returned non-zero exit status 1.
+2026-06-03 13:27:46,741 | ERROR    |   ✖  Chunk #8 aborted – git commit failed.
+2026-06-03 13:27:46,742 | INFO     | Processing Chunk #9 (11 files, 22.93 MB)
+2026-06-03 13:27:46,743 | INFO     |   ›  Running  git add  for 11 file(s)…
+2026-06-03 13:27:46,773 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\ChamaedoreaElegans_Normal.uasset
+2026-06-03 13:27:46,804 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\ChamaedoreaElegans_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:46,839 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\FICUS_LYRATA_BaseColor.uasset
+2026-06-03 13:27:46,876 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\FICUS_LYRATA_Normal.uasset
+2026-06-03 13:27:46,908 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\FICUS_LYRATA_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:46,939 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\LivistonaChinesis_BaseColor.uasset
+2026-06-03 13:27:46,969 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\LivistonaChinesis_Normal.uasset
+2026-06-03 13:27:47,022 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\LivistonaChinesis_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:47,068 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\MI_AlexandraeArecaPalm.uasset
+2026-06-03 13:27:47,100 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\MI_CeramicPot.uasset
+2026-06-03 13:27:47,134 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\MI_LivistonaChinesis.uasset
+2026-06-03 13:27:47,135 | INFO     |   ›  Running  git commit  for Chunk #9…
+2026-06-03 13:27:47,182 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #9 (11 files)']' returned non-zero exit status 1.
+2026-06-03 13:27:47,182 | ERROR    |   ✖  Chunk #9 aborted – git commit failed.
+2026-06-03 13:27:47,183 | INFO     | Processing Chunk #10 (7 files, 23.87 MB)
+2026-06-03 13:27:47,184 | INFO     |   ›  Running  git add  for 7 file(s)…
+2026-06-03 13:27:47,218 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\MONSTERA_Deliciosa_BaseColor.uasset
+2026-06-03 13:27:47,253 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\MONSTERA_Deliciosa_Normal.uasset
+2026-06-03 13:27:47,287 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\MONSTERA_Deliciosa_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:47,324 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\MetalPot_BaseColor.uasset
+2026-06-03 13:27:47,360 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\MetalPot_Normal.uasset
+2026-06-03 13:27:47,395 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\MetalPot_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:47,426 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\PhilondendronBirkin_BaseColor.uasset
+2026-06-03 13:27:47,426 | INFO     |   ›  Running  git commit  for Chunk #10…
+2026-06-03 13:27:47,472 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #10 (7 files)']' returned non-zero exit status 1.
+2026-06-03 13:27:47,472 | ERROR    |   ✖  Chunk #10 aborted – git commit failed.
+2026-06-03 13:27:47,473 | INFO     | Processing Chunk #11 (8 files, 24.92 MB)
+2026-06-03 13:27:47,473 | INFO     |   ›  Running  git add  for 8 file(s)…
+2026-06-03 13:27:47,506 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\PhilondendronBirkin_Normal.uasset
+2026-06-03 13:27:47,538 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\PhilondendronBirkin_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:47,572 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\PlanterCrossDark_BaseColor.uasset
+2026-06-03 13:27:47,603 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\PlanterCrossDark_Normal.uasset
+2026-06-03 13:27:47,635 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\PlanterCrossDark_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:47,665 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\PlanterCross_BaseColor.uasset
+2026-06-03 13:27:47,738 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\PlanterCross_Normal.uasset
+2026-06-03 13:27:47,778 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\PlanterCross_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:47,779 | INFO     |   ›  Running  git commit  for Chunk #11…
+2026-06-03 13:27:47,830 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #11 (8 files)']' returned non-zero exit status 1.
+2026-06-03 13:27:47,831 | ERROR    |   ✖  Chunk #11 aborted – git commit failed.
+2026-06-03 13:27:47,831 | INFO     | Processing Chunk #12 (7 files, 23.3 MB)
+2026-06-03 13:27:47,832 | INFO     |   ›  Running  git add  for 7 file(s)…
+2026-06-03 13:27:47,866 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\STRELITZIA_NICOLAI_BaseColor.uasset
+2026-06-03 13:27:47,899 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\STRELITZIA_NICOLAI_Normal.uasset
+2026-06-03 13:27:47,930 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\STRELITZIA_NICOLAI_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:47,963 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\STRELITZIA_REGINAE_BaseColor.uasset
+2026-06-03 13:27:47,994 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\STRELITZIA_REGINAE_Normal.uasset
+2026-06-03 13:27:48,030 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\STRELITZIA_REGINAE_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:48,066 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\Sansevieria_BaseColor.uasset
+2026-06-03 13:27:48,067 | INFO     |   ›  Running  git commit  for Chunk #12…
+2026-06-03 13:27:48,116 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #12 (7 files)']' returned non-zero exit status 1.
+2026-06-03 13:27:48,117 | ERROR    |   ✖  Chunk #12 aborted – git commit failed.
+2026-06-03 13:27:48,117 | INFO     | Processing Chunk #13 (2 files, 6.2 MB)
+2026-06-03 13:27:48,119 | INFO     |   ›  Running  git add  for 2 file(s)…
+2026-06-03 13:27:48,155 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\Sansevieria_Normal.uasset
+2026-06-03 13:27:48,188 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\Sansevieria_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:48,189 | INFO     |   ›  Running  git commit  for Chunk #13…
+2026-06-03 13:27:48,233 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #13 (2 files)']' returned non-zero exit status 1.
+2026-06-03 13:27:48,233 | ERROR    |   ✖  Chunk #13 aborted – git commit failed.
+2026-06-03 13:27:48,234 | INFO     | Processing Chunk #14 (1 files, 25.0 MB)
+2026-06-03 13:27:48,235 | INFO     |   ›  Running  git add  for 1 file(s)…
+2026-06-03 13:27:48,266 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\LifeFitness_part000.uasset
+2026-06-03 13:27:48,266 | INFO     |   ›  Running  git commit  for Chunk #14…
+2026-06-03 13:27:48,309 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #14 (1 file)']' returned non-zero exit status 1.
+2026-06-03 13:27:48,310 | ERROR    |   ✖  Chunk #14 aborted – git commit failed.
+2026-06-03 13:27:48,310 | INFO     | Processing Chunk #15 (21 files, 24.03 MB)
+2026-06-03 13:27:48,312 | INFO     |   ›  Running  git add  for 21 file(s)…
+2026-06-03 13:27:48,343 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\LifeFitness_part001.uasset
+2026-06-03 13:27:48,389 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\LowerBodyWorkOut.uasset
+2026-06-03 13:27:48,422 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\MI_BookSet_01.uasset
+2026-06-03 13:27:48,454 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\MI_BookSet_02.uasset
+2026-06-03 13:27:48,486 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\MI_BookSet_03.uasset
+2026-06-03 13:27:48,518 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\MI_BookSet_04.uasset
+2026-06-03 13:27:48,547 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\MI_Roller.uasset
+2026-06-03 13:27:48,578 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\MI_Rug.uasset
+2026-06-03 13:27:48,611 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\MI_SingleBook.uasset
+2026-06-03 13:27:48,641 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\MI_Sofa_Lobby.uasset
+2026-06-03 13:27:48,672 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\MI_Table_Balzac_Coffee.uasset
+2026-06-03 13:27:48,705 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\01Chair_BaseColor.uasset
+2026-06-03 13:27:48,743 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\01Chair_Normal.uasset
+2026-06-03 13:27:48,777 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\01Chair_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:48,818 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Books_Set01_AlbedoTransparency.uasset
+2026-06-03 13:27:48,851 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Books_Set02_AlbedoTransparency.uasset
+2026-06-03 13:27:48,887 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Books_Set03_AlbedoTransparency.uasset
+2026-06-03 13:27:48,923 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Books_Set04_AlbedoTransparency.uasset
+2026-06-03 13:27:48,962 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Branches_diff.uasset
+2026-06-03 13:27:48,998 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Chair_Evie_Velvet_BaseColor.uasset
+2026-06-03 13:27:49,031 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Chair_Evie_Velvet_Normal.uasset
+2026-06-03 13:27:49,031 | INFO     |   ›  Running  git commit  for Chunk #15…
+2026-06-03 13:27:49,077 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #15 (21 files)']' returned non-zero exit status 1.
+2026-06-03 13:27:49,078 | ERROR    |   ✖  Chunk #15 aborted – git commit failed.
+2026-06-03 13:27:49,078 | INFO     | Processing Chunk #16 (42 files, 22.3 MB)
+2026-06-03 13:27:49,081 | INFO     |   ›  Running  git add  for 42 file(s)…
+2026-06-03 13:27:49,115 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Chair_Evie_Velvet_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:49,150 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\DiningChair_BaseColor.uasset
+2026-06-03 13:27:49,183 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\DiningChair_Normal.uasset
+2026-06-03 13:27:49,215 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\DiningChair_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:49,249 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Dining_Table_BaseColor.uasset
+2026-06-03 13:27:49,286 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Dining_Table_Normal.uasset
+2026-06-03 13:27:49,318 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Dining_Table_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:49,350 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\ExerciseBike_BaseColor.uasset
+2026-06-03 13:27:49,382 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\ExerciseBike_Normal.uasset
+2026-06-03 13:27:49,414 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\ExerciseBike_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:49,445 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Labels_Cables_BaseColor.uasset
+2026-06-03 13:27:49,477 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Labels_Cables_Normal.uasset
+2026-06-03 13:27:49,513 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Labels_Cables_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:49,546 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_01Chair.uasset
+2026-06-03 13:27:49,576 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_01Table.uasset
+2026-06-03 13:27:49,607 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_02Chair.uasset
+2026-06-03 13:27:49,639 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_BookSet_01.uasset
+2026-06-03 13:27:49,673 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_BookSet_02.uasset
+2026-06-03 13:27:49,706 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_BookSet_03.uasset
+2026-06-03 13:27:49,755 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_BookSet_04.uasset
+2026-06-03 13:27:49,790 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_Chair_Evie_Velvet.uasset
+2026-06-03 13:27:49,821 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_Exercise_bike.uasset
+2026-06-03 13:27:49,855 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_LabelsCables.uasset
+2026-06-03 13:27:49,887 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_Modules.uasset
+2026-06-03 13:27:49,922 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_Nuts.uasset
+2026-06-03 13:27:49,956 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_OfficeChair.uasset
+2026-06-03 13:27:49,989 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_PoolTable.uasset
+2026-06-03 13:27:50,023 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_Roller.uasset
+2026-06-03 13:27:50,057 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_Rubber_Black.uasset
+2026-06-03 13:27:50,089 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_Rug.uasset
+2026-06-03 13:27:50,120 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_SingleBook.uasset
+2026-06-03 13:27:50,153 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_SofaTable.uasset
+2026-06-03 13:27:50,183 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_Sofa_Lobby.uasset
+2026-06-03 13:27:50,215 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_StepPlatform.uasset
+2026-06-03 13:27:50,243 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_TV.uasset
+2026-06-03 13:27:50,275 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_Table_Balzac_Coffee.uasset
+2026-06-03 13:27:50,306 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_TherapyBall.uasset
+2026-06-03 13:27:50,337 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_Vase.uasset
+2026-06-03 13:27:50,364 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_VaseBranches.uasset
+2026-06-03 13:27:50,391 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_Weight.uasset
+2026-06-03 13:27:50,420 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_YogaBall.uasset
+2026-06-03 13:27:50,449 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Modules_BaseColor.uasset
+2026-06-03 13:27:50,449 | INFO     |   ›  Running  git commit  for Chunk #16…
+2026-06-03 13:27:50,490 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #16 (42 files)']' returned non-zero exit status 1.
+2026-06-03 13:27:50,491 | ERROR    |   ✖  Chunk #16 aborted – git commit failed.
+2026-06-03 13:27:50,491 | INFO     | Processing Chunk #17 (5 files, 24.58 MB)
+2026-06-03 13:27:50,492 | INFO     |   ›  Running  git add  for 5 file(s)…
+2026-06-03 13:27:50,528 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Modules_Normal.uasset
+2026-06-03 13:27:50,558 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Modules_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:50,595 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Nuts_BaseColor.uasset
+2026-06-03 13:27:50,625 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Nuts_Normal.uasset
+2026-06-03 13:27:50,658 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Nuts_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:50,658 | INFO     |   ›  Running  git commit  for Chunk #17…
+2026-06-03 13:27:50,700 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #17 (5 files)']' returned non-zero exit status 1.
+2026-06-03 13:27:50,701 | ERROR    |   ✖  Chunk #17 aborted – git commit failed.
+2026-06-03 13:27:50,701 | INFO     | Processing Chunk #18 (25 files, 24.55 MB)
+2026-06-03 13:27:50,703 | INFO     |   ›  Running  git add  for 25 file(s)…
+2026-06-03 13:27:50,735 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\OfficeChair_BaseColor.uasset
+2026-06-03 13:27:50,766 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\OfficeChair_Normal.uasset
+2026-06-03 13:27:50,796 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\OfficeChair_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:50,828 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\PoolTable_01_BaseColor.uasset
+2026-06-03 13:27:50,860 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\PoolTable_01_Emissive.uasset
+2026-06-03 13:27:50,890 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\PoolTable_01_Normal.uasset
+2026-06-03 13:27:50,921 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\PoolTable_01_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:50,953 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Roller_BaseColor.uasset
+2026-06-03 13:27:50,988 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Roller_Normal.uasset
+2026-06-03 13:27:51,020 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Roller_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:51,053 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Rubber_Black_BaseColor.uasset
+2026-06-03 13:27:51,120 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Rubber_Black_Normal.uasset
+2026-06-03 13:27:51,154 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Rubber_Black_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:51,185 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Rug_BaseColor.uasset
+2026-06-03 13:27:51,218 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Rug_Normal.uasset
+2026-06-03 13:27:51,255 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Rug_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:51,285 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Sing_Books03_AlbedoTransparency.uasset
+2026-06-03 13:27:51,315 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Sing_Books_Normal.uasset
+2026-06-03 13:27:51,346 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\SofaTable_BaseColor.uasset
+2026-06-03 13:27:51,375 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\SofaTable_Normal.uasset
+2026-06-03 13:27:51,410 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\SofaTable_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:51,446 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Sofa_BaseColor.uasset
+2026-06-03 13:27:51,483 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Sofa_Normal.uasset
+2026-06-03 13:27:51,520 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Sofa_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:51,553 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\StepPlatform_BaseColor.uasset
+2026-06-03 13:27:51,553 | INFO     |   ›  Running  git commit  for Chunk #18…
+2026-06-03 13:27:51,601 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #18 (25 files)']' returned non-zero exit status 1.
+2026-06-03 13:27:51,602 | ERROR    |   ✖  Chunk #18 aborted – git commit failed.
+2026-06-03 13:27:51,603 | INFO     | Processing Chunk #19 (17 files, 24.54 MB)
+2026-06-03 13:27:51,604 | INFO     |   ›  Running  git add  for 17 file(s)…
+2026-06-03 13:27:51,637 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\StepPlatform_Normal.uasset
+2026-06-03 13:27:51,669 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\StepPlatform_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:51,700 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Table_Balzac_Coffee_BaseColor.uasset
+2026-06-03 13:27:51,734 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Table_Balzac_Coffee_Normal.uasset
+2026-06-03 13:27:51,770 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Table_Balzac_Coffee_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:51,804 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\TherapyBall_BaseColor.uasset
+2026-06-03 13:27:51,839 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\TherapyBall_Normal.uasset
+2026-06-03 13:27:51,871 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\TherapyBall_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:51,911 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Tv_AlbedoTransparency.uasset
+2026-06-03 13:27:51,942 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Tv_Normal.uasset
+2026-06-03 13:27:51,976 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Vase1_AlbedoTransparency.uasset
+2026-06-03 13:27:52,009 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Vase1_Normal.uasset
+2026-06-03 13:27:52,042 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Weights_BaseColor.uasset
+2026-06-03 13:27:52,099 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Weights_Normal.uasset
+2026-06-03 13:27:52,162 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Weights_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:52,218 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Yoga_Ball_BaseColor.uasset
+2026-06-03 13:27:52,257 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Yoga_Ball_Normal.uasset
+2026-06-03 13:27:52,257 | INFO     |   ›  Running  git commit  for Chunk #19…
+2026-06-03 13:27:52,308 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #19 (17 files)']' returned non-zero exit status 1.
+2026-06-03 13:27:52,308 | ERROR    |   ✖  Chunk #19 aborted – git commit failed.
+2026-06-03 13:27:52,309 | INFO     | Processing Chunk #20 (37 files, 24.62 MB)
+2026-06-03 13:27:52,312 | INFO     |   ›  Running  git add  for 37 file(s)…
+2026-06-03 13:27:52,343 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Yoga_Ball_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:27:52,373 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Office_Chair.uasset
+2026-06-03 13:27:52,405 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\PoolTable.uasset
+2026-06-03 13:27:52,435 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Roller.uasset
+2026-06-03 13:27:52,483 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Rug_Ruffles_Grey.uasset
+2026-06-03 13:27:52,516 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Single_Book_01.uasset
+2026-06-03 13:27:52,550 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Single_Book_02.uasset
+2026-06-03 13:27:52,583 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Sofa_4Seater_Louis_Green1.uasset
+2026-06-03 13:27:52,616 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\StepPlatform.uasset
+2026-06-03 13:27:52,648 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Table_Balzac_Coffee.uasset
+2026-06-03 13:27:52,679 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\TherapyBall.uasset
+2026-06-03 13:27:52,709 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Treadmil.uasset
+2026-06-03 13:27:52,740 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Tv.uasset
+2026-06-03 13:27:52,771 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Vase01.uasset
+2026-06-03 13:27:52,802 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Vase01_Branches.uasset
+2026-06-03 13:27:52,840 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Wardrobe.uasset
+2026-06-03 13:27:52,875 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Yoga_Ball.uasset
+2026-06-03 13:27:52,904 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\1st_Floor.uasset
+2026-06-03 13:27:52,936 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\1st_FloorBase.uasset
+2026-06-03 13:27:52,967 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\23nd_FloorBase.uasset
+2026-06-03 13:27:52,999 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\23th_Floor.uasset
+2026-06-03 13:27:53,031 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\2nd_Floor.uasset
+2026-06-03 13:27:53,067 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\2nd_FloorBase.uasset
+2026-06-03 13:27:53,099 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\3rd_Floor.uasset
+2026-06-03 13:27:53,138 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\3rd_FloorBase.uasset
+2026-06-03 13:27:53,172 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\4th_Floor.uasset
+2026-06-03 13:27:53,205 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\4th_FloorBase.uasset
+2026-06-03 13:27:53,239 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_Floor.uasset
+2026-06-03 13:27:53,272 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_Floor001.uasset
+2026-06-03 13:27:53,300 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_Floor002.uasset
+2026-06-03 13:27:53,335 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_Floor003.uasset
+2026-06-03 13:27:53,366 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_Floor004.uasset
+2026-06-03 13:27:53,412 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_Floor005.uasset
+2026-06-03 13:27:53,445 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_Floor006.uasset
+2026-06-03 13:27:53,476 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_Floor007.uasset
+2026-06-03 13:27:53,508 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_Floor008.uasset
+2026-06-03 13:27:53,544 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_Floor009.uasset
+2026-06-03 13:27:53,544 | INFO     |   ›  Running  git commit  for Chunk #20…
+2026-06-03 13:27:53,591 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #20 (37 files)']' returned non-zero exit status 1.
+2026-06-03 13:27:53,591 | ERROR    |   ✖  Chunk #20 aborted – git commit failed.
+2026-06-03 13:27:53,592 | INFO     | Processing Chunk #21 (104 files, 24.62 MB)
+2026-06-03 13:27:53,596 | INFO     |   ›  Running  git add  for 104 file(s)…
+2026-06-03 13:27:53,627 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_Floor010.uasset
+2026-06-03 13:27:53,660 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_Floor011.uasset
+2026-06-03 13:27:53,694 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_Floor012.uasset
+2026-06-03 13:27:53,728 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_Floor013.uasset
+2026-06-03 13:27:53,761 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_Floor014.uasset
+2026-06-03 13:27:53,790 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_Floor015.uasset
+2026-06-03 13:27:53,846 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_FloorBase.uasset
+2026-06-03 13:27:53,879 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_FloorBase001.uasset
+2026-06-03 13:27:53,911 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_FloorBase002.uasset
+2026-06-03 13:27:53,947 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_FloorBase003.uasset
+2026-06-03 13:27:53,983 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_FloorBase004.uasset
+2026-06-03 13:27:54,012 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_FloorBase005.uasset
+2026-06-03 13:27:54,047 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_FloorBase006.uasset
+2026-06-03 13:27:54,083 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_FloorBase007.uasset
+2026-06-03 13:27:54,118 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_FloorBase008.uasset
+2026-06-03 13:27:54,149 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_FloorBase009.uasset
+2026-06-03 13:27:54,184 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_FloorBase010.uasset
+2026-06-03 13:27:54,216 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_FloorBase011.uasset
+2026-06-03 13:27:54,248 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_FloorBase012.uasset
+2026-06-03 13:27:54,283 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_FloorBase013.uasset
+2026-06-03 13:27:54,314 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_FloorBase014.uasset
+2026-06-03 13:27:54,352 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\5th_FloorBase015.uasset
+2026-06-03 13:27:54,386 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\ADoor_01.uasset
+2026-06-03 13:27:54,423 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\ADoor_02.uasset
+2026-06-03 13:27:54,455 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\ADoor_03.uasset
+2026-06-03 13:27:54,486 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\ADoor_04.uasset
+2026-06-03 13:27:54,519 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\ADoor_05.uasset
+2026-06-03 13:27:54,553 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\ADoor_06.uasset
+2026-06-03 13:27:54,584 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\ADoor_07.uasset
+2026-06-03 13:27:54,618 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\ADoor_08.uasset
+2026-06-03 13:27:54,657 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\ADoor_09.uasset
+2026-06-03 13:27:54,692 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\ADoor_10.uasset
+2026-06-03 13:27:54,725 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\ADoor_11.uasset
+2026-06-03 13:27:54,755 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\ADoor_12.uasset
+2026-06-03 13:27:54,790 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\ADoor_13.uasset
+2026-06-03 13:27:54,820 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\ADoor_14.uasset
+2026-06-03 13:27:54,854 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\ADoor_15.uasset
+2026-06-03 13:27:54,883 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\ADoor_16.uasset
+2026-06-03 13:27:54,914 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\ADoor_17.uasset
+2026-06-03 13:27:54,952 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Aakash_Healthcare_Super_Speciality_Hospital.uasset
+2026-06-03 13:27:54,984 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Appartments.uasset
+2026-06-03 13:27:55,015 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\BDoor_01.uasset
+2026-06-03 13:27:55,045 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\BDoor_02.uasset
+2026-06-03 13:27:55,078 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\BDoor_03.uasset
+2026-06-03 13:27:55,108 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\BDoor_04.uasset
+2026-06-03 13:27:55,139 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\BDoor_05.uasset
+2026-06-03 13:27:55,177 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\BDoor_06.uasset
+2026-06-03 13:27:55,228 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\BDoor_07.uasset
+2026-06-03 13:27:55,261 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\BDoor_08.uasset
+2026-06-03 13:27:55,296 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\BDoor_09.uasset
+2026-06-03 13:27:55,327 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\BDoor_10.uasset
+2026-06-03 13:27:55,359 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\BDoor_11.uasset
+2026-06-03 13:27:55,392 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\BDoor_12.uasset
+2026-06-03 13:27:55,429 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\BDoor_13.uasset
+2026-06-03 13:27:55,466 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\BDoor_14.uasset
+2026-06-03 13:27:55,500 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\BDoor_15.uasset
+2026-06-03 13:27:55,533 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\BDoor_16.uasset
+2026-06-03 13:27:55,565 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\BDoor_17.uasset
+2026-06-03 13:27:55,597 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Bal_Bharti_Schoo.uasset
+2026-06-03 13:27:55,634 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Bal_Bhavan_International_School.uasset
+2026-06-03 13:27:55,670 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Balcony_Lights.uasset
+2026-06-03 13:27:55,704 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Base.uasset
+2026-06-03 13:27:55,734 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Bensups_Multi-Speciality_Hospital.uasset
+2026-06-03 13:27:55,765 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Bharat_Vandana_Park.uasset
+2026-06-03 13:27:55,800 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Bhaskaracharya_Collage_of_Applied_Science.uasset
+2026-06-03 13:27:55,843 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Boundry_Walls.uasset
+2026-06-03 13:27:55,879 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\City_Centre_Mall.uasset
+2026-06-03 13:27:55,912 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\ClubHouse_Ceiling.uasset
+2026-06-03 13:27:55,949 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\ClubHouse_Stairs.uasset
+2026-06-03 13:27:55,982 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Club_Window.uasset
+2026-06-03 13:27:56,020 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Complete_Ground.uasset
+2026-06-03 13:27:56,051 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Connaught_Place.uasset
+2026-06-03 13:27:56,089 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Curtain.uasset
+2026-06-03 13:27:56,128 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\D21_Corporate_Park.uasset
+2026-06-03 13:27:56,168 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\DDA_Golf_Course_Dwarka.uasset
+2026-06-03 13:27:56,205 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\DLF_Cyber_City.uasset
+2026-06-03 13:27:56,237 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Deen_Dayal_Upadhyaya_Collage.uasset
+2026-06-03 13:27:56,270 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Delhi_Cantt.uasset
+2026-06-03 13:27:56,303 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Delhi_International_School_Edge.uasset
+2026-06-03 13:27:56,337 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Dhaula_Kuan.uasset
+2026-06-03 13:27:56,373 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\District_Centre__Janakpuri.uasset
+2026-06-03 13:27:56,411 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Dwarka_Expressway.uasset
+2026-06-03 13:27:56,454 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Dwarka_Sector_13_Metro.uasset
+2026-06-03 13:27:56,488 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Eros_Metro_Mall.uasset
+2026-06-03 13:27:56,519 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Ground_Floor.uasset
+2026-06-03 13:27:56,551 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Guru_Govind_Singh_IP_University.uasset
+2026-06-03 13:27:56,599 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Guru_Govind_Singh_IP_University001.uasset
+2026-06-03 13:27:56,633 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Gurugram.uasset
+2026-06-03 13:27:56,669 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\IGI_Airpot___Aerocity.uasset
+2026-06-03 13:27:56,707 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Indira_Gandhi_Hospital.uasset
+2026-06-03 13:27:56,744 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Indraprastha_International_School.uasset
+2026-06-03 13:27:56,781 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Ivy_Frame.uasset
+2026-06-03 13:27:56,821 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Jali.uasset
+2026-06-03 13:27:56,855 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Janakpuri.uasset
+2026-06-03 13:27:56,887 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Kids_CrecheArea.uasset
+2026-06-03 13:27:56,922 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Kids_CrecheToys.uasset
+2026-06-03 13:27:56,957 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Kids_Playhouse.uasset
+2026-06-03 13:27:56,992 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Lobby_Ceiling.uasset
+2026-06-03 13:27:57,025 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Maharaja_Agrasen_Hospital.uasset
+2026-06-03 13:27:57,061 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Manipal_Hospital.uasset
+2026-06-03 13:27:57,099 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Max_Super_Speciality_Hospital.uasset
+2026-06-03 13:27:57,131 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Metal_DoorDesign.uasset
+2026-06-03 13:27:57,208 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Mount_Carmel_School.uasset
+2026-06-03 13:27:57,248 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\NH-8.uasset
+2026-06-03 13:27:57,249 | INFO     |   ›  Running  git commit  for Chunk #21…
+2026-06-03 13:27:57,296 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #21 (104 files)']' returned non-zero exit status 1.
+2026-06-03 13:27:57,296 | ERROR    |   ✖  Chunk #21 aborted – git commit failed.
+2026-06-03 13:27:57,297 | INFO     | Processing Chunk #22 (4 files, 2.79 MB)
+2026-06-03 13:27:57,298 | INFO     |   ›  Running  git add  for 4 file(s)…
+2026-06-03 13:27:57,329 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\NearByBuildings.uasset
+2026-06-03 13:27:57,360 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Netaji_Subhas_University_of_Technology.uasset
+2026-06-03 13:27:57,392 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\PB_Building_005.uasset
+2026-06-03 13:27:57,428 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\PB_HighRise_01.uasset
+2026-06-03 13:27:57,428 | INFO     |   ›  Running  git commit  for Chunk #22…
+2026-06-03 13:27:57,475 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #22 (4 files)']' returned non-zero exit status 1.
+2026-06-03 13:27:57,475 | ERROR    |   ✖  Chunk #22 aborted – git commit failed.
+2026-06-03 13:27:57,476 | INFO     | Processing Chunk #23 (1 files, 25.0 MB)
+2026-06-03 13:27:57,476 | INFO     |   ›  Running  git add  for 1 file(s)…
+2026-06-03 13:27:57,509 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\PB_RoofParts_HighRise_01_part000.uasset
+2026-06-03 13:27:57,510 | INFO     |   ›  Running  git commit  for Chunk #23…
+2026-06-03 13:27:57,552 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #23 (1 file)']' returned non-zero exit status 1.
+2026-06-03 13:27:57,552 | ERROR    |   ✖  Chunk #23 aborted – git commit failed.
+2026-06-03 13:27:57,552 | INFO     | Processing Chunk #24 (1 files, 25.0 MB)
+2026-06-03 13:27:57,553 | INFO     |   ›  Running  git add  for 1 file(s)…
+2026-06-03 13:27:57,581 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\PB_RoofParts_HighRise_01_part001.uasset
+2026-06-03 13:27:57,582 | INFO     |   ›  Running  git commit  for Chunk #24…
+2026-06-03 13:27:57,624 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #24 (1 file)']' returned non-zero exit status 1.
+2026-06-03 13:27:57,624 | ERROR    |   ✖  Chunk #24 aborted – git commit failed.
+2026-06-03 13:27:57,624 | INFO     | Processing Chunk #25 (12 files, 19.12 MB)
+2026-06-03 13:27:57,625 | INFO     |   ›  Running  git add  for 12 file(s)…
+2026-06-03 13:27:57,658 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\PB_RoofParts_HighRise_01_part002.uasset
+2026-06-03 13:27:57,689 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\PB_Roof_Parts005.uasset
+2026-06-03 13:27:57,721 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Paschim_Vihar.uasset
+2026-06-03 13:27:57,753 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Path.uasset
+2026-06-03 13:27:57,784 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Punjabi_Bagh.uasset
+2026-06-03 13:27:57,816 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\RLDA_Office.uasset
+2026-06-03 13:27:57,846 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Radisson_Blu_Hotel.uasset
+2026-06-03 13:27:57,877 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Radisson_Blu_Plaza_Delhi_Airport.uasset
+2026-06-03 13:27:57,954 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Rajouri_Garden.uasset
+2026-06-03 13:27:57,986 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\RecpTable.uasset
+2026-06-03 13:27:58,018 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Reliance_Mall.uasset
+2026-06-03 13:27:58,046 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Roads.uasset
+2026-06-03 13:27:58,046 | INFO     |   ›  Running  git commit  for Chunk #25…
+2026-06-03 13:27:58,091 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #25 (12 files)']' returned non-zero exit status 1.
+2026-06-03 13:27:58,092 | ERROR    |   ✖  Chunk #25 aborted – git commit failed.
+2026-06-03 13:27:58,092 | INFO     | Processing Chunk #26 (23 files, 23.73 MB)
+2026-06-03 13:27:58,094 | INFO     |   ›  Running  git add  for 23 file(s)…
+2026-06-03 13:27:58,128 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Roof_Props.uasset
+2026-06-03 13:27:58,198 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Roseate_House__Andaz__Pullman__JW_Marriott_Hotel_Aerocity.uasset
+2026-06-03 13:27:58,260 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Samar_Hospital.uasset
+2026-06-03 13:27:58,304 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\School.uasset
+2026-06-03 13:27:58,348 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Sofa_001.uasset
+2026-06-03 13:27:58,379 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Sofa_002.uasset
+2026-06-03 13:27:58,409 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\StreetLight.uasset
+2026-06-03 13:27:58,442 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Taj_Vivanta.uasset
+2026-06-03 13:27:58,470 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Top_Roof.uasset
+2026-06-03 13:27:58,500 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\UER_II.uasset
+2026-06-03 13:27:58,529 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Udyog_Vihar.uasset
+2026-06-03 13:27:58,559 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\University_School_of_Information.uasset
+2026-06-03 13:27:58,590 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Vandana_International_School.uasset
+2026-06-03 13:27:58,621 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Vegas_Mall.uasset
+2026-06-03 13:27:58,651 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Venkateshwar_Hospital.uasset
+2026-06-03 13:27:58,681 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Venkateshwar_International_School.uasset
+2026-06-03 13:27:58,713 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\WES002.uasset
+2026-06-03 13:27:58,746 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\WES003.uasset
+2026-06-03 13:27:58,778 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\WES004.uasset
+2026-06-03 13:27:58,809 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\WES005.uasset
+2026-06-03 13:27:58,842 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\WES005_2.uasset
+2026-06-03 13:27:58,874 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\WES_Doors.uasset
+2026-06-03 13:27:58,908 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\WES_Floor.uasset
+2026-06-03 13:27:58,908 | INFO     |   ›  Running  git commit  for Chunk #26…
+2026-06-03 13:27:58,953 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #26 (23 files)']' returned non-zero exit status 1.
+2026-06-03 13:27:58,953 | ERROR    |   ✖  Chunk #26 aborted – git commit failed.
+2026-06-03 13:27:58,954 | INFO     | Processing Chunk #27 (115 files, 23.47 MB)
+2026-06-03 13:27:58,959 | INFO     |   ›  Running  git add  for 115 file(s)…
+2026-06-03 13:27:59,020 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\WES_Ground.uasset
+2026-06-03 13:27:59,052 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\WES_Roof.uasset
+2026-06-03 13:27:59,084 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\WES_TopFloor.uasset
+2026-06-03 13:27:59,115 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Welcomhotel_by_ITC_Hotels.uasset
+2026-06-03 13:27:59,147 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Yashobhoomi_Convention_Centre.uasset
+2026-06-03 13:27:59,179 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Yashobhoomi_Conventional_Center.uasset
+2026-06-03 13:27:59,211 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Geometries\Yashobhoomi_Office_Zone.uasset
+2026-06-03 13:27:59,246 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Builing_01_Lower.uasset
+2026-06-03 13:27:59,337 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Builing_01_Upper.uasset
+2026-06-03 13:27:59,380 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Builing_02_Lower.uasset
+2026-06-03 13:27:59,414 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Builing_02_Upper1.uasset
+2026-06-03 13:27:59,449 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Builing_03_Upper.uasset
+2026-06-03 13:27:59,486 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_BalconyFloor.uasset
+2026-06-03 13:27:59,529 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_BalconyLights.uasset
+2026-06-03 13:27:59,562 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_BalconyWood.uasset
+2026-06-03 13:27:59,594 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Bamboo_Wood.uasset
+2026-06-03 13:27:59,629 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Bamboo_Wood_EWS.uasset
+2026-06-03 13:27:59,662 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Barricade.uasset
+2026-06-03 13:27:59,693 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_BoundaryWall01.uasset
+2026-06-03 13:27:59,726 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_BoundaryWall02.uasset
+2026-06-03 13:27:59,757 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Building_Glass_Black.uasset
+2026-06-03 13:27:59,792 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Building_Glass_Green.uasset
+2026-06-03 13:27:59,827 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Ceiling.uasset
+2026-06-03 13:27:59,859 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Chrome.uasset
+2026-06-03 13:27:59,891 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_ClubHouse_Wall.uasset
+2026-06-03 13:27:59,918 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Concrete.uasset
+2026-06-03 13:27:59,949 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Concrete02.uasset
+2026-06-03 13:27:59,981 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_ConcretePlates.uasset
+2026-06-03 13:28:00,016 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_ConcretePlates02.uasset
+2026-06-03 13:28:00,051 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Court.uasset
+2026-06-03 13:28:00,085 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Curb.uasset
+2026-06-03 13:28:00,116 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_DoorKnobe.uasset
+2026-06-03 13:28:00,147 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Fabric.uasset
+2026-06-03 13:28:00,179 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Frame_Jali.uasset
+2026-06-03 13:28:00,210 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Gate.uasset
+2026-06-03 13:28:00,243 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Glass_01.uasset
+2026-06-03 13:28:00,275 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Grass.uasset
+2026-06-03 13:28:00,304 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Ground_Tiles.uasset
+2026-06-03 13:28:00,335 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Ground_Tiles02.uasset
+2026-06-03 13:28:00,367 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Ground_Tiles03.uasset
+2026-06-03 13:28:00,400 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Ground_Tiles04.uasset
+2026-06-03 13:28:00,432 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Gym_Ceiling.uasset
+2026-06-03 13:28:00,466 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_HighLight_Building.uasset
+2026-06-03 13:28:00,501 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Jali_BG.uasset
+2026-06-03 13:28:00,533 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Jali_Court.uasset
+2026-06-03 13:28:00,565 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_KidsPlay_Area.uasset
+2026-06-03 13:28:00,596 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Lift.uasset
+2026-06-03 13:28:00,627 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Lobby_Floor.uasset
+2026-06-03 13:28:00,677 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Lobby_Skirting.uasset
+2026-06-03 13:28:00,709 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Marble_Black.uasset
+2026-06-03 13:28:00,742 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Marble_BlackGold.uasset
+2026-06-03 13:28:00,775 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_MetalFrames.uasset
+2026-06-03 13:28:00,807 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Metal_BalconyEdges.uasset
+2026-06-03 13:28:00,839 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Metal_Black.uasset
+2026-06-03 13:28:00,865 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Metal_Blue.uasset
+2026-06-03 13:28:00,896 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Metal_CoolGrey.uasset
+2026-06-03 13:28:00,928 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Metal_Court.uasset
+2026-06-03 13:28:00,958 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Metal_Red.uasset
+2026-06-03 13:28:00,989 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Metal_Yellow.uasset
+2026-06-03 13:28:01,025 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_NearByBuildings.uasset
+2026-06-03 13:28:01,056 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_PB_HighRise.uasset
+2026-06-03 13:28:01,090 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Plastic_White.uasset
+2026-06-03 13:28:01,121 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Pods.uasset
+2026-06-03 13:28:01,156 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Pool.uasset
+2026-06-03 13:28:01,191 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Road.uasset
+2026-06-03 13:28:01,227 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_RoadCracked.uasset
+2026-06-03 13:28:01,259 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_SchoolWall.uasset
+2026-06-03 13:28:01,292 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_SideWalk.uasset
+2026-06-03 13:28:01,320 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Soil.uasset
+2026-06-03 13:28:01,356 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_SolarPanel.uasset
+2026-06-03 13:28:01,386 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Steel_Plates.uasset
+2026-06-03 13:28:01,418 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Stone_02.uasset
+2026-06-03 13:28:01,452 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Stone_PartyHall.uasset
+2026-06-03 13:28:01,486 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_StreetYellowLight.uasset
+2026-06-03 13:28:01,516 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Wall_Cushion.uasset
+2026-06-03 13:28:01,548 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Wall_DuluxSilver.uasset
+2026-06-03 13:28:01,580 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Wall_FrostyWhite.uasset
+2026-06-03 13:28:01,611 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Wall_Jali.uasset
+2026-06-03 13:28:01,644 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Wall_Kids.uasset
+2026-06-03 13:28:01,678 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Wall_Lobby.uasset
+2026-06-03 13:28:01,708 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Wall_TrafficGreyA.uasset
+2026-06-03 13:28:01,739 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Wall_TrafficGreyB.uasset
+2026-06-03 13:28:01,769 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Wall_Wood_Lobby.uasset
+2026-06-03 13:28:01,796 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_Water.uasset
+2026-06-03 13:28:01,827 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_WhiteLight1.uasset
+2026-06-03 13:28:01,856 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MI_YellowLight.uasset
+2026-06-03 13:28:01,888 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MM_AlphaMaterial.uasset
+2026-06-03 13:28:01,924 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MM_Alpha_Materials.uasset
+2026-06-03 13:28:01,955 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MM_Building_Glass.uasset
+2026-06-03 13:28:01,986 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MM_Emissive.uasset
+2026-06-03 13:28:02,059 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MM_Glass.uasset
+2026-06-03 13:28:02,089 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MM_Material.uasset
+2026-06-03 13:28:02,123 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MM_Material02.uasset
+2026-06-03 13:28:02,155 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\MM_PBRmaps.uasset
+2026-06-03 13:28:02,191 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Metal_GalvanizedOLD.uasset
+2026-06-03 13:28:02,228 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Metal_PBlackaintOLD.uasset
+2026-06-03 13:28:02,259 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\02Concrete_Plates_BaseColor.uasset
+2026-06-03 13:28:02,290 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\02Concrete_Plates_Normal.uasset
+2026-06-03 13:28:02,327 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\02Concrete_Plates_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:02,356 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Bamboo_Wood_BaseColor.uasset
+2026-06-03 13:28:02,387 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Bamboo_Wood_Normal.uasset
+2026-06-03 13:28:02,419 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Bamboo_Wood_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:02,450 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Barricade_BaseColor.uasset
+2026-06-03 13:28:02,482 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Barricade_Normal.uasset
+2026-06-03 13:28:02,515 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Barricade_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:02,553 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Blue.uasset
+2026-06-03 13:28:02,587 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\BoundaryWall_01_BaseColor.uasset
+2026-06-03 13:28:02,625 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\BoundaryWall_01_Normal.uasset
+2026-06-03 13:28:02,664 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\BoundaryWall_01_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:02,703 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\BoundaryWall_02_BaseColor.uasset
+2026-06-03 13:28:02,735 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\BoundaryWall_02_Normal.uasset
+2026-06-03 13:28:02,767 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\BoundaryWall_02_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:02,796 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Building_01_Diffuse.uasset
+2026-06-03 13:28:02,830 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Building_01_Lower_Diffuse.uasset
+2026-06-03 13:28:02,859 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Building_01_Normal.uasset
+2026-06-03 13:28:02,859 | INFO     |   ›  Running  git commit  for Chunk #27…
+2026-06-03 13:28:02,902 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #27 (115 files)']' returned non-zero exit status 1.
+2026-06-03 13:28:02,902 | ERROR    |   ✖  Chunk #27 aborted – git commit failed.
+2026-06-03 13:28:02,903 | INFO     | Processing Chunk #28 (12 files, 23.71 MB)
+2026-06-03 13:28:02,904 | INFO     |   ›  Running  git add  for 12 file(s)…
+2026-06-03 13:28:02,936 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Building_02.uasset
+2026-06-03 13:28:02,969 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Building_02_Lower_Diffuse.uasset
+2026-06-03 13:28:02,999 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Building_02_Lower_Normal.uasset
+2026-06-03 13:28:03,032 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Building_03_Upper_Diffuse.uasset
+2026-06-03 13:28:03,062 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Ceiling_BaseColor.uasset
+2026-06-03 13:28:03,093 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Ceiling_Normal.uasset
+2026-06-03 13:28:03,122 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Ceiling_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:03,153 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\CharcoalGrey_Metal.uasset
+2026-06-03 13:28:03,187 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\ConcreteBare_02.uasset
+2026-06-03 13:28:03,218 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\ConcretePlates.uasset
+2026-06-03 13:28:03,248 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Concrete_BaseColor.uasset
+2026-06-03 13:28:03,280 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Concrete_Normal.uasset
+2026-06-03 13:28:03,281 | INFO     |   ›  Running  git commit  for Chunk #28…
+2026-06-03 13:28:03,321 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #28 (12 files)']' returned non-zero exit status 1.
+2026-06-03 13:28:03,321 | ERROR    |   ✖  Chunk #28 aborted – git commit failed.
+2026-06-03 13:28:03,321 | INFO     | Processing Chunk #29 (21 files, 24.21 MB)
+2026-06-03 13:28:03,323 | INFO     |   ›  Running  git add  for 21 file(s)…
+2026-06-03 13:28:03,380 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Concrete_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:03,419 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Court_Jali_BaseColor.uasset
+2026-06-03 13:28:03,452 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Court_Jali_Normal.uasset
+2026-06-03 13:28:03,486 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Court_Jali_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:03,521 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\DoorKnobs_BaseColor.uasset
+2026-06-03 13:28:03,556 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\DoorKnobs_Emissive.uasset
+2026-06-03 13:28:03,587 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\DoorKnobs_Normal.uasset
+2026-06-03 13:28:03,618 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\DoorKnobs_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:03,649 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\DuluxSilver.uasset
+2026-06-03 13:28:03,681 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Fabric_BaseColor.uasset
+2026-06-03 13:28:03,713 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Fabric_Normal.uasset
+2026-06-03 13:28:03,746 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Fabric_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:03,777 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Fountain_Wall_BaseColor.uasset
+2026-06-03 13:28:03,812 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Fountain_Wall_Normal.uasset
+2026-06-03 13:28:03,844 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Fountain_Wall_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:03,873 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Frame_Jali_BaseColor.uasset
+2026-06-03 13:28:03,903 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Frame_Jali_Normal.uasset
+2026-06-03 13:28:03,934 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Frame_Jali_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:03,964 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\FrostyWhite.uasset
+2026-06-03 13:28:03,999 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Grass_BaseColor.uasset
+2026-06-03 13:28:04,030 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Grass_Normal.uasset
+2026-06-03 13:28:04,030 | INFO     |   ›  Running  git commit  for Chunk #29…
+2026-06-03 13:28:04,073 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #29 (21 files)']' returned non-zero exit status 1.
+2026-06-03 13:28:04,073 | ERROR    |   ✖  Chunk #29 aborted – git commit failed.
+2026-06-03 13:28:04,073 | INFO     | Processing Chunk #30 (20 files, 24.68 MB)
+2026-06-03 13:28:04,075 | INFO     |   ›  Running  git add  for 20 file(s)…
+2026-06-03 13:28:04,114 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Grass_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:04,153 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Ground_Tiles01_BaseColor.uasset
+2026-06-03 13:28:04,202 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Ground_Tiles01_Normal.uasset
+2026-06-03 13:28:04,252 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Ground_Tiles01_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:04,283 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Ground_Tiles02_BaseColor.uasset
+2026-06-03 13:28:04,314 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Ground_Tiles02_Normal.uasset
+2026-06-03 13:28:04,345 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Ground_Tiles02_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:04,377 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Ground_Tiles03_BaseColor.uasset
+2026-06-03 13:28:04,411 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Ground_Tiles03_Normal.uasset
+2026-06-03 13:28:04,444 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Ground_Tiles03_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:04,479 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Ground_Tiles04_BaseColor.uasset
+2026-06-03 13:28:04,513 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Ground_Tiles04_Normal.uasset
+2026-06-03 13:28:04,548 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Ground_Tiles04_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:04,596 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Gym_Ceiling_BaseColor.uasset
+2026-06-03 13:28:04,630 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Gym_Ceiling_Normal.uasset
+2026-06-03 13:28:04,668 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Gym_Ceiling_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:04,701 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Highlight_Building.uasset
+2026-06-03 13:28:04,739 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Jali_01.uasset
+2026-06-03 13:28:04,777 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Jali_01_BG.uasset
+2026-06-03 13:28:04,808 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Jali_A.uasset
+2026-06-03 13:28:04,809 | INFO     |   ›  Running  git commit  for Chunk #30…
+2026-06-03 13:28:04,851 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #30 (20 files)']' returned non-zero exit status 1.
+2026-06-03 13:28:04,851 | ERROR    |   ✖  Chunk #30 aborted – git commit failed.
+2026-06-03 13:28:04,852 | INFO     | Processing Chunk #31 (25 files, 15.38 MB)
+2026-06-03 13:28:04,853 | INFO     |   ›  Running  git add  for 25 file(s)…
+2026-06-03 13:28:04,883 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Kids_Playarea.uasset
+2026-06-03 13:28:04,915 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Kids_Wallpaper.uasset
+2026-06-03 13:28:04,943 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Lift.uasset
+2026-06-03 13:28:04,972 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Lift_emmin.uasset
+2026-06-03 13:28:05,006 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Lobby_Floor_BaseColor.uasset
+2026-06-03 13:28:05,039 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Lobby_Floor_Normal.uasset
+2026-06-03 13:28:05,072 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Lobby_Floor_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:05,132 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Lobby_WallWood_BaseColor.uasset
+2026-06-03 13:28:05,199 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Lobby_WallWood_Normal.uasset
+2026-06-03 13:28:05,254 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Lobby_WallWood_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:05,284 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Lobby_Wall_BaseColor.uasset
+2026-06-03 13:28:05,315 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Lobby_Wall_Normal.uasset
+2026-06-03 13:28:05,346 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Lobby_Wall_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:05,377 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Marble_BlackGold_BaseColor.uasset
+2026-06-03 13:28:05,408 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Marble_BlackGold_Normal.uasset
+2026-06-03 13:28:05,440 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Marble_BlackGold_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:05,472 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Metal_BalconyEdges.uasset
+2026-06-03 13:28:05,500 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Metal_Black.uasset
+2026-06-03 13:28:05,535 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Metal_CoolGrey_BaseColor.uasset
+2026-06-03 13:28:05,567 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Metal_CoolGrey_Normal.uasset
+2026-06-03 13:28:05,599 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Metal_CoolGrey_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:05,629 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Metal_GalvanizedOLD_BaseColor.uasset
+2026-06-03 13:28:05,659 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Metal_GalvanizedOLD_Normal.uasset
+2026-06-03 13:28:05,693 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Metal_GalvanizedOLD_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:05,726 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\ORM.uasset
+2026-06-03 13:28:05,726 | INFO     |   ›  Running  git commit  for Chunk #31…
+2026-06-03 13:28:05,773 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #31 (25 files)']' returned non-zero exit status 1.
+2026-06-03 13:28:05,773 | ERROR    |   ✖  Chunk #31 aborted – git commit failed.
+2026-06-03 13:28:05,773 | INFO     | Processing Chunk #32 (2 files, 17.5 MB)
+2026-06-03 13:28:05,774 | INFO     |   ›  Running  git add  for 2 file(s)…
+2026-06-03 13:28:05,805 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\PB_Building_BaseMap.uasset
+2026-06-03 13:28:05,835 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\PB_Building_Emissive.uasset
+2026-06-03 13:28:05,835 | INFO     |   ›  Running  git commit  for Chunk #32…
+2026-06-03 13:28:05,877 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #32 (2 files)']' returned non-zero exit status 1.
+2026-06-03 13:28:05,877 | ERROR    |   ✖  Chunk #32 aborted – git commit failed.
+2026-06-03 13:28:05,877 | INFO     | Processing Chunk #33 (1 files, 14.97 MB)
+2026-06-03 13:28:05,878 | INFO     |   ›  Running  git add  for 1 file(s)…
+2026-06-03 13:28:05,909 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\PB_Building_MaskMap.uasset
+2026-06-03 13:28:05,909 | INFO     |   ›  Running  git commit  for Chunk #33…
+2026-06-03 13:28:05,954 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #33 (1 file)']' returned non-zero exit status 1.
+2026-06-03 13:28:05,954 | ERROR    |   ✖  Chunk #33 aborted – git commit failed.
+2026-06-03 13:28:05,954 | INFO     | Processing Chunk #34 (1 files, 25.0 MB)
+2026-06-03 13:28:05,955 | INFO     |   ›  Running  git add  for 1 file(s)…
+2026-06-03 13:28:05,992 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\PB_Building_Normal_part000.uasset
+2026-06-03 13:28:05,992 | INFO     |   ›  Running  git commit  for Chunk #34…
+2026-06-03 13:28:06,036 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #34 (1 file)']' returned non-zero exit status 1.
+2026-06-03 13:28:06,037 | ERROR    |   ✖  Chunk #34 aborted – git commit failed.
+2026-06-03 13:28:06,037 | INFO     | Processing Chunk #35 (21 files, 21.19 MB)
+2026-06-03 13:28:06,039 | INFO     |   ›  Running  git add  for 21 file(s)…
+2026-06-03 13:28:06,105 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\PB_Building_Normal_part001.uasset
+2026-06-03 13:28:06,137 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Plane_Black_Marble_BaseColor.uasset
+2026-06-03 13:28:06,169 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Plane_Black_Marble_Normal.uasset
+2026-06-03 13:28:06,201 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Plane_Black_Marble_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:06,234 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Plane_Ceiling_BaseColor.uasset
+2026-06-03 13:28:06,267 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Plane_Ceiling_Normal.uasset
+2026-06-03 13:28:06,300 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Plane_Ceiling_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:06,336 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Plane_Gate_BaseColor.uasset
+2026-06-03 13:28:06,368 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Plane_Gate_Normal.uasset
+2026-06-03 13:28:06,400 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Plane_Gate_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:06,428 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Plane_Metal_Normal.uasset
+2026-06-03 13:28:06,459 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Plane_Metal_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:06,494 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Plastic_Normal.uasset
+2026-06-03 13:28:06,525 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Plastic_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:06,558 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Pods_BaseColor.uasset
+2026-06-03 13:28:06,589 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Pods_Normal.uasset
+2026-06-03 13:28:06,624 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Pods_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:06,656 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Pool_BaseColor.uasset
+2026-06-03 13:28:06,693 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Pool_Normal.uasset
+2026-06-03 13:28:06,731 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Pool_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:06,764 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Red.uasset
+2026-06-03 13:28:06,764 | INFO     |   ›  Running  git commit  for Chunk #35…
+2026-06-03 13:28:06,811 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #35 (21 files)']' returned non-zero exit status 1.
+2026-06-03 13:28:06,811 | ERROR    |   ✖  Chunk #35 aborted – git commit failed.
+2026-06-03 13:28:06,812 | INFO     | Processing Chunk #36 (8 files, 23.41 MB)
+2026-06-03 13:28:06,813 | INFO     |   ›  Running  git add  for 8 file(s)…
+2026-06-03 13:28:06,844 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\RoadCracked_BaseColor.uasset
+2026-06-03 13:28:06,884 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\RoadCracked_Normal.uasset
+2026-06-03 13:28:06,920 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\RoadCracked_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:06,958 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Road_01_BaseColor.uasset
+2026-06-03 13:28:06,993 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Road_01_Normal.uasset
+2026-06-03 13:28:07,027 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Road_01_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:07,062 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\School_Wall.uasset
+2026-06-03 13:28:07,095 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Side_Walk_BaseColor.uasset
+2026-06-03 13:28:07,096 | INFO     |   ›  Running  git commit  for Chunk #36…
+2026-06-03 13:28:07,143 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #36 (8 files)']' returned non-zero exit status 1.
+2026-06-03 13:28:07,144 | ERROR    |   ✖  Chunk #36 aborted – git commit failed.
+2026-06-03 13:28:07,144 | INFO     | Processing Chunk #37 (19 files, 20.74 MB)
+2026-06-03 13:28:07,145 | INFO     |   ›  Running  git add  for 19 file(s)…
+2026-06-03 13:28:07,176 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Side_Walk_Normal.uasset
+2026-06-03 13:28:07,210 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Side_Walk_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:07,240 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Soil_BaseColor.uasset
+2026-06-03 13:28:07,272 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Soil_Normal.uasset
+2026-06-03 13:28:07,303 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Soil_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:07,336 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\SolarPanel_BaseColor.uasset
+2026-06-03 13:28:07,369 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\SolarPanel_Normal.uasset
+2026-06-03 13:28:07,401 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\SolarPanel_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:07,474 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Steel_Plates_BaseColor.uasset
+2026-06-03 13:28:07,507 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Steel_Plates_Normal.uasset
+2026-06-03 13:28:07,542 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Steel_Plates_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:07,576 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Stone_01.uasset
+2026-06-03 13:28:07,611 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\TrafficGreyA.uasset
+2026-06-03 13:28:07,646 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\TrafficGreyB.uasset
+2026-06-03 13:28:07,681 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Turuncu_Bina_Diffuse_-_Copy.uasset
+2026-06-03 13:28:07,716 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\UE_Stone02_BaseColor.uasset
+2026-06-03 13:28:07,748 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\UE_Stone02_Normal.uasset
+2026-06-03 13:28:07,782 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\UE_Stone02_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:07,817 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\WallCushion_BaseColor.uasset
+2026-06-03 13:28:07,818 | INFO     |   ›  Running  git commit  for Chunk #37…
+2026-06-03 13:28:07,865 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #37 (19 files)']' returned non-zero exit status 1.
+2026-06-03 13:28:07,865 | ERROR    |   ✖  Chunk #37 aborted – git commit failed.
+2026-06-03 13:28:07,866 | INFO     | Processing Chunk #38 (13 files, 22.0 MB)
+2026-06-03 13:28:07,867 | INFO     |   ›  Running  git add  for 13 file(s)…
+2026-06-03 13:28:07,905 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\WallCushion_Normal.uasset
+2026-06-03 13:28:07,935 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\WallCushion_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:07,973 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Wall_ClubHouse_BaseColor.uasset
+2026-06-03 13:28:08,006 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Wall_ClubHouse_Normal.uasset
+2026-06-03 13:28:08,037 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Wall_ClubHouse_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:08,068 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Wall_Plaster_Normal.uasset
+2026-06-03 13:28:08,098 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Wall_Plaster_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:08,128 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Water.uasset
+2026-06-03 13:28:08,160 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Window_Dirt.uasset
+2026-06-03 13:28:08,192 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Wood_Floor_BaseColor.uasset
+2026-06-03 13:28:08,225 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Wood_Floor_Normal.uasset
+2026-06-03 13:28:08,257 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Wood_Floor_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:08,290 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Wood_Fluting_BaseColor.uasset
+2026-06-03 13:28:08,291 | INFO     |   ›  Running  git commit  for Chunk #38…
+2026-06-03 13:28:08,338 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #38 (13 files)']' returned non-zero exit status 1.
+2026-06-03 13:28:08,338 | ERROR    |   ✖  Chunk #38 aborted – git commit failed.
+2026-06-03 13:28:08,338 | INFO     | Processing Chunk #39 (63 files, 12.29 MB)
+2026-06-03 13:28:08,341 | INFO     |   ›  Running  git add  for 63 file(s)…
+2026-06-03 13:28:08,373 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Wood_Fluting_Normal.uasset
+2026-06-03 13:28:08,405 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Wood_Fluting_OcclusionRoughnessMetallic.uasset
+2026-06-03 13:28:08,438 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\Yellow.uasset
+2026-06-03 13:28:08,473 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\base_Color.uasset
+2026-06-03 13:28:08,506 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\court.uasset
+2026-06-03 13:28:08,541 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\curb_01.uasset
+2026-06-03 13:28:08,575 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\emmisive.uasset
+2026-06-03 13:28:08,610 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\glass_NRM.uasset
+2026-06-03 13:28:08,646 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Materials\Textures\normal.uasset
+2026-06-03 13:28:08,682 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Unreal_01.uasset
+2026-06-03 13:28:08,714 | DEBUG    |   git add OK: Content\All_In_One\Trees\PCG_Trees.uasset
+2026-06-03 13:28:08,747 | DEBUG    |   git add OK: Content\All_In_One\UI\WBP_AnchorButton.uasset
+2026-06-03 13:28:08,777 | DEBUG    |   git add OK: Content\All_In_One\UI\WBP_AnchorButton1.uasset
+2026-06-03 13:28:08,840 | DEBUG    |   git add OK: Content\All_In_One\UI\WBP_AnchorButton2.uasset
+2026-06-03 13:28:08,887 | DEBUG    |   git add OK: Content\All_In_One\UI\WBP_BalconyListButton.uasset
+2026-06-03 13:28:08,921 | DEBUG    |   git add OK: Content\All_In_One\UI\WBP_CameraUI.uasset
+2026-06-03 13:28:08,954 | DEBUG    |   git add OK: Content\All_In_One\UI\WBP_CameraUI1.uasset
+2026-06-03 13:28:08,998 | DEBUG    |   git add OK: Content\All_In_One\UI\WBP_CameraUI_Backup.uasset
+2026-06-03 13:28:09,030 | DEBUG    |   git add OK: Content\All_In_One\UI\WBP_FPWalkUI.uasset
+2026-06-03 13:28:09,062 | DEBUG    |   git add OK: Content\All_In_One\UI\WBP_IconButton.uasset
+2026-06-03 13:28:09,092 | DEBUG    |   git add OK: Content\All_In_One\UI\WBP_PinLocationUI.uasset
+2026-06-03 13:28:09,123 | DEBUG    |   git add OK: Content\All_In_One\UI\WBP_SViewButton.uasset
+2026-06-03 13:28:09,156 | DEBUG    |   git add OK: Content\All_In_One\UI\WBP_Slider.uasset
+2026-06-03 13:28:09,188 | DEBUG    |   git add OK: Content\All_In_One\UI\bckup\WBP_AnchorButton.uasset
+2026-06-03 13:28:09,219 | DEBUG    |   git add OK: Content\All_In_One\UI\bckup\WBP_AnchorButton1.uasset
+2026-06-03 13:28:09,249 | DEBUG    |   git add OK: Content\All_In_One\UI\bckup\WBP_AnchorButton2.uasset
+2026-06-03 13:28:09,282 | DEBUG    |   git add OK: Content\All_In_One\UI\bckup\WBP_CameraUI.uasset
+2026-06-03 13:28:09,315 | DEBUG    |   git add OK: Content\BlankDefault\Levels\Blank_Empty.umap
+2026-06-03 13:28:09,350 | DEBUG    |   git add OK: Content\BlankDefault\Levels\Thumbnails\Thumbnail_Empty.uasset
+2026-06-03 13:28:09,384 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\PivotPainter\FT_EuropeanBeech_Field_01_PP.uasset
+2026-06-03 13:28:09,417 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\PivotPainter\FT_EuropeanBeech_Forest_01_PP.uasset
+2026-06-03 13:28:09,447 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\PivotPainter\FT_EuropeanBeech_Forest_02_PP.uasset
+2026-06-03 13:28:09,477 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\PivotPainter\FT_EuropeanBeech_Forest_03_PP.uasset
+2026-06-03 13:28:09,511 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\PivotPainter\FT_EuropeanBeech_Forest_04_PP.uasset
+2026-06-03 13:28:09,547 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\PivotPainter\FT_EuropeanBeech_Forest_05_PP.uasset
+2026-06-03 13:28:09,578 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\PivotPainter\FT_EuropeanBeech_Forest_06_PP.uasset
+2026-06-03 13:28:09,612 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\PivotPainter\FT_EuropeanBeech_Forest_07_PP.uasset
+2026-06-03 13:28:09,646 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\PivotPainter\FT_EuropeanBeech_Forest_08_PP.uasset
+2026-06-03 13:28:09,675 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\PivotPainter\FT_EuropeanBeech_Sapling_01_PP.uasset
+2026-06-03 13:28:09,707 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\PivotPainter\FT_EuropeanBeech_Sapling_02_PP.uasset
+2026-06-03 13:28:09,738 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\PivotPainter\FT_EuropeanBeech_Sapling_03_PP.uasset
+2026-06-03 13:28:09,790 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\PivotPainter\FT_EuropeanBeech_Sapling_04_PP.uasset
+2026-06-03 13:28:09,839 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\PivotPainter\FT_EuropeanBeech_Seedling_01_PP.uasset
+2026-06-03 13:28:09,893 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\PivotPainter\FT_EuropeanBeech_Seedling_02_PP.uasset
+2026-06-03 13:28:09,950 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\PivotPainter\FT_EuropeanBeech_Seedling_03_PP.uasset
+2026-06-03 13:28:09,993 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\PivotPainter\FT_EuropeanBeech_Seedling_04_PP.uasset
+2026-06-03 13:28:10,024 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\SimpleWind\FT_EuropeanBeech_Field_01.uasset
+2026-06-03 13:28:10,055 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\SimpleWind\FT_EuropeanBeech_Forest_01.uasset
+2026-06-03 13:28:10,085 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\SimpleWind\FT_EuropeanBeech_Forest_02.uasset
+2026-06-03 13:28:10,115 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\SimpleWind\FT_EuropeanBeech_Forest_03.uasset
+2026-06-03 13:28:10,147 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\SimpleWind\FT_EuropeanBeech_Forest_04.uasset
+2026-06-03 13:28:10,184 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\SimpleWind\FT_EuropeanBeech_Forest_05.uasset
+2026-06-03 13:28:10,228 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\SimpleWind\FT_EuropeanBeech_Forest_06.uasset
+2026-06-03 13:28:10,261 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\SimpleWind\FT_EuropeanBeech_Forest_07.uasset
+2026-06-03 13:28:10,295 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\SimpleWind\FT_EuropeanBeech_Forest_08.uasset
+2026-06-03 13:28:10,328 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\SimpleWind\FT_EuropeanBeech_Sapling_01.uasset
+2026-06-03 13:28:10,360 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\SimpleWind\FT_EuropeanBeech_Sapling_02.uasset
+2026-06-03 13:28:10,392 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\SimpleWind\FT_EuropeanBeech_Sapling_03.uasset
+2026-06-03 13:28:10,428 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\SimpleWind\FT_EuropeanBeech_Sapling_04.uasset
+2026-06-03 13:28:10,457 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\SimpleWind\FT_EuropeanBeech_Seedling_01.uasset
+2026-06-03 13:28:10,491 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\SimpleWind\FT_EuropeanBeech_Seedling_02.uasset
+2026-06-03 13:28:10,525 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\SimpleWind\FT_EuropeanBeech_Seedling_03.uasset
+2026-06-03 13:28:10,560 | DEBUG    |   git add OK: Content\EuropeanBeech\Foliage\SimpleWind\FT_EuropeanBeech_Seedling_04.uasset
+2026-06-03 13:28:10,560 | INFO     |   ›  Running  git commit  for Chunk #39…
+2026-06-03 13:28:10,604 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #39 (63 files)']' returned non-zero exit status 1.
+2026-06-03 13:28:10,604 | ERROR    |   ✖  Chunk #39 aborted – git commit failed.
+2026-06-03 13:28:10,605 | INFO     | Processing Chunk #40 (1 files, 25.0 MB)
+2026-06-03 13:28:10,605 | INFO     |   ›  Running  git add  for 1 file(s)…
+2026-06-03 13:28:10,639 | DEBUG    |   git add OK: Content\EuropeanBeech\Geometry\PivotPainter\SM_EuropeanBeech_Field_01_PP_part000.uasset
+2026-06-03 13:28:10,640 | INFO     |   ›  Running  git commit  for Chunk #40…
+2026-06-03 13:28:10,685 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #40 (1 file)']' returned non-zero exit status 1.
+2026-06-03 13:28:10,685 | ERROR    |   ✖  Chunk #40 aborted – git commit failed.
+2026-06-03 13:28:10,685 | INFO     | Processing Chunk #41 (1 files, 25.0 MB)
+2026-06-03 13:28:10,685 | INFO     |   ›  Running  git add  for 1 file(s)…
+2026-06-03 13:28:10,723 | DEBUG    |   git add OK: Content\EuropeanBeech\Geometry\PivotPainter\SM_EuropeanBeech_Field_01_PP_part001.uasset
+2026-06-03 13:28:10,723 | INFO     |   ›  Running  git commit  for Chunk #41…
+2026-06-03 13:28:10,764 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #41 (1 file)']' returned non-zero exit status 1.
+2026-06-03 13:28:10,765 | ERROR    |   ✖  Chunk #41 aborted – git commit failed.
+2026-06-03 13:28:10,765 | INFO     | Processing Chunk #42 (1 files, 25.0 MB)
+2026-06-03 13:28:10,766 | INFO     |   ›  Running  git add  for 1 file(s)…
+2026-06-03 13:28:10,798 | DEBUG    |   git add OK: Content\EuropeanBeech\Geometry\PivotPainter\SM_EuropeanBeech_Field_01_PP_part002.uasset
+2026-06-03 13:28:10,798 | INFO     |   ›  Running  git commit  for Chunk #42…
+2026-06-03 13:28:10,843 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #42 (1 file)']' returned non-zero exit status 1.
+2026-06-03 13:28:10,843 | ERROR    |   ✖  Chunk #42 aborted – git commit failed.
+2026-06-03 13:28:10,844 | INFO     | Processing Chunk #43 (1 files, 25.0 MB)
+2026-06-03 13:28:10,845 | INFO     |   ›  Running  git add  for 1 file(s)…
+2026-06-03 13:28:10,875 | DEBUG    |   git add OK: Content\EuropeanBeech\Geometry\PivotPainter\SM_EuropeanBeech_Field_01_PP_part003.uasset
+2026-06-03 13:28:10,875 | INFO     |   ›  Running  git commit  for Chunk #43…
+2026-06-03 13:28:10,922 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #43 (1 file)']' returned non-zero exit status 1.
+2026-06-03 13:28:10,922 | ERROR    |   ✖  Chunk #43 aborted – git commit failed.
+2026-06-03 13:28:10,923 | INFO     | Processing Chunk #44 (1 files, 25.0 MB)
+2026-06-03 13:28:10,923 | INFO     |   ›  Running  git add  for 1 file(s)…
+2026-06-03 13:28:10,955 | DEBUG    |   git add OK: Content\EuropeanBeech\Geometry\PivotPainter\SM_EuropeanBeech_Field_01_PP_part004.uasset
+2026-06-03 13:28:10,955 | INFO     |   ›  Running  git commit  for Chunk #44…
+2026-06-03 13:28:10,996 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #44 (1 file)']' returned non-zero exit status 1.
+2026-06-03 13:28:10,997 | ERROR    |   ✖  Chunk #44 aborted – git commit failed.
+2026-06-03 13:28:10,998 | INFO     | Processing Chunk #45 (1 files, 25.0 MB)
+2026-06-03 13:28:10,998 | INFO     |   ›  Running  git add  for 1 file(s)…
+2026-06-03 13:28:11,028 | DEBUG    |   git add OK: Content\EuropeanBeech\Geometry\PivotPainter\SM_EuropeanBeech_Field_01_PP_part005.uasset
+2026-06-03 13:28:11,029 | INFO     |   ›  Running  git commit  for Chunk #45…
+2026-06-03 13:28:11,072 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #45 (1 file)']' returned non-zero exit status 1.
+2026-06-03 13:28:11,072 | ERROR    |   ✖  Chunk #45 aborted – git commit failed.
+2026-06-03 13:28:11,073 | INFO     | Processing Chunk #46 (1 files, 25.0 MB)
+2026-06-03 13:28:11,074 | INFO     |   ›  Running  git add  for 1 file(s)…
+2026-06-03 13:28:11,107 | DEBUG    |   git add OK: Content\EuropeanBeech\Geometry\PivotPainter\SM_EuropeanBeech_Field_01_PP_part006.uasset
+2026-06-03 13:28:11,107 | INFO     |   ›  Running  git commit  for Chunk #46…
+2026-06-03 13:28:11,112 | WARNING  |   ⚠  Interrupt received – finishing current operation then stopping…
+2026-06-03 13:28:11,150 | ERROR    |   ✖  git commit failed: Command '['git', 'commit', '-m', 'chore: push chunk #46 (1 file)']' returned non-zero exit status 1.
+2026-06-03 13:28:11,151 | ERROR    |   ✖  Chunk #46 aborted – git commit failed.
+2026-06-03 13:28:11,151 | WARNING  |   ⚠  Shutdown requested – stopping before next chunk.

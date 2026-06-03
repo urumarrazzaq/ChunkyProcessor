@@ -1,0 +1,437 @@
+2026-06-03 14:09:28,012 | INFO     |   ·  Parsing chunk plan: D:\UE World\2Towers\2Towers_Archviz_UE_Project\git_chunks.log
+2026-06-03 14:09:28,030 | INFO     |   ·  Found 589 chunk(s) in plan
+2026-06-03 14:09:28,032 | INFO     | Processing Chunk #1 (9 files, 24.62 MB)
+2026-06-03 14:09:28,033 | INFO     |   ➕  Staging 9 file(s)…
+2026-06-03 14:09:28,063 | DEBUG    |   git add OK: All_In_One.uproject
+2026-06-03 14:09:28,096 | DEBUG    |   git add OK: Config\DefaultEditor.ini
+2026-06-03 14:09:28,131 | DEBUG    |   git add OK: Config\DefaultEngine.ini
+2026-06-03 14:09:28,168 | DEBUG    |   git add OK: Config\DefaultGame.ini
+2026-06-03 14:09:28,205 | DEBUG    |   git add OK: Config\DefaultInput.ini
+2026-06-03 14:09:28,305 | DEBUG    |   git add OK: Content\All_In_One\All_In_OneBackup(04-04).rar
+2026-06-03 14:09:28,339 | DEBUG    |   git add OK: Content\All_In_One\Assets\360_View\BP_360Sphere.uasset
+2026-06-03 14:09:28,375 | DEBUG    |   git add OK: Content\All_In_One\Assets\360_View\Images\Height_15M.uasset
+2026-06-03 14:09:28,409 | DEBUG    |   git add OK: Content\All_In_One\Assets\360_View\Images\Height_20M.uasset
+2026-06-03 14:09:28,410 | INFO     |   💾  Committing chunk #1…
+2026-06-03 14:09:28,459 | WARNING  |   ⚠  Nothing new to commit – files already committed, treating as done.
+2026-06-03 14:09:28,459 | INFO     |   🚀  Pushing to remote…
+2026-06-03 14:09:48,957 | DEBUG    |   git push stdout: 
+2026-06-03 14:09:48,960 | INFO     | Chunk #1 completed successfully (1/589)
+2026-06-03 14:09:48,960 | INFO     | Processing Chunk #2 (1 files, 12.55 MB)
+2026-06-03 14:09:48,961 | INFO     |   ➕  Staging 1 file(s)…
+2026-06-03 14:09:48,993 | DEBUG    |   git add OK: Content\All_In_One\Assets\360_View\Images\Height_30M.uasset
+2026-06-03 14:09:48,993 | INFO     |   💾  Committing chunk #2…
+2026-06-03 14:09:49,043 | WARNING  |   ⚠  Nothing new to commit – files already committed, treating as done.
+2026-06-03 14:09:49,043 | INFO     |   🚀  Pushing to remote…
+2026-06-03 14:09:55,067 | DEBUG    |   git push stdout: 
+2026-06-03 14:09:55,070 | INFO     | Chunk #2 completed successfully (2/589)
+2026-06-03 14:09:55,071 | INFO     | Processing Chunk #3 (1 files, 12.71 MB)
+2026-06-03 14:09:55,071 | INFO     |   ➕  Staging 1 file(s)…
+2026-06-03 14:09:55,101 | DEBUG    |   git add OK: Content\All_In_One\Assets\360_View\Images\Height_50M.uasset
+2026-06-03 14:09:55,101 | INFO     |   💾  Committing chunk #3…
+2026-06-03 14:09:55,147 | WARNING  |   ⚠  Nothing new to commit – files already committed, treating as done.
+2026-06-03 14:09:55,147 | INFO     |   🚀  Pushing to remote…
+2026-06-03 14:10:01,085 | DEBUG    |   git push stdout: 
+2026-06-03 14:10:01,091 | INFO     | Chunk #3 completed successfully (3/589)
+2026-06-03 14:10:01,092 | INFO     | Processing Chunk #4 (157 files, 23.93 MB)
+2026-06-03 14:10:01,098 | INFO     |   ➕  Staging 157 file(s)…
+2026-06-03 14:10:01,130 | DEBUG    |   git add OK: Content\All_In_One\Assets\360_View\Images\Height_75M.uasset
+2026-06-03 14:10:01,161 | DEBUG    |   git add OK: Content\All_In_One\Assets\360_View\M_Funcation\M_instance.uasset
+2026-06-03 14:10:01,189 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Amenities_02_Icon.uasset
+2026-06-03 14:10:01,219 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Amenities_Icon.uasset
+2026-06-03 14:10:01,247 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Arc_Button.uasset
+2026-06-03 14:10:01,279 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\BG_Lable.uasset
+2026-06-03 14:10:01,306 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\BackButton_Icon.uasset
+2026-06-03 14:10:01,334 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Base_Lable.uasset
+2026-06-03 14:10:01,361 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Black_BaseBG.uasset
+2026-06-03 14:10:01,389 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\DayNight_Icon.uasset
+2026-06-03 14:10:01,418 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\DropDown_Arrow.uasset
+2026-06-03 14:10:01,447 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Location_Icon.uasset
+2026-06-03 14:10:01,482 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Amenities_02_Icon.uasset
+2026-06-03 14:10:01,535 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Amenities_Icon.uasset
+2026-06-03 14:10:01,574 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Arc_Button.uasset
+2026-06-03 14:10:01,608 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\BG_Lable.uasset
+2026-06-03 14:10:01,637 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\BackButton_Icon.uasset
+2026-06-03 14:10:01,679 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Base_Lable.uasset
+2026-06-03 14:10:01,711 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Black_BaseBG.uasset
+2026-06-03 14:10:01,746 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\DayNight_Icon.uasset
+2026-06-03 14:10:01,781 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\DropDown_Arrow.uasset
+2026-06-03 14:10:01,810 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Location_Icon.uasset
+2026-06-03 14:10:01,843 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\ProjectHome_Icon.uasset
+2026-06-03 14:10:01,880 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\ProjectPlay_Icon.uasset
+2026-06-03 14:10:01,918 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Rect_Holder_Trans.uasset
+2026-06-03 14:10:01,951 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Selection.uasset
+2026-06-03 14:10:01,986 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Selection_Button.uasset
+2026-06-03 14:10:02,021 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Setting_Icon.uasset
+2026-06-03 14:10:02,050 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Side_Arc.uasset
+2026-06-03 14:10:02,079 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Side_Arc_Button.uasset
+2026-06-03 14:10:02,111 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Square.uasset
+2026-06-03 14:10:02,140 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Square_Curved.uasset
+2026-06-03 14:10:02,169 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\Walk_Icon.uasset
+2026-06-03 14:10:02,197 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Pngs\White_Dividers.uasset
+2026-06-03 14:10:02,225 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\ProjectHome_Icon.uasset
+2026-06-03 14:10:02,260 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\ProjectPlay_Icon.uasset
+2026-06-03 14:10:02,299 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Rect_Holder_Trans.uasset
+2026-06-03 14:10:02,337 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Selection.uasset
+2026-06-03 14:10:02,375 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Selection_Button.uasset
+2026-06-03 14:10:02,405 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Setting_Icon.uasset
+2026-06-03 14:10:02,438 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Side_Arc.uasset
+2026-06-03 14:10:02,478 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Side_Arc_Button.uasset
+2026-06-03 14:10:02,510 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\Square_Curved.uasset
+2026-06-03 14:10:02,544 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\Buttons\White_Dividers.uasset
+2026-06-03 14:10:02,578 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\txt\Montserrat-Black.uasset
+2026-06-03 14:10:02,613 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\txt\Montserrat-Black_Font.uasset
+2026-06-03 14:10:02,650 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\txt\Montserrat-Bold.uasset
+2026-06-03 14:10:02,683 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\txt\Montserrat-Bold_Font.uasset
+2026-06-03 14:10:02,715 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\txt\Montserrat-MediumItalic.uasset
+2026-06-03 14:10:02,746 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\txt\Montserrat-MediumItalic_Font.uasset
+2026-06-03 14:10:02,782 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\txt\Montserrat-Regular.uasset
+2026-06-03 14:10:02,817 | DEBUG    |   git add OK: Content\All_In_One\Assets\B_View\txt\Montserrat-Regular_Font.uasset
+2026-06-03 14:10:02,852 | DEBUG    |   git add OK: Content\All_In_One\Assets\Circle.uasset
+2026-06-03 14:10:02,888 | DEBUG    |   git add OK: Content\All_In_One\Assets\Circle2.uasset
+2026-06-03 14:10:02,942 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icon_Holder1.uasset
+2026-06-03 14:10:02,976 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Aakash_Healthcare_Super_Speciality_Hospital.uasset
+2026-06-03 14:10:03,015 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Aerocity.uasset
+2026-06-03 14:10:03,057 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Bal_Bharti_School.uasset
+2026-06-03 14:10:03,091 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Bal_Bhavan_International_School.uasset
+2026-06-03 14:10:03,125 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Bensups_Multi-Speciality_Hospital.uasset
+2026-06-03 14:10:03,164 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Bharat_Vandana_Park.uasset
+2026-06-03 14:10:03,198 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Bhaskaracharya_College_of_Applied_Sciene.uasset
+2026-06-03 14:10:03,231 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\City_Centre_Mall.uasset
+2026-06-03 14:10:03,268 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Connaught_Place.uasset
+2026-06-03 14:10:03,297 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\D21_Corporate_Park.uasset
+2026-06-03 14:10:03,327 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\DDA_Golf_Course_Dwarka.uasset
+2026-06-03 14:10:03,365 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\DLF_Cyber_City.uasset
+2026-06-03 14:10:03,404 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Day_Night_Slider\Center_Bar.uasset
+2026-06-03 14:10:03,438 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Day_Night_Slider\DayNight_Slider.uasset
+2026-06-03 14:10:03,469 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Day_Night_Slider\Evening_Button.uasset
+2026-06-03 14:10:03,503 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Day_Night_Slider\Moon_Button.uasset
+2026-06-03 14:10:03,535 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Day_Night_Slider\Sun_Button.uasset
+2026-06-03 14:10:03,568 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Day_Night_Slider\Top_SliderButton.uasset
+2026-06-03 14:10:03,601 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Deen_Dayal_Upadhyaya_College.uasset
+2026-06-03 14:10:03,639 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Delhi_Cantt.uasset
+2026-06-03 14:10:03,670 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Delhi_International_School_Edge.uasset
+2026-06-03 14:10:03,702 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Delhi_Public_School.uasset
+2026-06-03 14:10:03,734 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Dhaula_Kuan.uasset
+2026-06-03 14:10:03,768 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\District_Centre__Janakpuri.uasset
+2026-06-03 14:10:03,804 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Dwarka_Expressway.uasset
+2026-06-03 14:10:03,837 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Dwarka_Sector_13_Metro_Station.uasset
+2026-06-03 14:10:03,869 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Eros_Metro_Mall.uasset
+2026-06-03 14:10:03,906 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Guru_Govind_Singh_IP_University.uasset
+2026-06-03 14:10:03,939 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Gurugram.uasset
+2026-06-03 14:10:03,973 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\IGI_Airport___Aerocity.uasset
+2026-06-03 14:10:04,009 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Icons_TIFF\Center_Bar.uasset
+2026-06-03 14:10:04,042 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Icons_TIFF\Evening_Button.uasset
+2026-06-03 14:10:04,075 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Icons_TIFF\Home_Icon.uasset
+2026-06-03 14:10:04,108 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Icons_TIFF\Location_CenterBar.uasset
+2026-06-03 14:10:04,142 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Icons_TIFF\Location_Icon.uasset
+2026-06-03 14:10:04,176 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Icons_TIFF\Moon_Button.uasset
+2026-06-03 14:10:04,209 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Icons_TIFF\Sun_Button.uasset
+2026-06-03 14:10:04,277 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Icons_TIFF\Top_SliderButton.uasset
+2026-06-03 14:10:04,304 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Indira_Gandhi_Hospital.uasset
+2026-06-03 14:10:04,336 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Indraprastha_International_School.uasset
+2026-06-03 14:10:04,365 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Janakpuri.uasset
+2026-06-03 14:10:04,395 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Location\Home_Icon.uasset
+2026-06-03 14:10:04,429 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Location\Location_CenterBar.uasset
+2026-06-03 14:10:04,461 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Location\Location_Icon.uasset
+2026-06-03 14:10:04,498 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Location\Location_Slider.uasset
+2026-06-03 14:10:04,536 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Location\Top_SliderButton.uasset
+2026-06-03 14:10:04,569 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Maharaja_Agrasen_Hospital.uasset
+2026-06-03 14:10:04,602 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Manipal_Hospital.uasset
+2026-06-03 14:10:04,637 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Max_Super_Speciality_Hospital.uasset
+2026-06-03 14:10:04,675 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Mount_Carmel_School.uasset
+2026-06-03 14:10:04,708 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\NH-8.uasset
+2026-06-03 14:10:04,742 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\National_Law_University.uasset
+2026-06-03 14:10:04,779 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Netaji_Subhas_University_of_Technology.uasset
+2026-06-03 14:10:04,819 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Paschim_Vihar.uasset
+2026-06-03 14:10:04,855 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Punjabi_Bagh.uasset
+2026-06-03 14:10:04,894 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Radisson_Blu_Hotel__New_Delhi_Dwarka.uasset
+2026-06-03 14:10:04,925 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Radisson_Blu_Plaza_Delhi_Airport.uasset
+2026-06-03 14:10:04,955 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Rajouri_Garden.uasset
+2026-06-03 14:10:04,986 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Reliance_Mall.uasset
+2026-06-03 14:10:05,031 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Roseate_House_Andaz_New_Delhi_Aerocity.uasset
+2026-06-03 14:10:05,060 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Samar_Hospital.uasset
+2026-06-03 14:10:05,095 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Taj_Vivanta_New_Delhi__Dwarka.uasset
+2026-06-03 14:10:05,122 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\UER-II.uasset
+2026-06-03 14:10:05,149 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Udyog_Vihar.uasset
+2026-06-03 14:10:05,183 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\University_School_of_Information.uasset
+2026-06-03 14:10:05,214 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Vandana_International_School.uasset
+2026-06-03 14:10:05,244 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Vegas_Mall.uasset
+2026-06-03 14:10:05,272 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Venkasteshwar_Hospital.uasset
+2026-06-03 14:10:05,302 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Venkateshwar_International_School.uasset
+2026-06-03 14:10:05,330 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Welcomhotel_by_ITC_Hotels__Dwarka.uasset
+2026-06-03 14:10:05,374 | DEBUG    |   git add OK: Content\All_In_One\Assets\Icons\Yashobhoomi_Convention_Centre__IICC_.uasset
+2026-06-03 14:10:05,404 | DEBUG    |   git add OK: Content\All_In_One\Assets\Location.uasset
+2026-06-03 14:10:05,443 | DEBUG    |   git add OK: Content\All_In_One\Assets\M_IconHolder.uasset
+2026-06-03 14:10:05,471 | DEBUG    |   git add OK: Content\All_In_One\Assets\OutLine\M_Outline.uasset
+2026-06-03 14:10:05,499 | DEBUG    |   git add OK: Content\All_In_One\Assets\OutLine\OutLine.uasset
+2026-06-03 14:10:05,526 | DEBUG    |   git add OK: Content\All_In_One\Assets\OutLine\OutLine_Color.uasset
+2026-06-03 14:10:05,555 | DEBUG    |   git add OK: Content\All_In_One\Assets\OutLine\Wall_Panels.uasset
+2026-06-03 14:10:05,583 | DEBUG    |   git add OK: Content\All_In_One\Assets\P_View\Asset\Arrow_U.uasset
+2026-06-03 14:10:05,613 | DEBUG    |   git add OK: Content\All_In_One\Assets\P_View\Asset\Arrow_U1.uasset
+2026-06-03 14:10:05,684 | DEBUG    |   git add OK: Content\All_In_One\Assets\P_View\Asset\arrow_u2.uasset
+2026-06-03 14:10:05,721 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\BP_BaseAnchor.uasset
+2026-06-03 14:10:05,756 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\BP_CameraBlockVolume.uasset
+2026-06-03 14:10:05,795 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\BP_CameraGameMode.uasset
+2026-06-03 14:10:05,827 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\BP_DetectSroundingLocations.uasset
+2026-06-03 14:10:05,863 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\BP_FPView.uasset
+2026-06-03 14:10:05,895 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\BP_FPWalkPoint.uasset
+2026-06-03 14:10:05,930 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\BP_FocusAnchor.uasset
+2026-06-03 14:10:05,960 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\BP_MoveToLocation.uasset
+2026-06-03 14:10:05,999 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\BP_OverviewFixed.uasset
+2026-06-03 14:10:06,027 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\BP_OverviewOrbit.uasset
+2026-06-03 14:10:06,053 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\BP_PinLocation.uasset
+2026-06-03 14:10:06,085 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\BP_TouchOrbitCamera.uasset
+2026-06-03 14:10:06,114 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\BP_ToweHUD.uasset
+2026-06-03 14:10:06,142 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\M_UI.uasset
+2026-06-03 14:10:06,169 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\bckup\2\3\4\BP_CameraGameMode.uasset
+2026-06-03 14:10:06,205 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\bckup\2\3\4\BP_FPView.uasset
+2026-06-03 14:10:06,244 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\bckup\2\3\4\BP_FocusAnchor.uasset
+2026-06-03 14:10:06,272 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\bckup\2\3\4\BP_TouchOrbitCamera.uasset
+2026-06-03 14:10:06,304 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\bckup\2\3\BP_CameraGameMode.uasset
+2026-06-03 14:10:06,339 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\bckup\2\3\BP_FPView.uasset
+2026-06-03 14:10:06,368 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\bckup\2\3\BP_FocusAnchor.uasset
+2026-06-03 14:10:06,422 | DEBUG    |   git add OK: Content\All_In_One\Blueprints\bckup\2\3\BP_TouchOrbitCamera.uasset
+2026-06-03 14:10:06,423 | INFO     |   💾  Committing chunk #4…
+2026-06-03 14:10:06,470 | WARNING  |   ⚠  Nothing new to commit – files already committed, treating as done.
+2026-06-03 14:10:06,471 | INFO     |   🚀  Pushing to remote…
+2026-06-03 14:10:12,238 | DEBUG    |   git push stdout: 
+2026-06-03 14:10:12,241 | INFO     | Chunk #4 completed successfully (4/589)
+2026-06-03 14:10:12,241 | INFO     | Processing Chunk #5 (1 files, 25.0 MB)
+2026-06-03 14:10:12,241 | INFO     |   ➕  Staging 1 file(s)…
+2026-06-03 14:10:12,273 | DEBUG    |   git add OK: Content\All_In_One\Maps\02Towers_part000.umap
+2026-06-03 14:10:12,273 | INFO     |   💾  Committing chunk #5…
+2026-06-03 14:10:12,316 | WARNING  |   ⚠  Nothing new to commit – files already committed, treating as done.
+2026-06-03 14:10:12,316 | INFO     |   🚀  Pushing to remote…
+2026-06-03 14:10:18,135 | DEBUG    |   git push stdout: 
+2026-06-03 14:10:18,138 | INFO     | Chunk #5 completed successfully (5/589)
+2026-06-03 14:10:18,138 | INFO     | Processing Chunk #6 (15 files, 24.99 MB)
+2026-06-03 14:10:18,140 | INFO     |   ➕  Staging 15 file(s)…
+2026-06-03 14:10:18,169 | DEBUG    |   git add OK: Content\All_In_One\Maps\02Towers_part001.umap
+2026-06-03 14:10:18,204 | DEBUG    |   git add OK: Content\All_In_One\Maps\Eldeco_01_sharedassets\AutoMaterial_LayerInfo.uasset
+2026-06-03 14:10:18,234 | DEBUG    |   git add OK: Content\All_In_One\Maps\Eldeco_01_sharedassets\Ground_LayerInfo.uasset
+2026-06-03 14:10:18,263 | DEBUG    |   git add OK: Content\All_In_One\Maps\Eldeco_01_sharedassets\MidHigh_LayerInfo.uasset
+2026-06-03 14:10:18,292 | DEBUG    |   git add OK: Content\All_In_One\Maps\Eldeco_01_sharedassets\MidLow_LayerInfo.uasset
+2026-06-03 14:10:18,331 | DEBUG    |   git add OK: Content\All_In_One\Maps\MAp.uasset
+2026-06-03 14:10:18,363 | DEBUG    |   git add OK: Content\All_In_One\Maps\Tree_map.uasset
+2026-06-03 14:10:18,394 | DEBUG    |   git add OK: Content\All_In_One\Materials\M_Outline.uasset
+2026-06-03 14:10:18,423 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Books_Set01.uasset
+2026-06-03 14:10:18,452 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Books_Set02.uasset
+2026-06-03 14:10:18,487 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Books_Set03.uasset
+2026-06-03 14:10:18,519 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Books_Set04.uasset
+2026-06-03 14:10:18,548 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Chair_Evie_Velvet.uasset
+2026-06-03 14:10:18,580 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Chair_Rubautelli.uasset
+2026-06-03 14:10:18,608 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\CoffeeTable_Max_Oak.uasset
+2026-06-03 14:10:18,609 | INFO     |   💾  Committing chunk #6…
+2026-06-03 14:10:18,648 | WARNING  |   ⚠  Nothing new to commit – files already committed, treating as done.
+2026-06-03 14:10:18,648 | INFO     |   🚀  Pushing to remote…
+2026-06-03 14:10:24,414 | DEBUG    |   git push stdout: 
+2026-06-03 14:10:24,418 | INFO     | Chunk #6 completed successfully (6/589)
+2026-06-03 14:10:24,418 | INFO     | Processing Chunk #7 (32 files, 23.27 MB)
+2026-06-03 14:10:24,420 | INFO     |   ➕  Staging 32 file(s)…
+2026-06-03 14:10:24,452 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\DiningChair_Nordic_White.uasset
+2026-06-03 14:10:24,481 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Dining_Table_Nordic_90cm_White.uasset
+2026-06-03 14:10:24,509 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\DumbellStand.uasset
+2026-06-03 14:10:24,540 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Exercise_bike.uasset
+2026-06-03 14:10:24,568 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\AlexandraeArecaPalm.uasset
+2026-06-03 14:10:24,602 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\AlocasiaPolly.uasset
+2026-06-03 14:10:24,632 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\ArecaPalm.uasset
+2026-06-03 14:10:24,668 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\ChamaedoreaElegans.uasset
+2026-06-03 14:10:24,700 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\FICUS_LYRATA.uasset
+2026-06-03 14:10:24,730 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\LivistonaChinesis.uasset
+2026-06-03 14:10:24,762 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\MI_Ficus_Lyrata.uasset
+2026-06-03 14:10:24,796 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\MI_MetalPot.uasset
+2026-06-03 14:10:24,834 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\MONSTERA_Pot.uasset
+2026-06-03 14:10:24,871 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Materials\MI_AlocasiaPolly.uasset
+2026-06-03 14:10:24,909 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Materials\MI_ChamaedoreaElegans.uasset
+2026-06-03 14:10:24,943 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Materials\MI_Ficus_Lyrata.uasset
+2026-06-03 14:10:24,979 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Materials\MI_MONSTERA_Deliciosa.uasset
+2026-06-03 14:10:25,012 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Materials\MI_MetalPot.uasset
+2026-06-03 14:10:25,046 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Materials\MI_PhilondendronBirkin.uasset
+2026-06-03 14:10:25,079 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Materials\MI_PlanterCross.uasset
+2026-06-03 14:10:25,108 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Materials\MI_PlanterCrossDark.uasset
+2026-06-03 14:10:25,139 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Materials\MI_STRELITZIA_NICOLAI.uasset
+2026-06-03 14:10:25,173 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Materials\MI_STRELITZIA_REGINAE.uasset
+2026-06-03 14:10:25,202 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Materials\MI_Sansevieria.uasset
+2026-06-03 14:10:25,229 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\PhilondendronBirkin.uasset
+2026-06-03 14:10:25,257 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\STRELITZIA_NICOLAI.uasset
+2026-06-03 14:10:25,287 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\STRELITZIA_REGINAE.uasset
+2026-06-03 14:10:25,319 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Sansevieria.uasset
+2026-06-03 14:10:25,350 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\AlocasiaPolly_BaseColor.uasset
+2026-06-03 14:10:25,379 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\AlocasiaPolly_Normal.uasset
+2026-06-03 14:10:25,411 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\AlocasiaPolly_OcclusionRoughnessMetallic.uasset
+2026-06-03 14:10:25,446 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\ArecaPalm_BaseColor.uasset
+2026-06-03 14:10:25,446 | INFO     |   💾  Committing chunk #7…
+2026-06-03 14:10:25,496 | WARNING  |   ⚠  Nothing new to commit – files already committed, treating as done.
+2026-06-03 14:10:25,496 | INFO     |   🚀  Pushing to remote…
+2026-06-03 14:10:31,528 | DEBUG    |   git push stdout: 
+2026-06-03 14:10:31,532 | INFO     | Chunk #7 completed successfully (7/589)
+2026-06-03 14:10:31,532 | INFO     | Processing Chunk #8 (6 files, 22.6 MB)
+2026-06-03 14:10:31,533 | INFO     |   ➕  Staging 6 file(s)…
+2026-06-03 14:10:31,567 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\ArecaPalm_Normal.uasset
+2026-06-03 14:10:31,601 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\ArecaPalm_OcclusionRoughnessMetallic.uasset
+2026-06-03 14:10:31,645 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\CeramicPot_BaseColor.uasset
+2026-06-03 14:10:31,692 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\CeramicPot_Normal.uasset
+2026-06-03 14:10:31,724 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\CeramicPot_OcclusionRoughnessMetallic.uasset
+2026-06-03 14:10:31,756 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\ChamaedoreaElegans_BaseColor.uasset
+2026-06-03 14:10:31,756 | INFO     |   💾  Committing chunk #8…
+2026-06-03 14:10:31,799 | WARNING  |   ⚠  Nothing new to commit – files already committed, treating as done.
+2026-06-03 14:10:31,800 | INFO     |   🚀  Pushing to remote…
+2026-06-03 14:10:38,040 | DEBUG    |   git push stdout: 
+2026-06-03 14:10:38,044 | INFO     | Chunk #8 completed successfully (8/589)
+2026-06-03 14:10:38,045 | INFO     | Processing Chunk #9 (11 files, 22.93 MB)
+2026-06-03 14:10:38,046 | INFO     |   ➕  Staging 11 file(s)…
+2026-06-03 14:10:38,077 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\ChamaedoreaElegans_Normal.uasset
+2026-06-03 14:10:38,114 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\ChamaedoreaElegans_OcclusionRoughnessMetallic.uasset
+2026-06-03 14:10:38,152 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\FICUS_LYRATA_BaseColor.uasset
+2026-06-03 14:10:38,183 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\FICUS_LYRATA_Normal.uasset
+2026-06-03 14:10:38,214 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\FICUS_LYRATA_OcclusionRoughnessMetallic.uasset
+2026-06-03 14:10:38,255 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\LivistonaChinesis_BaseColor.uasset
+2026-06-03 14:10:38,292 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\LivistonaChinesis_Normal.uasset
+2026-06-03 14:10:38,329 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\LivistonaChinesis_OcclusionRoughnessMetallic.uasset
+2026-06-03 14:10:38,368 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\MI_AlexandraeArecaPalm.uasset
+2026-06-03 14:10:38,420 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\MI_CeramicPot.uasset
+2026-06-03 14:10:38,459 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\MI_LivistonaChinesis.uasset
+2026-06-03 14:10:38,459 | INFO     |   💾  Committing chunk #9…
+2026-06-03 14:10:38,510 | WARNING  |   ⚠  Nothing new to commit – files already committed, treating as done.
+2026-06-03 14:10:38,511 | INFO     |   🚀  Pushing to remote…
+2026-06-03 14:10:44,571 | DEBUG    |   git push stdout: 
+2026-06-03 14:10:44,578 | INFO     | Chunk #9 completed successfully (9/589)
+2026-06-03 14:10:44,580 | INFO     | Processing Chunk #10 (7 files, 23.87 MB)
+2026-06-03 14:10:44,589 | INFO     |   ➕  Staging 7 file(s)…
+2026-06-03 14:10:44,636 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\MONSTERA_Deliciosa_BaseColor.uasset
+2026-06-03 14:10:44,676 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\MONSTERA_Deliciosa_Normal.uasset
+2026-06-03 14:10:44,711 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\MONSTERA_Deliciosa_OcclusionRoughnessMetallic.uasset
+2026-06-03 14:10:44,745 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\MetalPot_BaseColor.uasset
+2026-06-03 14:10:44,779 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\MetalPot_Normal.uasset
+2026-06-03 14:10:44,820 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\MetalPot_OcclusionRoughnessMetallic.uasset
+2026-06-03 14:10:44,863 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\PhilondendronBirkin_BaseColor.uasset
+2026-06-03 14:10:44,864 | INFO     |   💾  Committing chunk #10…
+2026-06-03 14:10:44,916 | WARNING  |   ⚠  Nothing new to commit – files already committed, treating as done.
+2026-06-03 14:10:44,916 | INFO     |   🚀  Pushing to remote…
+2026-06-03 14:10:50,760 | DEBUG    |   git push stdout: 
+2026-06-03 14:10:50,765 | INFO     | Chunk #10 completed successfully (10/589)
+2026-06-03 14:10:50,766 | INFO     | Processing Chunk #11 (8 files, 24.92 MB)
+2026-06-03 14:10:50,773 | INFO     |   ➕  Staging 8 file(s)…
+2026-06-03 14:10:50,819 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\PhilondendronBirkin_Normal.uasset
+2026-06-03 14:10:50,856 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\PhilondendronBirkin_OcclusionRoughnessMetallic.uasset
+2026-06-03 14:10:50,909 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\PlanterCrossDark_BaseColor.uasset
+2026-06-03 14:10:50,991 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\PlanterCrossDark_Normal.uasset
+2026-06-03 14:10:51,042 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\PlanterCrossDark_OcclusionRoughnessMetallic.uasset
+2026-06-03 14:10:51,083 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\PlanterCross_BaseColor.uasset
+2026-06-03 14:10:51,119 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\PlanterCross_Normal.uasset
+2026-06-03 14:10:51,166 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\PlanterCross_OcclusionRoughnessMetallic.uasset
+2026-06-03 14:10:51,167 | INFO     |   💾  Committing chunk #11…
+2026-06-03 14:10:51,222 | WARNING  |   ⚠  Nothing new to commit – files already committed, treating as done.
+2026-06-03 14:10:51,223 | INFO     |   🚀  Pushing to remote…
+2026-06-03 14:10:57,003 | DEBUG    |   git push stdout: 
+2026-06-03 14:10:57,006 | INFO     | Chunk #11 completed successfully (11/589)
+2026-06-03 14:10:57,006 | INFO     | Processing Chunk #12 (7 files, 23.3 MB)
+2026-06-03 14:10:57,007 | INFO     |   ➕  Staging 7 file(s)…
+2026-06-03 14:10:57,047 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\STRELITZIA_NICOLAI_BaseColor.uasset
+2026-06-03 14:10:57,078 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\STRELITZIA_NICOLAI_Normal.uasset
+2026-06-03 14:10:57,130 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\STRELITZIA_NICOLAI_OcclusionRoughnessMetallic.uasset
+2026-06-03 14:10:57,182 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\STRELITZIA_REGINAE_BaseColor.uasset
+2026-06-03 14:10:57,230 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\STRELITZIA_REGINAE_Normal.uasset
+2026-06-03 14:10:57,261 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\STRELITZIA_REGINAE_OcclusionRoughnessMetallic.uasset
+2026-06-03 14:10:57,290 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\Sansevieria_BaseColor.uasset
+2026-06-03 14:10:57,290 | INFO     |   💾  Committing chunk #12…
+2026-06-03 14:10:57,344 | WARNING  |   ⚠  Nothing new to commit – files already committed, treating as done.
+2026-06-03 14:10:57,344 | INFO     |   🚀  Pushing to remote…
+2026-06-03 14:11:03,032 | DEBUG    |   git push stdout: 
+2026-06-03 14:11:03,035 | INFO     | Chunk #12 completed successfully (12/589)
+2026-06-03 14:11:03,036 | INFO     | Processing Chunk #13 (2 files, 6.2 MB)
+2026-06-03 14:11:03,036 | INFO     |   ➕  Staging 2 file(s)…
+2026-06-03 14:11:03,116 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\Sansevieria_Normal.uasset
+2026-06-03 14:11:03,158 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\InDoorPlants\Textures\Sansevieria_OcclusionRoughnessMetallic.uasset
+2026-06-03 14:11:03,158 | INFO     |   💾  Committing chunk #13…
+2026-06-03 14:11:03,209 | WARNING  |   ⚠  Nothing new to commit – files already committed, treating as done.
+2026-06-03 14:11:03,209 | INFO     |   🚀  Pushing to remote…
+2026-06-03 14:11:09,072 | DEBUG    |   git push stdout: 
+2026-06-03 14:11:09,074 | INFO     | Chunk #13 completed successfully (13/589)
+2026-06-03 14:11:09,074 | INFO     | Processing Chunk #14 (1 files, 25.0 MB)
+2026-06-03 14:11:09,075 | INFO     |   ➕  Staging 1 file(s)…
+2026-06-03 14:11:09,105 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\LifeFitness_part000.uasset
+2026-06-03 14:11:09,105 | INFO     |   💾  Committing chunk #14…
+2026-06-03 14:11:09,152 | WARNING  |   ⚠  Nothing new to commit – files already committed, treating as done.
+2026-06-03 14:11:09,152 | INFO     |   🚀  Pushing to remote…
+2026-06-03 14:11:15,067 | DEBUG    |   git push stdout: 
+2026-06-03 14:11:15,076 | INFO     | Chunk #14 completed successfully (14/589)
+2026-06-03 14:11:15,077 | INFO     | Processing Chunk #15 (21 files, 24.03 MB)
+2026-06-03 14:11:15,083 | INFO     |   ➕  Staging 21 file(s)…
+2026-06-03 14:11:15,131 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\LifeFitness_part001.uasset
+2026-06-03 14:11:15,170 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\LowerBodyWorkOut.uasset
+2026-06-03 14:11:15,208 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\MI_BookSet_01.uasset
+2026-06-03 14:11:15,247 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\MI_BookSet_02.uasset
+2026-06-03 14:11:15,281 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\MI_BookSet_03.uasset
+2026-06-03 14:11:15,318 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\MI_BookSet_04.uasset
+2026-06-03 14:11:15,353 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\MI_Roller.uasset
+2026-06-03 14:11:15,392 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\MI_Rug.uasset
+2026-06-03 14:11:15,430 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\MI_SingleBook.uasset
+2026-06-03 14:11:15,467 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\MI_Sofa_Lobby.uasset
+2026-06-03 14:11:15,499 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\MI_Table_Balzac_Coffee.uasset
+2026-06-03 14:11:15,535 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\01Chair_BaseColor.uasset
+2026-06-03 14:11:15,573 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\01Chair_Normal.uasset
+2026-06-03 14:11:15,607 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\01Chair_OcclusionRoughnessMetallic.uasset
+2026-06-03 14:11:15,644 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Books_Set01_AlbedoTransparency.uasset
+2026-06-03 14:11:15,681 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Books_Set02_AlbedoTransparency.uasset
+2026-06-03 14:11:15,716 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Books_Set03_AlbedoTransparency.uasset
+2026-06-03 14:11:15,772 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Books_Set04_AlbedoTransparency.uasset
+2026-06-03 14:11:15,807 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Branches_diff.uasset
+2026-06-03 14:11:15,842 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Chair_Evie_Velvet_BaseColor.uasset
+2026-06-03 14:11:15,874 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Chair_Evie_Velvet_Normal.uasset
+2026-06-03 14:11:15,874 | INFO     |   💾  Committing chunk #15…
+2026-06-03 14:11:15,922 | WARNING  |   ⚠  Nothing new to commit – files already committed, treating as done.
+2026-06-03 14:11:15,922 | INFO     |   🚀  Pushing to remote…
+2026-06-03 14:11:21,869 | DEBUG    |   git push stdout: 
+2026-06-03 14:11:21,873 | INFO     | Chunk #15 completed successfully (15/589)
+2026-06-03 14:11:21,874 | INFO     | Processing Chunk #16 (42 files, 22.3 MB)
+2026-06-03 14:11:21,910 | INFO     |   ➕  Staging 42 file(s)…
+2026-06-03 14:11:21,951 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Chair_Evie_Velvet_OcclusionRoughnessMetallic.uasset
+2026-06-03 14:11:21,987 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\DiningChair_BaseColor.uasset
+2026-06-03 14:11:22,023 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\DiningChair_Normal.uasset
+2026-06-03 14:11:22,091 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\DiningChair_OcclusionRoughnessMetallic.uasset
+2026-06-03 14:11:22,157 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Dining_Table_BaseColor.uasset
+2026-06-03 14:11:22,201 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Dining_Table_Normal.uasset
+2026-06-03 14:11:22,236 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Dining_Table_OcclusionRoughnessMetallic.uasset
+2026-06-03 14:11:22,277 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\ExerciseBike_BaseColor.uasset
+2026-06-03 14:11:22,317 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\ExerciseBike_Normal.uasset
+2026-06-03 14:11:22,357 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\ExerciseBike_OcclusionRoughnessMetallic.uasset
+2026-06-03 14:11:22,395 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Labels_Cables_BaseColor.uasset
+2026-06-03 14:11:22,444 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Labels_Cables_Normal.uasset
+2026-06-03 14:11:22,489 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Labels_Cables_OcclusionRoughnessMetallic.uasset
+2026-06-03 14:11:22,531 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_01Chair.uasset
+2026-06-03 14:11:22,623 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_01Table.uasset
+2026-06-03 14:11:22,676 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_02Chair.uasset
+2026-06-03 14:11:22,716 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_BookSet_01.uasset
+2026-06-03 14:11:22,758 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_BookSet_02.uasset
+2026-06-03 14:11:22,796 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_BookSet_03.uasset
+2026-06-03 14:11:22,834 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_BookSet_04.uasset
+2026-06-03 14:11:22,886 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_Chair_Evie_Velvet.uasset
+2026-06-03 14:11:22,961 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_Exercise_bike.uasset
+2026-06-03 14:11:22,997 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_LabelsCables.uasset
+2026-06-03 14:11:23,040 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_Modules.uasset
+2026-06-03 14:11:23,086 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_Nuts.uasset
+2026-06-03 14:11:23,152 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_OfficeChair.uasset
+2026-06-03 14:11:23,227 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_PoolTable.uasset
+2026-06-03 14:11:23,264 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_Roller.uasset
+2026-06-03 14:11:23,303 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_Rubber_Black.uasset
+2026-06-03 14:11:23,355 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_Rug.uasset
+2026-06-03 14:11:23,439 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_SingleBook.uasset
+2026-06-03 14:11:23,482 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_SofaTable.uasset
+2026-06-03 14:11:23,520 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_Sofa_Lobby.uasset
+2026-06-03 14:11:23,552 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_StepPlatform.uasset
+2026-06-03 14:11:23,582 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_TV.uasset
+2026-06-03 14:11:23,629 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_Table_Balzac_Coffee.uasset
+2026-06-03 14:11:23,671 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_TherapyBall.uasset
+2026-06-03 14:11:23,726 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_Vase.uasset
+2026-06-03 14:11:23,756 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_VaseBranches.uasset
+2026-06-03 14:11:23,791 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_Weight.uasset
+2026-06-03 14:11:23,821 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\MI_YogaBall.uasset
+2026-06-03 14:11:23,875 | DEBUG    |   git add OK: Content\All_In_One\Models\Unreal_01\Assets\Materials\Modules_BaseColor.uasset
+2026-06-03 14:11:23,876 | INFO     |   💾  Committing chunk #16…
+2026-06-03 14:11:23,923 | WARNING  |   ⚠  Nothing new to commit – files already committed, treating as done.
+2026-06-03 14:11:23,929 | INFO     |   🚀  Pushing to remote…
+2026-06-03 14:11:29,783 | WARNING  |   ⚠  Interrupt received – finishing current operation then stopping…
+2026-06-03 14:11:29,899 | ERROR    |   ✖  git push failed: Command '['git', 'push']' returned non-zero exit status 130.
+2026-06-03 14:11:29,899 | ERROR    |   ✖  Chunk #16 – push FAILED. Will retry on next run.
+2026-06-03 14:11:29,900 | WARNING  |   ⚠  Shutdown requested – stopping before next chunk.
