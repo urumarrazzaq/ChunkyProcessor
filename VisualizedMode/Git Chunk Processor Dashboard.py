@@ -34,6 +34,13 @@ from datetime import datetime
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
 
+# Suppress console output when running as exe
+if getattr(sys, 'frozen', False):
+    import io
+    # Redirect stdout and stderr to null device
+    sys.stdout = io.StringIO()
+    sys.stderr = io.StringIO()
+
 APP_NAME = "Git Chunk Processor Dashboard"
 HOST = "127.0.0.1"
 PORT = 8765
@@ -47,6 +54,8 @@ STATE_LOCK = threading.Lock()
 PROCESS_THREAD = None
 STOP_REQUESTED = False
 CONSOLE_MAX_LINES = 800
+ACTIVE_PROCESSES = []
+SERVER_INSTANCE = None
 
 
 def now_text():
@@ -260,15 +269,27 @@ def run_cmd(cmd, cwd=None, stream=False):
             errors="replace",
             shell=False
         )
+        ACTIVE_PROCESSES.append(proc)
         output_lines = []
-        while True:
-            line = proc.stdout.readline()
-            if line:
-                text = line.rstrip()
-                output_lines.append(text)
-                add_console(text, "git")
-            if line == "" and proc.poll() is not None:
-                break
+        try:
+            while True:
+                if STOP_REQUESTED:
+                    proc.terminate()
+                    try:
+                        proc.wait(timeout=2)
+                    except subprocess.TimeoutExpired:
+                        proc.kill()
+                    break
+                line = proc.stdout.readline()
+                if line:
+                    text = line.rstrip()
+                    output_lines.append(text)
+                    add_console(text, "git")
+                if line == "" and proc.poll() is not None:
+                    break
+        finally:
+            if proc in ACTIVE_PROCESSES:
+                ACTIVE_PROCESSES.remove(proc)
         return proc.returncode, "\n".join(output_lines)
 
     result = subprocess.run(
@@ -772,6 +793,18 @@ def start_processing(payload):
 def stop_processing():
     global STOP_REQUESTED
     STOP_REQUESTED = True
+    
+    # Terminate any active subprocesses
+    for proc in list(ACTIVE_PROCESSES):
+        try:
+            proc.terminate()
+            try:
+                proc.wait(timeout=2)
+            except subprocess.TimeoutExpired:
+                proc.kill()
+        except Exception as e:
+            add_console(f"Error terminating process: {e}", "error")
+    
     update_state(stop_requested=True)
     add_console("Stop requested by user.", "warning")
     return True
@@ -827,6 +860,37 @@ def browse_dialog(kind):
     except Exception as e:
         add_console(f"Browse dialog failed: {e}", "error")
         return ""
+
+
+def cleanup_and_shutdown():
+    """Clean up all resources and shutdown the server."""
+    global STOP_REQUESTED, ACTIVE_PROCESSES, SERVER_INSTANCE
+    
+    try:
+        # Stop any processing
+        STOP_REQUESTED = True
+        
+        # Terminate all active processes
+        for proc in list(ACTIVE_PROCESSES):
+            try:
+                proc.terminate()
+                try:
+                    proc.wait(timeout=2)
+                except subprocess.TimeoutExpired:
+                    proc.kill()
+            except Exception:
+                pass
+        
+        ACTIVE_PROCESSES.clear()
+        
+        # Shutdown the server
+        if SERVER_INSTANCE:
+            try:
+                SERVER_INSTANCE.shutdown()
+            except Exception:
+                pass
+    except Exception:
+        pass
 
 
 HTML = r"""<!DOCTYPE html>
@@ -1354,6 +1418,11 @@ function updateConsoleStable(){
 
 setInterval(() => refreshState(false), 1500);
 refreshState(true);
+
+// Send shutdown signal when page closes
+window.addEventListener("beforeunload", () => {
+  navigator.sendBeacon("/shutdown", "");
+});
 </script>
 </body>
 </html>
@@ -1432,35 +1501,44 @@ class Handler(BaseHTTPRequestHandler):
             ok, msg = open_path(str(DEFAULT_STATE_PATH))
             return self._send_json({"ok": ok, "message": msg})
 
+        if parsed.path == "/shutdown":
+            self._send_json({"ok": True})
+            threading.Thread(target=cleanup_and_shutdown, daemon=False).start()
+            return
+
         return self._send_json({"ok": False, "message": "Not found"}, 404)
 
 
 def main():
-    DEFAULT_LOGS_DIR.mkdir(parents=True, exist_ok=True)
-
-    if not DEFAULT_STATE_PATH.exists():
-        save_state()
-
-    url = f"http://{HOST}:{PORT}"
-    print(APP_NAME)
-    print(f"Opening dashboard: {url}")
-    print("Press Ctrl+C to stop server.")
-
-    server = ThreadingHTTPServer((HOST, PORT), Handler)
-
-    def open_browser():
-        time.sleep(0.7)
-        webbrowser.open(url)
-
-    threading.Thread(target=open_browser, daemon=True).start()
-
+    global SERVER_INSTANCE
+    
     try:
+        DEFAULT_LOGS_DIR.mkdir(parents=True, exist_ok=True)
+
+        if not DEFAULT_STATE_PATH.exists():
+            save_state()
+
+        url = f"http://{HOST}:{PORT}"
+
+        server = ThreadingHTTPServer((HOST, PORT), Handler)
+        SERVER_INSTANCE = server
+
+        def open_browser():
+            time.sleep(0.7)
+            webbrowser.open(url)
+
+        threading.Thread(target=open_browser, daemon=True).start()
+
         server.serve_forever()
-    except KeyboardInterrupt:
-        print("\nStopping server...")
+    except Exception:
+        # Silently catch all exceptions to prevent terminal from appearing
+        pass
     finally:
-        server.shutdown()
-        server.server_close()
+        try:
+            cleanup_and_shutdown()
+            server.server_close()
+        except Exception:
+            pass
 
 
 if __name__ == "__main__":
