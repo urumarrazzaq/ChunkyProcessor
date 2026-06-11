@@ -28,6 +28,7 @@ import sys
 import time
 import threading
 import subprocess
+import queue
 import webbrowser
 from pathlib import Path
 from datetime import datetime
@@ -48,13 +49,14 @@ PORT = 8765
 SCRIPT_DIR = Path(__file__).resolve().parent
 DEFAULT_STATE_PATH = SCRIPT_DIR / "chunk_processor_state.json"
 DEFAULT_PROCESSED_PATH = SCRIPT_DIR / "processed_chunks.json"
-DEFAULT_LOGS_DIR = SCRIPT_DIR / "logs"
+DEFAULT_LOGS_DIR = SCRIPT_DIR / "Logs"
 
 STATE_LOCK = threading.Lock()
 PROCESS_THREAD = None
 STOP_REQUESTED = False
 CONSOLE_MAX_LINES = 800
 ACTIVE_PROCESSES = []
+ACTIVE_PROCESSES_LOCK = threading.Lock()
 SERVER_INSTANCE = None
 
 # In-memory processed-chunks cache — avoids re-reading the JSON file on every chunk
@@ -251,14 +253,30 @@ def save_processed_chunk(path, chunk_number):
             _PROCESSED_CACHE_PATH = path_str
         _PROCESSED_CACHE.add(int(chunk_number))
         serialised = json.dumps(sorted(_PROCESSED_CACHE), indent=2)
-    # Atomic write: write to .tmp then rename
+    # Durable atomic write: flush the temp file before rename. This narrows the
+    # crash window and the startup reconciliation repairs the remaining edge case
+    # where a remote push finishes immediately before local JSON persistence.
     tmp = p.with_suffix(".json.tmp")
+    last_error = None
+    for attempt in range(3):
+        try:
+            with open(tmp, "w", encoding="utf-8") as handle:
+                handle.write(serialised)
+                handle.flush()
+                os.fsync(handle.fileno())
+            tmp.replace(p)
+            return
+        except Exception as exc:
+            last_error = exc
+            time.sleep(0.08 * (attempt + 1))
+    # Last-resort direct durable write. Surface an error only if this also fails.
     try:
-        tmp.write_text(serialised, encoding="utf-8")
-        tmp.replace(p)
+        with open(p, "w", encoding="utf-8") as handle:
+            handle.write(serialised)
+            handle.flush()
+            os.fsync(handle.fileno())
     except Exception:
-        # Fall back to direct write
-        p.write_text(serialised, encoding="utf-8")
+        raise last_error
 
 
 _CHUNK_RE = re.compile(r"Chunk\s+#(\d+)\s+\((\d+)\s+files?,\s+([\d.]+)MB\):", re.IGNORECASE)
@@ -396,17 +414,14 @@ def run_cmd(cmd, cwd=None, stream=False, input_text=None):
             shell=False,
             **_no_window_flags()
         )
-        ACTIVE_PROCESSES.append(proc)
+        with ACTIVE_PROCESSES_LOCK:
+            ACTIVE_PROCESSES.append(proc)
         output_lines = []
         try:
             while True:
-                if STOP_REQUESTED:
-                    proc.terminate()
-                    try:
-                        proc.wait(timeout=2)
-                    except subprocess.TimeoutExpired:
-                        proc.kill()
-                    break
+                # Graceful stop means "finish the current Git command/chunk".
+                # Do not kill an in-flight push: terminating it can leave a pushed
+                # commit missing from processed_chunks.json.
                 line = proc.stdout.readline()
                 if line:
                     text = line.rstrip()
@@ -415,8 +430,9 @@ def run_cmd(cmd, cwd=None, stream=False, input_text=None):
                 if line == "" and proc.poll() is not None:
                     break
         finally:
-            if proc in ACTIVE_PROCESSES:
-                ACTIVE_PROCESSES.remove(proc)
+            with ACTIVE_PROCESSES_LOCK:
+                if proc in ACTIVE_PROCESSES:
+                    ACTIVE_PROCESSES.remove(proc)
         return proc.returncode, "\n".join(output_lines)
 
     result = subprocess.run(
@@ -452,8 +468,6 @@ def git_add_files(files, repo):
     batch_size = 500
     combined_out = ""
     for i in range(0, len(files), batch_size):
-        if STOP_REQUESTED:
-            return 1, "Stop requested"
         batch = files[i:i + batch_size]
         code, out = run_cmd(["git", "add", "--"] + batch, cwd=repo)
         combined_out += out
@@ -461,6 +475,229 @@ def git_add_files(files, repo):
             return code, combined_out
     return 0, combined_out
 
+
+
+_CHUNK_COMMIT_RE = re.compile(r"^Chunk\s+#(\d+)\s+-", re.IGNORECASE)
+
+
+def get_repo_branch_and_remote(repo: Path):
+    """Return (branch, remote). Defaults to origin when branch config is absent."""
+    code, out = run_cmd(["git", "rev-parse", "--abbrev-ref", "HEAD"], cwd=repo)
+    branch = out.strip() if code == 0 else ""
+    if not branch or branch == "HEAD":
+        return "", "origin"
+    code, out = run_cmd(["git", "config", "--get", f"branch.{branch}.remote"], cwd=repo)
+    remote = out.strip() if code == 0 and out.strip() else "origin"
+    return branch, remote
+
+
+def get_chunk_commit_map(repo: Path):
+    """Map chunk number to newest matching local commit SHA."""
+    code, out = run_cmd(["git", "log", "--format=%H%x09%s"], cwd=repo)
+    result = {}
+    if code != 0:
+        return result
+    for line in out.splitlines():
+        if "\t" not in line:
+            continue
+        sha, subject = line.split("\t", 1)
+        match = _CHUNK_COMMIT_RE.match(subject.strip())
+        if match:
+            result.setdefault(int(match.group(1)), sha.strip())
+    return result
+
+
+def get_remote_branch_sha(repo: Path, remote: str, branch: str):
+    """Read the live remote branch SHA without mutating local refs."""
+    if not branch:
+        return ""
+    code, out = run_cmd(["git", "ls-remote", "--heads", remote, f"refs/heads/{branch}"], cwd=repo)
+    if code != 0 or not out.strip():
+        return ""
+    return out.split()[0].strip()
+
+
+def is_ancestor(repo: Path, ancestor_sha: str, descendant_sha: str):
+    if not ancestor_sha or not descendant_sha:
+        return False
+    code, _ = run_cmd(["git", "merge-base", "--is-ancestor", ancestor_sha, descendant_sha], cwd=repo)
+    return code == 0
+
+
+def reconcile_processed_chunks(repo: Path, processed_path: str):
+    """
+    Repair processed_chunks.json after an interrupted dashboard shutdown.
+    A chunk is repaired only when its dashboard commit exists locally and is
+    confirmed reachable from the live remote branch SHA.
+    """
+    branch, remote = get_repo_branch_and_remote(repo)
+    commit_map = get_chunk_commit_map(repo)
+    remote_sha = get_remote_branch_sha(repo, remote, branch)
+    # When another machine advanced the remote branch, the live SHA may not yet
+    # exist in this local object database. Fetch commit objects only (no checkout).
+    if remote_sha:
+        code, _ = run_cmd(["git", "cat-file", "-e", f"{remote_sha}^{{commit}}"], cwd=repo)
+        if code != 0:
+            run_cmd(["git", "fetch", "--no-tags", remote, f"refs/heads/{branch}"], cwd=repo)
+    processed = load_processed_chunks(processed_path)
+    repaired = []
+    if not remote_sha:
+        add_console("Remote reconciliation skipped: remote branch SHA could not be read.", "warning")
+        return processed, commit_map, branch, remote, remote_sha, repaired
+    for chunk_number, commit_sha in sorted(commit_map.items()):
+        if chunk_number not in processed and is_ancestor(repo, commit_sha, remote_sha):
+            save_processed_chunk(processed_path, chunk_number)
+            processed.add(chunk_number)
+            repaired.append(chunk_number)
+    if repaired:
+        joined = ", ".join(f"#{n}" for n in repaired)
+        add_console(f"Recovered pushed chunks missing from processed JSON: {joined}", "success")
+    return processed, commit_map, branch, remote, remote_sha, repaired
+
+
+def repo_default_paths(repo_path: str):
+    """Return repo-local dashboard paths and create the Logs folder."""
+    repo = Path(clean_pasted_path(repo_path))
+    logs_dir = repo / "Logs"
+    logs_dir.mkdir(parents=True, exist_ok=True)
+    return {
+        "repo_path": str(repo),
+        "log_file": str(repo / "git_chunks.log"),
+        "processed_chunks_file": str(repo / "processed_chunks.json"),
+        "logs_dir": str(logs_dir),
+    }
+
+
+def has_staged_changes(repo: Path):
+    code, _ = run_cmd(["git", "diff", "--cached", "--quiet"], cwd=repo)
+    return code == 1
+
+
+def current_head_sha(repo: Path):
+    code, out = run_cmd(["git", "rev-parse", "HEAD"], cwd=repo)
+    return out.strip() if code == 0 else ""
+
+
+def push_exact_commit(repo: Path, remote: str, branch: str, commit_sha: str):
+    """Push one exact commit boundary; newer local commits are not accidentally included."""
+    return run_cmd(["git", "push", remote, f"{commit_sha}:refs/heads/{branch}"], cwd=repo, stream=True)
+
+
+def process_worker_pipeline(config, chunks, repo: Path):
+    """
+    Safe two-worker pipeline:
+      - this worker stages and commits chunks sequentially (Git has one shared index)
+      - one push worker pushes exact commit SHAs sequentially while the next chunk commits
+    """
+    global STOP_REQUESTED
+    branch, remote = get_repo_branch_and_remote(repo)
+    if not branch:
+        raise RuntimeError("Pipeline mode requires a named Git branch (not detached HEAD).")
+
+    tasks = queue.Queue()
+    push_errors = []
+    sentinel = object()
+
+    def push_worker():
+        while True:
+            item = tasks.get()
+            try:
+                if item is sentinel:
+                    return
+                n, commit_sha, chunk_started = item
+                set_chunk_status(n, stage="pushing", progress=88)
+                add_console(f"Pipeline push started for Chunk #{n} ({commit_sha[:10]}).", "info")
+                code, out = push_exact_commit(repo, remote, branch, commit_sha)
+                if code != 0:
+                    msg = f"git push failed after Chunk #{n}."
+                    push_errors.append((n, msg))
+                    set_chunk_status(n, status="failed", stage="push_failed", progress=100, error=msg,
+                                     push_output=out[-6000:] if out else "")
+                    add_console(msg, "error")
+                    continue
+                duration = time.time() - chunk_started
+                set_chunk_status(n, status="completed", stage="done", progress=100,
+                                 push_output=out[-6000:] if out else "",
+                                 ended_at=datetime.now().isoformat(timespec="seconds"),
+                                 duration_seconds=round(duration, 2))
+                save_processed_chunk(config["processed_chunks_file"], n)
+                add_console(f"Chunk #{n} pushed and recorded atomically.", "success")
+            finally:
+                tasks.task_done()
+
+    pusher = threading.Thread(target=push_worker, name="git-chunk-pusher", daemon=True)
+    pusher.start()
+
+    for chunk in chunks:
+        if STOP_REQUESTED:
+            add_console("Stop requested. No new chunks will be committed; queued pushes will finish.", "warning")
+            break
+        n = chunk["number"]
+        if chunk["status"] == "skipped":
+            continue
+        chunk_start = time.time()
+        set_chunk_status(n, status="processing", stage="checking", progress=5,
+                         started_at=datetime.now().isoformat(timespec="seconds"), error="", push_output="")
+        update_state(current_chunk=n, selected_chunk=n)
+        add_console(f"Pipeline commit processing Chunk #{n} ({len(chunk['files'])} files, {chunk['size_mb']} MB)", "info")
+
+        missing = [f["path"] for f in chunk["files"] if not (repo / f["path"]).exists()]
+        if missing:
+            msg = f"Chunk #{n} failed: {len(missing)} missing files."
+            set_chunk_status(n, status="failed", stage="missing_files", progress=100, error=msg)
+            add_console(msg, "error")
+            continue
+        for f in chunk["files"]:
+            set_file_status(n, f["path"], "found")
+
+        files = [f["path"] for f in chunk["files"]]
+        set_chunk_status(n, stage="adding", progress=20)
+        code, _ = git_add_files(files, repo)
+        if code != 0:
+            msg = f"git add failed in Chunk #{n}."
+            set_chunk_status(n, status="failed", stage="add_failed", progress=100, error=msg)
+            add_console(msg, "error")
+            continue
+        for fp in files:
+            set_file_status(n, fp, "added")
+
+        if not has_staged_changes(repo):
+            # This commonly occurs after an interrupted previous run. The files
+            # are already represented by HEAD, so recording the chunk is safe.
+            set_chunk_status(n, status="completed", stage="already_in_head_reconciled", progress=100,
+                             ended_at=datetime.now().isoformat(timespec="seconds"))
+            save_processed_chunk(config["processed_chunks_file"], n)
+            add_console(f"Chunk #{n} already exists in HEAD. Reconciled processed JSON.", "success")
+            continue
+
+        set_chunk_status(n, stage="committing", progress=60)
+        code, out = run_cmd(["git", "commit", "-m", f"Chunk #{n} - {len(files)} files"], cwd=repo)
+        if code != 0:
+            msg = f"git commit failed in Chunk #{n}."
+            set_chunk_status(n, status="failed", stage="commit_failed", progress=100, error=msg)
+            add_console(msg, "error")
+            continue
+        commit_sha = current_head_sha(repo)
+        if not commit_sha:
+            msg = f"Could not read commit SHA after Chunk #{n}."
+            set_chunk_status(n, status="failed", stage="sha_read_failed", progress=100, error=msg)
+            add_console(msg, "error")
+            continue
+        set_chunk_status(n, stage="committed_queued_for_push", progress=78)
+        add_console(f"Chunk #{n} committed and queued for push ({commit_sha[:10]}).", "success")
+        tasks.put((n, commit_sha, chunk_start))
+
+        pause_seconds = float(config.get("pause_between_chunks") or 0)
+        if pause_seconds > 0 and not STOP_REQUESTED:
+            time.sleep(pause_seconds)
+
+    tasks.put(sentinel)
+    tasks.join()
+    pusher.join()
+    update_state(current_chunk=None)
+    if push_errors:
+        raise RuntimeError(f"Pipeline completed with {len(push_errors)} push failure(s).")
+    add_console("Pipeline queue drained successfully.", "success")
 
 def inspect_git(repo_path):
     repo = Path(repo_path)
@@ -502,7 +739,7 @@ def validate_start_payload(payload):
     end_chunk_raw = clean_pasted_path(str(payload.get("end_chunk", "") or ""))
     pause_raw = clean_pasted_path(str(payload.get("pause_between_chunks", "") or "0"))
 
-    if mode not in {"full", "commit_only", "push_only", "dry_run", "commit_n_then_push"}:
+    if mode not in {"full", "commit_only", "push_only", "dry_run", "commit_n_then_push", "pipeline"}:
         return None, "Invalid processing mode."
 
     start_chunk = int(start_chunk_raw) if start_chunk_raw else None
@@ -630,7 +867,9 @@ def process_worker(config):
             _PROCESSED_CACHE_PATH = ""
 
         chunks = parse_chunks(config["log_file"])
-        processed = load_processed_chunks(config["processed_chunks_file"])
+        processed, _commit_map, _branch, _remote, _remote_sha, _repaired = reconcile_processed_chunks(
+            Path(config["repo_path"]), config["processed_chunks_file"]
+        )
 
         start_chunk = config.get("start_chunk")
         end_chunk = config.get("end_chunk")
@@ -663,6 +902,12 @@ def process_worker(config):
         add_console(f"Parsed {len(chunks)} chunks.", "success")
 
         repo = Path(config["repo_path"])
+        if config["mode"] == "pipeline":
+            add_console("Pipeline mode enabled: sequential commits + one exact-SHA push worker.", "info")
+            process_worker_pipeline(config, chunks, repo)
+            add_console("Processing finished.", "success")
+            return
+
         for chunk in chunks:
             if STOP_REQUESTED:
                 add_console("Stop requested. Processing paused.", "warning")
@@ -731,9 +976,14 @@ def process_worker(config):
                 set_file_status(n, fp, "added")
             set_chunk_status(n, progress=55)
 
-            if STOP_REQUESTED:
-                add_console("Stop requested after git add.", "warning")
-                break
+            # Graceful stop is checked only at chunk boundaries so the current
+            # chunk can finish commit + push + JSON persistence safely.
+            if not has_staged_changes(repo):
+                set_chunk_status(n, status="completed", stage="already_in_head_reconciled", progress=100,
+                                 ended_at=datetime.now().isoformat(timespec="seconds"))
+                save_processed_chunk(config["processed_chunks_file"], n)
+                add_console(f"Chunk #{n}: files already exist in HEAD. Reconciled processed JSON.", "success")
+                continue
 
             set_chunk_status(n, stage="committing", progress=65)
             commit_message = f"Chunk #{n} - {len(files)} files"
@@ -1026,20 +1276,10 @@ def start_processing(payload):
 def stop_processing():
     global STOP_REQUESTED
     STOP_REQUESTED = True
-    
-    # Terminate any active subprocesses
-    for proc in list(ACTIVE_PROCESSES):
-        try:
-            proc.terminate()
-            try:
-                proc.wait(timeout=2)
-            except subprocess.TimeoutExpired:
-                proc.kill()
-        except Exception as e:
-            add_console(f"Error terminating process: {e}", "error")
-    
+    # Graceful stop: finish the current chunk and any queued exact-SHA pushes.
+    # Killing an active push is what caused pushed commits to be absent from JSON.
     update_state(stop_requested=True)
-    add_console("Stop requested by user.", "warning")
+    add_console("Stop requested. The current chunk will finish safely, then processing will pause.", "warning")
     return True
 
 
@@ -1104,7 +1344,9 @@ def cleanup_and_shutdown():
         STOP_REQUESTED = True
         
         # Terminate all active processes
-        for proc in list(ACTIVE_PROCESSES):
+        with ACTIVE_PROCESSES_LOCK:
+            active_copy = list(ACTIVE_PROCESSES)
+        for proc in active_copy:
             try:
                 proc.terminate()
                 try:
@@ -1144,12 +1386,20 @@ h1{margin:0 0 12px;font-size:22px}
 .input-grid{display:grid;grid-template-columns:150px 1fr auto;gap:8px;align-items:center;margin:6px 0}
 label{color:#cbd5e1;font-size:13px}
 input,select{background:#0b1220;color:#f8fafc;border:1px solid #334155;border-radius:8px;padding:9px 10px;min-height:38px}
-button{background:#2563eb;color:white;border:0;border-radius:8px;padding:9px 12px;font-weight:700;cursor:pointer}
-button:hover{background:#1d4ed8}
+button{background:#2563eb;color:white;border:0;border-radius:8px;padding:9px 12px;font-weight:700;cursor:pointer;transition:transform .12s ease,box-shadow .12s ease,filter .12s ease,background .12s ease}
+button:hover{background:#1d4ed8;transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.22);filter:brightness(1.08)}
+button:active{transform:translateY(1px) scale(.98);box-shadow:none;filter:brightness(.92)}
+button[disabled]{cursor:not-allowed;opacity:.62;transform:none;box-shadow:none}
 button.secondary{background:#334155}
 button.secondary:hover{background:#475569}
 button.danger{background:#dc2626}
+button.danger:hover{background:#ef4444}
 button.success{background:#16a34a}
+button.success:hover{background:#22c55e}
+.action-feedback{margin-top:10px;min-height:36px;display:flex;align-items:center;padding:8px 11px;border:1px solid #334155;border-radius:9px;background:#0b1220;color:#cbd5e1;font-size:13px}
+.action-feedback.success{border-color:#166534;color:#bbf7d0;background:#052e16}
+.action-feedback.warning{border-color:#92400e;color:#fde68a;background:#451a03}
+.action-feedback.error{border-color:#991b1b;color:#fecaca;background:#450a0a}
 .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
 .stats{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:14px}
 .stat{background:#0b1220;border:1px solid var(--line);border-radius:10px;padding:10px}
@@ -1257,17 +1507,20 @@ button.success{background:#16a34a}
       <option value="full">Full Process: Add → Commit → Push</option>
       <option value="commit_only">Commit Only: Add → Commit</option>
       <option value="commit_n_then_push">Commit N then Push: Add → Commit × N → Push</option>
+      <option value="pipeline">Fast Safe Pipeline: Commit Next Chunk While Previous Pushes</option>
       <option value="push_only">Push Only</option>
       <option value="dry_run">Dry Run: Simulation Only</option>
     </select>
     <button class="secondary" onclick="visualizeOnly()">Visualize Chunks Only</button>
-    <button class="success" onclick="startProcessing()">Start Processing</button>
-    <button class="danger" onclick="stopProcessing()">Stop After Current Chunk</button>
+    <button class="success" id="startBtn" onclick="startProcessing()" title="Start processing the selected chunk range">▶ Start Processing</button>
+    <button class="danger" id="stopBtn" onclick="stopProcessing()" title="Finish the active chunk safely, then pause">■ Stop After Current Chunk</button>
     <button class="secondary" id="refreshBtn" onclick="toggleRefresh()">Pause Auto Refresh</button>
     <button class="secondary" onclick="showActiveChunk()">Show Active</button>
     <button class="secondary" onclick="openStateJson()">Open State JSON</button>
     <button class="secondary" onclick="openProcessed()">Open Processed JSON</button>
   </div>
+
+  <div id="actionFeedback" class="action-feedback">Ready. Select a repository to auto-fill its dashboard paths.</div>
 
   <div class="stats">
     <div class="stat"><div class="n" id="total">0</div><div class="t">Total</div></div>
@@ -1335,7 +1588,10 @@ function cleanPath(v){
   el.addEventListener("drop", e => {
     e.preventDefault();
     const text = e.dataTransfer.getData("text/plain");
-    if (text) el.value = cleanPath(text);
+    if (text) {
+      el.value = cleanPath(text);
+      if (id === "repoPath") applyRepoDefaults(el.value);
+    }
   });
   el.addEventListener("dragover", e => e.preventDefault());
 });
@@ -1403,11 +1659,38 @@ async function api(path, data=null){
   return await res.json();
 }
 
+function setFeedback(message, level="info"){
+  const box = document.getElementById("actionFeedback");
+  box.textContent = message;
+  box.className = "action-feedback" + (level === "info" ? "" : " " + level);
+}
+
+async function applyRepoDefaults(repoPath){
+  const repo = cleanPath(repoPath);
+  if (!repo) return;
+  const res = await api("/repo_defaults", {repo_path: repo});
+  if (!res || !res.ok) {
+    setFeedback((res && res.message) || "Could not create repo-local dashboard paths.", "error");
+    return;
+  }
+  document.getElementById("repoPath").value = res.paths.repo_path;
+  document.getElementById("logFile").value = res.paths.log_file;
+  document.getElementById("processedPath").value = res.paths.processed_chunks_file;
+  document.getElementById("logsDir").value = res.paths.logs_dir;
+  setFeedback("Repository selected. Log, processed JSON, and Logs folder paths were updated automatically.", "success");
+}
+
+document.getElementById("repoPath").addEventListener("change", e => applyRepoDefaults(e.target.value));
+document.getElementById("repoPath").addEventListener("blur", e => applyRepoDefaults(e.target.value));
+
 async function browsePath(kind){
   const res = await api("/browse?kind=" + encodeURIComponent(kind));
   if (!res || !res.path) return;
   if (kind === "log") document.getElementById("logFile").value = res.path;
-  if (kind === "repo") document.getElementById("repoPath").value = res.path;
+  if (kind === "repo") {
+    document.getElementById("repoPath").value = res.path;
+    await applyRepoDefaults(res.path);
+  }
   if (kind === "processed") document.getElementById("processedPath").value = res.path;
   if (kind === "logs_dir") document.getElementById("logsDir").value = res.path;
 }
@@ -1428,6 +1711,10 @@ async function visualizeOnly(){
 }
 
 async function startProcessing(){
+  const btn = document.getElementById("startBtn");
+  btn.disabled = true;
+  btn.textContent = "Starting…";
+  setFeedback("Starting chunk processing…", "info");
   const payload = {
     log_file: cleanPath(document.getElementById("logFile").value),
     repo_path: cleanPath(document.getElementById("repoPath").value),
@@ -1439,9 +1726,19 @@ async function startProcessing(){
     pause_between_chunks: cleanPath(document.getElementById("pauseBetweenChunks").value),
     push_every_n: cleanPath(document.getElementById("pushEveryN").value) || "1"
   };
-  const res = await api("/start", payload);
-  if (!res.ok) alert(res.message || "Failed to start");
-  await refreshState(true);
+  try {
+    const res = await api("/start", payload);
+    if (!res.ok) {
+      setFeedback(res.message || "Failed to start", "error");
+      alert(res.message || "Failed to start");
+    } else {
+      setFeedback("Processing started. The dashboard will update as each chunk advances.", "success");
+    }
+    await refreshState(true);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "▶ Start Processing";
+  }
 }
 
 function togglePushEveryN(){
@@ -1451,7 +1748,19 @@ function togglePushEveryN(){
 }
 
 async function stopProcessing(){
-  await api("/stop", {});
+  const btn = document.getElementById("stopBtn");
+  btn.disabled = true;
+  btn.textContent = "Stopping safely…";
+  setFeedback("Stop requested. The active chunk and queued push will finish safely before processing pauses.", "warning");
+  try {
+    await api("/stop", {});
+    await refreshState(true);
+  } finally {
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.textContent = "■ Stop After Current Chunk";
+    }, 900);
+  }
 }
 
 async function openProcessed(){
@@ -1750,6 +2059,16 @@ class Handler(BaseHTTPRequestHandler):
             payload = self._read_json()
             ok, msg = visualize_chunks_only(payload)
             return self._send_json({"ok": ok, "message": msg})
+
+        if parsed.path == "/repo_defaults":
+            payload = self._read_json()
+            repo_path = clean_pasted_path(payload.get("repo_path", ""))
+            if not repo_path or not Path(repo_path).is_dir():
+                return self._send_json({"ok": False, "message": "Git repository folder not found."})
+            if not (Path(repo_path) / ".git").exists():
+                return self._send_json({"ok": False, "message": "Selected folder is not a Git repository."})
+            paths = repo_default_paths(repo_path)
+            return self._send_json({"ok": True, "paths": paths})
 
         if parsed.path == "/start":
             payload = self._read_json()
