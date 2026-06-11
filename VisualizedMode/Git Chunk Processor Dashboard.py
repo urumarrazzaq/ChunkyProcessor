@@ -57,6 +57,11 @@ CONSOLE_MAX_LINES = 800
 ACTIVE_PROCESSES = []
 SERVER_INSTANCE = None
 
+# In-memory processed-chunks cache — avoids re-reading the JSON file on every chunk
+_PROCESSED_CACHE: set | None = None
+_PROCESSED_CACHE_PATH: str = ""
+_PROCESSED_LOCK = threading.Lock()
+
 
 def now_text():
     return datetime.now().strftime("%H:%M:%S")
@@ -69,6 +74,48 @@ def clean_pasted_path(value: str) -> str:
     if (value.startswith('"') and value.endswith('"')) or (value.startswith("'") and value.endswith("'")):
         value = value[1:-1]
     return value.strip()
+
+
+# ── Debounced state persistence ──────────────────────────────────────────────
+_STATE_DIRTY = False
+_STATE_DIRTY_LOCK = threading.Lock()
+_LAST_SAVE_TIME = 0.0
+_SAVE_INTERVAL = 0.3  # max one disk write per 0.3 s
+
+
+def _flush_state():
+    """Write STATE to disk. Always call with STATE_LOCK held."""
+    DEFAULT_STATE_PATH.write_text(json.dumps(STATE, indent=2), encoding="utf-8")
+
+
+def save_state():
+    """Mark state dirty; a background flusher writes at most every _SAVE_INTERVAL seconds."""
+    global _STATE_DIRTY
+    with _STATE_DIRTY_LOCK:
+        _STATE_DIRTY = True
+
+
+def _state_flusher():
+    """Background thread: flushes dirty state periodically."""
+    global _STATE_DIRTY, _LAST_SAVE_TIME
+    while True:
+        time.sleep(0.1)
+        with _STATE_DIRTY_LOCK:
+            dirty = _STATE_DIRTY
+        if dirty:
+            now = time.monotonic()
+            if now - _LAST_SAVE_TIME >= _SAVE_INTERVAL:
+                with STATE_LOCK:
+                    try:
+                        _flush_state()
+                    except Exception:
+                        pass
+                _LAST_SAVE_TIME = time.monotonic()
+                with _STATE_DIRTY_LOCK:
+                    _STATE_DIRTY = False
+
+
+threading.Thread(target=_state_flusher, daemon=True).start()
 
 
 def make_default_state():
@@ -115,9 +162,7 @@ def make_default_state():
 STATE = make_default_state()
 
 
-def save_state():
-    with STATE_LOCK:
-        DEFAULT_STATE_PATH.write_text(json.dumps(STATE, indent=2), encoding="utf-8")
+
 
 
 def add_console(message, level="info"):
@@ -140,41 +185,94 @@ def update_state(**kwargs):
     save_state()
 
 
+_STATE_VERSION = 0  # incremented whenever STATE changes meaningfully
+
+
+def _inc_version():
+    global _STATE_VERSION
+    _STATE_VERSION += 1
+
+
+# Patch save_state to also increment version
+_orig_save_state = save_state
+
+
+def save_state():
+    _orig_save_state()
+    _inc_version()
+
+
 def get_state_copy():
     with STATE_LOCK:
         return json.loads(json.dumps(STATE))
 
 
-def load_processed_chunks(path):
+def load_processed_chunks(path) -> set:
+    """Load processed chunk numbers from JSON. Returns a set of ints."""
+    global _PROCESSED_CACHE, _PROCESSED_CACHE_PATH
+    path_str = str(path)
+    with _PROCESSED_LOCK:
+        if _PROCESSED_CACHE is not None and _PROCESSED_CACHE_PATH == path_str:
+            return set(_PROCESSED_CACHE)
     p = Path(path)
     if not p.exists():
+        with _PROCESSED_LOCK:
+            _PROCESSED_CACHE = set()
+            _PROCESSED_CACHE_PATH = path_str
         return set()
     try:
         data = json.loads(p.read_text(encoding="utf-8"))
-        return {int(x) for x in data}
+        result = {int(x) for x in data}
     except Exception:
-        return set()
+        result = set()
+    with _PROCESSED_LOCK:
+        _PROCESSED_CACHE = set(result)
+        _PROCESSED_CACHE_PATH = path_str
+    return result
 
 
 def save_processed_chunk(path, chunk_number):
+    """Add chunk_number to the processed set and persist atomically (no re-read)."""
+    global _PROCESSED_CACHE, _PROCESSED_CACHE_PATH
     p = Path(path)
     p.parent.mkdir(parents=True, exist_ok=True)
-    processed = load_processed_chunks(p)
-    processed.add(int(chunk_number))
-    p.write_text(json.dumps(sorted(processed), indent=2), encoding="utf-8")
+    path_str = str(p)
+    with _PROCESSED_LOCK:
+        if _PROCESSED_CACHE is None or _PROCESSED_CACHE_PATH != path_str:
+            # First call or path changed — load from disk
+            if p.exists():
+                try:
+                    existing = {int(x) for x in json.loads(p.read_text(encoding="utf-8"))}
+                except Exception:
+                    existing = set()
+            else:
+                existing = set()
+            _PROCESSED_CACHE = existing
+            _PROCESSED_CACHE_PATH = path_str
+        _PROCESSED_CACHE.add(int(chunk_number))
+        serialised = json.dumps(sorted(_PROCESSED_CACHE), indent=2)
+    # Atomic write: write to .tmp then rename
+    tmp = p.with_suffix(".json.tmp")
+    try:
+        tmp.write_text(serialised, encoding="utf-8")
+        tmp.replace(p)
+    except Exception:
+        # Fall back to direct write
+        p.write_text(serialised, encoding="utf-8")
+
+
+_CHUNK_RE = re.compile(r"Chunk\s+#(\d+)\s+\((\d+)\s+files?,\s+([\d.]+)MB\):", re.IGNORECASE)
+_FILE_RE  = re.compile(r"^\s*-\s+(.+?)(?:\s+\(([\d.]+)MB\))?\s*$")
 
 
 def parse_chunks(log_file_path):
     chunks = []
     current = None
 
-    chunk_re = re.compile(r"Chunk\s+#(\d+)\s+\((\d+)\s+files?,\s+([\d.]+)MB\):", re.IGNORECASE)
-    file_re = re.compile(r"^\s*-\s+(.+?)(?:\s+\(([\d.]+)MB\))?\s*$")
-
-    with open(log_file_path, "r", encoding="utf-8", errors="ignore") as f:
+    with open(log_file_path, "r", encoding="utf-8", errors="ignore", buffering=1 << 20) as f:
         for raw in f:
             line = raw.rstrip("\n")
-            cm = chunk_re.search(line)
+            cm = _CHUNK_RE.search(line)
             if cm:
                 if current:
                     chunks.append(current)
@@ -195,14 +293,15 @@ def parse_chunks(log_file_path):
                 continue
 
             if current:
-                fm = file_re.match(line)
+                fm = _FILE_RE.match(line)
                 if fm:
                     file_path = fm.group(1).strip()
                     size_mb = float(fm.group(2)) if fm.group(2) else 0.0
+                    fp = Path(file_path)
                     current["files"].append({
                         "path": file_path,
-                        "name": Path(file_path).name,
-                        "folder": str(Path(file_path).parent),
+                        "name": fp.name,
+                        "folder": str(fp.parent),
                         "size_mb": size_mb,
                         "status": "pending"
                     })
@@ -211,6 +310,11 @@ def parse_chunks(log_file_path):
         chunks.append(current)
 
     return chunks
+
+
+def _build_chunk_index():
+    """Rebuild the chunk index {number -> list_index}. Call with STATE_LOCK held."""
+    STATE["_chunk_index"] = {c["number"]: i for i, c in enumerate(STATE["chunks"])}
 
 
 def recalc_stats_unlocked():
@@ -236,23 +340,36 @@ def recalc_stats_unlocked():
 
 def set_chunk_status(chunk_number, **updates):
     with STATE_LOCK:
-        for c in STATE["chunks"]:
-            if c["number"] == chunk_number:
-                c.update(updates)
-                break
+        idx = STATE.get("_chunk_index", {}).get(chunk_number)
+        if idx is not None and idx < len(STATE["chunks"]):
+            STATE["chunks"][idx].update(updates)
+        else:
+            # Fallback linear scan (shouldn't happen after index is built)
+            for c in STATE["chunks"]:
+                if c["number"] == chunk_number:
+                    c.update(updates)
+                    break
         recalc_stats_unlocked()
     save_state()
 
 
 def set_file_status(chunk_number, file_path, status):
     with STATE_LOCK:
-        for c in STATE["chunks"]:
-            if c["number"] == chunk_number:
-                for f in c["files"]:
-                    if f["path"] == file_path:
-                        f["status"] = status
-                        break
-                break
+        idx = STATE.get("_chunk_index", {}).get(chunk_number)
+        if idx is not None and idx < len(STATE["chunks"]):
+            chunk = STATE["chunks"][idx]
+            for f in chunk["files"]:
+                if f["path"] == file_path:
+                    f["status"] = status
+                    break
+        else:
+            for c in STATE["chunks"]:
+                if c["number"] == chunk_number:
+                    for f in c["files"]:
+                        if f["path"] == file_path:
+                            f["status"] = status
+                            break
+                    break
     save_state()
 
 
@@ -263,7 +380,7 @@ def _no_window_flags():
     return {}
 
 
-def run_cmd(cmd, cwd=None, stream=False):
+def run_cmd(cmd, cwd=None, stream=False, input_text=None):
     add_console(f"$ {' '.join(cmd)}", "cmd")
 
     if stream:
@@ -272,6 +389,7 @@ def run_cmd(cmd, cwd=None, stream=False):
             cwd=str(cwd) if cwd else None,
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
+            stdin=subprocess.DEVNULL,
             text=True,
             encoding="utf-8",
             errors="replace",
@@ -304,6 +422,7 @@ def run_cmd(cmd, cwd=None, stream=False):
     result = subprocess.run(
         cmd,
         cwd=str(cwd) if cwd else None,
+        input=input_text,
         capture_output=True,
         text=True,
         encoding="utf-8",
@@ -316,6 +435,31 @@ def run_cmd(cmd, cwd=None, stream=False):
         for line in out.splitlines():
             add_console(line, "git")
     return result.returncode, out
+
+
+def git_add_files(files, repo):
+    """
+    Add files to the git index efficiently.
+    Uses --stdin for large batches to avoid OS argument-length limits,
+    falling back to large CLI batches otherwise.
+    """
+    # Try stdin method first (fastest, no arg-length limit)
+    null_sep = "\0".join(files) + "\0"
+    code, out = run_cmd(["git", "add", "-z", "--stdin"], cwd=repo, input_text=null_sep)
+    if code == 0:
+        return code, out
+    # Fallback: batched CLI (batch_size 500 to cut round-trips vs old 50)
+    batch_size = 500
+    combined_out = ""
+    for i in range(0, len(files), batch_size):
+        if STOP_REQUESTED:
+            return 1, "Stop requested"
+        batch = files[i:i + batch_size]
+        code, out = run_cmd(["git", "add", "--"] + batch, cwd=repo)
+        combined_out += out
+        if code != 0:
+            return code, combined_out
+    return 0, combined_out
 
 
 def inspect_git(repo_path):
@@ -428,6 +572,7 @@ def process_worker(config):
 
     STOP_REQUESTED = False
     completed_durations = []
+    _duration_sum = 0.0  # running total for O(1) average
     committed_since_push = []  # tracks chunk numbers committed but not yet pushed (commit_n_then_push mode)
 
     update_state(
@@ -467,6 +612,7 @@ def process_worker(config):
             add_console("Push-only mode selected. Running git push once.", "info")
             with STATE_LOCK:
                 STATE["chunks"] = []
+                STATE["_chunk_index"] = {}
                 recalc_stats_unlocked()
             save_state()
             code, _ = run_cmd(["git", "push"], cwd=Path(config["repo_path"]), stream=True)
@@ -476,6 +622,12 @@ def process_worker(config):
                 add_console("Push failed.", "error")
                 update_state(last_error="Push failed.")
             return
+
+        # Reset processed-chunk in-memory cache so we re-read from disk at start
+        global _PROCESSED_CACHE, _PROCESSED_CACHE_PATH
+        with _PROCESSED_LOCK:
+            _PROCESSED_CACHE = None
+            _PROCESSED_CACHE_PATH = ""
 
         chunks = parse_chunks(config["log_file"])
         processed = load_processed_chunks(config["processed_chunks_file"])
@@ -504,6 +656,7 @@ def process_worker(config):
         with STATE_LOCK:
             STATE["chunks"] = chunks
             STATE["selected_chunk"] = chunks[0]["number"] if chunks else None
+            _build_chunk_index()
             recalc_stats_unlocked()
         save_state()
 
@@ -535,13 +688,18 @@ def process_worker(config):
             add_console(f"Processing Chunk #{n} ({len(chunk['files'])} files, {chunk['size_mb']} MB)", "info")
 
             missing = []
-            for f in chunk["files"]:
+            # Parallelise file-existence checks with threads (I/O bound)
+            def _check_file(f):
                 full = repo / f["path"]
                 if full.exists():
                     set_file_status(n, f["path"], "found")
                 else:
-                    set_file_status(n, f["path"], "missing")
                     missing.append(f["path"])
+                    set_file_status(n, f["path"], "missing")
+
+            from concurrent.futures import ThreadPoolExecutor
+            with ThreadPoolExecutor(max_workers=min(32, len(chunk["files"]) or 1)) as ex:
+                list(ex.map(_check_file, chunk["files"]))
 
             if missing:
                 msg = f"Chunk #{n} failed: {len(missing)} missing files."
@@ -561,30 +719,17 @@ def process_worker(config):
 
             set_chunk_status(n, stage="adding", progress=20)
             files = [f["path"] for f in chunk["files"]]
-            batch_size = 50
-            total_files = len(files)
-            added_count = 0
 
-            for i in range(0, total_files, batch_size):
-                if STOP_REQUESTED:
-                    break
-                batch = files[i:i + batch_size]
-                code, _ = run_cmd(["git", "add", "--"] + batch, cwd=repo)
-                if code != 0:
-                    msg = f"git add failed in Chunk #{n}."
-                    set_chunk_status(n, status="failed", stage="add_failed", progress=100, error=msg)
-                    add_console(msg, "error")
-                    break
-                added_count += len(batch)
-                for fp in batch:
-                    set_file_status(n, fp, "added")
-                pct = 20 + int((added_count / max(total_files, 1)) * 35)
-                set_chunk_status(n, progress=min(pct, 55))
-
-            current = get_state_copy()
-            chunk_state = next((c for c in current["chunks"] if c["number"] == n), None)
-            if chunk_state and chunk_state.get("status") == "failed":
+            code, _ = git_add_files(files, repo)
+            if code != 0:
+                msg = f"git add failed in Chunk #{n}."
+                set_chunk_status(n, status="failed", stage="add_failed", progress=100, error=msg)
+                add_console(msg, "error")
                 continue
+
+            for fp in files:
+                set_file_status(n, fp, "added")
+            set_chunk_status(n, progress=55)
 
             if STOP_REQUESTED:
                 add_console("Stop requested after git add.", "warning")
@@ -642,13 +787,11 @@ def process_worker(config):
                 should_push = (len(committed_since_push) >= push_every_n)
                 # Also push if this is the last pending chunk
                 if not should_push:
-                    remaining_pending = sum(
-                        1 for c in get_state_copy()["chunks"]
-                        if c["status"] == "pending" and c["number"] != n
-                    )
+                    with STATE_LOCK:
+                        remaining_pending = STATE["stats"]["pending"]
                     if remaining_pending == 0:
                         should_push = True
-                        add_console(f"Last chunk in batch — pushing now.", "info")
+                        add_console("Last chunk in batch — pushing now.", "info")
 
                 if should_push:
                     chunk_nums = ", ".join(f"#{x}" for x in committed_since_push)
@@ -683,10 +826,11 @@ def process_worker(config):
                     add_console(f"Chunk #{n} committed ({len(committed_since_push)}/{push_every_n}). Waiting for more before push.", "info")
                     duration = time.time() - chunk_start
                     completed_durations.append(duration)
+                    _duration_sum += duration
 
                 with STATE_LOCK:
                     remaining = STATE["stats"]["pending"]
-                    avg = sum(completed_durations) / len(completed_durations) if completed_durations else 0
+                    avg = _duration_sum / len(completed_durations) if completed_durations else 0
                     STATE["average_chunk_seconds"] = round(avg, 2)
                     eta_seconds = int(avg * remaining)
                     STATE["eta"] = format_seconds(eta_seconds) if eta_seconds > 0 else "-"
@@ -711,6 +855,7 @@ def process_worker(config):
 
             duration = time.time() - chunk_start
             completed_durations.append(duration)
+            _duration_sum += duration
             set_chunk_status(
                 n,
                 status="completed",
@@ -724,7 +869,7 @@ def process_worker(config):
 
             with STATE_LOCK:
                 remaining = STATE["stats"]["pending"]
-                avg = sum(completed_durations) / len(completed_durations) if completed_durations else 0
+                avg = _duration_sum / len(completed_durations) if completed_durations else 0
                 STATE["average_chunk_seconds"] = round(avg, 2)
                 eta_seconds = int(avg * remaining)
                 STATE["eta"] = format_seconds(eta_seconds) if eta_seconds > 0 else "-"
@@ -845,6 +990,7 @@ def visualize_chunks_only(payload):
             STATE["last_error"] = ""
             STATE["eta"] = "-"
             STATE["average_chunk_seconds"] = 0
+            _build_chunk_index()
             recalc_stats_unlocked()
 
         save_state()
@@ -1248,15 +1394,18 @@ function showActiveChunk(){
   if (cell) cell.scrollIntoView({behavior:"smooth", block:"center", inline:"center"});
 }
 
+let _stateVersion = "";
+
 async function api(path, data=null){
   const opts = data ? {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(data)} : {};
   const res = await fetch(path, opts);
+  if (res.status === 304) return null;
   return await res.json();
 }
 
 async function browsePath(kind){
   const res = await api("/browse?kind=" + encodeURIComponent(kind));
-  if (!res.path) return;
+  if (!res || !res.path) return;
   if (kind === "log") document.getElementById("logFile").value = res.path;
   if (kind === "repo") document.getElementById("repoPath").value = res.path;
   if (kind === "processed") document.getElementById("processedPath").value = res.path;
@@ -1318,27 +1467,36 @@ async function openStateJson(){
 
 async function refreshState(force=false){
   if (!force && (!autoRefreshEnabled || userInteracting)) return;
-  const newState = await api("/state");
-  const first = !state;
-  state = newState;
+  try {
+    const headers = {};
+    if (_stateVersion && !force) headers["X-State-Version"] = _stateVersion;
+    const res = await fetch("/state", { headers });
+    if (res.status === 304) return;  // nothing changed — skip all DOM work
+    const newState = await res.json();
+    if (newState._version !== undefined) _stateVersion = String(newState._version);
+    const first = !state;
+    state = newState;
 
-  if (first) {
-    document.getElementById("logFile").value = state.log_file || "";
-    document.getElementById("repoPath").value = state.repo_path || "";
-    document.getElementById("processedPath").value = state.processed_chunks_file || "";
-    document.getElementById("logsDir").value = state.logs_dir || "";
-    document.getElementById("startChunk").value = state.start_chunk || "";
-    document.getElementById("endChunk").value = state.end_chunk || "";
-    document.getElementById("pauseBetweenChunks").value = state.pause_between_chunks || "";
-    document.getElementById("mode").value = state.mode || "full";
-    if (state.push_every_n) document.getElementById("pushEveryN").value = state.push_every_n;
-    togglePushEveryN();
+    if (first) {
+      document.getElementById("logFile").value = state.log_file || "";
+      document.getElementById("repoPath").value = state.repo_path || "";
+      document.getElementById("processedPath").value = state.processed_chunks_file || "";
+      document.getElementById("logsDir").value = state.logs_dir || "";
+      document.getElementById("startChunk").value = state.start_chunk || "";
+      document.getElementById("endChunk").value = state.end_chunk || "";
+      document.getElementById("pauseBetweenChunks").value = state.pause_between_chunks || "";
+      document.getElementById("mode").value = state.mode || "full";
+      if (state.push_every_n) document.getElementById("pushEveryN").value = state.push_every_n;
+      togglePushEveryN();
+    }
+
+    updateStats();
+    updateChunkGridStable();
+    updateDetailStable();
+    updateConsoleStable();
+  } catch(e) {
+    console.error("Refresh error", e);
   }
-
-  updateStats();
-  updateChunkGridStable();
-  updateDetailStable();
-  updateConsoleStable();
 }
 
 function updateStats(){
@@ -1566,7 +1724,16 @@ class Handler(BaseHTTPRequestHandler):
             return self._send_html()
 
         if parsed.path == "/state":
-            return self._send_json(get_state_copy())
+            client_ver = self.headers.get("X-State-Version", "")
+            current_ver = str(_STATE_VERSION)
+            if client_ver == current_ver:
+                self.send_response(304)
+                self.send_header("X-State-Version", current_ver)
+                self.end_headers()
+                return
+            data = get_state_copy()
+            data["_version"] = _STATE_VERSION
+            return self._send_json(data)
 
         if parsed.path == "/browse":
             qs = parse_qs(parsed.query)
