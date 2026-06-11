@@ -86,6 +86,7 @@ def make_default_state():
         "start_chunk": "",
         "end_chunk": "",
         "pause_between_chunks": 0,
+        "push_every_n": 1,
         "current_chunk": None,
         "selected_chunk": None,
         "overall_progress": 0,
@@ -255,6 +256,13 @@ def set_file_status(chunk_number, file_path, status):
     save_state()
 
 
+def _no_window_flags():
+    """Return kwargs that suppress the console window on Windows."""
+    if sys.platform.startswith("win"):
+        return {"creationflags": subprocess.CREATE_NO_WINDOW}
+    return {}
+
+
 def run_cmd(cmd, cwd=None, stream=False):
     add_console(f"$ {' '.join(cmd)}", "cmd")
 
@@ -267,7 +275,8 @@ def run_cmd(cmd, cwd=None, stream=False):
             text=True,
             encoding="utf-8",
             errors="replace",
-            shell=False
+            shell=False,
+            **_no_window_flags()
         )
         ACTIVE_PROCESSES.append(proc)
         output_lines = []
@@ -299,7 +308,8 @@ def run_cmd(cmd, cwd=None, stream=False):
         text=True,
         encoding="utf-8",
         errors="replace",
-        shell=False
+        shell=False,
+        **_no_window_flags()
     )
     out = (result.stdout or "") + (result.stderr or "")
     if out.strip():
@@ -348,12 +358,18 @@ def validate_start_payload(payload):
     end_chunk_raw = clean_pasted_path(str(payload.get("end_chunk", "") or ""))
     pause_raw = clean_pasted_path(str(payload.get("pause_between_chunks", "") or "0"))
 
-    if mode not in {"full", "commit_only", "push_only", "dry_run"}:
+    if mode not in {"full", "commit_only", "push_only", "dry_run", "commit_n_then_push"}:
         return None, "Invalid processing mode."
 
     start_chunk = int(start_chunk_raw) if start_chunk_raw else None
     end_chunk = int(end_chunk_raw) if end_chunk_raw else None
     pause_between_chunks = float(pause_raw) if pause_raw else 0
+
+    push_every_n_raw = clean_pasted_path(str(payload.get("push_every_n", "") or "1"))
+    try:
+        push_every_n = max(1, int(push_every_n_raw))
+    except (ValueError, TypeError):
+        push_every_n = 1
 
     if start_chunk is not None and start_chunk < 1:
         return None, "Start chunk must be 1 or higher."
@@ -390,7 +406,8 @@ def validate_start_payload(payload):
         "mode": mode,
         "start_chunk": start_chunk,
         "end_chunk": end_chunk,
-        "pause_between_chunks": pause_between_chunks
+        "pause_between_chunks": pause_between_chunks,
+        "push_every_n": push_every_n
     }, ""
 
 
@@ -411,6 +428,7 @@ def process_worker(config):
 
     STOP_REQUESTED = False
     completed_durations = []
+    committed_since_push = []  # tracks chunk numbers committed but not yet pushed (commit_n_then_push mode)
 
     update_state(
         running=True,
@@ -425,6 +443,7 @@ def process_worker(config):
         start_chunk=config.get("start_chunk") or "",
         end_chunk=config.get("end_chunk") or "",
         pause_between_chunks=config.get("pause_between_chunks") or 0,
+        push_every_n=config.get("push_every_n") or 1,
         current_chunk=None,
         last_error=""
     )
@@ -437,6 +456,8 @@ def process_worker(config):
         add_console(f"End chunk: {config.get('end_chunk')}", "info")
     if config.get("pause_between_chunks"):
         add_console(f"Pause between chunks: {config.get('pause_between_chunks')} sec", "info")
+    if config["mode"] == "commit_n_then_push":
+        add_console(f"Push every N chunks: {config.get('push_every_n', 1)}", "info")
     add_console(f"Repository: {config['repo_path']}", "info")
 
     try:
@@ -612,6 +633,72 @@ def process_worker(config):
                     time.sleep(pause_seconds)
                 continue
 
+            # commit_n_then_push: batch commits, push every N
+            if config["mode"] == "commit_n_then_push":
+                push_every_n = int(config.get("push_every_n") or 1)
+                committed_since_push.append(n)
+                set_chunk_status(n, stage="committed_waiting_push", progress=80)
+
+                should_push = (len(committed_since_push) >= push_every_n)
+                # Also push if this is the last pending chunk
+                if not should_push:
+                    remaining_pending = sum(
+                        1 for c in get_state_copy()["chunks"]
+                        if c["status"] == "pending" and c["number"] != n
+                    )
+                    if remaining_pending == 0:
+                        should_push = True
+                        add_console(f"Last chunk in batch — pushing now.", "info")
+
+                if should_push:
+                    chunk_nums = ", ".join(f"#{x}" for x in committed_since_push)
+                    add_console(f"Pushing after {len(committed_since_push)} commits (chunks {chunk_nums}).", "info")
+                    set_chunk_status(n, stage="pushing", progress=85)
+                    code, out = run_cmd(["git", "push"], cwd=repo, stream=True)
+
+                    if code != 0:
+                        msg = f"git push failed after Chunk #{n}."
+                        for bn in committed_since_push:
+                            set_chunk_status(bn, status="failed", stage="push_failed", progress=100, error=msg)
+                        add_console(msg, "error")
+                        committed_since_push.clear()
+                        continue
+
+                    for bn in committed_since_push:
+                        duration = time.time() - chunk_start
+                        set_chunk_status(
+                            bn,
+                            status="completed",
+                            stage="done",
+                            progress=100,
+                            push_output=out[-6000:] if out else "",
+                            ended_at=datetime.now().isoformat(timespec="seconds"),
+                            duration_seconds=round(duration, 2)
+                        )
+                        save_processed_chunk(config["processed_chunks_file"], bn)
+
+                    add_console(f"Push complete for chunks {chunk_nums}.", "success")
+                    committed_since_push.clear()
+                else:
+                    add_console(f"Chunk #{n} committed ({len(committed_since_push)}/{push_every_n}). Waiting for more before push.", "info")
+                    duration = time.time() - chunk_start
+                    completed_durations.append(duration)
+
+                with STATE_LOCK:
+                    remaining = STATE["stats"]["pending"]
+                    avg = sum(completed_durations) / len(completed_durations) if completed_durations else 0
+                    STATE["average_chunk_seconds"] = round(avg, 2)
+                    eta_seconds = int(avg * remaining)
+                    STATE["eta"] = format_seconds(eta_seconds) if eta_seconds > 0 else "-"
+                save_state()
+
+                pause_seconds = float(config.get("pause_between_chunks") or 0)
+                if pause_seconds > 0 and not STOP_REQUESTED:
+                    add_console(f"Pausing {pause_seconds:g} seconds before next chunk.", "info")
+                    time.sleep(pause_seconds)
+                continue
+
+            # full mode: push after every commit
             set_chunk_status(n, stage="pushing", progress=85)
             code, out = run_cmd(["git", "push"], cwd=repo, stream=True)
             set_chunk_status(n, push_output=out[-6000:] if out else "")
@@ -821,9 +908,9 @@ def open_path(path):
     if sys.platform.startswith("win"):
         os.startfile(str(p))
     elif sys.platform == "darwin":
-        subprocess.Popen(["open", str(p)])
+        subprocess.Popen(["open", str(p)], **_no_window_flags())
     else:
-        subprocess.Popen(["xdg-open", str(p)])
+        subprocess.Popen(["xdg-open", str(p)], **_no_window_flags())
     return True, "Opened."
 
 
@@ -1013,10 +1100,17 @@ button.success{background:#16a34a}
     <span></span>
   </div>
 
+  <div class="input-grid" id="pushEveryNRow" style="display:none">
+    <label>Push every N chunks</label>
+    <input id="pushEveryN" type="number" min="1" step="1" value="2" placeholder="e.g. 2 = commit 2 then push">
+    <span></span>
+  </div>
+
   <div class="toolbar">
-    <select id="mode">
+    <select id="mode" onchange="togglePushEveryN()">
       <option value="full">Full Process: Add → Commit → Push</option>
       <option value="commit_only">Commit Only: Add → Commit</option>
+      <option value="commit_n_then_push">Commit N then Push: Add → Commit × N → Push</option>
       <option value="push_only">Push Only</option>
       <option value="dry_run">Dry Run: Simulation Only</option>
     </select>
@@ -1193,11 +1287,18 @@ async function startProcessing(){
     mode: document.getElementById("mode").value,
     start_chunk: cleanPath(document.getElementById("startChunk").value),
     end_chunk: cleanPath(document.getElementById("endChunk").value),
-    pause_between_chunks: cleanPath(document.getElementById("pauseBetweenChunks").value)
+    pause_between_chunks: cleanPath(document.getElementById("pauseBetweenChunks").value),
+    push_every_n: cleanPath(document.getElementById("pushEveryN").value) || "1"
   };
   const res = await api("/start", payload);
   if (!res.ok) alert(res.message || "Failed to start");
   await refreshState(true);
+}
+
+function togglePushEveryN(){
+  const mode = document.getElementById("mode").value;
+  const row = document.getElementById("pushEveryNRow");
+  row.style.display = (mode === "commit_n_then_push") ? "grid" : "none";
 }
 
 async function stopProcessing(){
@@ -1230,6 +1331,8 @@ async function refreshState(force=false){
     document.getElementById("endChunk").value = state.end_chunk || "";
     document.getElementById("pauseBetweenChunks").value = state.pause_between_chunks || "";
     document.getElementById("mode").value = state.mode || "full";
+    if (state.push_every_n) document.getElementById("pushEveryN").value = state.push_every_n;
+    togglePushEveryN();
   }
 
   updateStats();

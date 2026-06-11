@@ -5,7 +5,7 @@ a = Analysis(
     ['GitChunkyProcessor Minimalistic.py'],
     pathex=[],
     binaries=[],
-    datas=[('favicon.ico', '.')],
+    datas=[],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -35,5 +35,4 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=['favicon.ico'],
 )
