@@ -15,6 +15,15 @@ from pathlib import Path, PureWindowsPath
 from tkinter import filedialog, messagebox, ttk
 from typing import Callable, Iterable, List, Optional, Set, Tuple
 
+# ── Suppress console window immediately (must be before any subprocess call) ──
+if sys.platform == "win32":
+    import ctypes
+    ctypes.windll.kernel32.FreeConsole()
+
+# ── Windows flag to hide console for ALL subprocesses ────────────────────────
+_SUBPROCESS_FLAGS = {}
+if sys.platform == "win32":
+    _SUBPROCESS_FLAGS["creationflags"] = subprocess.CREATE_NO_WINDOW
 
 # -----------------------------
 # Data model
@@ -34,14 +43,10 @@ class Chunk:
 
 CHUNK_HEADER_RE = re.compile(r"^Chunk\s+#(\d+)\s+\((\d+)\s+files?,\s+([\d.]+)\s*MB\):\s*$", re.IGNORECASE)
 FILE_LINE_RE = re.compile(r"^\s*-\s+(.+?)\s*$")
-# Matches the size suffix produced by the chunk report, e.g. " (13.23MB)".
-# Without stripping this, the GUI tries to add paths like
-# "Content\Foo.uasset (13.23MB)", which obviously do not exist.
 FILE_SIZE_SUFFIX_RE = re.compile(r"\s+\([\d.]+\s*MB\)\s*$", re.IGNORECASE)
 
 
 def parse_chunks(log_file_path: str | Path) -> List[Chunk]:
-    """Parse chunk definitions from a log file."""
     log_path = Path(log_file_path)
     chunks: List[Chunk] = []
     current: Optional[Chunk] = None
@@ -49,7 +54,6 @@ def parse_chunks(log_file_path: str | Path) -> List[Chunk]:
     with log_path.open("r", encoding="utf-8", errors="replace") as f:
         for raw_line in f:
             line = raw_line.rstrip("\n")
-
             header = CHUNK_HEADER_RE.match(line.strip())
             if header:
                 if current:
@@ -63,11 +67,6 @@ def parse_chunks(log_file_path: str | Path) -> List[Chunk]:
 
             file_match = FILE_LINE_RE.match(line)
             if current and file_match:
-                # Keep the full path after "- ", including spaces in filenames,
-                # but strip the trailing size text from the report:
-                #   - Content\Asset.uasset (13.23MB)
-                # becomes:
-                #   Content\Asset.uasset
                 parsed_path = file_match.group(1).strip().strip('"')
                 parsed_path = FILE_SIZE_SUFFIX_RE.sub("", parsed_path).strip().strip('"')
                 if parsed_path and not parsed_path.startswith("..."):
@@ -85,7 +84,7 @@ def run_git(
     log: Callable[[str], None],
     check: bool = True,
 ) -> subprocess.CompletedProcess:
-    """Run a git command inside repo_path without using os.chdir()."""
+    """Run a git command — never shows a console window."""
     cmd = ["git", *args]
     log(f"$ {' '.join(cmd)}")
 
@@ -96,6 +95,7 @@ def run_git(
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         shell=False,
+        **_SUBPROCESS_FLAGS,          # <── hides the console window
     )
 
     if completed.stdout.strip():
@@ -104,7 +104,7 @@ def run_git(
         log(completed.stderr.strip())
 
     if check and completed.returncode != 0:
-        raise RuntimeError(f"Command failed with code {completed.returncode}: {' '.join(cmd)}")
+        raise RuntimeError(f"Command failed (code {completed.returncode}): {' '.join(cmd)}")
 
     return completed
 
@@ -132,29 +132,19 @@ def load_processed_chunks(processed_file: str | Path) -> Set[int]:
 def save_processed_chunks(processed_file: str | Path, processed: Set[int]) -> None:
     path = Path(processed_file)
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(sorted(processed), indent=2), encoding="utf-8")
+    # Atomic write — no corruption if app closes mid-save
+    tmp = path.with_suffix(".json.tmp")
+    tmp.write_text(json.dumps(sorted(processed), indent=2), encoding="utf-8")
+    tmp.replace(path)
 
 
 def normalize_file_for_git(repo_path: str | Path, file_path: str) -> Optional[str]:
-    """Return a repo-relative path suitable for git add, or None if missing.
-
-    The chunk report usually stores Windows-style relative paths such as:
-        Content\\Characters\\Foo.uasset
-
-    This function normalises those paths safely. It also strips any accidental
-    trailing size suffix as a defensive fallback.
-    """
     repo = Path(repo_path).resolve()
-
     cleaned = FILE_SIZE_SUFFIX_RE.sub("", str(file_path).strip().strip('"')).strip()
     if not cleaned or cleaned.startswith("..."):
         return None
 
-    # Treat backslash-only paths from the log as repo-relative paths.
-    # On non-Windows Python, Path("Content\Foo.uasset") is one filename,
-    # so we split it with PureWindowsPath first. On Windows this also works.
     win_candidate = PureWindowsPath(cleaned)
-
     if win_candidate.is_absolute():
         candidate = Path(cleaned)
     else:
@@ -171,14 +161,12 @@ def normalize_file_for_git(repo_path: str | Path, file_path: str) -> Optional[st
     try:
         rel = abs_candidate.relative_to(repo)
     except ValueError:
-        # File exists but is outside the selected repo.
         return None
 
     return rel.as_posix()
 
 
 def get_resource_path(relative_path: str) -> Path:
-    """Return the correct path for bundled or source resources."""
     if getattr(sys, "_MEIPASS", None):
         return Path(sys._MEIPASS) / relative_path
     return Path(__file__).resolve().parent / relative_path
@@ -189,16 +177,10 @@ def staged_has_changes(repo_path: str | Path, log: Callable[[str], None]) -> boo
     return result.returncode != 0
 
 
-def working_tree_has_unstaged_changes(repo_path: str | Path, log: Callable[[str], None]) -> bool:
-    result = run_git(repo_path, ["diff", "--quiet"], log, check=False)
-    return result.returncode != 0
-
-
 def ensure_remote_is_reasonable(repo_path: str | Path, log: Callable[[str], None]) -> None:
-    """Warn only. This avoids blocking local-only repos."""
     result = run_git(repo_path, ["remote", "-v"], log, check=False)
     if result.returncode != 0 or not result.stdout.strip():
-        log("⚠️ No Git remote found. Commit will work, but push will fail unless a remote is configured.")
+        log("⚠️ No Git remote found. Push will fail unless a remote is configured.")
 
 
 def add_commit_push_chunk(
@@ -210,7 +192,6 @@ def add_commit_push_chunk(
     pull_rebase_before_push: bool = False,
     stop_event: Optional[threading.Event] = None,
 ) -> bool:
-    """Process one chunk in the selected repository."""
     if stop_event and stop_event.is_set():
         log("⏹️ Stopped before processing next chunk.")
         return False
@@ -239,7 +220,6 @@ def add_commit_push_chunk(
         log(f"❌ Chunk #{chunk.number} has no valid files to add. Skipping.")
         return False
 
-    # Add files in smaller batches to avoid very long command lines on Windows.
     batch_size = 100
     for i in range(0, len(valid_files), batch_size):
         batch = valid_files[i:i + batch_size]
@@ -247,7 +227,7 @@ def add_commit_push_chunk(
         log(f"✅ Added batch {i // batch_size + 1}: {len(batch)} files")
 
     if not staged_has_changes(repo_path, log):
-        log(f"⚠️ Chunk #{chunk.number}: nothing changed after staging. Marking as processed.")
+        log(f"⚠️ Chunk #{chunk.number}: nothing staged. Marking as processed.")
         processed = load_processed_chunks(processed_file)
         processed.add(chunk.number)
         save_processed_chunks(processed_file, processed)
@@ -264,15 +244,14 @@ def add_commit_push_chunk(
 
         push_result = run_git(repo_path, ["push"], log, check=False)
         if push_result.returncode != 0:
-            log("⚠️ Initial push failed. Trying: git pull --rebase, then git push again...")
+            log("⚠️ Push failed. Trying git pull --rebase then push again...")
             rebase_result = run_git(repo_path, ["pull", "--rebase"], log, check=False)
             if rebase_result.returncode != 0:
-                log("❌ Pull --rebase failed. Please resolve Git conflicts manually, then run again.")
+                log("❌ Pull --rebase failed. Resolve conflicts manually, then run again.")
                 return False
-
             push_retry = run_git(repo_path, ["push"], log, check=False)
             if push_retry.returncode != 0:
-                log("❌ Push failed again. Please check remote permissions, branch, or Git LFS limits.")
+                log("❌ Push failed again. Check remote permissions or Git LFS limits.")
                 return False
 
         log(f"✅ Pushed Chunk #{chunk.number}")
@@ -282,7 +261,7 @@ def add_commit_push_chunk(
     processed = load_processed_chunks(processed_file)
     processed.add(chunk.number)
     save_processed_chunks(processed_file, processed)
-    log(f"🎉 Chunk #{chunk.number} completed and saved to resume file.")
+    log(f"🎉 Chunk #{chunk.number} complete and saved to resume file.")
     return True
 
 
@@ -300,17 +279,16 @@ def process_all_chunks(
     processed = load_processed_chunks(processed_file)
     todo = [c for c in chunks_list if c.number not in processed]
 
-    log(f"📦 Total chunks found: {len(chunks_list)}")
+    log(f"📦 Total chunks: {len(chunks_list)}")
     log(f"✅ Already processed: {len(processed)}")
-    log(f"🧩 Remaining chunks: {len(todo)}")
+    log(f"🧩 Remaining: {len(todo)}")
 
     if not todo:
         progress(len(chunks_list), len(chunks_list))
-        log("🎉 Nothing to do. All chunks are already processed.")
+        log("🎉 Nothing to do. All chunks already processed.")
         return
 
     ensure_remote_is_reasonable(repo_path, log)
-
     done_count = len(chunks_list) - len(todo)
     progress(done_count, len(chunks_list))
 
@@ -320,10 +298,7 @@ def process_all_chunks(
             break
 
         ok = add_commit_push_chunk(
-            chunk,
-            repo_path,
-            processed_file,
-            log,
+            chunk, repo_path, processed_file, log,
             push_after_commit=push_after_commit,
             pull_rebase_before_push=pull_rebase_before_push,
             stop_event=stop_event,
@@ -485,9 +460,9 @@ class ChunkyGUI(tk.Tk):
             chunks = parse_chunks(log_file)
             total_files = sum(len(c.files) for c in chunks)
             total_size = sum(c.size_mb for c in chunks)
-            self._log(f"🔍 Preview: {len(chunks)} chunks, {total_files} parsed files, {total_size:.2f}MB total from headers.")
+            self._log(f"🔍 Preview: {len(chunks)} chunks, {total_files} parsed files, {total_size:.2f}MB total.")
             for c in chunks[:10]:
-                self._log(f"   Chunk #{c.number}: header says {c.file_count} files, parsed {len(c.files)} files, {c.size_mb}MB")
+                self._log(f"   Chunk #{c.number}: header={c.file_count} files, parsed={len(c.files)} files, {c.size_mb}MB")
             if len(chunks) > 10:
                 self._log(f"   ... {len(chunks) - 10} more chunks")
         except Exception as exc:
@@ -523,7 +498,7 @@ class ChunkyGUI(tk.Tk):
 
         def worker_main() -> None:
             try:
-                self.log_from_worker("🚀 Started Git Chunky Processor GUI")
+                self.log_from_worker("🚀 Started Git Chunky Processor")
                 chunks = parse_chunks(log_file)
                 if not chunks:
                     self.log_from_worker("❌ No chunks found in the selected log file.")
@@ -549,7 +524,7 @@ class ChunkyGUI(tk.Tk):
 
     def stop_processing(self) -> None:
         self.stop_event.set()
-        self._log("⏹️ Stop requested. The current Git command will finish first, then processing will stop.")
+        self._log("⏹️ Stop requested. Current git command will finish first.")
 
     def _drain_queues(self) -> None:
         while True:
