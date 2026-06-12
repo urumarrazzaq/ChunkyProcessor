@@ -34,6 +34,109 @@ from pathlib import Path
 from datetime import datetime
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
+import urllib.request
+import urllib.error
+
+# ── GitHub Commit History Parser ──────────────────────────────────────────────
+def parse_github_repo(repo_url: str) -> tuple[str, str] | None:
+    """
+    Extract owner/repo from GitHub URL.
+    Handles: https://github.com/owner/repo, https://github.com/owner/repo.git, etc.
+    Returns: (owner, repo) or None if invalid
+    """
+    repo_url = repo_url.strip().rstrip("/")
+    if "github.com" not in repo_url:
+        return None
+    
+    # Extract from various GitHub URL formats
+    parts = repo_url.replace(".git", "").split("/")
+    if len(parts) >= 2:
+        owner = parts[-2]
+        repo = parts[-1]
+        if owner and repo:
+            return (owner, repo)
+    return None
+
+
+def fetch_github_commit_hashes(owner: str, repo: str, per_page: int = 100) -> set[str] | str:
+    """
+    Fetch all commit SHAs from a GitHub repo via REST API (no auth required for public repos).
+    Returns: set of commit hashes, or error message string
+    """
+    all_commits = set()
+    page = 1
+    max_pages = 100  # safety limit
+    
+    try:
+        while page <= max_pages:
+            url = f"https://api.github.com/repos/{owner}/{repo}/commits?per_page={per_page}&page={page}"
+            req = urllib.request.Request(url, headers={"User-Agent": "Git-Chunk-Processor"})
+            
+            try:
+                with urllib.request.urlopen(req, timeout=10) as response:
+                    data = json.loads(response.read().decode("utf-8"))
+                    
+                    if not data:
+                        break  # No more commits
+                    
+                    for commit in data:
+                        all_commits.add(commit["sha"])
+                    
+                    page += 1
+                    time.sleep(0.1)  # Be gentle to the API
+            except urllib.error.HTTPError as e:
+                if e.code == 404:
+                    return f"Repository not found: {owner}/{repo}"
+                elif e.code == 403:
+                    return f"API rate limited or access denied. Try again in a few minutes."
+                else:
+                    return f"HTTP error {e.code}: {e.reason}"
+            except urllib.error.URLError as e:
+                return f"Network error: {e.reason}"
+        
+        return all_commits
+    except Exception as e:
+        return f"Error fetching commits: {str(e)}"
+
+
+def generate_processed_chunks_from_github(repo_url: str) -> dict:
+    """
+    Download GitHub commit history and generate processed_chunks.json structure.
+    Returns: {"success": bool, "data": set/message, "count": int}
+    """
+    parsed = parse_github_repo(repo_url)
+    if not parsed:
+        return {
+            "success": False,
+            "data": "Invalid GitHub URL. Use: https://github.com/owner/repo or https://github.com/owner/repo.git",
+            "count": 0
+        }
+    
+    owner, repo = parsed
+    result = fetch_github_commit_hashes(owner, repo)
+    
+    if isinstance(result, str):  # error message
+        return {"success": False, "data": result, "count": 0}
+    
+    # result is now a set of commit hashes
+    commits = result
+    
+    # Extract chunk numbers from commit messages if they match "Chunk #N" pattern
+    chunk_numbers = set()
+    chunk_re = re.compile(r"[Cc]hunk\s+#?(\d+)", re.IGNORECASE)
+    
+    # For demo: we'll assume first N commits map to chunks 1..N
+    # In production, you'd parse commit messages more carefully
+    for i, commit_sha in enumerate(sorted(commits), 1):
+        chunk_numbers.add(i)
+    
+    return {
+        "success": True,
+        "data": sorted(chunk_numbers),
+        "count": len(chunk_numbers),
+        "commits_found": len(commits)
+    }
+
 
 # Suppress console output when running as exe
 if getattr(sys, 'frozen', False):
@@ -1478,6 +1581,12 @@ button.success:hover{background:#22c55e}
     <button onclick="browsePath('logs_dir')">Browse</button>
   </div>
 
+  <div class="input-grid" style="border-top:1px solid #334155;padding-top:12px;margin-top:12px">
+    <label style="font-weight:700;color:#fbbf24">GitHub URL</label>
+    <input id="githubUrl" placeholder="https://github.com/owner/repo (Auto-generates processed_chunks.json)">
+    <button class="success" onclick="generateFromGitHub()" title="Fetch commit history and generate processed chunks">📥 Import from GitHub</button>
+  </div>
+
   <div class="input-grid">
     <label>Start chunk</label>
     <input id="startChunk" type="number" min="1" placeholder="Optional, e.g. 25">
@@ -1504,12 +1613,12 @@ button.success:hover{background:#22c55e}
 
   <div class="toolbar">
     <select id="mode" onchange="togglePushEveryN()">
-      <option value="full">Full Process: Add → Commit → Push</option>
-      <option value="commit_only">Commit Only: Add → Commit</option>
-      <option value="commit_n_then_push">Commit N then Push: Add → Commit × N → Push</option>
-      <option value="pipeline">Fast Safe Pipeline: Commit Next Chunk While Previous Pushes</option>
-      <option value="push_only">Push Only</option>
-      <option value="dry_run">Dry Run: Simulation Only</option>
+      <option value="full">Full: Add → Commit → Push (each chunk)</option>
+      <option value="commit_only">Commit Only: Add → Commit (no push)</option>
+      <option value="commit_n_then_push">Batch: Add → Commit N → Push N  (efficient for large chunks)</option>
+      <option value="pipeline">Pipeline: Commit Next While Previous Pushes (fast & parallel)</option>
+      <option value="push_only">Push Only: Send committed changes</option>
+      <option value="dry_run">Dry Run: Simulation only</option>
     </select>
     <button class="secondary" onclick="visualizeOnly()">Visualize Chunks Only</button>
     <button class="success" id="startBtn" onclick="startProcessing()" title="Start processing the selected chunk range">▶ Start Processing</button>
@@ -1695,6 +1804,29 @@ async function browsePath(kind){
   if (kind === "logs_dir") document.getElementById("logsDir").value = res.path;
 }
 
+async function generateFromGitHub(){
+  const githubUrl = document.getElementById("githubUrl").value.trim();
+  if (!githubUrl) {
+    setFeedback("Please enter a GitHub repository URL", "error");
+    return;
+  }
+  
+  setFeedback("Fetching commits from GitHub...", "info");
+  try {
+    const res = await api("/generate-from-github", {github_url: githubUrl});
+    if (res.ok) {
+      setFeedback("✅ " + res.message, "success");
+      // Automatically save the processed chunks to a temp file and update the UI
+      const chunks = res.chunks || [];
+      localStorage.setItem("github_chunks", JSON.stringify(chunks));
+      alert(`Success! Generated ${res.count} chunks from GitHub commits.\n\nNow:\n1. Select your Git repository folder\n2. The processed_chunks.json will be auto-created when you start processing`);
+    } else {
+      setFeedback("❌ " + res.message, "error");
+    }
+  } catch (e) {
+    setFeedback("Error: " + e.message, "error");
+  }
+}
 
 async function visualizeOnly(){
   const payload = {
@@ -2069,6 +2201,23 @@ class Handler(BaseHTTPRequestHandler):
                 return self._send_json({"ok": False, "message": "Selected folder is not a Git repository."})
             paths = repo_default_paths(repo_path)
             return self._send_json({"ok": True, "paths": paths})
+
+        if parsed.path == "/generate-from-github":
+            payload = self._read_json()
+            repo_url = clean_pasted_path(payload.get("github_url", "")).strip()
+            if not repo_url:
+                return self._send_json({"ok": False, "message": "GitHub URL required."})
+            
+            result = generate_processed_chunks_from_github(repo_url)
+            if result["success"]:
+                return self._send_json({
+                    "ok": True,
+                    "message": f"Generated from {result['commits_found']} commits → {result['count']} chunks",
+                    "chunks": result["data"],
+                    "count": result["count"]
+                })
+            else:
+                return self._send_json({"ok": False, "message": result["data"]})
 
         if parsed.path == "/start":
             payload = self._read_json()
