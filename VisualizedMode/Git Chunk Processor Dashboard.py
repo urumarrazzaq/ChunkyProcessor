@@ -11,6 +11,7 @@ Git Chunk Processor Dashboard
 - Pause auto refresh button
 - Auto pauses refresh while selecting/copying text
 - Visualize Chunks Only button parses the log and updates the UI without git commands
+- Modern UI refresh with cleaner cards, forms, console, and inspector
 - Processing modes:
     full         = git add + commit + push
     commit_only  = git add + commit only
@@ -1603,736 +1604,220 @@ HTML = r"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Git Chunk Processor Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Git Chunk Processor Dashboard Modern</title>
 <style>
 :root{
-  --bg:#0b1120; --panel:#111827; --panel2:#0f172a; --line:#263244;
-  --text:#e5e7eb; --muted:#94a3b8; --blue:#3b82f6; --green:#22c55e;
-  --red:#ef4444; --orange:#f59e0b; --purple:#a855f7; --gray:#475569;
+  --bg:#070b14; --bg2:#0b1120; --panel:#101827; --panel2:#0c1322; --card:#111c2e;
+  --line:#243149; --line2:#334155; --text:#eef2ff; --muted:#9ca3af; --muted2:#64748b;
+  --blue:#3b82f6; --green:#22c55e; --red:#ef4444; --orange:#f59e0b; --purple:#a855f7;
+  --cyan:#22d3ee; --shadow:0 18px 40px rgba(0,0,0,.28); --radius:16px;
+}
+body.light{
+  --bg:#eef2f7; --bg2:#f8fafc; --panel:#ffffff; --panel2:#f8fafc; --card:#ffffff;
+  --line:#dbe3ef; --line2:#cbd5e1; --text:#0f172a; --muted:#475569; --muted2:#64748b;
+  --shadow:0 16px 32px rgba(15,23,42,.09);
 }
 *{box-sizing:border-box}
-body{margin:0;background:linear-gradient(180deg,#08111f,#0b1120);color:var(--text);font-family:Segoe UI,Arial,sans-serif}
-header{padding:18px 22px;border-bottom:1px solid var(--line);background:rgba(15,23,42,.96);position:sticky;top:0;z-index:5}
-h1{margin:0 0 12px;font-size:22px}
-.input-grid{display:grid;grid-template-columns:150px 1fr auto;gap:8px;align-items:center;margin:6px 0}
-label{color:#cbd5e1;font-size:13px}
-input,select{background:#0b1220;color:#f8fafc;border:1px solid #334155;border-radius:8px;padding:9px 10px;min-height:38px}
-button{background:#2563eb;color:white;border:0;border-radius:8px;padding:9px 12px;font-weight:700;cursor:pointer;transition:transform .12s ease,box-shadow .12s ease,filter .12s ease,background .12s ease}
-button:hover{background:#1d4ed8;transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.22);filter:brightness(1.08)}
-button:active{transform:translateY(1px) scale(.98);box-shadow:none;filter:brightness(.92)}
-button[disabled]{cursor:not-allowed;opacity:.62;transform:none;box-shadow:none}
-button.secondary{background:#334155}
-button.secondary:hover{background:#475569}
-button.danger{background:#dc2626}
-button.danger:hover{background:#ef4444}
-button.success{background:#16a34a}
-button.success:hover{background:#22c55e}
-button.warning{background:#d97706}
-button.warning:hover{background:#f59e0b}
-.status-strip{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;color:#cbd5e1;font-size:12px}
-.pill{display:inline-flex;align-items:center;gap:6px;background:#0b1220;border:1px solid var(--line);border-radius:999px;padding:5px 9px}
-.dot{width:9px;height:9px;border-radius:999px;background:#64748b;display:inline-block}
-.dot.completed{background:#22c55e}.dot.processing{background:#a855f7}.dot.failed{background:#ef4444}.dot.skipped{background:#64748b}.dot.pending{background:#3b82f6}
-body.compact .chunk-grid{grid-template-columns:repeat(auto-fill,minmax(44px,1fr));gap:6px}
-body.compact .chunk-cell{min-height:34px;font-size:12px;border-radius:8px}
-body.compact .file-row{padding:5px 8px}
-.action-feedback{margin-top:10px;min-height:36px;display:flex;align-items:center;padding:8px 11px;border:1px solid #334155;border-radius:9px;background:#0b1220;color:#cbd5e1;font-size:13px}
-.action-feedback.success{border-color:#166534;color:#bbf7d0;background:#052e16}
-.action-feedback.warning{border-color:#92400e;color:#fde68a;background:#451a03}
-.action-feedback.error{border-color:#991b1b;color:#fecaca;background:#450a0a}
-.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-.stats{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:14px}
-.stat{background:#0b1220;border:1px solid var(--line);border-radius:10px;padding:10px}
-.stat .n{font-size:20px;font-weight:800}
-.stat .t{font-size:12px;color:var(--muted)}
-.progress-wrap{height:12px;background:#1e293b;border-radius:99px;overflow:hidden;border:1px solid #334155;margin-top:12px}
-.progress-bar{height:100%;background:linear-gradient(90deg,#2563eb,#22c55e);width:0%;transition:width .25s}
-.layout{display:grid;grid-template-columns:minmax(420px,1.1fr) minmax(420px,.9fr);gap:16px;padding:16px}
-.panel{background:rgba(17,24,39,.92);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.panel h2{font-size:16px;margin:0;padding:13px 15px;background:#0f172a;border-bottom:1px solid var(--line)}
-.chunk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(58px,1fr));gap:8px;padding:14px;align-items:stretch}
-.chunk-cell{position:relative;min-height:44px;border:1px solid #334155;background:#1e293b;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;cursor:pointer;user-select:none;overflow:hidden}
-.chunk-cell:hover{border-color:#60a5fa;transform:translateY(-1px)}
-.chunk-cell.active{background:#1d4ed8;border-color:#93c5fd;box-shadow:0 0 0 2px rgba(59,130,246,.25)}
-.chunk-cell.selected{outline:2px solid #f8fafc}
-.chunk-cell.completed{background:rgba(34,197,94,.22);border-color:rgba(34,197,94,.55)}
-.chunk-cell.failed{background:rgba(239,68,68,.22);border-color:rgba(239,68,68,.55)}
-.chunk-cell.skipped{background:rgba(100,116,139,.25)}
-.chunk-cell.processing{background:rgba(168,85,247,.24);border-color:rgba(168,85,247,.7)}
-.chunk-cell .mini{position:absolute;bottom:0;left:0;height:4px;background:#38bdf8;width:0%}
-.detail{padding:15px}
-.card-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
-.badge{display:inline-block;padding:4px 9px;border-radius:999px;font-size:12px;font-weight:800;background:#334155}
-.badge.completed{background:#14532d;color:#bbf7d0}
-.badge.failed{background:#7f1d1d;color:#fecaca}
-.badge.processing{background:#4c1d95;color:#ddd6fe}
-.badge.skipped{background:#334155;color:#cbd5e1}
-.meta{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
-.meta div{background:#0b1220;border:1px solid var(--line);border-radius:10px;padding:9px}
-.meta small{display:block;color:var(--muted);font-size:11px}
-.stage{font-size:13px;color:#cbd5e1;margin-top:8px}
-.error{background:#3f1111;border:1px solid #7f1d1d;color:#fecaca;border-radius:10px;padding:10px;margin:10px 0;white-space:pre-wrap}
-.files{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:12px}
-.file-head,.file-row{display:grid;grid-template-columns:36px 1fr 1.3fr 78px 80px;gap:8px;align-items:center}
-.file-head{background:#0f172a;color:#cbd5e1;font-size:12px;font-weight:800;padding:9px}
-.file-row{padding:8px 9px;border-top:1px solid #263244;font-size:12px}
-.file-row div{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.file-status{font-weight:800;text-transform:capitalize}
-.console{height:360px;overflow:auto;background:#050b14;color:#dbeafe;font-family:Consolas,monospace;font-size:12px;padding:12px;line-height:1.45;user-select:text}
-.console .error{background:transparent;border:0;color:#fca5a5;padding:0;margin:0}
-.console .success{color:#86efac}
-.console .warning{color:#fde68a}
-.console .cmd{color:#93c5fd}
-.console .git{color:#cbd5e1}
-.help{color:#94a3b8;font-size:12px;margin-top:8px}
-.search-row{display:flex;gap:8px;padding:12px 14px;border-bottom:1px solid var(--line)}
-.search-row input{width:100%}
-@media(max-width:980px){.layout{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.input-grid{grid-template-columns:1fr}.input-grid button{width:100%}}
+html,body{height:100%}
+body{margin:0;background:radial-gradient(circle at top left,rgba(59,130,246,.14),transparent 34%),linear-gradient(180deg,var(--bg),var(--bg2));color:var(--text);font-family:Segoe UI,Inter,Arial,sans-serif;overflow:hidden}
+button,input,select{font-family:inherit}
+button{border:0;border-radius:11px;padding:10px 13px;font-weight:800;cursor:pointer;color:white;background:#2563eb;transition:transform .12s,filter .12s,box-shadow .12s,background .12s;white-space:nowrap}
+button:hover{transform:translateY(-1px);filter:brightness(1.07);box-shadow:0 8px 22px rgba(0,0,0,.24)}
+button:active{transform:translateY(1px) scale(.98);box-shadow:none}
+button[disabled]{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+button.secondary{background:#334155}.light button.secondary{background:#475569}
+button.success{background:#16a34a}button.danger{background:#dc2626}button.warning{background:#d97706}button.ghost{background:transparent;color:var(--text);border:1px solid var(--line2)}
+input,select{background:var(--panel2);color:var(--text);border:1px solid var(--line2);border-radius:11px;padding:10px 11px;min-height:40px;outline:none;width:100%}
+input:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,.15)}
+label{color:var(--muted);font-size:12px;font-weight:700}
+.app{height:100%;display:grid;grid-template-rows:auto 1fr auto;gap:12px;padding:14px;overflow:hidden}
+.topbar{background:rgba(16,24,39,.86);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px}.light .topbar{background:rgba(255,255,255,.88)}
+.title-row{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:12px}.brand{display:flex;gap:12px;align-items:center}.logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#2563eb,#22c55e);display:grid;place-items:center;font-size:22px;box-shadow:0 12px 25px rgba(37,99,235,.22)}
+h1{font-size:19px;margin:0}.subtitle{color:var(--muted);font-size:12px;margin-top:2px}.top-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.status-strip{display:grid;grid-template-columns:repeat(7,minmax(110px,1fr));gap:8px}.pill{background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:8px 10px;color:var(--muted);font-size:12px;display:flex;align-items:center;gap:7px;min-width:0}.pill strong{color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.dot{width:9px;height:9px;border-radius:999px;background:#64748b;flex:0 0 auto}.dot.completed{background:var(--green)}.dot.processing{background:var(--purple)}.dot.failed{background:var(--red)}.dot.pending{background:var(--blue)}.dot.warning{background:var(--orange)}
+.setup{margin-top:12px;border-top:1px solid var(--line);padding-top:12px}.setup summary{cursor:pointer;color:var(--text);font-weight:850;list-style:none}.setup summary::-webkit-details-marker{display:none}.setup-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:10px;margin-top:12px}.field{display:flex;flex-direction:column;gap:6px}.span-2{grid-column:span 2}.span-3{grid-column:span 3}.span-4{grid-column:span 4}.span-5{grid-column:span 5}.span-6{grid-column:span 6}.span-8{grid-column:span 8}.span-12{grid-column:span 12}.browse-row{display:grid;grid-template-columns:1fr auto;gap:8px}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.feedback{margin-top:10px;min-height:38px;display:flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid var(--line);border-radius:12px;background:var(--panel2);color:var(--muted);font-size:13px}.feedback.success{border-color:#166534;color:#bbf7d0;background:#052e16}.feedback.warning{border-color:#92400e;color:#fde68a;background:#451a03}.feedback.error{border-color:#991b1b;color:#fecaca;background:#450a0a}.light .feedback.success{background:#dcfce7;color:#14532d}.light .feedback.warning{background:#fef3c7;color:#78350f}.light .feedback.error{background:#fee2e2;color:#7f1d1d}
+.main{min-height:0;display:grid;grid-template-columns:300px 1fr 380px;gap:12px;overflow:hidden}.panel{min-height:0;background:rgba(16,24,39,.9);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}.light .panel{background:rgba(255,255,255,.92)}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line);background:var(--panel2)}.panel-head h2{font-size:14px;margin:0}.panel-body{padding:12px;overflow:auto;min-height:0}
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;position:relative;overflow:hidden}.stat::after{content:"";position:absolute;right:-22px;top:-22px;width:70px;height:70px;border-radius:50%;background:rgba(59,130,246,.08)}.stat .n{font-size:24px;font-weight:900}.stat .t{font-size:12px;color:var(--muted);margin-top:3px}.stat.wide{grid-column:span 2}.progress-wrap{height:12px;background:#1e293b;border:1px solid var(--line2);border-radius:999px;overflow:hidden}.light .progress-wrap{background:#e2e8f0}.progress-bar{height:100%;background:linear-gradient(90deg,var(--blue),var(--green));width:0%;transition:width .25s ease}.mini-chart{height:74px;border:1px solid var(--line);border-radius:12px;background:var(--panel2);padding:8px;display:flex;align-items:end;gap:4px}.bar{flex:1;border-radius:6px 6px 0 0;background:linear-gradient(180deg,var(--cyan),var(--blue));min-height:4px;opacity:.85}
+.queue-list{display:flex;flex-direction:column;gap:8px}.queue-item{display:flex;justify-content:space-between;gap:8px;border:1px solid var(--line);background:var(--card);border-radius:12px;padding:9px 10px;font-size:12px}.queue-item strong{font-size:13px}.queue-stage{color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.filterbar{display:grid;grid-template-columns:1fr 130px;gap:8px;margin-bottom:10px}.chunk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:9px}.chunk-cell{position:relative;min-height:72px;border:1px solid var(--line2);background:var(--card);border-radius:14px;padding:9px;cursor:pointer;overflow:hidden;transition:transform .12s,border-color .12s,box-shadow .12s}.chunk-cell:hover{transform:translateY(-1px);border-color:#60a5fa}.chunk-cell.active{border-color:#93c5fd;box-shadow:0 0 0 2px rgba(59,130,246,.25)}.chunk-cell.selected{outline:2px solid var(--text)}.chunk-cell.completed{background:rgba(34,197,94,.13);border-color:rgba(34,197,94,.45)}.chunk-cell.failed{background:rgba(239,68,68,.14);border-color:rgba(239,68,68,.55)}.chunk-cell.skipped{background:rgba(100,116,139,.16)}.chunk-cell.processing{background:rgba(168,85,247,.16);border-color:rgba(168,85,247,.6)}.chunk-no{font-weight:950;font-size:16px}.chunk-meta{font-size:11px;color:var(--muted);margin-top:6px;display:grid;gap:2px}.chunk-icon{position:absolute;right:8px;top:7px}.chunk-cell .mini{position:absolute;bottom:0;left:0;height:4px;background:linear-gradient(90deg,var(--cyan),var(--green));width:0%}body.compact .chunk-grid{grid-template-columns:repeat(auto-fill,minmax(48px,1fr));gap:6px}body.compact .chunk-cell{min-height:42px;padding:7px;border-radius:10px}body.compact .chunk-meta,body.compact .chunk-icon{display:none}body.compact .chunk-no{font-size:13px;text-align:center;margin-top:4px}
+.detail-card{display:grid;gap:12px}.chunk-title{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.badge{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:900;background:#334155;color:#e2e8f0}.badge.completed{background:#14532d;color:#bbf7d0}.badge.failed{background:#7f1d1d;color:#fecaca}.badge.processing{background:#4c1d95;color:#ddd6fe}.badge.pending{background:#1e3a8a;color:#bfdbfe}.badge.skipped{background:#334155;color:#cbd5e1}.meta{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.meta div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px}.meta small{display:block;color:var(--muted);font-size:11px}.meta strong{font-size:14px}.quick-actions{display:flex;gap:8px;flex-wrap:wrap}.file-tools{display:grid;grid-template-columns:1fr auto;gap:8px}.files{border:1px solid var(--line);border-radius:14px;overflow:hidden}.file-head,.file-row{display:grid;grid-template-columns:38px 1fr 1.1fr 78px 86px;gap:8px;align-items:center}.file-head{background:var(--panel2);color:var(--muted);font-size:12px;font-weight:900;padding:9px}.file-row{padding:8px 9px;border-top:1px solid var(--line);font-size:12px}.file-row div{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.file-status{font-weight:900;text-transform:capitalize}.tree{display:none;border:1px solid var(--line);border-radius:14px;overflow:hidden}.tree-row{padding:8px 10px;border-bottom:1px solid var(--line);font-size:12px}.tree-row:last-child{border-bottom:0}.errorbox{background:#3f1111;border:1px solid #7f1d1d;color:#fecaca;border-radius:12px;padding:10px;white-space:pre-wrap}.light .errorbox{background:#fee2e2;color:#7f1d1d}
+.console-wrap{height:260px;display:flex;flex-direction:column}.console-tabs{display:flex;gap:8px;flex-wrap:wrap}.tab{padding:7px 10px;border-radius:999px;background:transparent;border:1px solid var(--line2);color:var(--text);font-size:12px}.tab.active{background:#2563eb;color:white;border-color:#2563eb}.console{flex:1;overflow:auto;background:#050b14;color:#dbeafe;font-family:Consolas,monospace;font-size:12px;padding:12px;line-height:1.45;user-select:text}.light .console{background:#0f172a;color:#e2e8f0}.console .error{color:#fca5a5}.console .success{color:#86efac}.console .warning{color:#fde68a}.console .cmd{color:#93c5fd}.console .git{color:#cbd5e1}.footer{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:rgba(16,24,39,.86);border:1px solid var(--line);border-radius:var(--radius);padding:10px 12px;box-shadow:var(--shadow)}.light .footer{background:rgba(255,255,255,.9)}.footer small{color:var(--muted)}
+@media(max-width:1200px){body{overflow:auto}.app{height:auto;overflow:visible}.main{grid-template-columns:1fr}.console-wrap{height:320px}.status-strip{grid-template-columns:repeat(2,1fr)}.setup-grid{grid-template-columns:1fr}.span-2,.span-3,.span-4,.span-5,.span-6,.span-8,.span-12{grid-column:span 1}.title-row{align-items:flex-start;flex-direction:column}.top-actions{justify-content:flex-start}.footer{grid-template-columns:1fr}}
+
+
+/* ── Modern UI refresh layer ───────────────────────────────────────────── */
+body{letter-spacing:.01em;background:
+  radial-gradient(circle at 8% 0%,rgba(34,211,238,.13),transparent 28%),
+  radial-gradient(circle at 92% 8%,rgba(168,85,247,.16),transparent 32%),
+  linear-gradient(145deg,var(--bg),var(--bg2) 58%,#060912)!important;}
+body.light{background:linear-gradient(145deg,#f8fafc,#eef2ff 54%,#e0f2fe)!important;}
+*{scrollbar-width:thin;scrollbar-color:#475569 transparent}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:#475569;border-radius:999px;border:3px solid transparent;background-clip:content-box}::-webkit-scrollbar-track{background:transparent}
+.topbar,.panel,.footer{border-color:rgba(148,163,184,.18)!important;background:linear-gradient(180deg,rgba(15,23,42,.88),rgba(15,23,42,.72))!important;box-shadow:0 24px 65px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.04)!important;}
+.light .topbar,.light .panel,.light .footer{background:linear-gradient(180deg,rgba(255,255,255,.94),rgba(248,250,252,.86))!important;box-shadow:0 20px 55px rgba(15,23,42,.10),inset 0 1px 0 rgba(255,255,255,.75)!important;}
+.logo{position:relative;overflow:hidden;border-radius:16px;background:linear-gradient(145deg,#06b6d4,#2563eb 48%,#8b5cf6)!important;box-shadow:0 14px 32px rgba(37,99,235,.35)!important}.logo:after{content:"";position:absolute;inset:-60%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transform:rotate(35deg);animation:sheen 4.5s infinite}.logo span{position:relative;z-index:1}@keyframes sheen{0%,55%{translate:-80% 0}75%,100%{translate:80% 0}}
+.pro-chip{display:inline-flex;align-items:center;margin-left:7px;padding:2px 8px;border-radius:999px;background:rgba(34,211,238,.12);border:1px solid rgba(34,211,238,.32);color:#67e8f9;font-size:12px;vertical-align:middle}.light .pro-chip{color:#0369a1;background:#e0f2fe;border-color:#7dd3fc}
+.subtitle{font-size:12.5px!important;color:#aeb8c8!important}.light .subtitle{color:#475569!important}.top-actions{padding:4px;border:1px solid rgba(148,163,184,.15);border-radius:14px;background:rgba(2,6,23,.22)}.light .top-actions{background:rgba(241,245,249,.75)}
+button{border:1px solid rgba(255,255,255,.06)!important;box-shadow:0 6px 16px rgba(0,0,0,.12)}button.ghost{background:rgba(15,23,42,.58)!important;border-color:rgba(148,163,184,.22)!important;color:var(--text)!important}button.ghost:hover{background:rgba(37,99,235,.22)!important;border-color:rgba(96,165,250,.42)!important}.light button.ghost{background:#f8fafc!important;border-color:#cbd5e1!important}
+.status-strip{grid-template-columns:repeat(7,minmax(130px,1fr))!important}.pill{border-radius:14px!important;background:rgba(2,6,23,.28)!important;border-color:rgba(148,163,184,.16)!important;padding:10px 12px!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.035)}.light .pill{background:#f8fafc!important}.pill strong{font-weight:900}.dot{box-shadow:0 0 0 4px rgba(148,163,184,.10)}.dot.processing{box-shadow:0 0 18px rgba(168,85,247,.55)}.dot.completed{box-shadow:0 0 18px rgba(34,197,94,.45)}
+.setup{background:rgba(2,6,23,.18);border:1px solid rgba(148,163,184,.14)!important;border-radius:16px;margin-top:14px!important;padding:12px!important}.light .setup{background:#f8fafc}.setup summary{display:flex;align-items:center;gap:9px;padding:2px 2px 8px}.setup-grid{background:rgba(15,23,42,.22);border:1px solid rgba(148,163,184,.12);border-radius:16px;padding:12px}.light .setup-grid{background:white}.field label{text-transform:uppercase;letter-spacing:.06em;font-size:11px;color:#93a4bb}input,select{background:rgba(2,6,23,.34)!important;border-color:rgba(148,163,184,.20)!important}.light input,.light select{background:#fff!important;border-color:#cbd5e1!important}.browse-row button{min-width:90px}
+.toolbar{padding:8px;border-radius:16px;background:rgba(2,6,23,.20);border:1px solid rgba(148,163,184,.12)}.light .toolbar{background:#f8fafc}.feedback{border-radius:14px!important;background:rgba(2,6,23,.25)!important;border-color:rgba(148,163,184,.15)!important}.light .feedback{background:#fff!important}
+.main{grid-template-columns:320px minmax(520px,1fr) 400px!important}.panel{border-radius:20px!important}.panel-head{padding:13px 15px!important;background:linear-gradient(180deg,rgba(15,23,42,.72),rgba(15,23,42,.44))!important;border-bottom-color:rgba(148,163,184,.15)!important}.light .panel-head{background:linear-gradient(180deg,#fff,#f8fafc)!important}.panel-head h2{display:flex;align-items:center;gap:9px;font-size:15px!important}.head-icon{width:28px;height:28px;display:grid;place-items:center;border-radius:10px;background:rgba(59,130,246,.12);border:1px solid rgba(96,165,250,.18)}.head-actions{display:flex;gap:8px;align-items:center}.panel-body{padding:14px!important}
+.stats-grid{gap:12px!important}.stat{border-radius:18px!important;background:linear-gradient(180deg,rgba(17,28,46,.98),rgba(15,23,42,.78))!important;border-color:rgba(148,163,184,.15)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.035)}.light .stat{background:linear-gradient(180deg,#fff,#f8fafc)!important}.stat .n{font-size:27px!important;line-height:1}.stat .t{text-transform:uppercase;letter-spacing:.06em;font-size:10.5px!important}.stat:nth-child(2)::after{background:rgba(34,197,94,.11)!important}.stat:nth-child(5)::after{background:rgba(239,68,68,.12)!important}.section-label{font-size:12px;font-weight:950;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin:16px 0 9px;display:flex;align-items:center;gap:8px}.mini-chart{height:82px!important;border-radius:16px!important;background:rgba(2,6,23,.26)!important;border-color:rgba(148,163,184,.14)!important}.queue-item{border-radius:14px!important;background:rgba(2,6,23,.24)!important;border-color:rgba(148,163,184,.14)!important}.light .queue-item,.light .mini-chart{background:#fff!important}
+.filterbar{grid-template-columns:1fr 150px!important;background:rgba(2,6,23,.20);border:1px solid rgba(148,163,184,.12);padding:9px;border-radius:16px;margin-bottom:13px!important}.light .filterbar{background:#f8fafc}.chunk-grid{grid-template-columns:repeat(auto-fill,minmax(96px,1fr))!important;gap:10px!important}.chunk-cell{min-height:86px!important;border-radius:18px!important;background:linear-gradient(180deg,rgba(17,28,46,.98),rgba(15,23,42,.82))!important;border-color:rgba(148,163,184,.16)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.035)}.light .chunk-cell{background:linear-gradient(180deg,#fff,#f8fafc)!important}.chunk-cell:hover{box-shadow:0 12px 28px rgba(0,0,0,.22),0 0 0 1px rgba(96,165,250,.28)!important}.chunk-cell.selected{outline:none!important;border-color:#e0f2fe!important;box-shadow:0 0 0 2px rgba(224,242,254,.45),0 12px 30px rgba(0,0,0,.25)!important}.chunk-cell.active{animation:pulseActive 1.7s ease-in-out infinite}@keyframes pulseActive{0%,100%{box-shadow:0 0 0 2px rgba(59,130,246,.22)}50%{box-shadow:0 0 0 5px rgba(59,130,246,.08)}}.chunk-no{font-size:18px!important}.chunk-meta{font-size:11.5px!important}.chunk-icon{font-size:15px}.chunk-cell.completed{background:linear-gradient(180deg,rgba(20,83,45,.58),rgba(15,23,42,.78))!important}.chunk-cell.failed{background:linear-gradient(180deg,rgba(127,29,29,.58),rgba(15,23,42,.78))!important}.chunk-cell.processing{background:linear-gradient(180deg,rgba(76,29,149,.60),rgba(15,23,42,.78))!important}body.compact .chunk-cell{min-height:46px!important;border-radius:12px!important}
+.detail-card{gap:14px!important}.badge{border:1px solid rgba(255,255,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}.meta div{border-radius:16px!important;background:rgba(2,6,23,.22)!important;border-color:rgba(148,163,184,.13)!important}.light .meta div{background:#fff!important}.quick-actions button,.file-tools button{border-radius:999px!important}.files,.tree{border-radius:18px!important;border-color:rgba(148,163,184,.14)!important}.file-head{background:rgba(2,6,23,.30)!important;text-transform:uppercase;letter-spacing:.05em}.light .file-head{background:#f1f5f9!important}.file-row{border-top-color:rgba(148,163,184,.10)!important}.file-row:hover{background:rgba(59,130,246,.08)}
+.footer{grid-template-columns:1fr!important}.modern-console{border-radius:18px!important}.console-wrap{height:300px!important}.console-tabs{background:rgba(2,6,23,.25);border:1px solid rgba(148,163,184,.13);padding:5px;border-radius:999px}.light .console-tabs{background:#f8fafc}.tab{border-radius:999px!important;border-color:transparent!important}.tab.active{background:linear-gradient(135deg,#2563eb,#06b6d4)!important}.console{border-radius:0 0 18px 18px;background:linear-gradient(180deg,#030712,#07111f)!important;border-top:1px solid rgba(148,163,184,.12);font-size:12.5px!important}.footer-tip{display:block;margin-top:8px;color:var(--muted)}
+@media(max-width:1200px){.main{grid-template-columns:1fr!important}.status-strip{grid-template-columns:repeat(2,1fr)!important}.top-actions{width:100%}.top-actions button{flex:1}.console-wrap{height:340px!important}}
+
 </style>
 </head>
 <body>
-<header>
-  <h1>Git Chunk Processor Dashboard</h1>
-
-  <div class="input-grid">
-    <label>git_chunks.log</label>
-    <input id="logFile" placeholder="Paste / drag-drop git_chunks.log path">
-    <button onclick="browsePath('log')">Browse</button>
-  </div>
-
-  <div class="input-grid">
-    <label>Git repo folder</label>
-    <input id="repoPath" placeholder="Paste / drag-drop Git repository folder path">
-    <button onclick="browsePath('repo')">Browse</button>
-  </div>
-
-  <div class="input-grid">
-    <label>processed_chunks.json</label>
-    <input id="processedPath" placeholder="Select processed_chunks.json location">
-    <button onclick="browsePath('processed')">Browse</button>
-  </div>
-
-  <div class="input-grid">
-    <label>Logs folder</label>
-    <input id="logsDir" placeholder="Optional logs folder">
-    <button onclick="browsePath('logs_dir')">Browse</button>
-  </div>
-
-  <div class="input-grid" style="border-top:1px solid #334155;padding-top:12px;margin-top:12px">
-    <label style="font-weight:700;color:#fbbf24">GitHub URL</label>
-    <input id="githubUrl" placeholder="https://github.com/owner/repo (Auto-generates processed_chunks.json)">
-    <button class="success" onclick="generateFromGitHub()" title="Fetch commit history and generate processed chunks">📥 Import from GitHub</button>
-  </div>
-
-  <div class="input-grid">
-    <label>Start chunk</label>
-    <input id="startChunk" type="number" min="1" placeholder="Optional, e.g. 25">
-    <span></span>
-  </div>
-
-  <div class="input-grid">
-    <label>End chunk</label>
-    <input id="endChunk" type="number" min="1" placeholder="Optional, e.g. 100">
-    <span></span>
-  </div>
-
-  <div class="input-grid">
-    <label>Pause between chunks</label>
-    <input id="pauseBetweenChunks" type="number" min="0" step="0.1" placeholder="Seconds, e.g. 2">
-    <span></span>
-  </div>
-
-  <div class="input-grid" id="pushEveryNRow" style="display:none">
-    <label>Push every N chunks</label>
-    <input id="pushEveryN" type="number" min="1" step="1" value="2" placeholder="e.g. 2 = commit 2 then push">
-    <span></span>
-  </div>
-
-  <div class="toolbar">
-    <select id="mode" onchange="togglePushEveryN()">
-      <option value="full">Full: Add → Commit → Push (each chunk)</option>
-      <option value="commit_only">Commit Only: Add → Commit (no push)</option>
-      <option value="commit_n_then_push">Batch: Add → Commit N → Push N  (efficient for large chunks)</option>
-      <option value="pipeline">Pipeline: Commit Next While Previous Pushes (fast & parallel)</option>
-      <option value="push_only">Push Only: Send committed changes</option>
-      <option value="dry_run">Dry Run: Simulation only</option>
-    </select>
-    <button class="secondary" onclick="visualizeOnly()">Visualize Chunks Only</button>
-    <button class="success" id="startBtn" onclick="startProcessing()" title="Start processing the selected chunk range">▶ Start Processing</button>
-    <button class="warning" id="pauseBtn" onclick="pauseProcessing()" title="Pause/resume at the next safe checkpoint">⏸ Pause</button>
-    <button class="danger" id="stopBtn" onclick="stopProcessing()" title="Finish the active chunk safely, then pause">■ Stop After Current Chunk</button>
-    <button class="secondary" id="refreshBtn" onclick="toggleRefresh()">Pause Auto Refresh</button>
-    <button class="secondary" onclick="showActiveChunk()">Show Active</button>
-    <button class="secondary" onclick="openStateJson()">Open State JSON</button>
-    <button class="secondary" onclick="openProcessed()">Open Processed JSON</button>
-    <button class="secondary" onclick="toggleCompact()">Compact Grid</button>
-    <button class="secondary" onclick="copyConsole()">Copy Console</button>
-  </div>
-
-  <div id="actionFeedback" class="action-feedback">Ready. Select a repository to auto-fill its dashboard paths.</div>
-  <div class="status-strip">
-    <span class="pill"><span class="dot pending"></span>Pending</span>
-    <span class="pill"><span class="dot processing"></span>Processing</span>
-    <span class="pill"><span class="dot completed"></span>Completed</span>
-    <span class="pill"><span class="dot failed"></span>Failed</span>
-    <span class="pill"><span class="dot skipped"></span>Skipped</span>
-    <span class="pill">Mode: <strong id="modeBadge">-</strong></span>
-    <span class="pill">Git: <strong id="gitBadge">-</strong></span>
-  </div>
-
-  <div class="stats">
-    <div class="stat"><div class="n" id="total">0</div><div class="t">Total</div></div>
-    <div class="stat"><div class="n" id="completed">0</div><div class="t">Completed</div></div>
-    <div class="stat"><div class="n" id="processing">0</div><div class="t">Processing</div></div>
-    <div class="stat"><div class="n" id="pending">0</div><div class="t">Pending</div></div>
-    <div class="stat"><div class="n" id="failed">0</div><div class="t">Failed</div></div>
-    <div class="stat"><div class="n" id="skipped">0</div><div class="t">Skipped</div></div>
-    <div class="stat"><div class="n" id="eta">-</div><div class="t">ETA</div></div>
-  </div>
-  <div class="progress-wrap"><div class="progress-bar" id="overallBar"></div></div>
-  <div class="help">Tip: auto refresh pauses while you select/copy text. Use “Pause Auto Refresh” for long copy work.</div>
-</header>
-
-<div class="layout">
-  <section class="panel">
-    <h2>Chunks</h2>
-    <div class="search-row">
-      <input id="chunkSearch" placeholder="Search chunk number or file path...">
-      <select id="statusFilter" title="Filter chunks by status">
-        <option value="all">All Status</option>
-        <option value="pending">Pending</option>
-        <option value="processing">Processing</option>
-        <option value="completed">Completed</option>
-        <option value="failed">Failed</option>
-        <option value="skipped">Skipped</option>
-      </select>
-      <button class="secondary" onclick="showActiveChunk()">Show Active</button>
+<div class="app">
+  <header class="topbar">
+    <div class="title-row">
+      <div class="brand">
+        <div class="logo"><span>⚡</span></div>
+        <div><h1>Git Chunk Processor Dashboard <span class="pro-chip">Modern</span></h1><div class="subtitle">Polished Unreal-sized Git processing • safer resume • cleaner recovery visibility</div></div>
+      </div>
+      <div class="top-actions">
+        <button class="ghost" onclick="toggleSetup()">⚙️ Settings</button>
+        <button class="ghost" onclick="toggleCompact()">▦ Density</button>
+        <button class="ghost" onclick="toggleTheme()">🌓 Theme</button>
+        <button class="secondary" onclick="exportReport()">⬇ Report</button>
+      </div>
     </div>
-    <div id="chunkGrid" class="chunk-grid"></div>
-  </section>
+    <div class="status-strip">
+      <div class="pill"><span id="runDot" class="dot pending"></span> Run <strong id="runState">Idle</strong></div>
+      <div class="pill">🌿 Branch <strong id="branchPill">-</strong></div>
+      <div class="pill">🔗 Remote <strong id="remotePill">-</strong></div>
+      <div class="pill">🧩 Mode <strong id="modePill">full</strong></div>
+      <div class="pill">⏱ ETA <strong id="etaPill">-</strong></div>
+      <div class="pill">📦 Current <strong id="currentPill">-</strong></div>
+      <div class="pill">🧠 LFS <strong id="lfsPill">-</strong></div>
+    </div>
+    <details id="setupBox" class="setup" open>
+      <summary><span>📁</span> Workspace, Paths & Processing</summary>
+      <div class="setup-grid">
+        <div class="field span-6"><label>git_chunks.log</label><div class="browse-row"><input id="logFile" placeholder="Paste / drag-drop git_chunks.log path"><button onclick="browsePath('log')">Browse</button></div></div>
+        <div class="field span-6"><label>Git repo folder</label><div class="browse-row"><input id="repoPath" placeholder="Paste / drag-drop Git repository folder path"><button onclick="browsePath('repo')">Browse</button></div></div>
+        <div class="field span-6"><label>processed_chunks.json</label><div class="browse-row"><input id="processedPath" placeholder="Select processed_chunks.json location"><button onclick="browsePath('processed')">Browse</button></div></div>
+        <div class="field span-6"><label>Logs folder</label><div class="browse-row"><input id="logsDir" placeholder="Optional logs folder"><button onclick="browsePath('logs_dir')">Browse</button></div></div>
+        <div class="field span-5"><label>GitHub URL</label><input id="githubUrl" placeholder="https://github.com/owner/repo"></div>
+        <div class="field span-2"><label>Start chunk</label><input id="startChunk" type="number" min="1" placeholder="Optional"></div>
+        <div class="field span-2"><label>End chunk</label><input id="endChunk" type="number" min="1" placeholder="Optional"></div>
+        <div class="field span-3"><label>Pause between chunks</label><input id="pauseBetweenChunks" type="number" min="0" step="0.1" placeholder="Seconds"></div>
+        <div class="field span-4"><label>Mode</label><select id="mode" onchange="togglePushEveryN()"><option value="full">Full: Add → Commit → Push each chunk</option><option value="commit_only">Commit Only</option><option value="commit_n_then_push">Batch: Commit N → Push N</option><option value="pipeline">Pipeline: Commit Next While Previous Pushes</option><option value="push_only">Push Only</option><option value="dry_run">Dry Run</option></select></div>
+        <div class="field span-2" id="pushEveryNRow" style="display:none"><label>Push every N</label><input id="pushEveryN" type="number" min="1" step="1" value="2"></div>
+        <div class="field span-6"><label>Actions</label><div class="toolbar"><button class="secondary" onclick="visualizeOnly()">👁 Visualize Only</button><button class="success" id="startBtn" onclick="startProcessing()">▶ Start</button><button class="warning" id="pauseBtn" onclick="togglePauseProcessing()">⏸ Pause After Current</button><button class="danger" id="stopBtn" onclick="stopProcessing()">■ Stop + Shutdown Safe</button><button class="success" onclick="generateFromGitHub()">📥 Import GitHub</button></div></div>
+      </div>
+      <div id="actionFeedback" class="feedback">Ready. Pick your repo and visualize chunks before processing.</div>
+    </details>
+  </header>
 
-  <section class="panel">
-    <h2>Selected Chunk Details</h2>
-    <div id="detail" class="detail">Select a chunk.</div>
-  </section>
+  <main class="main">
+    <section class="panel">
+      <div class="panel-head"><h2><span class="head-icon">📊</span> Command Center</h2><button class="ghost" onclick="openStateJson()">State JSON</button></div>
+      <div class="panel-body">
+        <div class="stats-grid">
+          <div class="stat"><div class="n" id="total">0</div><div class="t">Total Chunks</div></div>
+          <div class="stat"><div class="n" id="completed">0</div><div class="t">Completed</div></div>
+          <div class="stat"><div class="n" id="processing">0</div><div class="t">Processing</div></div>
+          <div class="stat"><div class="n" id="pending">0</div><div class="t">Pending</div></div>
+          <div class="stat"><div class="n" id="failed">0</div><div class="t">Failed</div></div>
+          <div class="stat"><div class="n" id="skipped">0</div><div class="t">Skipped</div></div>
+          <div class="stat wide"><div style="display:flex;justify-content:space-between;margin-bottom:8px"><strong>Overall Progress</strong><span id="overallText">0%</span></div><div class="progress-wrap"><div class="progress-bar" id="overallBar"></div></div></div>
+          <div class="stat wide"><div class="t">Estimated Finish</div><div class="n" id="eta">-</div></div>
+        </div>
+        <div class="section-label"><span>⚡</span> Speed History</div>
+        <div class="mini-chart" id="speedChart"></div>
+        <div class="section-label"><span>🚦</span> Next Queue</div>
+        <div class="queue-list" id="queueList"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head"><h2><span class="head-icon">🧩</span> Chunk Board</h2><div class="head-actions"><button class="ghost" onclick="showActiveChunk()">🎯 Active</button><button class="ghost" onclick="toggleRefresh()" id="refreshBtn">Pause Refresh</button></div></div>
+      <div class="panel-body">
+        <div class="filterbar"><input id="chunkSearch" placeholder="Search chunk, status, stage, file path..."><select id="statusFilter"><option value="all">All</option><option value="pending">Pending</option><option value="processing">Processing</option><option value="completed">Completed</option><option value="failed">Failed</option><option value="skipped">Skipped</option></select></div>
+        <div id="chunkGrid" class="chunk-grid"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head"><h2><span class="head-icon">🔎</span> Inspector</h2><button class="ghost" onclick="copySelectedFiles()">Copy Files</button></div>
+      <div id="detail" class="panel-body">Select a chunk.</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <section class="panel console-wrap modern-console" style="box-shadow:none">
+      <div class="panel-head"><div class="console-tabs"><button class="tab active" data-tab="all" onclick="setConsoleTab('all')">All</button><button class="tab" data-tab="git" onclick="setConsoleTab('git')">Git</button><button class="tab" data-tab="error" onclick="setConsoleTab('error')">Errors</button><button class="tab" data-tab="warning" onclick="setConsoleTab('warning')">Warnings</button><button class="tab" data-tab="success" onclick="setConsoleTab('success')">Success</button></div><div style="display:flex;gap:8px"><input id="consoleSearch" style="width:180px" placeholder="Search console"><button class="ghost" onclick="copyConsole()">Copy</button><button class="ghost" onclick="clearConsoleView()">Clear View</button></div></div>
+      <div id="console" class="console"></div>
+    </section>
+    <small class="footer-tip">💡 Closing this browser tab/window sends a shutdown signal and terminates the local dashboard/Git child processes.</small>
+  </footer>
 </div>
-
-<section class="panel" style="margin:0 16px 16px;">
-  <h2>Live Console</h2>
-  <div id="console" class="console"></div>
-</section>
-
 <script>
-let state = null;
-let selectedChunk = null;
-let autoRefreshEnabled = true;
-let userInteracting = false;
-let chunkCellMap = new Map();
-let lastConsoleLength = 0;
-let lastChunkSignature = "";
-let searchText = "";
-let statusFilter = "all";
-
-function cleanPath(v){
-  v = (v || "").trim();
-  if ((v.startsWith('"') && v.endsWith('"')) || (v.startsWith("'") && v.endsWith("'"))) {
-    v = v.substring(1, v.length - 1);
-  }
-  return v.trim();
-}
-
-["logFile","repoPath","processedPath","logsDir"].forEach(id => {
-  const el = document.getElementById(id);
-  el.addEventListener("drop", e => {
-    e.preventDefault();
-    const text = e.dataTransfer.getData("text/plain");
-    if (text) {
-      el.value = cleanPath(text);
-      if (id === "repoPath") applyRepoDefaults(el.value);
-    }
-  });
-  el.addEventListener("dragover", e => e.preventDefault());
-});
-
-document.addEventListener("mousedown", () => { userInteracting = true; });
-document.addEventListener("mouseup", () => {
-  setTimeout(() => {
-    if (!window.getSelection().toString()) userInteracting = false;
-  }, 1200);
-});
-document.addEventListener("selectionchange", () => {
-  const txt = window.getSelection().toString();
-  if (txt && txt.length > 0) userInteracting = true;
-});
-document.addEventListener("keydown", e => {
-  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "c") {
-    setTimeout(() => { userInteracting = false; }, 800);
-  }
-});
-
-document.getElementById("chunkSearch").addEventListener("input", e => {
-  searchText = e.target.value.toLowerCase().trim();
-  rebuildChunkGrid();
-});
-
-document.getElementById("statusFilter").addEventListener("change", e => {
-  statusFilter = e.target.value || "all";
-  rebuildChunkGrid();
-});
-
-function toggleRefresh(){
-  autoRefreshEnabled = !autoRefreshEnabled;
-  document.getElementById("refreshBtn").textContent = autoRefreshEnabled ? "Pause Auto Refresh" : "Resume Auto Refresh";
-}
-
-function showActiveChunk(){
-  if (!state || !state.current_chunk) {
-    alert("No active chunk right now.");
-    return;
-  }
-  selectedChunk = state.current_chunk;
-  const searchInput = document.getElementById("chunkSearch");
-  const statusSelect = document.getElementById("statusFilter");
-  if (searchInput) {
-    searchInput.value = "";
-    searchText = "";
-  }
-  if (statusSelect) {
-    statusSelect.value = "all";
-    statusFilter = "all";
-  }
-  rebuildChunkGrid();
-  updateChunkGridStable(true);
-  updateDetailStable(true);
-  const cell = chunkCellMap.get(selectedChunk);
-  if (cell) cell.scrollIntoView({behavior:"smooth", block:"center", inline:"center"});
-}
-
-let _stateVersion = "";
-
-async function api(path, data=null){
-  const opts = data ? {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(data)} : {};
-  const res = await fetch(path, opts);
-  if (res.status === 304) return null;
-  return await res.json();
-}
-
-function setFeedback(message, level="info"){
-  const box = document.getElementById("actionFeedback");
-  box.textContent = message;
-  box.className = "action-feedback" + (level === "info" ? "" : " " + level);
-}
-
-async function applyRepoDefaults(repoPath){
-  const repo = cleanPath(repoPath);
-  if (!repo) return;
-  const res = await api("/repo_defaults", {repo_path: repo});
-  if (!res || !res.ok) {
-    setFeedback((res && res.message) || "Could not create repo-local dashboard paths.", "error");
-    return;
-  }
-  document.getElementById("repoPath").value = res.paths.repo_path;
-  document.getElementById("logFile").value = res.paths.log_file;
-  document.getElementById("processedPath").value = res.paths.processed_chunks_file;
-  document.getElementById("logsDir").value = res.paths.logs_dir;
-  setFeedback("Repository selected. Log, processed JSON, and Logs folder paths were updated automatically.", "success");
-}
-
-document.getElementById("repoPath").addEventListener("change", e => applyRepoDefaults(e.target.value));
-document.getElementById("repoPath").addEventListener("blur", e => applyRepoDefaults(e.target.value));
-
-async function browsePath(kind){
-  const res = await api("/browse?kind=" + encodeURIComponent(kind));
-  if (!res || !res.path) return;
-  if (kind === "log") document.getElementById("logFile").value = res.path;
-  if (kind === "repo") {
-    document.getElementById("repoPath").value = res.path;
-    await applyRepoDefaults(res.path);
-  }
-  if (kind === "processed") document.getElementById("processedPath").value = res.path;
-  if (kind === "logs_dir") document.getElementById("logsDir").value = res.path;
-}
-
-async function generateFromGitHub(){
-  const githubUrl = document.getElementById("githubUrl").value.trim();
-  if (!githubUrl) {
-    setFeedback("Please enter a GitHub repository URL", "error");
-    return;
-  }
-  
-  setFeedback("Fetching commits from GitHub...", "info");
-  try {
-    const res = await api("/generate-from-github", {github_url: githubUrl});
-    if (res.ok) {
-      setFeedback("✅ " + res.message, "success");
-      // Automatically save the processed chunks to a temp file and update the UI
-      const chunks = res.chunks || [];
-      localStorage.setItem("github_chunks", JSON.stringify(chunks));
-      alert(`Success! Generated ${res.count} chunks from GitHub commits.\n\nNow:\n1. Select your Git repository folder\n2. The processed_chunks.json will be auto-created when you start processing`);
-    } else {
-      setFeedback("❌ " + res.message, "error");
-    }
-  } catch (e) {
-    setFeedback("Error: " + e.message, "error");
-  }
-}
-
-async function visualizeOnly(){
-  const payload = {
-    log_file: cleanPath(document.getElementById("logFile").value),
-    repo_path: cleanPath(document.getElementById("repoPath").value),
-    processed_chunks_file: cleanPath(document.getElementById("processedPath").value),
-    logs_dir: cleanPath(document.getElementById("logsDir").value),
-    start_chunk: cleanPath(document.getElementById("startChunk").value),
-    end_chunk: cleanPath(document.getElementById("endChunk").value)
-  };
-  const res = await api("/visualize", payload);
-  if (!res.ok) alert(res.message || "Failed to visualize chunks");
-  await refreshState(true);
-}
-
-async function startProcessing(){
-  const btn = document.getElementById("startBtn");
-  btn.disabled = true;
-  btn.textContent = "Starting…";
-  setFeedback("Starting chunk processing…", "info");
-  const payload = {
-    log_file: cleanPath(document.getElementById("logFile").value),
-    repo_path: cleanPath(document.getElementById("repoPath").value),
-    processed_chunks_file: cleanPath(document.getElementById("processedPath").value),
-    logs_dir: cleanPath(document.getElementById("logsDir").value),
-    mode: document.getElementById("mode").value,
-    start_chunk: cleanPath(document.getElementById("startChunk").value),
-    end_chunk: cleanPath(document.getElementById("endChunk").value),
-    pause_between_chunks: cleanPath(document.getElementById("pauseBetweenChunks").value),
-    push_every_n: cleanPath(document.getElementById("pushEveryN").value) || "1"
-  };
-  try {
-    const res = await api("/start", payload);
-    if (!res.ok) {
-      setFeedback(res.message || "Failed to start", "error");
-      alert(res.message || "Failed to start");
-    } else {
-      setFeedback("Processing started. The dashboard will update as each chunk advances.", "success");
-    }
-    await refreshState(true);
-  } finally {
-    btn.disabled = false;
-    btn.textContent = "▶ Start Processing";
-  }
-}
-
-function togglePushEveryN(){
-  const mode = document.getElementById("mode").value;
-  const row = document.getElementById("pushEveryNRow");
-  row.style.display = (mode === "commit_n_then_push") ? "grid" : "none";
-}
-
-async function pauseProcessing(){
-  const btn = document.getElementById("pauseBtn");
-  btn.disabled = true;
-  try {
-    const res = await api("/pause", {});
-    setFeedback((res && res.message) || "Pause toggled.", res && res.ok ? "warning" : "error");
-    await refreshState(true);
-  } finally {
-    btn.disabled = false;
-  }
-}
-
-function toggleCompact(){
-  document.body.classList.toggle("compact");
-  rebuildChunkGrid();
-}
-
-async function copyConsole(){
-  const text = (state?.console || []).map(l => `[${l.time}] ${l.message}`).join("\n");
-  try {
-    await navigator.clipboard.writeText(text);
-    setFeedback("Console copied to clipboard.", "success");
-  } catch(e) {
-    setFeedback("Could not copy console: " + e.message, "error");
-  }
-}
-
-async function stopProcessing(){
-  const btn = document.getElementById("stopBtn");
-  btn.disabled = true;
-  btn.textContent = "Stopping safely…";
-  setFeedback("Stop requested. The active chunk and queued push will finish safely before processing pauses.", "warning");
-  try {
-    await api("/stop", {});
-    await refreshState(true);
-  } finally {
-    setTimeout(() => {
-      btn.disabled = false;
-      btn.textContent = "■ Stop After Current Chunk";
-    }, 900);
-  }
-}
-
-async function openProcessed(){
-  const path = cleanPath(document.getElementById("processedPath").value);
-  const res = await api("/open", {path});
-  if (!res.ok) alert(res.message || "Could not open path");
-}
-
-async function openStateJson(){
-  const res = await api("/open_state", {});
-  if (!res.ok) alert(res.message || "Could not open state JSON");
-}
-
-async function refreshState(force=false){
-  if (!force && (!autoRefreshEnabled || userInteracting)) return;
-  try {
-    const headers = {};
-    if (_stateVersion && !force) headers["X-State-Version"] = _stateVersion;
-    const res = await fetch("/state", { headers });
-    if (res.status === 304) return;  // nothing changed — skip all DOM work
-    const newState = await res.json();
-    if (newState._version !== undefined) _stateVersion = String(newState._version);
-    const first = !state;
-    state = newState;
-
-    if (first) {
-      document.getElementById("logFile").value = state.log_file || "";
-      document.getElementById("repoPath").value = state.repo_path || "";
-      document.getElementById("processedPath").value = state.processed_chunks_file || "";
-      document.getElementById("logsDir").value = state.logs_dir || "";
-      document.getElementById("startChunk").value = state.start_chunk || "";
-      document.getElementById("endChunk").value = state.end_chunk || "";
-      document.getElementById("pauseBetweenChunks").value = state.pause_between_chunks || "";
-      document.getElementById("mode").value = state.mode || "full";
-      if (state.push_every_n) document.getElementById("pushEveryN").value = state.push_every_n;
-      togglePushEveryN();
-    }
-
-    updateStats();
-    updateChunkGridStable();
-    updateDetailStable();
-    updateConsoleStable();
-  } catch(e) {
-    console.error("Refresh error", e);
-  }
-}
-
-function updateStats(){
-  const s = state.stats || {};
-  ["total","completed","processing","pending","failed","skipped"].forEach(k => {
-    document.getElementById(k).textContent = s[k] ?? 0;
-  });
-  document.getElementById("eta").textContent = state.eta || "-";
-  document.getElementById("overallBar").style.width = (state.overall_progress || 0) + "%";
-  const modeBadge = document.getElementById("modeBadge");
-  const gitBadge = document.getElementById("gitBadge");
-  if (modeBadge) modeBadge.textContent = state.mode || "-";
-  if (gitBadge) {
-    const g = state.git || {};
-    gitBadge.textContent = [g.branch, g.lfs].filter(Boolean).join(" / ") || "-";
-  }
-  const pauseBtn = document.getElementById("pauseBtn");
-  if (pauseBtn) pauseBtn.textContent = state.pause_requested || state.paused ? "▶ Resume" : "⏸ Pause";
-}
-
-
-function chunkVisible(c){
-  if (statusFilter !== "all" && String(c.status || "pending") !== statusFilter) return false;
-  if (!searchText) return true;
-  if (String(c.number).includes(searchText)) return true;
-  if (String(c.status || "").toLowerCase().includes(searchText)) return true;
-  if (String(c.stage || "").toLowerCase().includes(searchText)) return true;
-  return (c.files || []).some(f => (f.path || "").toLowerCase().includes(searchText));
-}
-
-function chunkSignature(){
-  return (state.chunks || [])
-    .filter(chunkVisible)
-    .map(c => `${c.number}:${c.status}:${c.progress}:${state.current_chunk===c.number}:${selectedChunk===c.number}`)
-    .join("|");
-}
-
-function rebuildChunkGrid(){
-  const grid = document.getElementById("chunkGrid");
-  grid.innerHTML = "";
-  chunkCellMap.clear();
-
-  (state?.chunks || []).filter(chunkVisible).forEach(c => {
-    const cell = document.createElement("div");
-    cell.className = "chunk-cell";
-    cell.dataset.chunk = c.number;
-    cell.title = `Chunk #${c.number} - ${c.status}`;
-    cell.innerHTML = `<span>${c.number}</span><div class="mini"></div>`;
-    cell.addEventListener("click", () => {
-      selectedChunk = c.number;
-      updateChunkGridStable(true);
-      updateDetailStable(true);
-    });
-    grid.appendChild(cell);
-    chunkCellMap.set(c.number, cell);
-  });
-
-  lastChunkSignature = "";
-  updateChunkGridStable(true);
-}
-
-function updateChunkGridStable(force=false){
-  const sig = chunkSignature();
-  if (!force && sig === lastChunkSignature) return;
-
-  const visible = (state.chunks || []).filter(chunkVisible);
-  if (visible.length !== chunkCellMap.size) {
-    rebuildChunkGrid();
-    return;
-  }
-
-  visible.forEach(c => {
-    let cell = chunkCellMap.get(c.number);
-    if (!cell) {
-      rebuildChunkGrid();
-      return;
-    }
-
-    const isActive = state.current_chunk === c.number;
-    const isSelected = selectedChunk === c.number;
-
-    cell.className = "chunk-cell";
-    if (c.status) cell.classList.add(c.status);
-    if (isActive) cell.classList.add("active");
-    if (isSelected) cell.classList.add("selected");
-
-    cell.title = `Chunk #${c.number} - ${c.status} - ${c.stage}`;
-    const mini = cell.querySelector(".mini");
-    if (mini) mini.style.width = (c.progress || 0) + "%";
-  });
-
-  lastChunkSignature = sig;
-
-  if (!selectedChunk && state.current_chunk) selectedChunk = state.current_chunk;
-  if (!selectedChunk && visible.length) selectedChunk = visible[0].number;
-}
-
-function escapeHtml(str){
-  return String(str ?? "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;");
-}
-
-function selectedChunkData(){
-  const chunks = state.chunks || [];
-  if (!selectedChunk && state.current_chunk) selectedChunk = state.current_chunk;
-  if (!selectedChunk && chunks.length) selectedChunk = chunks[0].number;
-  return chunks.find(c => c.number === selectedChunk) || null;
-}
-
-let lastDetailSig = "";
-function updateDetailStable(force=false){
-  const c = selectedChunkData();
-  const detail = document.getElementById("detail");
-  if (!c) {
-    detail.textContent = "No chunk selected.";
-    return;
-  }
-
-  const sig = `${c.number}:${c.status}:${c.stage}:${c.progress}:${c.error}:${c.files?.length}:${c.push_output?.length}`;
-  if (!force && sig === lastDetailSig) return;
-  lastDetailSig = sig;
-
-  const files = c.files || [];
-  const fileRows = files.map((f, i) => `
-    <div class="file-row">
-      <div>${i+1}</div>
-      <div title="${escapeHtml(f.name)}">${escapeHtml(f.name)}</div>
-      <div title="${escapeHtml(f.folder)}">${escapeHtml(f.folder)}</div>
-      <div>${Number(f.size_mb || 0).toFixed(2)} MB</div>
-      <div class="file-status">${escapeHtml(f.status || "pending")}</div>
-    </div>
-  `).join("");
-
-  detail.innerHTML = `
-    <div class="card-top">
-      <div>
-        <h3 style="margin:0">Chunk #${c.number}</h3>
-        <div class="stage">Stage: <strong>${escapeHtml(c.stage || "-")}</strong></div>
-      </div>
-      <div class="badge ${escapeHtml(c.status)}">${escapeHtml(c.status || "pending")}</div>
-    </div>
-
-    <div class="meta">
-      <div><small>Files</small><strong>${files.length}</strong></div>
-      <div><small>Size</small><strong>${Number(c.size_mb || 0).toFixed(2)} MB</strong></div>
-      <div><small>Duration</small><strong>${c.duration_seconds ? c.duration_seconds + "s" : "-"}</strong></div>
-    </div>
-
-    <div class="progress-wrap"><div class="progress-bar" style="width:${c.progress || 0}%"></div></div>
-
-    ${c.error ? `<div class="error">${escapeHtml(c.error)}</div>` : ""}
-
-    <div class="files">
-      <div class="file-head">
-        <div>#</div><div>File</div><div>Folder</div><div>Size</div><div>Status</div>
-      </div>
-      ${fileRows}
-    </div>
-
-    ${c.push_output ? `<h3>Push Output</h3><pre class="error">${escapeHtml(c.push_output)}</pre>` : ""}
-  `;
-}
-
-function updateConsoleStable(){
-  const con = document.getElementById("console");
-  const lines = state.console || [];
-  if (lines.length === lastConsoleLength) return;
-
-  const atBottom = con.scrollTop + con.clientHeight >= con.scrollHeight - 20;
-
-  if (lastConsoleLength > lines.length) {
-    con.innerHTML = "";
-    lastConsoleLength = 0;
-  }
-
-  const newLines = lines.slice(lastConsoleLength);
-  newLines.forEach(l => {
-    const div = document.createElement("div");
-    div.className = l.level || "info";
-    div.textContent = `[${l.time}] ${l.message}`;
-    con.appendChild(div);
-  });
-
-  lastConsoleLength = lines.length;
-  if (atBottom) con.scrollTop = con.scrollHeight;
-}
-
-setInterval(() => refreshState(false), 1500);
-refreshState(true);
-
-// Close browser tab/window = terminate dashboard process + active Git child processes.
-// sendBeacon is used because it is the most reliable during tab close.
-let shutdownSent = false;
-function shutdownDashboardFromBrowserClose(){
-  if (shutdownSent) return;
-  shutdownSent = true;
-  try {
-    const payload = JSON.stringify({reason:"browser_tab_closed", at:new Date().toISOString()});
-    const blob = new Blob([payload], {type:"application/json"});
-    if (navigator.sendBeacon) {
-      navigator.sendBeacon("/shutdown?source=browser-close", blob);
-    } else {
-      fetch("/shutdown?source=browser-close", {method:"POST", body:payload, keepalive:true});
-    }
-  } catch(e) {
-    try { fetch("/shutdown?source=browser-close", {method:"POST", keepalive:true}); } catch(_) {}
-  }
-}
-
-window.addEventListener("pagehide", shutdownDashboardFromBrowserClose, {capture:true});
-window.addEventListener("beforeunload", shutdownDashboardFromBrowserClose, {capture:true});
+let state=null, selectedChunk=null, autoRefreshEnabled=true, userInteracting=false;
+let chunkCellMap=new Map(), lastConsoleLength=0, lastChunkSignature="", searchText="", statusFilter="all", consoleTab="all", consoleFilter="";
+let speedSamples=[]; let _stateVersion="";
+function cleanPath(v){v=(v||"").trim();if((v.startsWith('"')&&v.endsWith('"'))||(v.startsWith("'")&&v.endsWith("'")))v=v.substring(1,v.length-1);return v.trim();}
+function escapeHtml(str){return String(str??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;");}
+async function api(path,data=null){const opts=data?{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)}:{};const res=await fetch(path,opts);if(res.status===304)return null;return await res.json();}
+function setFeedback(message,level="info"){const box=document.getElementById("actionFeedback");box.textContent=message;box.className="feedback"+(level==="info"?"":" "+level);}
+function toggleSetup(){const d=document.getElementById("setupBox");d.open=!d.open;localStorage.setItem("setupOpen",d.open?"1":"0");}
+function toggleCompact(){document.body.classList.toggle("compact");localStorage.setItem("compact",document.body.classList.contains("compact")?"1":"0");rebuildChunkGrid();}
+function toggleTheme(){document.body.classList.toggle("light");localStorage.setItem("theme",document.body.classList.contains("light")?"light":"dark");}
+function initPrefs(){if(localStorage.getItem("compact")==="1")document.body.classList.add("compact");if(localStorage.getItem("theme")==="light")document.body.classList.add("light");if(localStorage.getItem("setupOpen")==="0")document.getElementById("setupBox").open=false;}
+["logFile","repoPath","processedPath","logsDir"].forEach(id=>{const el=document.getElementById(id);el.addEventListener("drop",e=>{e.preventDefault();const text=e.dataTransfer.getData("text/plain");if(text){el.value=cleanPath(text);if(id==="repoPath")applyRepoDefaults(el.value);}});el.addEventListener("dragover",e=>e.preventDefault());});
+document.addEventListener("mousedown",()=>{userInteracting=true;});document.addEventListener("mouseup",()=>{setTimeout(()=>{if(!window.getSelection().toString())userInteracting=false;},900);});document.addEventListener("selectionchange",()=>{if(window.getSelection().toString())userInteracting=true;});document.addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="c")setTimeout(()=>{userInteracting=false;},650);});
+document.getElementById("chunkSearch").addEventListener("input",e=>{searchText=e.target.value.toLowerCase().trim();rebuildChunkGrid();});document.getElementById("statusFilter").addEventListener("change",e=>{statusFilter=e.target.value||"all";rebuildChunkGrid();});document.getElementById("consoleSearch").addEventListener("input",e=>{consoleFilter=e.target.value.toLowerCase().trim();renderConsoleAll();});
+function toggleRefresh(){autoRefreshEnabled=!autoRefreshEnabled;document.getElementById("refreshBtn").textContent=autoRefreshEnabled?"Pause Refresh":"Resume Refresh";}
+async function applyRepoDefaults(repoPath){const repo=cleanPath(repoPath);if(!repo)return;const res=await api("/repo_defaults",{repo_path:repo});if(!res||!res.ok){setFeedback((res&&res.message)||"Could not create repo-local dashboard paths.","error");return;}document.getElementById("repoPath").value=res.paths.repo_path;document.getElementById("logFile").value=res.paths.log_file;document.getElementById("processedPath").value=res.paths.processed_chunks_file;document.getElementById("logsDir").value=res.paths.logs_dir;setFeedback("Repository selected. Dashboard paths updated automatically.","success");}
+document.getElementById("repoPath").addEventListener("change",e=>applyRepoDefaults(e.target.value));document.getElementById("repoPath").addEventListener("blur",e=>applyRepoDefaults(e.target.value));
+async function browsePath(kind){const res=await api("/browse?kind="+encodeURIComponent(kind));if(!res||!res.path)return;if(kind==="log")document.getElementById("logFile").value=res.path;if(kind==="repo"){document.getElementById("repoPath").value=res.path;await applyRepoDefaults(res.path);}if(kind==="processed")document.getElementById("processedPath").value=res.path;if(kind==="logs_dir")document.getElementById("logsDir").value=res.path;}
+function payloadBase(){return{log_file:cleanPath(document.getElementById("logFile").value),repo_path:cleanPath(document.getElementById("repoPath").value),processed_chunks_file:cleanPath(document.getElementById("processedPath").value),logs_dir:cleanPath(document.getElementById("logsDir").value),start_chunk:cleanPath(document.getElementById("startChunk").value),end_chunk:cleanPath(document.getElementById("endChunk").value)}}
+async function visualizeOnly(){setFeedback("Visualizing chunks without Git commands...","info");const res=await api("/visualize",payloadBase());if(!res.ok){setFeedback(res.message||"Failed to visualize chunks","error");alert(res.message||"Failed to visualize chunks");}else setFeedback("Chunks visualized. No Git command was executed.","success");await refreshState(true);}
+async function startProcessing(){const btn=document.getElementById("startBtn");btn.disabled=true;btn.textContent="Starting…";setFeedback("Starting chunk processing…","info");const payload={...payloadBase(),mode:document.getElementById("mode").value,pause_between_chunks:cleanPath(document.getElementById("pauseBetweenChunks").value),push_every_n:cleanPath(document.getElementById("pushEveryN").value)||"1"};try{const res=await api("/start",payload);if(!res.ok){setFeedback(res.message||"Failed to start","error");alert(res.message||"Failed to start");}else{setFeedback("Processing started. Live dashboard is tracking chunks.","success");document.getElementById("setupBox").open=false;}await refreshState(true);}finally{btn.disabled=false;btn.textContent="▶ Start";}}
+async function stopProcessing(){const btn=document.getElementById("stopBtn");btn.disabled=true;btn.textContent="Stopping…";setFeedback("Stop requested. Active chunk will stop safely if possible.","warning");try{await api("/stop",{});await refreshState(true);}finally{setTimeout(()=>{btn.disabled=false;btn.textContent="■ Stop + Shutdown Safe";},900);}}
+async function togglePauseProcessing(){await stopProcessing();}
+async function generateFromGitHub(){const githubUrl=document.getElementById("githubUrl").value.trim();if(!githubUrl){setFeedback("Please enter a GitHub repository URL","error");return;}setFeedback("Fetching commits from GitHub...","info");try{const res=await api("/generate-from-github",{github_url:githubUrl});if(res.ok){setFeedback("✅ "+res.message,"success");alert(`Success! Generated ${res.count} chunks from GitHub commits.`);}else setFeedback("❌ "+res.message,"error");}catch(e){setFeedback("Error: "+e.message,"error");}}
+function togglePushEveryN(){const mode=document.getElementById("mode").value;document.getElementById("pushEveryNRow").style.display=(mode==="commit_n_then_push")?"flex":"none";}
+async function openProcessed(){const res=await api("/open",{path:cleanPath(document.getElementById("processedPath").value)});if(!res.ok)alert(res.message||"Could not open path");}
+async function openStateJson(){const res=await api("/open_state",{});if(!res.ok)alert(res.message||"Could not open state JSON");}
+function setConsoleTab(tab){consoleTab=tab;document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.tab===tab));renderConsoleAll();}
+function consoleLineVisible(l){if(consoleTab!=="all"&&l.level!==consoleTab)return false;if(consoleFilter&&!(`[${l.time}] ${l.message}`.toLowerCase().includes(consoleFilter)))return false;return true;}
+function renderConsoleAll(){const con=document.getElementById("console");con.innerHTML="";(state?.console||[]).filter(consoleLineVisible).forEach(l=>{const div=document.createElement("div");div.className=l.level||"info";div.textContent=`[${l.time}] ${l.message}`;con.appendChild(div);});con.scrollTop=con.scrollHeight;lastConsoleLength=(state?.console||[]).length;}
+function clearConsoleView(){document.getElementById("console").innerHTML="";lastConsoleLength=(state?.console||[]).length;}
+async function copyConsole(){const text=(state?.console||[]).filter(consoleLineVisible).map(l=>`[${l.time}] ${l.level}: ${l.message}`).join("\n");await navigator.clipboard.writeText(text);setFeedback("Console copied to clipboard.","success");}
+async function copySelectedFiles(){const c=selectedChunkData();if(!c)return;const text=(c.files||[]).map(f=>f.path).join("\n");await navigator.clipboard.writeText(text);setFeedback(`Copied ${c.files?.length||0} files from Chunk #${c.number}.`,"success");}
+function exportReport(){if(!state){alert("No state loaded yet.");return;}const s=state.stats||{};const lines=["Git Chunk Processor Report",`Generated: ${new Date().toLocaleString()}`,`Mode: ${state.mode}`,`Repo: ${state.repo_path}`,`Branch: ${state.git?.branch||"-"}`,`Remote: ${state.git?.remote||"-"}`,`Total: ${s.total||0}`,`Completed: ${s.completed||0}`,`Pending: ${s.pending||0}`,`Failed: ${s.failed||0}`,`Skipped: ${s.skipped||0}`,`ETA: ${state.eta||"-"}`,"", "Failed Chunks:"];(state.chunks||[]).filter(c=>c.status==="failed").forEach(c=>lines.push(`#${c.number} ${c.stage} ${c.error||""}`));const blob=new Blob([lines.join("\n")],{type:"text/plain"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="git_chunk_processor_report.txt";a.click();URL.revokeObjectURL(url);}
+async function refreshState(force=false){if(!force&&(!autoRefreshEnabled||userInteracting))return;try{const headers={};if(_stateVersion&&!force)headers["X-State-Version"]=_stateVersion;const res=await fetch("/state",{headers});if(res.status===304)return;const newState=await res.json();if(newState._version!==undefined)_stateVersion=String(newState._version);const first=!state;state=newState;if(first){document.getElementById("logFile").value=state.log_file||"";document.getElementById("repoPath").value=state.repo_path||"";document.getElementById("processedPath").value=state.processed_chunks_file||"";document.getElementById("logsDir").value=state.logs_dir||"";document.getElementById("startChunk").value=state.start_chunk||"";document.getElementById("endChunk").value=state.end_chunk||"";document.getElementById("pauseBetweenChunks").value=state.pause_between_chunks||"";document.getElementById("mode").value=state.mode||"full";if(state.push_every_n)document.getElementById("pushEveryN").value=state.push_every_n;togglePushEveryN();}updateTopStatus();updateStats();updateQueue();updateSpeedChart();updateChunkGridStable();updateDetailStable();updateConsoleStable();}catch(e){console.error("Refresh error",e);}}
+function updateTopStatus(){const g=state.git||{};const running=!!state.running;document.getElementById("runState").textContent=running?"Running":(state.stop_requested?"Stopped":"Idle");const dot=document.getElementById("runDot");dot.className="dot "+(running?"processing":(state.last_error?"failed":"completed"));document.getElementById("branchPill").textContent=g.branch||"-";document.getElementById("remotePill").textContent=(g.remote||"-").split(/\s+/)[0];document.getElementById("modePill").textContent=state.mode||"-";document.getElementById("etaPill").textContent=state.eta||"-";document.getElementById("currentPill").textContent=state.current_chunk?`#${state.current_chunk}`:"-";document.getElementById("lfsPill").textContent=g.lfs||"-";}
+function updateStats(){const s=state.stats||{};["total","completed","processing","pending","failed","skipped"].forEach(k=>document.getElementById(k).textContent=s[k]??0);document.getElementById("eta").textContent=state.eta||"-";document.getElementById("overallBar").style.width=(state.overall_progress||0)+"%";document.getElementById("overallText").textContent=(state.overall_progress||0)+"%";}
+function updateQueue(){const box=document.getElementById("queueList");const chunks=state.chunks||[];let items=[];if(state.current_chunk){const cur=chunks.find(c=>c.number===state.current_chunk);if(cur)items.push(cur);}items=items.concat(chunks.filter(c=>c.status==="pending").slice(0,5));if(!items.length){box.innerHTML='<div class="queue-item"><strong>No queued chunks</strong><span class="queue-stage">Idle</span></div>';return;}box.innerHTML=items.map(c=>`<div class="queue-item"><strong>#${c.number}</strong><span class="queue-stage">${escapeHtml(c.stage||c.status||"pending")}</span></div>`).join("");}
+function updateSpeedChart(){const done=(state.stats?.completed||0)+(state.stats?.skipped||0);const last=speedSamples.length?speedSamples[speedSamples.length-1].done:null;if(last!==done)speedSamples.push({t:Date.now(),done});speedSamples=speedSamples.slice(-24);const max=Math.max(1,...speedSamples.map((p,i)=>i?Math.max(0,p.done-speedSamples[i-1].done):0));document.getElementById("speedChart").innerHTML=speedSamples.map((p,i)=>{const d=i?Math.max(0,p.done-speedSamples[i-1].done):0;const h=8+(d/max)*58;return `<div class="bar" title="+${d} chunks" style="height:${h}px"></div>`;}).join("");}
+function chunkVisible(c){if(statusFilter!=="all"&&String(c.status||"pending")!==statusFilter)return false;if(!searchText)return true;if(String(c.number).includes(searchText))return true;if(String(c.status||"").toLowerCase().includes(searchText))return true;if(String(c.stage||"").toLowerCase().includes(searchText))return true;return(c.files||[]).some(f=>(f.path||"").toLowerCase().includes(searchText));}
+function chunkSignature(){return(state.chunks||[]).filter(chunkVisible).map(c=>`${c.number}:${c.status}:${c.progress}:${c.stage}:${state.current_chunk===c.number}:${selectedChunk===c.number}`).join("|");}
+function rebuildChunkGrid(){const grid=document.getElementById("chunkGrid");grid.innerHTML="";chunkCellMap.clear();(state?.chunks||[]).filter(chunkVisible).forEach(c=>{const cell=document.createElement("div");cell.className="chunk-cell";cell.dataset.chunk=c.number;cell.innerHTML=`<div class="chunk-icon">${statusIcon(c.status)}</div><div class="chunk-no">#${String(c.number).padStart(3,"0")}</div><div class="chunk-meta"><span>${c.file_count||c.files?.length||0} files</span><span>${Number(c.size_mb||0).toFixed(1)} MB</span><span>${escapeHtml(c.stage||c.status||"")}</span></div><div class="mini"></div>`;cell.addEventListener("click",()=>{selectedChunk=c.number;updateChunkGridStable(true);updateDetailStable(true);});grid.appendChild(cell);chunkCellMap.set(c.number,cell);});lastChunkSignature="";updateChunkGridStable(true);}
+function statusIcon(s){return s==="completed"?"✅":s==="failed"?"❌":s==="processing"?"🟣":s==="skipped"?"⏭️":"🟡";}
+function updateChunkGridStable(force=false){const sig=chunkSignature();if(!force&&sig===lastChunkSignature)return;const visible=(state.chunks||[]).filter(chunkVisible);if(visible.length!==chunkCellMap.size){rebuildChunkGrid();return;}visible.forEach(c=>{const cell=chunkCellMap.get(c.number);if(!cell){rebuildChunkGrid();return;}cell.className="chunk-cell";if(c.status)cell.classList.add(c.status);if(state.current_chunk===c.number)cell.classList.add("active");if(selectedChunk===c.number)cell.classList.add("selected");cell.title=`Chunk #${c.number} - ${c.status} - ${c.stage}`;const mini=cell.querySelector(".mini");if(mini)mini.style.width=(c.progress||0)+"%";});lastChunkSignature=sig;if(!selectedChunk&&state.current_chunk)selectedChunk=state.current_chunk;if(!selectedChunk&&visible.length)selectedChunk=visible[0].number;}
+function selectedChunkData(){const chunks=state.chunks||[];if(!selectedChunk&&state.current_chunk)selectedChunk=state.current_chunk;if(!selectedChunk&&chunks.length)selectedChunk=chunks[0].number;return chunks.find(c=>c.number===selectedChunk)||null;}
+let lastDetailSig="";function updateDetailStable(force=false){const c=selectedChunkData(),detail=document.getElementById("detail");if(!c){detail.textContent="No chunk selected.";return;}const sig=`${c.number}:${c.status}:${c.stage}:${c.progress}:${c.error}:${c.files?.length}:${c.push_output?.length}`;if(!force&&sig===lastDetailSig)return;lastDetailSig=sig;const files=c.files||[];const tree=folderTree(files);const rows=files.slice(0,450).map((f,i)=>`<div class="file-row"><div>${i+1}</div><div title="${escapeHtml(f.name)}">${escapeHtml(f.name)}</div><div title="${escapeHtml(f.folder)}">${escapeHtml(f.folder)}</div><div>${Number(f.size_mb||0).toFixed(2)} MB</div><div class="file-status">${escapeHtml(f.status||"pending")}</div></div>`).join("");detail.innerHTML=`<div class="detail-card"><div class="chunk-title"><div><h2 style="margin:0">Chunk #${c.number}</h2><div style="color:var(--muted);font-size:12px;margin-top:4px">Stage: <strong>${escapeHtml(c.stage||"-")}</strong></div></div><div class="badge ${escapeHtml(c.status)}">${statusIcon(c.status)} ${escapeHtml(c.status||"pending")}</div></div><div class="meta"><div><small>Files</small><strong>${files.length}</strong></div><div><small>Size</small><strong>${Number(c.size_mb||0).toFixed(2)} MB</strong></div><div><small>Duration</small><strong>${c.duration_seconds?c.duration_seconds+"s":"-"}</strong></div></div><div class="progress-wrap"><div class="progress-bar" style="width:${c.progress||0}%"></div></div>${c.error?`<div class="errorbox">${escapeHtml(c.error)}</div>`:""}<div class="quick-actions"><button class="ghost" onclick="copySelectedFiles()">Copy File List</button><button class="ghost" onclick="showFileTable()">Table</button><button class="ghost" onclick="showFileTree()">Tree</button><button class="ghost" onclick="openProcessed()">Open Processed JSON</button></div><div id="fileTable" class="files"><div class="file-head"><div>#</div><div>File</div><div>Folder</div><div>Size</div><div>Status</div></div>${rows}${files.length>450?`<div class="file-row"><div>…</div><div>Showing first 450 files</div><div></div><div></div><div></div></div>`:""}</div><div id="fileTree" class="tree">${tree}</div>${c.push_output?`<h3>Push Output</h3><pre class="errorbox">${escapeHtml(c.push_output)}</pre>`:""}</div>`;}
+function folderTree(files){const map=new Map();files.forEach(f=>{const folder=f.folder||".";map.set(folder,(map.get(folder)||0)+1);});return Array.from(map.entries()).sort((a,b)=>b[1]-a[1]).slice(0,120).map(([folder,count])=>`<div class="tree-row">📁 ${escapeHtml(folder)} <strong style="float:right">${count}</strong></div>`).join("")||'<div class="tree-row">No files</div>';}
+function showFileTree(){const t=document.getElementById("fileTree"),f=document.getElementById("fileTable");if(t&&f){t.style.display="block";f.style.display="none";}}
+function showFileTable(){const t=document.getElementById("fileTree"),f=document.getElementById("fileTable");if(t&&f){t.style.display="none";f.style.display="block";}}
+function updateConsoleStable(){const lines=state.console||[];if(lines.length===lastConsoleLength)return;renderConsoleAll();}
+function showActiveChunk(){if(!state||!state.current_chunk){setFeedback("No active chunk right now.","warning");return;}selectedChunk=state.current_chunk;document.getElementById("chunkSearch").value="";searchText="";document.getElementById("statusFilter").value="all";statusFilter="all";rebuildChunkGrid();updateChunkGridStable(true);updateDetailStable(true);const cell=chunkCellMap.get(selectedChunk);if(cell)cell.scrollIntoView({behavior:"smooth",block:"center",inline:"center"});}
+let shutdownSent=false;function requestShutdown(){if(shutdownSent)return;shutdownSent=true;try{navigator.sendBeacon("/shutdown","");}catch(e){fetch("/shutdown",{method:"POST",keepalive:true}).catch(()=>{});}}
+window.addEventListener("pagehide",requestShutdown);window.addEventListener("beforeunload",requestShutdown);
+initPrefs();setInterval(()=>refreshState(false),1500);refreshState(true);
 </script>
 </body>
 </html>
 """
-
 
 class Handler(BaseHTTPRequestHandler):
     def log_message(self, fmt, *args):
