@@ -157,6 +157,7 @@ DEFAULT_LOGS_DIR = SCRIPT_DIR / "Logs"
 STATE_LOCK = threading.Lock()
 PROCESS_THREAD = None
 STOP_REQUESTED = False
+PAUSE_REQUESTED = False
 CONSOLE_MAX_LINES = 800
 ACTIVE_PROCESSES = []
 ACTIVE_PROCESSES_LOCK = threading.Lock()
@@ -228,6 +229,8 @@ def make_default_state():
         "app": APP_NAME,
         "running": False,
         "stop_requested": False,
+        "paused": False,
+        "pause_requested": False,
         "started_at": None,
         "ended_at": None,
         "mode": "full",
@@ -538,17 +541,26 @@ def run_cmd(cmd, cwd=None, stream=False, input_text=None):
                     ACTIVE_PROCESSES.remove(proc)
         return proc.returncode, "\n".join(output_lines)
 
-    result = subprocess.run(
-        cmd,
-        cwd=str(cwd) if cwd else None,
-        input=input_text,
-        capture_output=True,
-        text=True,
-        encoding="utf-8",
-        errors="replace",
-        shell=False,
-        **_no_window_flags()
-    )
+    try:
+        result = subprocess.run(
+            cmd,
+            cwd=str(cwd) if cwd else None,
+            input=input_text,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            shell=False,
+            **_no_window_flags()
+        )
+    except OSError as exc:
+        # Windows raises WinError 206 before Git even starts when the command line
+        # is too long. Return a normal non-zero result so callers can fall back
+        # to safer pathspec-file based methods instead of crashing the worker.
+        out = f"OS error while running command: {exc}"
+        add_console(out, "error")
+        return getattr(exc, "winerror", 1) or 1, out
+
     out = (result.stdout or "") + (result.stderr or "")
     if out.strip():
         for line in out.splitlines():
@@ -558,25 +570,88 @@ def run_cmd(cmd, cwd=None, stream=False, input_text=None):
 
 def git_add_files(files, repo):
     """
-    Add files to the git index efficiently.
-    Uses --stdin for large batches to avoid OS argument-length limits,
-    falling back to large CLI batches otherwise.
+    Add files to the git index efficiently and safely on Windows.
+
+    Why this exists:
+    - `git add -z --stdin` is not a valid option on many Git builds.
+    - Very large Unreal chunks can exceed Windows command-line length limits
+      and raise WinError 206 before Git starts.
+
+    Preferred path:
+    - Feed NUL-separated file paths through stdin using Git's supported
+      `--pathspec-from-file=- --pathspec-file-nul` flags.
+
+    Fallbacks:
+    - Use a temporary pathspec file.
+    - Finally split CLI batches by estimated command-line length.
     """
-    # Try stdin method first (fastest, no arg-length limit)
+    files = [str(f).replace("\\", "/") for f in files if str(f).strip()]
+    if not files:
+        return 0, ""
+
     null_sep = "\0".join(files) + "\0"
-    code, out = run_cmd(["git", "add", "-z", "--stdin"], cwd=repo, input_text=null_sep)
+
+    # Modern/supported no-arg-length-limit method.
+    code, out = run_cmd(
+        ["git", "add", "--pathspec-from-file=-", "--pathspec-file-nul"],
+        cwd=repo,
+        input_text=null_sep
+    )
     if code == 0:
         return code, out
-    # Fallback: batched CLI (batch_size 500 to cut round-trips vs old 50)
-    batch_size = 500
-    combined_out = ""
-    for i in range(0, len(files), batch_size):
-        batch = files[i:i + batch_size]
-        code, out = run_cmd(["git", "add", "--"] + batch, cwd=repo)
-        combined_out += out
-        if code != 0:
-            return code, combined_out
+
+    combined_out = out or ""
+
+    # Fallback for older/quirky Git builds: temp file pathspec.
+    import tempfile
+    tmp_name = None
+    try:
+        with tempfile.NamedTemporaryFile("w", encoding="utf-8", delete=False, dir=str(repo), newline="") as tmp:
+            tmp_name = tmp.name
+            tmp.write(null_sep)
+        rel_tmp = os.path.relpath(tmp_name, str(repo)).replace("\\", "/")
+        code, out = run_cmd(
+            ["git", "add", f"--pathspec-from-file={rel_tmp}", "--pathspec-file-nul"],
+            cwd=repo
+        )
+        combined_out += out or ""
+        if code == 0:
+            return 0, combined_out
+    finally:
+        if tmp_name:
+            try:
+                os.remove(tmp_name)
+            except Exception:
+                pass
+
+    # Last fallback: keep CLI batches below a conservative Windows-safe length.
+    max_cmd_chars = 24000
+    batch = []
+    batch_chars = len("git add -- ")
+
+    def flush_batch(paths):
+        if not paths:
+            return 0, ""
+        return run_cmd(["git", "add", "--"] + paths, cwd=repo)
+
+    for fp in files:
+        fp_chars = len(fp) + 3
+        if batch and batch_chars + fp_chars > max_cmd_chars:
+            code, out = flush_batch(batch)
+            combined_out += out or ""
+            if code != 0:
+                return code, combined_out
+            batch = []
+            batch_chars = len("git add -- ")
+        batch.append(fp)
+        batch_chars += fp_chars
+
+    code, out = flush_batch(batch)
+    combined_out += out or ""
+    if code != 0:
+        return code, combined_out
     return 0, combined_out
+
 
 
 
@@ -732,6 +807,7 @@ def process_worker_pipeline(config, chunks, repo: Path):
     pusher.start()
 
     for chunk in chunks:
+        wait_if_paused()
         if STOP_REQUESTED:
             add_console("Stop requested. No new chunks will be committed; queued pushes will finish.", "warning")
             break
@@ -907,10 +983,20 @@ def format_seconds(seconds):
     return f"{s}s"
 
 
+def wait_if_paused():
+    """Pause between safe stages without interrupting an active Git process."""
+    global PAUSE_REQUESTED, STOP_REQUESTED
+    while PAUSE_REQUESTED and not STOP_REQUESTED:
+        update_state(paused=True, pause_requested=True)
+        time.sleep(0.25)
+    update_state(paused=False, pause_requested=False)
+
+
 def process_worker(config):
-    global STOP_REQUESTED
+    global STOP_REQUESTED, PAUSE_REQUESTED
 
     STOP_REQUESTED = False
+    PAUSE_REQUESTED = False
     completed_durations = []
     _duration_sum = 0.0  # running total for O(1) average
     committed_since_push = []  # tracks chunk numbers committed but not yet pushed (commit_n_then_push mode)
@@ -918,6 +1004,8 @@ def process_worker(config):
     update_state(
         running=True,
         stop_requested=False,
+        paused=False,
+        pause_requested=False,
         started_at=datetime.now().isoformat(timespec="seconds"),
         ended_at=None,
         mode=config["mode"],
@@ -1012,6 +1100,7 @@ def process_worker(config):
             return
 
         for chunk in chunks:
+            wait_if_paused()
             if STOP_REQUESTED:
                 add_console("Stop requested. Processing paused.", "warning")
                 break
@@ -1243,6 +1332,8 @@ def process_worker(config):
         update_state(
             running=False,
             stop_requested=STOP_REQUESTED,
+            paused=False,
+            pause_requested=False,
             current_chunk=None,
             ended_at=datetime.now().isoformat(timespec="seconds")
         )
@@ -1381,9 +1472,23 @@ def stop_processing():
     STOP_REQUESTED = True
     # Graceful stop: finish the current chunk and any queued exact-SHA pushes.
     # Killing an active push is what caused pushed commits to be absent from JSON.
-    update_state(stop_requested=True)
+    update_state(stop_requested=True, pause_requested=False, paused=False)
     add_console("Stop requested. The current chunk will finish safely, then processing will pause.", "warning")
     return True
+
+
+def toggle_pause_processing():
+    global PAUSE_REQUESTED
+    current = get_state_copy()
+    if not current.get("running"):
+        return False, "Processor is not running."
+    PAUSE_REQUESTED = not PAUSE_REQUESTED
+    update_state(pause_requested=PAUSE_REQUESTED, paused=PAUSE_REQUESTED)
+    if PAUSE_REQUESTED:
+        add_console("Pause requested. Processing will pause at the next safe checkpoint.", "warning")
+        return True, "Pause requested."
+    add_console("Processing resumed.", "success")
+    return True, "Resumed."
 
 
 def open_path(path):
@@ -1438,30 +1543,48 @@ def browse_dialog(kind):
         return ""
 
 
-def cleanup_and_shutdown():
-    """Clean up all resources and shutdown the server."""
+def cleanup_and_shutdown(force_exit=False):
+    """Clean up resources, stop active Git commands, shut down the server, and optionally exit the app."""
     global STOP_REQUESTED, ACTIVE_PROCESSES, SERVER_INSTANCE
-    
+
     try:
-        # Stop any processing
         STOP_REQUESTED = True
-        
-        # Terminate all active processes
+        add_console("Browser closed. Terminating dashboard and active Git child processes.", "warning")
+
+        # Terminate active child processes such as git add / commit / push.
         with ACTIVE_PROCESSES_LOCK:
             active_copy = list(ACTIVE_PROCESSES)
         for proc in active_copy:
             try:
-                proc.terminate()
-                try:
-                    proc.wait(timeout=2)
-                except subprocess.TimeoutExpired:
-                    proc.kill()
+                if proc.poll() is None:
+                    proc.terminate()
+                    try:
+                        proc.wait(timeout=1.5)
+                    except subprocess.TimeoutExpired:
+                        proc.kill()
+                        try:
+                            proc.wait(timeout=1)
+                        except Exception:
+                            pass
             except Exception:
                 pass
-        
-        ACTIVE_PROCESSES.clear()
-        
-        # Shutdown the server
+
+        with ACTIVE_PROCESSES_LOCK:
+            ACTIVE_PROCESSES.clear()
+
+        # Persist final state before closing.
+        try:
+            update_state(
+                running=False,
+                stop_requested=True,
+                current_chunk=None,
+                ended_at=datetime.now().isoformat(timespec="seconds")
+            )
+            with STATE_LOCK:
+                _flush_state()
+        except Exception:
+            pass
+
         if SERVER_INSTANCE:
             try:
                 SERVER_INSTANCE.shutdown()
@@ -1469,6 +1592,11 @@ def cleanup_and_shutdown():
                 pass
     except Exception:
         pass
+    finally:
+        if force_exit:
+            # Give the HTTP response/beacon a moment to finish, then close the Python/exe process.
+            time.sleep(0.25)
+            os._exit(0)
 
 
 HTML = r"""<!DOCTYPE html>
@@ -1499,6 +1627,15 @@ button.danger{background:#dc2626}
 button.danger:hover{background:#ef4444}
 button.success{background:#16a34a}
 button.success:hover{background:#22c55e}
+button.warning{background:#d97706}
+button.warning:hover{background:#f59e0b}
+.status-strip{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;color:#cbd5e1;font-size:12px}
+.pill{display:inline-flex;align-items:center;gap:6px;background:#0b1220;border:1px solid var(--line);border-radius:999px;padding:5px 9px}
+.dot{width:9px;height:9px;border-radius:999px;background:#64748b;display:inline-block}
+.dot.completed{background:#22c55e}.dot.processing{background:#a855f7}.dot.failed{background:#ef4444}.dot.skipped{background:#64748b}.dot.pending{background:#3b82f6}
+body.compact .chunk-grid{grid-template-columns:repeat(auto-fill,minmax(44px,1fr));gap:6px}
+body.compact .chunk-cell{min-height:34px;font-size:12px;border-radius:8px}
+body.compact .file-row{padding:5px 8px}
 .action-feedback{margin-top:10px;min-height:36px;display:flex;align-items:center;padding:8px 11px;border:1px solid #334155;border-radius:9px;background:#0b1220;color:#cbd5e1;font-size:13px}
 .action-feedback.success{border-color:#166534;color:#bbf7d0;background:#052e16}
 .action-feedback.warning{border-color:#92400e;color:#fde68a;background:#451a03}
@@ -1622,14 +1759,26 @@ button.success:hover{background:#22c55e}
     </select>
     <button class="secondary" onclick="visualizeOnly()">Visualize Chunks Only</button>
     <button class="success" id="startBtn" onclick="startProcessing()" title="Start processing the selected chunk range">▶ Start Processing</button>
+    <button class="warning" id="pauseBtn" onclick="pauseProcessing()" title="Pause/resume at the next safe checkpoint">⏸ Pause</button>
     <button class="danger" id="stopBtn" onclick="stopProcessing()" title="Finish the active chunk safely, then pause">■ Stop After Current Chunk</button>
     <button class="secondary" id="refreshBtn" onclick="toggleRefresh()">Pause Auto Refresh</button>
     <button class="secondary" onclick="showActiveChunk()">Show Active</button>
     <button class="secondary" onclick="openStateJson()">Open State JSON</button>
     <button class="secondary" onclick="openProcessed()">Open Processed JSON</button>
+    <button class="secondary" onclick="toggleCompact()">Compact Grid</button>
+    <button class="secondary" onclick="copyConsole()">Copy Console</button>
   </div>
 
   <div id="actionFeedback" class="action-feedback">Ready. Select a repository to auto-fill its dashboard paths.</div>
+  <div class="status-strip">
+    <span class="pill"><span class="dot pending"></span>Pending</span>
+    <span class="pill"><span class="dot processing"></span>Processing</span>
+    <span class="pill"><span class="dot completed"></span>Completed</span>
+    <span class="pill"><span class="dot failed"></span>Failed</span>
+    <span class="pill"><span class="dot skipped"></span>Skipped</span>
+    <span class="pill">Mode: <strong id="modeBadge">-</strong></span>
+    <span class="pill">Git: <strong id="gitBadge">-</strong></span>
+  </div>
 
   <div class="stats">
     <div class="stat"><div class="n" id="total">0</div><div class="t">Total</div></div>
@@ -1879,6 +2028,33 @@ function togglePushEveryN(){
   row.style.display = (mode === "commit_n_then_push") ? "grid" : "none";
 }
 
+async function pauseProcessing(){
+  const btn = document.getElementById("pauseBtn");
+  btn.disabled = true;
+  try {
+    const res = await api("/pause", {});
+    setFeedback((res && res.message) || "Pause toggled.", res && res.ok ? "warning" : "error");
+    await refreshState(true);
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+function toggleCompact(){
+  document.body.classList.toggle("compact");
+  rebuildChunkGrid();
+}
+
+async function copyConsole(){
+  const text = (state?.console || []).map(l => `[${l.time}] ${l.message}`).join("\n");
+  try {
+    await navigator.clipboard.writeText(text);
+    setFeedback("Console copied to clipboard.", "success");
+  } catch(e) {
+    setFeedback("Could not copy console: " + e.message, "error");
+  }
+}
+
 async function stopProcessing(){
   const btn = document.getElementById("stopBtn");
   btn.disabled = true;
@@ -1947,7 +2123,17 @@ function updateStats(){
   });
   document.getElementById("eta").textContent = state.eta || "-";
   document.getElementById("overallBar").style.width = (state.overall_progress || 0) + "%";
+  const modeBadge = document.getElementById("modeBadge");
+  const gitBadge = document.getElementById("gitBadge");
+  if (modeBadge) modeBadge.textContent = state.mode || "-";
+  if (gitBadge) {
+    const g = state.git || {};
+    gitBadge.textContent = [g.branch, g.lfs].filter(Boolean).join(" / ") || "-";
+  }
+  const pauseBtn = document.getElementById("pauseBtn");
+  if (pauseBtn) pauseBtn.textContent = state.pause_requested || state.paused ? "▶ Resume" : "⏸ Pause";
 }
+
 
 function chunkVisible(c){
   if (statusFilter !== "all" && String(c.status || "pending") !== statusFilter) return false;
@@ -2121,10 +2307,27 @@ function updateConsoleStable(){
 setInterval(() => refreshState(false), 1500);
 refreshState(true);
 
-// Send shutdown signal when page closes
-window.addEventListener("beforeunload", () => {
-  navigator.sendBeacon("/shutdown", "");
-});
+// Close browser tab/window = terminate dashboard process + active Git child processes.
+// sendBeacon is used because it is the most reliable during tab close.
+let shutdownSent = false;
+function shutdownDashboardFromBrowserClose(){
+  if (shutdownSent) return;
+  shutdownSent = true;
+  try {
+    const payload = JSON.stringify({reason:"browser_tab_closed", at:new Date().toISOString()});
+    const blob = new Blob([payload], {type:"application/json"});
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon("/shutdown?source=browser-close", blob);
+    } else {
+      fetch("/shutdown?source=browser-close", {method:"POST", body:payload, keepalive:true});
+    }
+  } catch(e) {
+    try { fetch("/shutdown?source=browser-close", {method:"POST", keepalive:true}); } catch(_) {}
+  }
+}
+
+window.addEventListener("pagehide", shutdownDashboardFromBrowserClose, {capture:true});
+window.addEventListener("beforeunload", shutdownDashboardFromBrowserClose, {capture:true});
 </script>
 </body>
 </html>
@@ -2228,6 +2431,10 @@ class Handler(BaseHTTPRequestHandler):
             stop_processing()
             return self._send_json({"ok": True})
 
+        if parsed.path == "/pause":
+            ok, msg = toggle_pause_processing()
+            return self._send_json({"ok": ok, "message": msg})
+
         if parsed.path == "/open":
             payload = self._read_json()
             ok, msg = open_path(payload.get("path", ""))
@@ -2240,8 +2447,9 @@ class Handler(BaseHTTPRequestHandler):
             return self._send_json({"ok": ok, "message": msg})
 
         if parsed.path == "/shutdown":
-            self._send_json({"ok": True})
-            threading.Thread(target=cleanup_and_shutdown, daemon=False).start()
+            self._send_json({"ok": True, "message": "Dashboard shutdown requested."})
+            # Browser close should terminate the local Python/exe process, not only stop processing.
+            threading.Thread(target=cleanup_and_shutdown, kwargs={"force_exit": True}, daemon=False).start()
             return
 
         return self._send_json({"ok": False, "message": "Not found"}, 404)
