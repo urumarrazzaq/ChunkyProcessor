@@ -2,8 +2,10 @@
   "app": "Git Chunk Processor Dashboard",
   "running": false,
   "stop_requested": true,
+  "paused": false,
+  "pause_requested": false,
   "started_at": null,
-  "ended_at": null,
+  "ended_at": "2026-06-29T20:47:26",
   "mode": "full",
   "log_file": "",
   "repo_path": "",
@@ -29,14 +31,14 @@
   "chunks": [],
   "console": [
     {
-      "time": "14:54:47",
+      "time": "20:47:25",
       "level": "warning",
-      "message": "Stop requested. The current chunk will finish safely, then processing will pause."
+      "message": "Browser closed. Terminating dashboard and active Git child processes."
     },
     {
-      "time": "14:54:50",
+      "time": "20:47:26",
       "level": "warning",
-      "message": "Stop requested. The current chunk will finish safely, then processing will pause."
+      "message": "Browser closed. Terminating dashboard and active Git child processes."
     }
   ],
   "last_error": "",
